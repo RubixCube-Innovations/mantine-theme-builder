@@ -15,10 +15,36 @@ export const skills = [
   "Sass/SCSS",
 ];
 
+export const ICON_SIZE = 16;
 
+export const lineChartData = [
+  {
+    date: "Mar 22",
+    Likability: 3,
+  },
+  {
+    date: "Mar 23",
+    Likability: 6,
+  },
+  {
+    date: "Mar 24",
+    Likability: 7,
+  },
+  {
+    date: "Mar 25",
+    Likability: 4,
+  },
+  {
+    date: "Mar 26",
+    Likability: 9,
+  },
+];
 
-
-
-
-
-export const ICON_SIZE = 16
+export const barChartData = [
+  { month: "January", Smartphones: 1200, Laptops: 900, Tablets: 200 },
+  { month: "February", Smartphones: 1900, Laptops: 1200, Tablets: 400 },
+  { month: "March", Smartphones: 400, Laptops: 1000, Tablets: 200 },
+  { month: "April", Smartphones: 1000, Laptops: 200, Tablets: 800 },
+  { month: "May", Smartphones: 800, Laptops: 1400, Tablets: 1200 },
+  { month: "June", Smartphones: 750, Laptops: 600, Tablets: 1000 },
+];
