@@ -18,7 +18,7 @@ const MantineCards = () => {
       <Grid.Col span={{md:6.5}}>
         <Stack gap="md">
           <CardsStats />
-          <SimpleGrid cols={{md:2}} spacing="md">
+          <SimpleGrid cols={{sm:2}} spacing="md">
             <Stack gap="md">
               <CardsTeamMembers />
               <CardsCookieSettings />

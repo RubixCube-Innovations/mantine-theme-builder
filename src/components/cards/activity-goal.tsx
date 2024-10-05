@@ -67,7 +67,7 @@ export function CardsActivityGoal() {
     }
 
     return (
-        <Card w={rem(300)} >
+        <Card style={{minWidth: rem(300)}}>
             <Stack>
                 <Box>
                     <Title order={5}>Move Goal</Title>

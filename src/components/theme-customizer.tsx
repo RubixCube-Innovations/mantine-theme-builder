@@ -1,20 +1,17 @@
 import {
-  Box,
-  Button,
-  Group,
-  Popover,
-  SimpleGrid,
-  Stack,
-  Text,
-  Tooltip,
-  useMantineColorScheme,
+    Box,
+    Button,
+    Group,
+    Popover,
+    SimpleGrid,
+    Stack,
+    Text,
+    useMantineColorScheme
 } from "@mantine/core";
 import {
-  CheckIcon,
-  InfoCircledIcon,
-  MoonIcon,
-  ResetIcon,
-  SunIcon,
+    MoonIcon,
+    ResetIcon,
+    SunIcon
 } from "@radix-ui/react-icons";
 import * as React from "react";
 
