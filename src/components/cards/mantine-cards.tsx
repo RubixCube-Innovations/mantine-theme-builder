@@ -1,27 +1,35 @@
-import { Flex, Stack } from "@mantine/core";
-import BarChartsCard from "../charts/bar-charts";
-import LineChartCard from "../charts/line-chart";
+import { Group, SimpleGrid, Stack } from "@mantine/core";
 import ContactUs from "../contact-us/contact-us";
 import { CardsActivityGoal } from "./activity-goal";
 import { CardsCalendar } from "./calendar";
 import { CardsChat } from "./chat";
 import { CardsMetric } from "./metric";
+import { CardsStats } from "./stats";
 
 const MantineCards = () => {
   return (
-    <Stack gap="md" py={"xl"}>
-      <Flex gap="md" align={"flex-start"}>
-        <LineChartCard />
-        <BarChartsCard />
-        <CardsCalendar />
-        <CardsActivityGoal />
-        </Flex>
-      <Flex gap="md" align={"flex-start"}>
-        <ContactUs />
-        <CardsChat />
+    <SimpleGrid cols={2} py={"xl"}>
+      <Stack gap="sm">
+        <CardsStats />
+        <SimpleGrid cols={2}>
+          <Stack gap="sm">
+            <ContactUs />
+          </Stack>
+
+          <Stack gap="sm">
+            <CardsChat />
+          </Stack>
+        </SimpleGrid>
+      </Stack>
+
+      <Stack gap="sm">
+        <Group gap={"md"}>
+          <CardsCalendar />
+          <CardsActivityGoal />
+        </Group>
         <CardsMetric />
-      </Flex> 
-    </Stack>
+      </Stack>
+    </SimpleGrid>
   );
 };
 

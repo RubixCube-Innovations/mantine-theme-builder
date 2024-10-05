@@ -69,7 +69,7 @@ export function CardsActivityGoal() {
     return (
         <Card w={rem(320)}>
             <Stack>
-                <Box pb="md">
+                <Box>
                     <Title order={5}>Move Goal</Title>
                     <Text size="sm" c="dimmed">Set your daily activity goal.</Text>
                 </Box>
@@ -85,7 +85,7 @@ export function CardsActivityGoal() {
                         <MinusIcon className="h-4 w-4" />
                     </ActionIcon>
                     <Box>
-                        <Text size="xxxxxl" fw={"bold"} h={rem(60)}>{goal}</Text>
+                        <Text size="xl5" fw={"bold"} h={rem(60)}>{goal}</Text>
                         <Text c="dimmed" size="sm" tt={"uppercase"}>
                             Calories/day
                         </Text>
@@ -100,7 +100,7 @@ export function CardsActivityGoal() {
                         <PlusIcon className="h-4 w-4" />
                     </ActionIcon>
                 </Group>
-                <Box my="3">
+                <Box>
                     <BarChart data={data}
                         h={rem(60)}
                         dataKey="day"
