@@ -38,7 +38,7 @@ export function CardsMetric() {
     return (
         <Card>
             <Box pb="md">
-                <Title order={5}>Exercise Minutes</Title>
+                <Title order={3}>Exercise Minutes</Title>
                 <Text size="sm" c="dimmed">
                     Your exercise minutes are ahead of where you normally are.
                 </Text>

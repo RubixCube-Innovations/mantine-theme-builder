@@ -9,6 +9,7 @@ import { CardsCookieSettings } from "./cookie-settings";
 import { CardsPaymentMethod } from "./payment-method";
 import { CardsCreateAccount } from "./create-account";
 import { CardsReportIssue } from "./report-issue";
+import { CardsDataTable } from "./data-table";
 
 const MantineCards = () => {
   return (
@@ -39,6 +40,7 @@ const MantineCards = () => {
             <CardsActivityGoal />
           </Group>
           <CardsMetric />
+            <CardsDataTable />
         </Stack>
       </Grid.Col>
     </Grid>
