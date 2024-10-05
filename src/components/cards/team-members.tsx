@@ -5,13 +5,13 @@ export function CardsTeamMembers() {
     return (
         <Card>
             <Box>
-                <Title order={5}>Team Members</Title>
+                <Title order={3}>Team Members</Title>
                 <Text size="sm" c="dimmed">
                     Invite your team members to collaborate.
                 </Text>
             </Box>
             <Box mt="lg">
-                <Stack gap="md">
+                <Stack gap="lg">
                     <Group justify="space-between">
                         <Group>
                             <Avatar src="/avatars/01.png" alt="Image" radius="xl" />

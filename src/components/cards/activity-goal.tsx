@@ -67,7 +67,7 @@ export function CardsActivityGoal() {
     }
 
     return (
-        <Card w={rem(320)}>
+        <Card w={rem(300)} >
             <Stack>
                 <Box>
                     <Title order={5}>Move Goal</Title>
@@ -85,8 +85,8 @@ export function CardsActivityGoal() {
                         <MinusIcon className="h-4 w-4" />
                     </ActionIcon>
                     <Box>
-                        <Text size="xl5" fw={"bold"} h={rem(60)}>{goal}</Text>
-                        <Text c="dimmed" size="sm" tt={"uppercase"}>
+                        <Text size="xl5" fw={"bold"} lh={rem(40)}>{goal}</Text>
+                        <Text c="dimmed" size="xs" tt={"uppercase"} mt={rem(8)}>
                             Calories/day
                         </Text>
                     </Box>

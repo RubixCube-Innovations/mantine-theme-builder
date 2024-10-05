@@ -8,7 +8,7 @@ export function CardsCalendar() {
     const [value, setValue] = useState<[Date | null, Date | null]>([new Date(2023, 4, 5), new Date(2023, 4, 13)]);
     
     return (
-        <Card>
+        <Card p="sm">
             <DatePicker
                size="sm"
                type="range" 

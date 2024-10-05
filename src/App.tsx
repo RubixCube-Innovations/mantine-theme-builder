@@ -5,7 +5,7 @@ import ColorSwitcher from "./components/color-switcher/color-switcher";
 
 export default function ThemesPage() {
   return (
-    <Container size="xl" px="md" py={"xl"} h={"100%"}>
+    <Container size="xl" p={"xl"} h={"100%"}>
       <Stack align="flex-start" h={"100%"}>
         <Flex w={"100%"} justify="space-between" align="center">
           <div>
