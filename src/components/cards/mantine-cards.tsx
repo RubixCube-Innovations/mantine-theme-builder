@@ -10,6 +10,7 @@ import { CardsPaymentMethod } from "./payment-method";
 import { CardsCreateAccount } from "./create-account";
 import { CardsReportIssue } from "./report-issue";
 import { CardsDataTable } from "./data-table";
+import { CardsShare } from "./share";
 
 const MantineCards = () => {
   return (
@@ -40,7 +41,8 @@ const MantineCards = () => {
             <CardsActivityGoal />
           </Group>
           <CardsMetric />
-            <CardsDataTable />
+          <CardsDataTable />
+          <CardsShare />
         </Stack>
       </Grid.Col>
     </Grid>

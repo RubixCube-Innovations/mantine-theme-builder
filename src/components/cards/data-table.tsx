@@ -205,7 +205,7 @@ export function CardsDataTable() {
             style={{ maxWidth: 300, flexGrow: 1 }}
           />
           <Select
-            data={table.getAllColumns().map((col) => col.id)}
+            data={table.getAllColumns().slice(1,4).map((col) => col.id.charAt(0).toUpperCase() + col.id.slice(1))}
             placeholder="Columns"
             rightSection={<IconChevronDown size={16} />}
             onChange={(value) => {
