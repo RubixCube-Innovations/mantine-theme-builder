@@ -6,6 +6,7 @@ import { CardsMetric } from "./metric";
 import { CardsStats } from "./stats";
 import { CardsTeamMembers } from "./team-members";
 import { CardsCookieSettings } from "./cookie-settings";
+import { CardsPaymentMethod } from "./payment-method";
 
 const MantineCards = () => {
   return (
@@ -17,6 +18,7 @@ const MantineCards = () => {
             <Stack gap="md">
               <CardsTeamMembers />
               <CardsCookieSettings />
+              <CardsPaymentMethod />
             </Stack>
 
             <Stack gap="md">
