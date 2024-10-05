@@ -3,11 +3,11 @@ import { Button, Card, Text, Switch, Group, Title } from '@mantine/core';
 export function CardsCookieSettings() {
     return (
         <Card>
-            <Card.Section p="md">
+            <Card.Section p="md" pb="xs">
                 <Title order={3}>Cookie Settings</Title>
                 <Text size="sm" c="dimmed">Manage your cookie settings here.</Text>
             </Card.Section>
-            <Card.Section p="md">
+            <Card.Section p="md" pt="xs">
                 <Group wrap='nowrap'>
                     <div>
                         <Text size='sm'>Strictly Necessary</Text>
