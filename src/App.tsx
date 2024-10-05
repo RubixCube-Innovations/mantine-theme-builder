@@ -48,8 +48,13 @@ export default function ThemesPage() {
           <Divider my="sm" />
          
             <Text size="sm">
-              This project is inspired by Shadcn Themes. The source code is
-              available on{" "}
+              This project is inspired by <Text
+                component="a"
+                href="https://ui.shadcn.com/themes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Shadcn Themes.</Text>
+              The source code is available on{" "}
               <Text
                 component="a"
                 href="https://github.com/RubixCube-Innovations/mantine-theme-builder"
