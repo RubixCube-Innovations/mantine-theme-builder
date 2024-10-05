@@ -141,6 +141,8 @@ export function CardsChat() {
                   ? "var(--mantine-primary-color-filled)"
                   : "var(--mantine-color-gray-light)"
               }
+              withBorder={false}
+              shadow="none"
             >
               <Text size="sm">{message.content}</Text>
             </Card>
@@ -182,7 +184,9 @@ export function CardsChat() {
 
       <Spotlight.Root query={query} onQueryChange={setQuery} size={"lg"}>
         <Box mb="sm">
-          <Text size="lg" fw={"bold"}>New message</Text>
+          <Text size="lg" fw={"bold"}>
+            New message
+          </Text>
           <Text c={"dimmed"} size="sm">
             Invite a user to this thread. This will create a new group message.
           </Text>
@@ -204,14 +208,16 @@ export function CardsChat() {
           )}
         </Spotlight.ActionsList>
 
-<Divider />
+        <Divider />
         <Group gap="xs" justify="space-between" mt="md">
           {selectedUsers.length > 0 ? (
             selectedUsers.map((user) => (
               <Avatar key={user.email} src={user.avatar} radius="xl" />
             ))
           ) : (
-            <Text c="dimmed" size="sm">Select users to add to this thread.</Text>
+            <Text c="dimmed" size="sm">
+              Select users to add to this thread.
+            </Text>
           )}
           <Button
             onClick={() => spotlight.close()}

@@ -15,10 +15,10 @@ import { CardsShare } from "./share";
 const MantineCards = () => {
   return (
     <Grid py={"xl"}>
-      <Grid.Col span={6.5}>
+      <Grid.Col span={{md:6.5}}>
         <Stack gap="md">
           <CardsStats />
-          <SimpleGrid cols={2} spacing="md">
+          <SimpleGrid cols={{md:2}} spacing="md">
             <Stack gap="md">
               <CardsTeamMembers />
               <CardsCookieSettings />
@@ -34,7 +34,7 @@ const MantineCards = () => {
         </Stack>
       </Grid.Col>
 
-      <Grid.Col span={5.5}>
+      <Grid.Col span={{md: 5.5}}>
         <Stack gap="md">
           <Group gap={"md"} align="flex-start">
             <CardsCalendar />
