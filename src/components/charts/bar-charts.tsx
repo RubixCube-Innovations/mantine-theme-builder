@@ -1,10 +1,10 @@
 import { BarChart } from "@mantine/charts";
 import { barChartData } from "../../utils/data";
-import { Box, Paper, Stack, Text } from "@mantine/core";
+import { Box, Card, rem, Stack, Text } from "@mantine/core";
 
 const BarChartsCard = () => {
   return (
-    <Paper p={"xl"}>
+    <Card p={"xl"} w={rem(350)}>
       <Stack gap={"0"}>
         <Text pb={"xs"} fw="700">
           Subscriptions
@@ -33,7 +33,7 @@ const BarChartsCard = () => {
           withYAxis={false}
         />
       </Stack>
-    </Paper>
+    </Card>
   );
 };
 

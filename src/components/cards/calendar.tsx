@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { DatePicker } from "@mantine/dates"
-import { Card } from "@mantine/core"
+import { Card } from "@mantine/core";
+import { DatePicker } from "@mantine/dates";
 
 export function CardsCalendar() {
     
@@ -10,6 +10,7 @@ export function CardsCalendar() {
     return (
         <Card>
             <DatePicker
+               size="sm"
                type="range" 
                defaultValue={value}
                value={value} 

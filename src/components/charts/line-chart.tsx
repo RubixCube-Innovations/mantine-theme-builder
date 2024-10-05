@@ -1,10 +1,10 @@
 import { LineChart } from "@mantine/charts";
-import { Box, Paper, Stack, Text } from "@mantine/core";
+import { Box, Card, rem, Stack, Text } from "@mantine/core";
 import { lineChartData } from "../../utils/data";
 
 const LineChartCard = () => {
   return (
-    <Paper p={"xl"}>
+    <Card p={"xl"} w={rem(350)}>
       <Stack gap={"0"}>
         <Text pb={"xs"} fw="700">
           Likability
@@ -35,7 +35,7 @@ const LineChartCard = () => {
           withYAxis={false}
         />
       </Stack>
-    </Paper>
+    </Card>
   );
 };
 

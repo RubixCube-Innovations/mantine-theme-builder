@@ -1,6 +1,6 @@
 import * as React from "react"
 import { MinusIcon, PlusIcon } from "@radix-ui/react-icons"
-import { ActionIcon, Box, Button, Card, Group, rem, Stack, Text } from "@mantine/core"
+import { ActionIcon, Box, Button, Card, Group, rem, Stack, Text, Title } from "@mantine/core"
 import { BarChart } from "@mantine/charts"
 
 const data = [
@@ -67,11 +67,11 @@ export function CardsActivityGoal() {
     }
 
     return (
-        <Card w={rem(300)}>
-            <Stack gap="md">
-                <Box pb="4">
-                    <Text fw="700">Move Goal</Text>
-                    <Text>Set your daily activity goal.</Text>
+        <Card w={rem(320)}>
+            <Stack>
+                <Box pb="md">
+                    <Title order={5}>Move Goal</Title>
+                    <Text size="sm" c="dimmed">Set your daily activity goal.</Text>
                 </Box>
 
                 <Group justify="space-between">

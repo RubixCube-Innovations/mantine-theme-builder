@@ -1,20 +1,25 @@
-import React, { useState } from "react";
 import {
+  ActionIcon,
   Avatar,
+  Box,
   Button,
   Card,
-  Input,
-  Tooltip,
-  Dialog,
-  MultiSelect,
-  Group,
-  Text,
-  ActionIcon,
   Divider,
-  ScrollArea,
+  Group,
   rem,
+  Space,
+  Stack,
+  Text,
+  TextInput,
+  Tooltip,
 } from "@mantine/core";
-import { PaperPlaneIcon, PlusIcon } from "@radix-ui/react-icons";
+import { spotlight, Spotlight } from "@mantine/spotlight";
+import {
+  MagnifyingGlassIcon,
+  PaperPlaneIcon,
+  PlusIcon,
+} from "@radix-ui/react-icons";
+import { useState } from "react";
 
 const users = [
   {
@@ -47,7 +52,7 @@ const users = [
 type User = (typeof users)[number];
 
 export function CardsChat() {
-  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
   const [selectedUsers, setSelectedUsers] = useState<User[]>([]);
   const [messages, setMessages] = useState([
     {
@@ -71,51 +76,78 @@ export function CardsChat() {
   const [input, setInput] = useState("");
   const inputLength = input.trim().length;
 
+  const items = users
+    .filter((item) =>
+      item.name.toLowerCase().includes(query.toLowerCase().trim())
+    )
+    .map((item) => (
+      <Spotlight.Action
+        key={item.email}
+        label={item.name}
+        px={0}
+        leftSection={
+          <Avatar
+            src={item.avatar}
+            radius="xl"
+            onClick={() => setSelectedUsers([...selectedUsers, item])}
+          />
+        }
+      />
+    ));
+
   return (
     <>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Group align="center">
+      <Card shadow="sm" radius="md" w={rem(350)}>
+        <Group align="center" justify="space-between">
           <Group>
             <Avatar src="/avatars/01.png" alt="Sofia Davis" radius="xl" />
             <div>
-              <Text fw={500}>Sofia Davis</Text>
+              <Text fw={500} size="sm">
+                Sofia Davis
+              </Text>
               <Text size="xs" color="dimmed">
                 m@example.com
               </Text>
             </div>
           </Group>
           <Tooltip label="New message">
-            <ActionIcon variant="outline" onClick={() => setOpen(true)}>
+            <ActionIcon
+              variant="outline"
+              radius={"50%"}
+              onClick={() => spotlight.open()}
+            >
               <PlusIcon width={rem(16)} />
             </ActionIcon>
           </Tooltip>
         </Group>
 
-        <Divider my="sm" />
+        <Space my="sm" />
 
-        <ScrollArea style={{ maxHeight: 250 }}>
+        <Stack gap="md" style={{ maxHeight: 250 }}>
           {messages.map((message, index) => (
-            <Group
+            <Card
+              p="xs"
               key={index}
-              align={message.role === "user" ? "right" : "left"}
+              style={{
+                alignSelf: message.role === "user" ? "flex-end" : "flex-start",
+              }}
+              c={
+                message.role === "user"
+                  ? "var(--mantine-primary-color-contrast)"
+                  : "var(--mantine-color-text)"
+              }
+              bg={
+                message.role === "user"
+                  ? "var(--mantine-primary-color-filled)"
+                  : "var(--mantine-color-gray-light)"
+              }
             >
-              <Card
-                radius="md"
-                padding="sm"
-                shadow="sm"
-                style={{
-                  backgroundColor:
-                    message.role === "user" ? "#228be6" : "#f1f3f5",
-                  color: message.role === "user" ? "white" : "black",
-                }}
-              >
-                <Text size="sm">{message.content}</Text>
-              </Card>
-            </Group>
+              <Text size="sm">{message.content}</Text>
+            </Card>
           ))}
-        </ScrollArea>
+        </Stack>
 
-        <Divider my="sm" />
+        <Space my="sm" />
 
         <form
           onSubmit={(event) => {
@@ -132,63 +164,63 @@ export function CardsChat() {
           }}
         >
           <Group>
-            <Input
+            <TextInput
               value={input}
               onChange={(event) => setInput(event.currentTarget.value)}
               placeholder="Type your message..."
               style={{ flex: 1 }}
             />
-            <Button type="submit" disabled={inputLength === 0}>
-              <PaperPlaneIcon width={rem(16)} />
+            <Button type="submit" disabled={inputLength === 0} p={"xs"}>
+              <PaperPlaneIcon
+                width={rem(16)}
+                style={{ transform: "rotate(-45deg)" }}
+              />
             </Button>
           </Group>
         </form>
       </Card>
 
-      <Dialog
-        opened={open}
-        onClose={() => setOpen(false)}
-        title="New message"
-        p="lg"
-        size="lg"
-      >
-        <Text>Invite a user to this thread. This will create a new group message.</Text>
+      <Spotlight.Root query={query} onQueryChange={setQuery} size={"lg"}>
+        <Box mb="sm">
+          <Text size="lg" fw={"bold"}>New message</Text>
+          <Text c={"dimmed"} size="sm">
+            Invite a user to this thread. This will create a new group message.
+          </Text>
+        </Box>
 
-        <MultiSelect
-          data={users.map((user) => ({
-            value: user.email,
-            label: `${user.name} (${user.email})`,
-          }))}
+        <Divider />
+        <Spotlight.Search
+          size="sm"
           placeholder="Search users..."
-          onChange={(value) => {
-            const newSelectedUsers = users.filter((user) =>
-              value.includes(user.email)
-            );
-            setSelectedUsers(newSelectedUsers);
-          }}
-          searchable
-          value={selectedUsers.map((user) => user.email)}
+          leftSection={
+            <MagnifyingGlassIcon style={{ width: rem(20), height: rem(20) }} />
+          }
         />
+        <Spotlight.ActionsList>
+          {items.length > 0 ? (
+            items
+          ) : (
+            <Spotlight.Empty>Nothing found...</Spotlight.Empty>
+          )}
+        </Spotlight.ActionsList>
 
-        <Group mt="md" gap="xs">
+<Divider />
+        <Group gap="xs" justify="space-between" mt="md">
           {selectedUsers.length > 0 ? (
             selectedUsers.map((user) => (
               <Avatar key={user.email} src={user.avatar} radius="xl" />
             ))
           ) : (
-            <Text color="dimmed">Select users to add to this thread.</Text>
+            <Text c="dimmed" size="sm">Select users to add to this thread.</Text>
           )}
-        </Group>
-
-        <Group align="right" mt="md">
           <Button
-            onClick={() => setOpen(false)}
+            onClick={() => spotlight.close()}
             disabled={selectedUsers.length < 2}
           >
             Continue
           </Button>
         </Group>
-      </Dialog>
+      </Spotlight.Root>
     </>
   );
 }
