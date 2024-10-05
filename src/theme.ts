@@ -8,28 +8,27 @@ export const theme = createTheme({
     md: rem("16px"),
     lg: rem("18px"),
     xl: rem("20px"),
-    xxl: rem("24px"),
-    xxxl: rem("30px"),
-    xxxxl: rem("36px"),
-    xxxxxl: rem("48px"),
+    xl2: rem("24px"),
+    xl3: rem("30px"),
+    xl4: rem("36px"),
+    xl5: rem("48px"),
   },
   components: {
     /** Put your mantine component override here */
     Paper: Paper.extend({
       defaultProps: {
         p: "md",
-        shadow: "md",
+        shadow: "lg",
         radius: "md",
-        withBorder: true,
+        
       },
     }),
 
     Card: Card.extend({
       defaultProps: {
         p: "md",
-        shadow: "md",
+        shadow: "lg",
         radius: "md",
-        withBorder: true,
       },
     }),
   },

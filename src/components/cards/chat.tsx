@@ -97,7 +97,7 @@ export function CardsChat() {
 
   return (
     <>
-      <Card shadow="sm" radius="md" w={rem(350)}>
+      <Card radius="md" w={rem(350)}>
         <Group align="center" justify="space-between">
           <Group>
             <Avatar src="/avatars/01.png" alt="Sofia Davis" radius="xl" />

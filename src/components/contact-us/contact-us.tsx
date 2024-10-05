@@ -1,7 +1,7 @@
 import {
   Button,
+  Card,
   Group,
-  Paper,
   SimpleGrid,
   Switch,
   Textarea,
@@ -10,7 +10,7 @@ import {
 
 const ContactUs = () => {
   return (
-    <Paper>
+    <Card>
       <SimpleGrid cols={{ base: 1, sm: 2 }}>
         <TextInput label="Your name" placeholder="Your name" />
         <TextInput
@@ -34,7 +34,7 @@ const ContactUs = () => {
       <Group justify="flex-end" mt="md">
         <Button type="submit">Send message</Button>
       </Group>
-    </Paper>
+    </Card>
   );
 };
 

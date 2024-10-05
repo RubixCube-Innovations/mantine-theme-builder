@@ -1,5 +1,4 @@
 import { SimpleGrid, Button } from "@mantine/core";
-import { useState } from "react";
 import { useTheme } from "../../ThemeContext";
 
 const colors = [
@@ -16,14 +15,16 @@ const colors = [
 ];
 
 function ColorSwitcher() {
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
-  const { switchPrimaryColor } = useTheme();
+  const { setTheme } = useTheme();
 
   const handleColorSelect = (color: string) => {
-    setSelectedColor(color);
+   
     console.log(`Color ${color} selected`);
-    switchPrimaryColor(color);
+    setTheme((currentTheme) => ({
+      ...currentTheme,
+      primaryColor: color,
+    }));
     // Here you can add logic to apply the selected color to your app's theme
   };
 
