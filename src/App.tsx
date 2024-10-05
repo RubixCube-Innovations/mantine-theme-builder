@@ -1,7 +1,8 @@
-import { Container, Text, Title, Box, Stack, Flex } from "@mantine/core";
+import { Container, Text, Title, Box, Stack, Flex, Group } from "@mantine/core";
 import MantineCards from "./components/cards/mantine-cards";
 import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
 import ColorSwitcher from "./components/color-switcher/color-switcher";
+import ThemeCustomizer from "./components/theme-customizer";
 
 export default function ThemesPage() {
   return (
@@ -11,17 +12,26 @@ export default function ThemesPage() {
           <Box>
             <Title order={1}>Mantine Theme Builder</Title>
             <Text>
-              Hand-picked shadcn inspired themes that you can copy and paste
-              into your apps build with Mantine.
+              Shadcn inspired themes for Mantine components that you can copy and paste
+              into your apps.
             </Text>
           </Box>
-          <Box>
+          <Group>
+            <iframe
+              src="https://ghbtns.com/github-btn.html?user=RubixCube-Innovations&repo=mantine-theme-builder&type=star&count=true&size=large"
+              frameborder="0" 
+              width="120"
+              height="30"
+              title="GitHub"
+            ></iframe>
             <ColorSchemeSwitch />
-          </Box>
+          </Group>
         </Flex>
-        <Box>{/* ThemeCustomizer can be ignored */}</Box>
+        <Box>
+          <ThemeCustomizer />
+        </Box>
 
-        <ColorSwitcher />
+        {/* <ColorSwitcher /> */}
 
         <MantineCards />
       </Stack>
