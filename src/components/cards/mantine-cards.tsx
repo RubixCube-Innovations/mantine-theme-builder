@@ -8,6 +8,7 @@ import { CardsTeamMembers } from "./team-members";
 import { CardsCookieSettings } from "./cookie-settings";
 import { CardsPaymentMethod } from "./payment-method";
 import { CardsCreateAccount } from "./create-account";
+import { CardsReportIssue } from "./report-issue";
 
 const MantineCards = () => {
   return (
@@ -25,6 +26,7 @@ const MantineCards = () => {
             <Stack gap="md">
               <CardsChat />
               <CardsCreateAccount />
+              <CardsReportIssue />
             </Stack>
           </SimpleGrid>
         </Stack>
