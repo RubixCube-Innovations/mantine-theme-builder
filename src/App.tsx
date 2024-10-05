@@ -1,6 +1,7 @@
 import { Container, Text, Title, Box, Stack, Flex } from "@mantine/core";
 import MantineCards from "./components/cards/mantine-cards";
 import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
+import ColorSwitcher from "./components/color-switcher/color-switcher";
 
 export default function ThemesPage() {
   return (
@@ -19,6 +20,8 @@ export default function ThemesPage() {
           </div>
         </Flex>
         <Box>{/* ThemeCustomizer can be ignored */}</Box>
+
+        <ColorSwitcher />
 
         <MantineCards />
       </Stack>

@@ -1,4 +1,4 @@
-import { createTheme, Paper, rem } from "@mantine/core";
+import { Card, createTheme, Paper, rem } from "@mantine/core";
 
 export const theme = createTheme({
   /** Put your mantine theme override here */
@@ -16,6 +16,15 @@ export const theme = createTheme({
   components: {
     /** Put your mantine component override here */
     Paper: Paper.extend({
+      defaultProps: {
+        p: "md",
+        shadow: "md",
+        radius: "md",
+        withBorder: true,
+      },
+    }),
+
+    Card: Card.extend({
       defaultProps: {
         p: "md",
         shadow: "md",
