@@ -8,11 +8,12 @@ import {
   Title,
 } from "@mantine/core";
 import "./App.css";
-import ColorSchemeSwitch from "./assets/components/color-scheme-switch/color-scheme-switch";
-import ProfileCard from "./assets/components/profile-card/profile-card";
-import ProfileStatCard from "./assets/components/profile-stat-card/profile-stat-card";
-import SkillCard from "./assets/components/skill-card/skill-card";
-import AboutCard from "./assets/components/about-card/about-card";
+import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
+import ProfileCard from "./components/profile-card/profile-card";
+import ProfileStatCard from "./components/profile-stat-card/profile-stat-card";
+import SkillCard from "./components/skill-card/skill-card";
+import AboutCard from "./components/about-card/about-card";
+import ColorSwitcher from "./components/color-switcher/color-switcher";
 
 function App() {
   return (
@@ -44,6 +45,8 @@ function App() {
               <ProfileStatCard />
             </SimpleGrid>
             <Space h="xl" />
+
+            <ColorSwitcher />
           </Grid.Col>
         </Grid>
       </Box>

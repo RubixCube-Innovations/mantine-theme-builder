@@ -16,4 +16,9 @@ export const skills = [
 ];
 
 
+
+
+
+
+
 export const ICON_SIZE = 16
