@@ -1,5 +1,5 @@
+import { Box, Card, Text, Title, useMantineTheme } from "@mantine/core"
 import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts"
-import { Box, Card, rem, Text, Title, useMantineTheme } from "@mantine/core"
 
 const data = [
     {
@@ -36,7 +36,7 @@ export function CardsMetric() {
     const theme = useMantineTheme()
 
     return (
-        <Card w={rem(600)}>
+        <Card>
             <Box pb="md">
                 <Title order={5}>Exercise Minutes</Title>
                 <Text size="sm" c="dimmed">

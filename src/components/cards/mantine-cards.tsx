@@ -1,28 +1,28 @@
 import { Group, SimpleGrid, Stack } from "@mantine/core";
-import ContactUs from "../contact-us/contact-us";
 import { CardsActivityGoal } from "./activity-goal";
 import { CardsCalendar } from "./calendar";
 import { CardsChat } from "./chat";
 import { CardsMetric } from "./metric";
 import { CardsStats } from "./stats";
+import { CardsTeamMembers } from "./team-members";
 
 const MantineCards = () => {
   return (
-    <SimpleGrid cols={2} py={"xl"}>
-      <Stack gap="sm">
+    <SimpleGrid cols={2} py={"xl"} spacing="md">
+      <Stack gap="md">
         <CardsStats />
-        <SimpleGrid cols={2}>
-          <Stack gap="sm">
-            <ContactUs />
+        <SimpleGrid cols={2} spacing="md">
+          <Stack gap="md">
+            <CardsTeamMembers />
           </Stack>
 
-          <Stack gap="sm">
+          <Stack gap="md">
             <CardsChat />
           </Stack>
         </SimpleGrid>
       </Stack>
 
-      <Stack gap="sm">
+      <Stack gap="md">
         <Group gap={"md"}>
           <CardsCalendar />
           <CardsActivityGoal />

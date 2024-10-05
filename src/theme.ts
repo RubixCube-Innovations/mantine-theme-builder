@@ -20,7 +20,7 @@ export const theme = createTheme({
         p: "md",
         shadow: "lg",
         radius: "md",
-        
+        withBorder: true,
       },
     }),
 
@@ -29,6 +29,7 @@ export const theme = createTheme({
         p: "md",
         shadow: "lg",
         radius: "md",
+        withBorder: true,
       },
     }),
   },
