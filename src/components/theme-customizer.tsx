@@ -1,22 +1,19 @@
 import {
-    Box,
-    Button,
-    Group,
-    Popover,
-    SimpleGrid,
-    Stack,
-    Text,
-    useMantineColorScheme
+  Box,
+  Button,
+  Group,
+  Popover,
+  SimpleGrid,
+  Stack,
+  Text,
+  useMantineColorScheme,
 } from "@mantine/core";
-import {
-    MoonIcon,
-    ResetIcon,
-    SunIcon
-} from "@radix-ui/react-icons";
+import { MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
+import { useTheme } from "../ThemeContext";
 
 const baseColors = [
-  "zinc",
+  "blue",
   "slate",
   "stone",
   "gray",
@@ -25,7 +22,7 @@ const baseColors = [
   "rose",
   "orange",
   "green",
-  "blue",
+  "lime",
   "yellow",
   "violet",
 ];
@@ -52,8 +49,10 @@ export default function ThemeCustomizer() {
 
 function Customizer() {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
+  const { setTheme } = useTheme();
+
   const [config, setConfig] = React.useState({
-    theme: "zinc",
+    theme: "blue",
     style: "default",
     radius: 0.5,
   });
@@ -73,7 +72,7 @@ function Customizer() {
             onClick={() => {
               setConfig({
                 ...config,
-                theme: "zinc",
+                theme: "blue",
                 radius: 0.5,
               });
             }}
@@ -117,6 +116,10 @@ function Customizer() {
                       ...config,
                       theme: theme,
                     });
+                    setTheme((currentTheme) => ({
+                      ...currentTheme,
+                      primaryColor: theme,
+                    }));
                   }}
                 >
                   {theme.charAt(0).toUpperCase() + theme.slice(1)}
