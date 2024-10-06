@@ -1,16 +1,15 @@
 import {
-  Container,
-  Text,
-  Title,
   Box,
-  Stack,
+  Container,
+  Divider,
   Flex,
   Group,
-  Divider,
+  Stack,
+  Text,
+  Title,
 } from "@mantine/core";
 import MantineCards from "./components/cards/mantine-cards";
 import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
-import ColorSwitcher from "./components/color-switcher/color-switcher";
 import ThemeCustomizer from "./components/theme-customizer";
 
 export default function ThemesPage() {
@@ -28,7 +27,7 @@ export default function ThemesPage() {
           <Group>
             <iframe
               src="https://ghbtns.com/github-btn.html?user=RubixCube-Innovations&repo=mantine-theme-builder&type=star&count=true&size=large"
-              frameborder="0"
+              style={{ border: 0, overflow: "hidden" }}
               width="120"
               height="30"
               title="GitHub"
