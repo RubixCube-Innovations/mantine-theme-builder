@@ -36,6 +36,7 @@ export const theme = createTheme({
             : rem(size),
         },
       }),
+     
     }),
     Paper: Paper.extend({
       defaultProps: {

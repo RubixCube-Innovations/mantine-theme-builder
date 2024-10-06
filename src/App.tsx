@@ -2,7 +2,6 @@ import {
   Box,
   Container,
   Divider,
-  Flex,
   Group,
   Stack,
   Text,
@@ -11,12 +10,16 @@ import {
 import MantineCards from "./components/cards/mantine-cards";
 import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
 import ThemeCustomizer from "./components/theme-customizer";
+import { useMediaQuery } from "@mantine/hooks";
+import { mobileWidth } from "./utils/variables";
 
 export default function ThemesPage() {
+  const isMobile = useMediaQuery(mobileWidth);
+ 
   return (
-    <Container size="xl" p={"xl"} h={"100%"}>
-      <Stack align="flex-start" h={"100%"}>
-        <Flex w={"100%"} justify="space-between" align="center">
+    <Container fluid={isMobile ? true : false} size={"xl"} p={{sm: "md", md: "xl"}} h={"100%"} w={"100vw"}>
+      <Stack align="flex-start" h={"100%"} >
+        <Group w={"100%"} justify="space-between" align="center" wrap="wrap">
           <Box>
             <Title order={1}>Mantine Theme Builder</Title>
             <Text>
@@ -34,7 +37,7 @@ export default function ThemesPage() {
             ></iframe>
             <ColorSchemeSwitch />
           </Group>
-        </Flex>
+        </Group>
         <Box>
           <ThemeCustomizer />
         </Box>
