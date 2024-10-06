@@ -1,5 +1,6 @@
 :root {
   color-scheme: var(--mantine-color-scheme);
+  width: 100%;
 }
 
 body {

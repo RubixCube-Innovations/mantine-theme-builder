@@ -10,15 +10,12 @@ import {
 import MantineCards from "./components/cards/mantine-cards";
 import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
 import ThemeCustomizer from "./components/theme-customizer";
-import { useMediaQuery } from "@mantine/hooks";
-import { mobileWidth } from "./utils/variables";
 
 export default function ThemesPage() {
-  const isMobile = useMediaQuery(mobileWidth);
  
   return (
-    <Container fluid={isMobile ? true : false} size={"xl"} p={{sm: "md", md: "xl"}} h={"100%"} w={"100vw"}>
-      <Stack align="flex-start" h={"100%"} >
+    <Container size={"xl"} p={{sm: "md", md: "xl"}} h={"100%"} w={"100vw"}>
+      <Stack h={"100%"} w={"100%"}>
         <Group w={"100%"} justify="space-between" align="center" wrap="wrap">
           <Box>
             <Title order={1}>Mantine Theme Builder</Title>
@@ -70,6 +67,6 @@ export default function ThemesPage() {
          
         </Box>
       </Stack>
-    </Container>
+     </Container>
   );
 }
