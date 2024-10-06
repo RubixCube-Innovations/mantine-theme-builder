@@ -14,12 +14,12 @@ import { useTheme } from "../ThemeContext";
 
 const baseColors = [
   "blue",
-  "slate",
-  "stone",
+  "cyan",
+  "teal",
   "gray",
-  "neutral",
+  "indigo",
+  "grape",
   "red",
-  "rose",
   "orange",
   "green",
   "lime",
