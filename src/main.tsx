@@ -5,9 +5,9 @@ import "@mantine/core/styles.css";
 import "@mantine/charts/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/spotlight/styles.css";
-import "./index.css";
-// import { MantineProvider } from "@mantine/core";
-// import { theme } from "./theme.ts";
+import "./styles/index.css"
+// import "./styles/App.css";
+import "./styles/fonts.css";
 
 import { ThemeProvider } from "./ThemeContext.tsx";
 

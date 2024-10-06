@@ -14,7 +14,7 @@ import ThemeCustomizer from "./components/theme-customizer";
 export default function ThemesPage() {
  
   return (
-    <Container size={"xl"} p={{sm: "md", md: "xl"}} h={"100%"} w={"100vw"}>
+    <Container size={"xl"} p={{sm: "md", md: "xl"}} h={"100%"}>
       <Stack h={"100%"} w={"100%"}>
         <Group w={"100%"} justify="space-between" align="center" wrap="wrap">
           <Box>

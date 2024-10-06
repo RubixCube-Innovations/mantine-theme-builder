@@ -1,7 +1,7 @@
 // ThemeContext.tsx
 import React, { createContext, useState, useContext } from "react";
 import { MantineProvider, MantineThemeOverride } from "@mantine/core";
-import { theme as initialTheme } from "./theme";
+import { mantineTheme as initialTheme, mantineCssVariableResolver, shadcnCssVariableResolver } from "./theme";
 
 // Define the shape of the context
 interface ThemeContextType {
@@ -25,12 +25,11 @@ export const useTheme = () => {
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  
   const [theme, setTheme] = useState<MantineThemeOverride>(initialTheme);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <MantineProvider theme={theme}>
+      <MantineProvider theme={theme} cssVariablesResolver={theme.other?.style === "shadcn" ? shadcnCssVariableResolver : mantineCssVariableResolver}>
         {children}
       </MantineProvider>
     </ThemeContext.Provider>

@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  ColorSwatch,
   Group,
   Popover,
   SimpleGrid,
@@ -10,22 +11,9 @@ import {
 } from "@mantine/core";
 import { MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
+import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
 import { useTheme } from "../ThemeContext";
-
-const baseColors = [
-  "blue",
-  "cyan",
-  "teal",
-  "gray",
-  "indigo",
-  "grape",
-  "red",
-  "orange",
-  "green",
-  "lime",
-  "yellow",
-  "violet",
-];
+import { mantineTheme, shadcnTheme } from "../theme";
 
 export default function ThemeCustomizer() {
   return (
@@ -49,13 +37,36 @@ export default function ThemeCustomizer() {
 
 function Customizer() {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
-  const { setTheme } = useTheme();
 
+  const { setTheme } = useTheme();
   const [config, setConfig] = React.useState({
-    theme: "blue",
-    style: "default",
+    color: MANTINE_DEFAULT_COLORS[0].id,
+    style: "mantine",
     radius: 0.5,
   });
+
+  const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
+
+  const mantineColorButtons = baseColors.map((color) => (
+    <Button
+      variant={config.color === color.id ? "outline" : "default"}
+      leftSection={<ColorSwatch size={20} color={color.color} />}
+      key={color.id}
+      onClick={() => {
+        setConfig({
+          ...config,
+          color: color.id,
+        });
+        setTheme((currentTheme) => ({
+          ...currentTheme,
+          primaryColor: color.id,
+        }));
+      }}
+    >
+      {color.name}
+    </Button>
+  ));
+
   return (
     <Box>
       <Stack gap="md">
@@ -66,35 +77,61 @@ function Customizer() {
               Pick a style and color for your components.
             </Text>
           </Box>
+
           <Button
-            variant="outline"
+            variant="subtle"
             size="xs"
             onClick={() => {
               setConfig({
                 ...config,
-                theme: "blue",
+                color: MANTINE_DEFAULT_COLORS[0].id,
+                style: "mantine",
                 radius: 0.5,
               });
-            }}
-          >
+              setTheme({...mantineTheme, primaryColor: MANTINE_DEFAULT_COLORS[0].id});
+            }}>
             <ResetIcon />
           </Button>
+
         </Group>
+
         <Stack gap="xs">
           <Text size="xs">Style</Text>
 
           <SimpleGrid cols={3}>
             <Button
-              variant={config.style === "default" ? "filled" : "outline"}
+              variant={config.style === "mantine" ? "outline" : "default"}
               size="xs"
-              onClick={() => setConfig({ ...config, style: "default" })}
+              onClick={() => {
+                setConfig({
+                  ...config,
+                  style: "mantine",
+                  color: MANTINE_DEFAULT_COLORS[0].id,
+                });
+                setBaseColors(MANTINE_DEFAULT_COLORS);
+                setTheme(() => ({
+                  ...mantineTheme,
+                  primaryColor: MANTINE_DEFAULT_COLORS[0].id,
+                }));
+              }}
             >
               Mantine
             </Button>
             <Button
-              variant={config.style === "new-york" ? "filled" : "outline"}
+              variant={config.style === "shadcn" ? "outline" : "default"}
               size="xs"
-              onClick={() => setConfig({ ...config, style: "new-york" })}
+              onClick={() => {
+                setConfig({
+                  ...config,
+                  style: "shadcn",
+                  color: SHADCN_DEFAULT_COLORS[0].id,
+                });
+                setBaseColors(SHADCN_DEFAULT_COLORS);
+                setTheme(() => ({
+                  ...shadcnTheme,
+                  primaryColor: SHADCN_DEFAULT_COLORS[0].id,
+                }));
+              }}
             >
               Shadcn
             </Button>
@@ -102,31 +139,7 @@ function Customizer() {
         </Stack>
         <Stack gap="xs">
           <Text size="xs">Color</Text>
-          <SimpleGrid cols={3}>
-            {baseColors.map((theme) => {
-              const isActive = config.theme === theme;
-
-              return (
-                <Button
-                  variant={isActive ? "filled" : "outline"}
-                  size="xs"
-                  key={theme}
-                  onClick={() => {
-                    setConfig({
-                      ...config,
-                      theme: theme,
-                    });
-                    setTheme((currentTheme) => ({
-                      ...currentTheme,
-                      primaryColor: theme,
-                    }));
-                  }}
-                >
-                  {theme.charAt(0).toUpperCase() + theme.slice(1)}
-                </Button>
-              );
-            })}
-          </SimpleGrid>
+          <SimpleGrid cols={3}>{mantineColorButtons}</SimpleGrid>
         </Stack>
         <Stack gap="xs">
           <Text size="xs">Radius</Text>
@@ -135,7 +148,7 @@ function Customizer() {
               return (
                 <Button
                   variant={
-                    config.radius === parseFloat(value) ? "filled" : "outline"
+                    config.radius === parseFloat(value) ? "outline" : "default"
                   }
                   size="xs"
                   key={value}
@@ -156,23 +169,23 @@ function Customizer() {
           <Text size="xs">Mode</Text>
           <SimpleGrid cols={3}>
             <Button
-              variant={colorScheme === "light" ? "filled" : "outline"}
+              variant={colorScheme === "light" ? "outline" : "default"}
               size="xs"
               onClick={() => setColorScheme("light")}
             >
               <Group gap="xs">
                 <SunIcon />
-                <Text>Light</Text>
+                <Text fw="500">Light</Text>
               </Group>
             </Button>
             <Button
-              variant={colorScheme === "dark" ? "filled" : "outline"}
+              variant={colorScheme === "dark" ? "outline" : "default"}
               size="xs"
               onClick={() => setColorScheme("dark")}
             >
               <Group gap="xs">
                 <MoonIcon />
-                <Text>Dark</Text>
+                <Text fw="500">Dark</Text>
               </Group>
             </Button>
           </SimpleGrid>
