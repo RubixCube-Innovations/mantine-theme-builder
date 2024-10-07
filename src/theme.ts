@@ -16,15 +16,25 @@ const CONTAINER_SIZES: Record<string, string> = {
 const common = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
-    xs: rem("12px"),
-    sm: rem("14px"),
-    md: rem("16px"),
-    lg: rem("18px"),
-    xl: rem("20px"),
-    xl2: rem("24px"),
-    xl3: rem("30px"),
-    xl4: rem("36px"),
-    xl5: rem("48px"),
+    "xs": rem("12px"),
+    "sm": rem("14px"),
+    "md": rem("16px"),
+    "lg": rem("18px"),
+    "xl": rem("20px"),
+    "2xl": rem("24px"),
+    "3xl": rem("30px"),
+    "4xl": rem("36px"),
+    "5xl": rem("48px"),
+  },
+  spacing: {
+    "2xs": rem("8px"),
+    "xs": rem("10px"),
+    "sm": rem("12px"),
+    "md": rem("16px"),
+    "lg": rem("20px"),
+    "xl": rem("24px"),
+    "2xl": rem("28px"),
+    "3xl": rem("32px"),
   },
   components: {
     /** Put your mantine component override here */
@@ -51,8 +61,8 @@ const common = createTheme({
 
     Card: Card.extend({
       defaultProps: {
-        p: "md",
-        shadow: "lg",
+        p: "xl",
+        shadow: "xl",
         radius: "md",
         withBorder: true,
       },
@@ -105,28 +115,7 @@ const shadcn = createTheme({
     xl: rem("24px"),
   },
   defaultRadius: "sm",
-  spacing: {
-    none: rem("0px"),
-    xxs: rem("2px"),
-    xs: rem("4px"),
-    sm: rem("6px"),
-    md: rem("8px"),
-    lg: rem("12px"),
-    xl: rem("16px"),
-    xxl: rem("24px"),
-    xxxl: rem("32px"),
-  },
-  fontSizes: {
-    xs: rem("12px"),
-    sm: rem("14px"),
-    md: rem("16px"),
-    lg: rem("18px"),
-    xl: rem("20px"),
-    xxl: rem("24px"),
-    xxxl: rem("30px"),
-    xxxxl: rem("36px"),
-    xxxxxl: rem("48px"),
-  },
+
   lineHeights: {
     xs: rem("18px"),
     sm: rem("20px"),
@@ -176,8 +165,8 @@ const shadcn = createTheme({
   cursorType: "pointer",
   other: {
     style: "shadcn",
-  }
- 
+  },
+
 });
 
 export const mantineTheme = mergeThemeOverrides(common, mantine);

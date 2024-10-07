@@ -102,7 +102,7 @@ export const redColors = generateColorPalette("red", [
   "#FECACA",
   "#FCA5A5",
   "#F87171",
-  "#EF4444",
+  "#DC2626",
   "#B91C1C",
   "#991B1B",
   "#7F1D1D",

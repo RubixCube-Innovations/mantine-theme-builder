@@ -3,6 +3,7 @@ import {
   Button,
   ColorSwatch,
   Group,
+  MantineColorShade,
   Popover,
   SimpleGrid,
   Stack,
@@ -28,7 +29,7 @@ export default function ThemeCustomizer() {
         </Popover.Dropdown>
       </Popover>
 
-      <Button variant="light" size="sm">
+      <Button variant="subtle" size="sm">
         Copy Code
       </Button>
     </Group>
@@ -47,6 +48,15 @@ function Customizer() {
 
   const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
 
+  const getPrimaryShade = (color: string): { dark: number; light: number } | number => {
+    switch (color) {
+      case "red":
+        return { dark: 5, light: 5 };
+      default:
+        return { dark: 9, light: 6 };
+    }
+  };
+
   const mantineColorButtons = baseColors.map((color) => (
     <Button
       variant={config.color === color.id ? "outline" : "default"}
@@ -60,6 +70,7 @@ function Customizer() {
         setTheme((currentTheme) => ({
           ...currentTheme,
           primaryColor: color.id,
+          primaryShade: getPrimaryShade(color.id) as MantineColorShade,
         }));
       }}
     >

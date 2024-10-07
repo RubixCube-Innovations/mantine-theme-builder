@@ -85,7 +85,7 @@ export function CardsActivityGoal() {
                         <MinusIcon className="h-4 w-4" />
                     </ActionIcon>
                     <Box>
-                        <Text size="xl5" fw={"bold"} lh={rem(40)}>{goal}</Text>
+                        <Text size="5xl" fw={"bold"} lh={rem(40)}>{goal}</Text>
                         <Text c="dimmed" size="xs" tt={"uppercase"} mt={rem(8)}>
                             Calories/day
                         </Text>
