@@ -44,6 +44,19 @@ export const zincColors = generateColorPalette("zinc", [
   "#09090b",
 ]);
 
+export const darkColors = generateColorPalette("dark", [
+  "#fafafa",
+  "#f4f4f5",
+  "#e4e4e7",
+  "#1e293b", 
+  "#1e293b", //correct
+  "#71717a",
+  "#09090b", //correct
+  "#27272a",
+  "#18181b",
+  "#09090b",
+]);
+
 export const slateColors = generateColorPalette("slate", [
   "#f8fafc",
   "#f1f5f9",
