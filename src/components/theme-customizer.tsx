@@ -48,12 +48,16 @@ function Customizer() {
 
   const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
 
-  const getPrimaryShade = (color: string): { dark: number; light: number } | number => {
+  const getPrimaryShade = (
+    color: string
+  ): { dark: number; light: number } | number => {
     switch (color) {
       case "red":
         return { dark: 5, light: 5 };
+      case "zinc":
+        return { dark: 1, light: 9 };
       default:
-        return { dark: 9, light: 6 };
+        return { dark: 6, light: 6 };
     }
   };
 
@@ -99,11 +103,14 @@ function Customizer() {
                 style: "mantine",
                 radius: 0.5,
               });
-              setTheme({...mantineTheme, primaryColor: MANTINE_DEFAULT_COLORS[0].id});
-            }}>
+              setTheme({
+                ...mantineTheme,
+                primaryColor: MANTINE_DEFAULT_COLORS[0].id,
+              });
+            }}
+          >
             <ResetIcon />
           </Button>
-
         </Group>
 
         <Stack gap="xs">
