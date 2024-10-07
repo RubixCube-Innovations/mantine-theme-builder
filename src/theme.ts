@@ -1,6 +1,6 @@
 import { Card, Container, createTheme, CSSVariablesResolver, mergeThemeOverrides, Paper, rem } from "@mantine/core";
 import { generateColorArray } from "./utils/color-functions";
-import { amberColors, blueColors, grayColors, greenColors, neutralColors, orangeColors, redColors, roseColors, slateColors, stoneColors, violetColors, yellowColors, zincColors } from "./utils/colors";
+import { amberColors, blueColors, darkColors, grayColors, greenColors, neutralColors, orangeColors, redColors, roseColors, slateColors, stoneColors, violetColors, yellowColors, zincColors } from "./utils/colors";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem(200),
@@ -93,7 +93,7 @@ const shadcn = createTheme({
     yellow: generateColorArray(yellowColors, "yellow"),
     violet: generateColorArray(violetColors, "violet"),
 
-    dark: generateColorArray(zincColors, "dark"),
+    dark: generateColorArray(darkColors, "dark"),
     error: generateColorArray(redColors, "error"),
     warning: generateColorArray(amberColors, "warning"),
     success: generateColorArray(greenColors, "success"),
@@ -181,11 +181,15 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   light: {
     // variables for light color scheme only
     "--mantine-color-body": theme.white,
+    "--mantine-color-default-color": theme?.black,
     // "--mantine-primary-color-contrast": theme.white,
   },
   dark: {
     // variables for dark color scheme only
     "--mantine-color-body": theme.black,
+    "--mantine-color-placeholder": theme?.white,
+    "--mantine-color-white": "var(--mantine-primary-color-contrast)",
+    "--mantine-color-default-color": theme?.white,
     // "--mantine-primary-color-contrast": theme.black,
   },
 });
