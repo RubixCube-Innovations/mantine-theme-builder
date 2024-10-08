@@ -1,5 +1,4 @@
 import { Card, Container, createTheme, CSSVariablesResolver, mergeThemeOverrides, Paper, rem } from "@mantine/core";
-import { generateColorArray } from "./utils/color-functions";
 import { amberColors, blueColors, darkColors, grayColors, greenColors, neutralColors, orangeColors, redColors, roseColors, slateColors, stoneColors, violetColors, yellowColors, zincColors } from "./utils/colors";
 
 const CONTAINER_SIZES: Record<string, string> = {
@@ -53,7 +52,7 @@ const common = createTheme({
     Paper: Paper.extend({
       defaultProps: {
         p: "md",
-        shadow: "lg",
+        shadow: "xl",
         radius: "md",
         withBorder: true,
       },
@@ -77,31 +76,32 @@ const mantine = createTheme({
   },
 });
 
+
 const shadcn = createTheme({
   /** Put your shadcn theme override here */
   colors: {
-    zinc: generateColorArray(zincColors, "zinc"),
-    slate: generateColorArray(slateColors, "slate"),
-    stone: generateColorArray(stoneColors, "stone"),
-    gray: generateColorArray(grayColors, "gray"),
-    neutral: generateColorArray(neutralColors, "neutral"),
-    red: generateColorArray(redColors, "red"),
-    rose: generateColorArray(roseColors, "rose"),
-    orange: generateColorArray(orangeColors, "orange"),
-    green: generateColorArray(greenColors, "green"),
-    blue: generateColorArray(blueColors, "blue"),
-    yellow: generateColorArray(yellowColors, "yellow"),
-    violet: generateColorArray(violetColors, "violet"),
+    zinc: zincColors,
+    slate: slateColors,
+    stone: stoneColors,
+    gray: grayColors,
+    neutral: neutralColors,
+    red: redColors,
+    rose: roseColors,
+    orange: orangeColors,
+    green: greenColors,
+    blue: blueColors,
+    yellow: yellowColors,
+    violet: violetColors,
 
-    dark: generateColorArray(darkColors, "dark"),
-    error: generateColorArray(redColors, "error"),
-    warning: generateColorArray(amberColors, "warning"),
-    success: generateColorArray(greenColors, "success"),
+    dark: darkColors,
+    error: redColors,
+    warning: amberColors,
+    success: greenColors,
   },
   focusRing: "never",
   scale: 1,
   white: "#FFFFFF",
-  black: zincColors["zinc900"],
+  black: zincColors[9],
   primaryColor: "zinc",
   primaryShade: { light: 9, dark: 0 },
   autoContrast: true, //TODO: Remove if causing issuing
@@ -182,7 +182,8 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     // variables for light color scheme only
     "--mantine-color-body": theme.white,
     "--mantine-color-default-color": theme?.black,
-    // "--mantine-primary-color-contrast": theme.white,
+    "--mantine-primary-color-contrast": theme.white,
+    "--mantine-color-default-border": theme.colors.dark[2],
   },
   dark: {
     // variables for dark color scheme only
@@ -190,7 +191,8 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-placeholder": theme?.white,
     "--mantine-color-white": "var(--mantine-primary-color-contrast)",
     "--mantine-color-default-color": theme?.white,
-    // "--mantine-primary-color-contrast": theme.black,
+    "--mantine-primary-color-contrast": theme.black,
+    "--mantine-color-default-border": theme.colors.dark[7],
   },
 });
 
