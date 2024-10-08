@@ -48,18 +48,7 @@ function Customizer() {
 
   const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
 
-  const getPrimaryShade = (
-    color: string
-  ): { dark: number; light: number } | number => {
-    switch (color) {
-      case "red":
-        return { dark: 5, light: 5 };
-      case "zinc":
-        return { dark: 1, light: 9 };
-      default:
-        return { dark: 6, light: 6 };
-    }
-  };
+
 
   const mantineColorButtons = baseColors.map((color) => (
     <Button
@@ -74,7 +63,7 @@ function Customizer() {
         setTheme((currentTheme) => ({
           ...currentTheme,
           primaryColor: color.id,
-          primaryShade: getPrimaryShade(color.id) as MantineColorShade,
+          primaryShade: color?.primaryShade as unknown as MantineColorShade,
         }));
       }}
     >
