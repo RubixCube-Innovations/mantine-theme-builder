@@ -49,7 +49,7 @@ export const darkColors = generateColorPalette("dark", [
   "#f4f4f5",
   "#e4e4e7",
   "#1e293b", 
-  "#1e293b", //correct
+  "#27272a", //correct
   "#71717a",
   "#09090b", //correct
   "#27272a",
