@@ -1,5 +1,28 @@
-import { Card, Container, createTheme, CSSVariablesResolver, mergeThemeOverrides, Paper, rem } from "@mantine/core";
-import { amberColors, blueColors, darkColors, grayColors, greenColors, neutralColors, orangeColors, redColors, roseColors, slateColors, stoneColors, violetColors, yellowColors, zincColors } from "./utils/colors";
+import {
+  Card,
+  Container,
+  createTheme,
+  CSSVariablesResolver,
+  mergeThemeOverrides,
+  Paper,
+  rem,
+} from "@mantine/core";
+import {
+  amberColors,
+  blueColors,
+  darkColors,
+  grayColors,
+  greenColors,
+  neutralColors,
+  orangeColors,
+  redColors,
+  roseColors,
+  slateColors,
+  stoneColors,
+  violetColors,
+  yellowColors,
+  zincColors,
+} from "./utils/colors";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem(200),
@@ -15,11 +38,11 @@ const CONTAINER_SIZES: Record<string, string> = {
 const common = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
-    "xs": rem("12px"),
-    "sm": rem("14px"),
-    "md": rem("16px"),
-    "lg": rem("18px"),
-    "xl": rem("20px"),
+    xs: rem("12px"),
+    sm: rem("14px"),
+    md: rem("16px"),
+    lg: rem("18px"),
+    xl: rem("20px"),
     "2xl": rem("24px"),
     "3xl": rem("30px"),
     "4xl": rem("36px"),
@@ -27,11 +50,11 @@ const common = createTheme({
   },
   spacing: {
     "2xs": rem("8px"),
-    "xs": rem("10px"),
-    "sm": rem("12px"),
-    "md": rem("16px"),
-    "lg": rem("20px"),
-    "xl": rem("24px"),
+    xs: rem("10px"),
+    sm: rem("12px"),
+    md: rem("16px"),
+    lg: rem("20px"),
+    xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
   },
@@ -40,14 +63,13 @@ const common = createTheme({
     Container: Container.extend({
       vars: (_, { size, fluid }) => ({
         root: {
-          '--container-size': fluid
-            ? '100%'
+          "--container-size": fluid
+            ? "100%"
             : size !== undefined && size in CONTAINER_SIZES
             ? CONTAINER_SIZES[size]
             : rem(size),
         },
       }),
-     
     }),
     Paper: Paper.extend({
       defaultProps: {
@@ -65,6 +87,11 @@ const common = createTheme({
         radius: "md",
         withBorder: true,
       },
+      styles: (theme) => ({
+        root: {
+          backgroundColor: theme?.other?.cardBg,
+        },
+      }),
     }),
   },
 });
@@ -75,7 +102,6 @@ const mantine = createTheme({
     style: "mantine",
   },
 });
-
 
 const shadcn = createTheme({
   /** Put your shadcn theme override here */
@@ -165,14 +191,13 @@ const shadcn = createTheme({
   cursorType: "pointer",
   other: {
     style: "shadcn",
+    cardBg: "var(--mantine-color-white)",
   },
-
 });
 
 export const mantineTheme = mergeThemeOverrides(common, mantine);
 
 export const shadcnTheme = mergeThemeOverrides(common, shadcn);
-
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   variables: {
@@ -182,7 +207,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     // variables for light color scheme only
     "--mantine-color-body": theme.white,
     "--mantine-color-default-color": theme?.black,
-    "--mantine-primary-color-contrast": theme.white,
+    // "--mantine-primary-color-contrast": theme.white,
     "--mantine-color-default-border": theme.colors.dark[2],
   },
   dark: {
@@ -191,8 +216,9 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-placeholder": theme?.white,
     "--mantine-color-white": "var(--mantine-primary-color-contrast)",
     "--mantine-color-default-color": theme?.white,
-    "--mantine-primary-color-contrast": theme.black,
+    // "--mantine-primary-color-contrast": theme.black,
     "--mantine-color-default-border": theme.colors.dark[7],
+    "--mantine-color-bright": theme?.white,
   },
 });
 
@@ -202,11 +228,8 @@ export const mantineCssVariableResolver: CSSVariablesResolver = () => ({
   },
   light: {
     // variables for light color scheme only
-   
   },
   dark: {
     // variables for dark color scheme only
-    
   },
 });
-

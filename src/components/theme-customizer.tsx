@@ -5,6 +5,7 @@ import {
   Group,
   MantineColorShade,
   Popover,
+  rgba,
   SimpleGrid,
   Stack,
   Text,
@@ -48,8 +49,6 @@ function Customizer() {
 
   const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
 
-
-
   const mantineColorButtons = baseColors.map((color) => (
     <Button
       variant={config.color === color.id ? "outline" : "default"}
@@ -64,6 +63,15 @@ function Customizer() {
           ...currentTheme,
           primaryColor: color.id,
           primaryShade: color?.primaryShade as unknown as MantineColorShade,
+          ...(colorScheme === "dark" && {
+            other: {
+              ...currentTheme?.other,
+              cardBg:
+                color?.id === "zinc"
+                  ? "var(--mantine-color-dark-6)"
+                  : rgba("var(--mantine-primary-color-light-hover)", 0.05),
+            },
+          }),
         }));
       }}
     >
