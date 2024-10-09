@@ -14,9 +14,10 @@ import {
 import { MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
-import { useTheme } from "../ThemeContext";
+import { MantineLocalStorageTheme, useTheme } from "../ThemeContext";
 import { mantineTheme, shadcnTheme } from "../theme";
 import { radiusMapping } from "../utils/data";
+import { useLocalStorage } from "@mantine/hooks";
 
 export default function ThemeCustomizer() {
   return (
@@ -41,12 +42,22 @@ export default function ThemeCustomizer() {
 function Customizer() {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
 
+  const [localTheme, setLocalTheme, removeLocalTheme] =
+    useLocalStorage<MantineLocalStorageTheme>({ key: "mantine-theme" });
+
   const { setTheme } = useTheme();
   const [config, setConfig] = React.useState({
     color: MANTINE_DEFAULT_COLORS[0].id,
-    style: "mantine",
+    style: localTheme?.style ?? "mantine",
     radius: 0.5,
   });
+
+  React.useEffect(() => {
+    setConfig({
+      ...config,
+      style: localTheme?.style ?? "mantine",
+    });
+  }, [config, localTheme]);
 
   const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
 
@@ -105,6 +116,7 @@ function Customizer() {
                 ...mantineTheme,
                 primaryColor: MANTINE_DEFAULT_COLORS[0].id,
               });
+              removeLocalTheme();
             }}
           >
             <ResetIcon />
@@ -119,6 +131,7 @@ function Customizer() {
               variant={config.style === "mantine" ? "outline" : "default"}
               size="xs"
               onClick={() => {
+                //TODO: Refactoring needed
                 setConfig({
                   ...config,
                   style: "mantine",
@@ -129,6 +142,7 @@ function Customizer() {
                   ...mantineTheme,
                   primaryColor: MANTINE_DEFAULT_COLORS[0].id,
                 }));
+                setLocalTheme({ style: "mantine" });
               }}
             >
               Mantine
@@ -147,6 +161,7 @@ function Customizer() {
                   ...shadcnTheme,
                   primaryColor: SHADCN_DEFAULT_COLORS[0].id,
                 }));
+                setLocalTheme({ style: "shadcn" });
               }}
             >
               Shadcn
