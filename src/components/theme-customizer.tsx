@@ -16,6 +16,7 @@ import * as React from "react";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
 import { useTheme } from "../ThemeContext";
 import { mantineTheme, shadcnTheme } from "../theme";
+import { radiusMapping } from "../utils/data";
 
 export default function ThemeCustomizer() {
   return (
@@ -159,7 +160,7 @@ function Customizer() {
         <Stack gap="xs">
           <Text size="xs">Radius</Text>
           <SimpleGrid cols={5}>
-            {["0", "0.3", "0.5", "0.75", "1.0"].map((value) => {
+            {["0", "0.375", "0.5", "0.75", "1.0"].map((value: string) => {
               return (
                 <Button
                   variant={
@@ -172,6 +173,10 @@ function Customizer() {
                       ...config,
                       radius: parseFloat(value),
                     });
+                    setTheme((prev) => ({
+                      ...prev,
+                      defaultRadius: radiusMapping[value as string],
+                    }));
                   }}
                 >
                   {value}

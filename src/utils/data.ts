@@ -58,3 +58,11 @@ export const metricData = [
   { average: 239, today: 380 },
   { average: 349, today: 430 },
 ];
+
+export const radiusMapping: { [key: string]: string } = {
+  "0": "none",
+  "0.375": "xs",
+  "0.5": "sm",
+  "0.75": "md",
+  "1.0": "lg",
+};
