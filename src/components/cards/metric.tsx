@@ -1,52 +1,43 @@
-import { Box, Card, Text, Title, useMantineTheme } from "@mantine/core"
-import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts"
-
-const data = [
-    {
-        average: 400,
-        today: 240,
-    },
-    {
-        average: 300,
-        today: 139,
-    },
-    {
-        average: 200,
-        today: 980,
-    },
-    {
-        average: 278,
-        today: 390,
-    },
-    {
-        average: 189,
-        today: 480,
-    },
-    {
-        average: 239,
-        today: 380,
-    },
-    {
-        average: 349,
-        today: 430,
-    },
-]
+import { LineChart } from "@mantine/charts";
+import { Box, Card, Text, Title, useMantineTheme } from "@mantine/core";
+import { ChartTooltip } from "../chart-tooltip";
+import { metricData } from "../../utils/data";
+// import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
 
 export function CardsMetric() {
-    const theme = useMantineTheme()
+  const theme = useMantineTheme();
 
-    return (
-        <Card>
-            <Box pb="md">
-                <Title order={3}>Exercise Minutes</Title>
-                <Text size="sm" c="dimmed">
-                    Your exercise minutes are ahead of where you normally are.
-                </Text>
-            </Box>
-            <Box>
-                <div style={{ height: 200 }}>
-                    <ResponsiveContainer width="100%" height="100%">
-                        <LineChart
+  return (
+    <Card>
+      <Box pb="md">
+        <Title order={3}>Exercise Minutes</Title>
+        <Text size="sm" c="dimmed">
+          Your exercise minutes are ahead of where you normally are.
+        </Text>
+      </Box>
+      <Box>
+        <div style={{ height: 200 }}>
+          <LineChart
+            h={200}
+            data={metricData}
+            dataKey="date"
+            series={[
+              { name: "average", color: "var(--mantine-primary-color-light)" },
+              { name: "today", color: theme?.primaryColor },
+            ]}
+            tickLine="none"
+            gridAxis="none"
+            withXAxis={false}
+            withYAxis={false}
+            tooltipProps={{
+              content: ({ label, payload }) => (
+                <ChartTooltip label={label} payload={payload} />
+              ),
+            }}
+          />
+
+          {/* <ResponsiveContainer width="100%" height="100%"> 
+           <LineChart
                             data={data}
                             margin={{
                                 top: 5,
@@ -114,10 +105,11 @@ export function CardsMetric() {
                                     } as React.CSSProperties
                                 }
                             />
-                        </LineChart>
-                    </ResponsiveContainer>
-                </div>
-            </Box>
-        </Card>
-    )
+            
+          </ResponsiveContainer>
+                        </LineChart> */}
+        </div>
+      </Box>
+    </Card>
+  );
 }
