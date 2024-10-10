@@ -14,10 +14,16 @@ import {
 import { MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
-import { MantineLocalStorageTheme, useTheme } from "../ThemeContext";
+import { useTheme } from "../ThemeContext";
 import { mantineTheme, shadcnTheme } from "../theme";
 import { radiusMapping } from "../utils/data";
 import { useLocalStorage } from "@mantine/hooks";
+
+export interface IThemeConfig {
+  style: string;
+  color: string;
+  radius: number;
+}
 
 export default function ThemeCustomizer() {
   return (
@@ -40,26 +46,28 @@ export default function ThemeCustomizer() {
 }
 
 function Customizer() {
-  const { colorScheme, setColorScheme } = useMantineColorScheme();
-
-  const [localTheme, setLocalTheme, removeLocalTheme] =
-    useLocalStorage<MantineLocalStorageTheme>({ key: "mantine-theme" });
-
   const { setTheme } = useTheme();
-  const [config, setConfig] = React.useState({
+  const { colorScheme, setColorScheme } = useMantineColorScheme();
+  
+  const [localThemeConfig, setLocalThemeConfig, removeLocalThemeConfig] =
+  useLocalStorage<IThemeConfig>({ key: "mantine-theme" });
+  
+  const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
+  const [config, setConfig] = React.useState<IThemeConfig>(localThemeConfig || {
+    style: "mantine",
     color: MANTINE_DEFAULT_COLORS[0].id,
-    style: localTheme?.style ?? "mantine",
-    radius: 0.5,
+    radius: 0.75,
   });
 
-  React.useEffect(() => {
-    setConfig({
-      ...config,
-      style: localTheme?.style ?? "mantine",
-    });
-  }, [config, localTheme]);
 
-  const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
+  React.useEffect(() => {
+    if (config.style === "shadcn") {
+      setBaseColors(SHADCN_DEFAULT_COLORS);
+    } else {
+      setBaseColors(MANTINE_DEFAULT_COLORS);
+    }
+  }
+  , [config.style]);
 
   const mantineColorButtons = baseColors.map((color) => (
     <Button
@@ -67,10 +75,12 @@ function Customizer() {
       leftSection={<ColorSwatch size={20} color={color.color} />}
       key={color.id}
       onClick={() => {
-        setConfig({
+        const updatedConfig = {
           ...config,
           color: color.id,
-        });
+        }
+        setConfig(updatedConfig);
+        setLocalThemeConfig(updatedConfig);
         setTheme((currentTheme) => ({
           ...currentTheme,
           primaryColor: color.id,
@@ -116,7 +126,7 @@ function Customizer() {
                 ...mantineTheme,
                 primaryColor: MANTINE_DEFAULT_COLORS[0].id,
               });
-              removeLocalTheme();
+              removeLocalThemeConfig();
             }}
           >
             <ResetIcon />
@@ -132,17 +142,18 @@ function Customizer() {
               size="xs"
               onClick={() => {
                 //TODO: Refactoring needed
-                setConfig({
+                const updatedConfig = {
                   ...config,
                   style: "mantine",
                   color: MANTINE_DEFAULT_COLORS[0].id,
-                });
-                setBaseColors(MANTINE_DEFAULT_COLORS);
+                }
+                setConfig(updatedConfig);
+                setLocalThemeConfig(updatedConfig);
                 setTheme(() => ({
                   ...mantineTheme,
                   primaryColor: MANTINE_DEFAULT_COLORS[0].id,
                 }));
-                setLocalTheme({ style: "mantine" });
+               
               }}
             >
               Mantine
@@ -151,17 +162,18 @@ function Customizer() {
               variant={config.style === "shadcn" ? "outline" : "default"}
               size="xs"
               onClick={() => {
-                setConfig({
+                const updatedConfig = {
                   ...config,
                   style: "shadcn",
                   color: SHADCN_DEFAULT_COLORS[0].id,
-                });
-                setBaseColors(SHADCN_DEFAULT_COLORS);
+                }
+                setConfig(updatedConfig);
+                setLocalThemeConfig(updatedConfig);
                 setTheme(() => ({
                   ...shadcnTheme,
                   primaryColor: SHADCN_DEFAULT_COLORS[0].id,
                 }));
-                setLocalTheme({ style: "shadcn" });
+                
               }}
             >
               Shadcn
@@ -184,10 +196,12 @@ function Customizer() {
                   size="xs"
                   key={value}
                   onClick={() => {
-                    setConfig({
+                    const updatedConfig = {
                       ...config,
                       radius: parseFloat(value),
-                    });
+                    }
+                    setConfig(updatedConfig);
+                    setLocalThemeConfig(updatedConfig);
                     setTheme((prev) => ({
                       ...prev,
                       defaultRadius: radiusMapping[value as string],

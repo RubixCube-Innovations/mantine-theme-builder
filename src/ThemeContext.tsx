@@ -1,13 +1,13 @@
 // ThemeContext.tsx
-import React, { createContext, useState, useContext } from "react";
 import { MantineProvider, MantineThemeOverride } from "@mantine/core";
+import { readLocalStorageValue } from "@mantine/hooks";
+import React, { createContext, useContext, useState } from "react";
+import { IThemeConfig } from "./components/theme-customizer";
 import {
   mantineCssVariableResolver,
-  mantineTheme,
-  shadcnCssVariableResolver,
-  shadcnTheme,
+  shadcnCssVariableResolver
 } from "./theme";
-import { readLocalStorageValue } from "@mantine/hooks";
+import { getBasePrimaryShade, getBaseTheme } from "./utils/functions";
 
 // Define the shape of the context
 interface ThemeContextType {
@@ -17,10 +17,6 @@ interface ThemeContextType {
 
 // Create the context
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-export interface MantineLocalStorageTheme {
-  style: string;
-}
 
 // Custom hook to use the theme context
 export const useTheme = () => {
@@ -35,15 +31,20 @@ export const useTheme = () => {
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const localStorageTheme = readLocalStorageValue<MantineLocalStorageTheme>({
+  const localStorageTheme = readLocalStorageValue<IThemeConfig>({
     key: "mantine-theme",
   });
 
-  const [theme, setTheme] = useState<MantineThemeOverride>(
-    !localStorageTheme || localStorageTheme?.style === "mantine"
-      ? mantineTheme
-      : shadcnTheme
-  );
+  const [theme, setTheme] = useState<MantineThemeOverride>(() => {
+    const baseTheme = getBaseTheme(localStorageTheme?.style);
+    const primaryShade = getBasePrimaryShade(localStorageTheme.style, localStorageTheme?.color);
+    return {
+      ...baseTheme,
+      primaryColor: localStorageTheme?.color,
+      primaryShade: primaryShade,
+      defaultRadius: localStorageTheme?.radius,
+    };
+  });
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
