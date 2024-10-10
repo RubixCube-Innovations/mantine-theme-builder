@@ -22,7 +22,7 @@ import { useLocalStorage } from "@mantine/hooks";
 export interface IThemeConfig {
   style: string;
   color: string;
-  radius: number;
+  radius: string;
 }
 
 export default function ThemeCustomizer() {
@@ -53,21 +53,27 @@ function Customizer() {
   useLocalStorage<IThemeConfig>({ key: "mantine-theme" });
   
   const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
-  const [config, setConfig] = React.useState<IThemeConfig>(localThemeConfig || {
+  const [config, setConfig] = React.useState<IThemeConfig>({
     style: "mantine",
     color: MANTINE_DEFAULT_COLORS[0].id,
-    radius: 0.75,
+    radius: "md",
   });
 
+  console.log("localThemeConfig", localThemeConfig);
+  console.log('config', config)
 
   React.useEffect(() => {
-    if (config.style === "shadcn") {
-      setBaseColors(SHADCN_DEFAULT_COLORS);
-    } else {
-      setBaseColors(MANTINE_DEFAULT_COLORS);
+    if (localThemeConfig){
+      setConfig(localThemeConfig);
+
+      if (localThemeConfig?.style === "shadcn") {
+        setBaseColors(SHADCN_DEFAULT_COLORS);
+      } else {
+        setBaseColors(MANTINE_DEFAULT_COLORS);
+      }
     }
   }
-  , [config.style]);
+  , [localThemeConfig]);
 
   const mantineColorButtons = baseColors.map((color) => (
     <Button
@@ -120,7 +126,7 @@ function Customizer() {
                 ...config,
                 color: MANTINE_DEFAULT_COLORS[0].id,
                 style: "mantine",
-                radius: 0.5,
+                radius: "md",
               });
               setTheme({
                 ...mantineTheme,
@@ -187,24 +193,24 @@ function Customizer() {
         <Stack gap="xs">
           <Text size="xs">Radius</Text>
           <SimpleGrid cols={5}>
-            {["0", "0.375", "0.5", "0.75", "1.0"].map((value: string) => {
+            {["0", "xs", "sm", "md", "lg", "xl"].map((value: string) => {
               return (
                 <Button
                   variant={
-                    config.radius === parseFloat(value) ? "outline" : "default"
+                    config.radius === value ? "outline" : "default"
                   }
                   size="xs"
                   key={value}
                   onClick={() => {
                     const updatedConfig = {
                       ...config,
-                      radius: parseFloat(value),
+                      radius: value,
                     }
                     setConfig(updatedConfig);
                     setLocalThemeConfig(updatedConfig);
                     setTheme((prev) => ({
                       ...prev,
-                      defaultRadius: radiusMapping[value as string],
+                      defaultRadius: value,
                     }));
                   }}
                 >
