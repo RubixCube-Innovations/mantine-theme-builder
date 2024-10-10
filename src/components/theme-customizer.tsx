@@ -11,13 +11,12 @@ import {
   Text,
   useMantineColorScheme,
 } from "@mantine/core";
+import { useLocalStorage } from "@mantine/hooks";
 import { MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
-import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
 import { useTheme } from "../ThemeContext";
 import { mantineTheme, shadcnTheme } from "../theme";
-import { radiusMapping } from "../utils/data";
-import { useLocalStorage } from "@mantine/hooks";
+import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
 
 export interface IThemeConfig {
   style: string;
