@@ -143,7 +143,7 @@ function Customizer() {
 
           <SimpleGrid cols={3}>
             <Button
-              variant={config.style === "mantine" ? "outline" : "default"}
+              variant={config?.style === "mantine" ? "outline" : "default"}
               size="xs"
               onClick={() => {
                 //TODO: Refactoring needed
@@ -164,7 +164,7 @@ function Customizer() {
               Mantine
             </Button>
             <Button
-              variant={config.style === "shadcn" ? "outline" : "default"}
+              variant={config?.style === "shadcn" ? "outline" : "default"}
               size="xs"
               onClick={() => {
                 const updatedConfig = {

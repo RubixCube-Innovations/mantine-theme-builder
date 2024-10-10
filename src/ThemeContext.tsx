@@ -37,7 +37,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const [theme, setTheme] = useState<MantineThemeOverride>(() => {
     const baseTheme = getBaseTheme(localStorageTheme?.style);
-    const primaryShade = getBasePrimaryShade(localStorageTheme.style, localStorageTheme?.color);
+    const primaryShade = getBasePrimaryShade(localStorageTheme?.style, localStorageTheme?.color);
     return {
       ...baseTheme,
       primaryColor: localStorageTheme?.color,
