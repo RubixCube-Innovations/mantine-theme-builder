@@ -26,7 +26,7 @@ export const zincColors: ColorPalette = [
   "#52525b",
   "#3f3f46",
   "#27272a", // card dark border color
-  "#18181b",
+  "#18181b", // button text color
   "#09090b", // card dark background
 ];
 
@@ -200,11 +200,11 @@ export const amberColors: ColorPalette = [
 ];
 
 export const SHADCN_DEFAULT_COLORS = [
-  { id: "zinc", name: "Zinc", color: "#71717A", colorPalette: zincColors, primaryShade: { light: 8, dark: 0 } },
-  { id: "slate", name: "Slate", color: "#64748B", colorPalette: slateColors, primaryShade: { light: 8, dark: 0 } },
-  { id: "stone", name: "Stone", color: "#78716C", colorPalette: stoneColors, primaryShade: { light: 8, dark: 0 } },
-  { id: "gray", name: "Gray", color: "#6B7280", colorPalette: grayColors, primaryShade: { light: 8, dark: 0 } },
-  { id: "neutral", name: "Neutral", color: "#737373", colorPalette: neutralColors, primaryShade: { light: 8, dark: 0 } },
+  { id: "zinc", name: "Zinc", color: "#71717A", colorPalette: zincColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: { light: 1, dark: 7} },
+  { id: "slate", name: "Slate", color: "#64748B", colorPalette: slateColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: {light: 8, dark: 7} },
+  { id: "stone", name: "Stone", color: "#78716C", colorPalette: stoneColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: {light: 1, dark: 7} },
+  { id: "gray", name: "Gray", color: "#6B7280", colorPalette: grayColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: {light: 1, dark: 7} },
+  { id: "neutral", name: "Neutral", color: "#737373", colorPalette: neutralColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: {light: 1, dark: 7} },
   { id: "red", name: "Red", color: "#EF4444", colorPalette: redColors, primaryShade: { light: 5, dark: 5 } },
   { id: "rose", name: "Rose", color: "#F43F5E", colorPalette: roseColors, primaryShade: { light: 5, dark: 5 } },
   { id: "orange", name: "Orange", color: "#F97316", colorPalette: orangeColors, primaryShade: { light: 5, dark: 6 } },

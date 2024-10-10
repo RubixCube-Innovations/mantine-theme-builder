@@ -48,3 +48,21 @@ export const barChartData = [
   { month: "May", Smartphones: 800, Laptops: 1400, Tablets: 1200 },
   { month: "June", Smartphones: 750, Laptops: 600, Tablets: 1000 },
 ];
+
+export const metricData = [
+  { average: 400, today: 240 },
+  { average: 300, today: 139 },
+  { average: 200, today: 980 },
+  { average: 278, today: 390 },
+  { average: 189, today: 480 },
+  { average: 239, today: 380 },
+  { average: 349, today: 430 },
+];
+
+export const radiusMapping: { [key: string]: string } = {
+  "0": "none",
+  "0.375": "xs",
+  "0.5": "sm",
+  "0.75": "md",
+  "1.0": "lg",
+};

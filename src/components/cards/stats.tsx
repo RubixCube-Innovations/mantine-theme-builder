@@ -38,7 +38,7 @@ const data = [
 
 export function CardsStats() {
   return (
-    <SimpleGrid cols={{lg:2}}>
+    <SimpleGrid cols={{ lg: 2 }}>
       <Card>
         <Box>
           <Text size="sm">Total Revenue</Text>
@@ -61,6 +61,7 @@ export function CardsStats() {
               gridAxis="none"
               withXAxis={false}
               withYAxis={false}
+              lineProps={{ isAnimationActive: true, dataKey: "revenue" }}
             />
           </Box>
         </Box>
@@ -83,9 +84,10 @@ export function CardsStats() {
               dataKey="revenue"
               series={[{ name: "subscription" }]}
               tickLine="none"
-      gridAxis="none"
-      withXAxis={false}
-      withYAxis={false}
+              gridAxis="none"
+              withXAxis={false}
+              withYAxis={false}
+              barProps={{ isAnimationActive: true, dataKey: "subscription" }}
             />
           </Box>
         </Box>

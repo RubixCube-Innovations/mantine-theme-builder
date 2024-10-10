@@ -22,7 +22,7 @@ export function CardsTeamMembers() {
                         </Group>
                         <Popover width={200} position="bottom-end" withArrow shadow="md">
                             <Popover.Target>
-                                <Button variant="outline" size="xs" rightSection={<ChevronDownIcon />}>
+                                <Button variant="default" size="xs" rightSection={<ChevronDownIcon />}>
                                     Owner
                                 </Button>
                             </Popover.Target>
@@ -52,7 +52,7 @@ export function CardsTeamMembers() {
                         </Group>
                         <Popover width={200} position="bottom-end" withArrow shadow="md">
                             <Popover.Target>
-                                <Button variant="outline" size="xs" rightSection={<ChevronDownIcon />}>
+                                <Button variant="default" size="xs" rightSection={<ChevronDownIcon />}>
                                     Member
                                 </Button>
                             </Popover.Target>
@@ -82,7 +82,7 @@ export function CardsTeamMembers() {
                         </Group>
                         <Popover width={200} position="bottom-end" withArrow shadow="md">
                             <Popover.Target>
-                                <Button variant="outline" size="xs" rightSection={<ChevronDownIcon />}>
+                                <Button variant="default" size="xs" rightSection={<ChevronDownIcon />}>
                                     Member
                                 </Button>
                             </Popover.Target>

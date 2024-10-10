@@ -1,5 +1,28 @@
-import { Card, Container, createTheme, CSSVariablesResolver, mergeThemeOverrides, Paper, rem } from "@mantine/core";
-import { amberColors, blueColors, darkColors, grayColors, greenColors, neutralColors, orangeColors, redColors, roseColors, slateColors, stoneColors, violetColors, yellowColors, zincColors } from "./utils/colors";
+import {
+  Card,
+  Container,
+  createTheme,
+  CSSVariablesResolver,
+  mergeThemeOverrides,
+  Paper,
+  rem,
+} from "@mantine/core";
+import {
+  amberColors,
+  blueColors,
+  darkColors,
+  grayColors,
+  greenColors,
+  neutralColors,
+  orangeColors,
+  redColors,
+  roseColors,
+  slateColors,
+  stoneColors,
+  violetColors,
+  yellowColors,
+  zincColors,
+} from "./utils/colors";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem(200),
@@ -15,11 +38,11 @@ const CONTAINER_SIZES: Record<string, string> = {
 const common = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
-    "xs": rem("12px"),
-    "sm": rem("14px"),
-    "md": rem("16px"),
-    "lg": rem("18px"),
-    "xl": rem("20px"),
+    xs: rem("12px"),
+    sm: rem("14px"),
+    md: rem("16px"),
+    lg: rem("18px"),
+    xl: rem("20px"),
     "2xl": rem("24px"),
     "3xl": rem("30px"),
     "4xl": rem("36px"),
@@ -27,11 +50,11 @@ const common = createTheme({
   },
   spacing: {
     "2xs": rem("8px"),
-    "xs": rem("10px"),
-    "sm": rem("12px"),
-    "md": rem("16px"),
-    "lg": rem("20px"),
-    "xl": rem("24px"),
+    xs: rem("10px"),
+    sm: rem("12px"),
+    md: rem("16px"),
+    lg: rem("20px"),
+    xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
   },
@@ -40,14 +63,13 @@ const common = createTheme({
     Container: Container.extend({
       vars: (_, { size, fluid }) => ({
         root: {
-          '--container-size': fluid
-            ? '100%'
+          "--container-size": fluid
+            ? "100%"
             : size !== undefined && size in CONTAINER_SIZES
             ? CONTAINER_SIZES[size]
             : rem(size),
         },
       }),
-     
     }),
     Paper: Paper.extend({
       defaultProps: {
@@ -65,6 +87,11 @@ const common = createTheme({
         radius: "md",
         withBorder: true,
       },
+      styles: (theme) => ({
+        root: {
+          backgroundColor: theme?.other?.cardBg,
+        },
+      }),
     }),
   },
 });
@@ -75,7 +102,6 @@ const mantine = createTheme({
     style: "mantine",
   },
 });
-
 
 const shadcn = createTheme({
   /** Put your shadcn theme override here */
@@ -93,6 +119,9 @@ const shadcn = createTheme({
     yellow: yellowColors,
     violet: violetColors,
 
+    primary: zincColors,
+
+    // dark: zincColors,
     dark: darkColors,
     error: redColors,
     warning: amberColors,
@@ -102,7 +131,7 @@ const shadcn = createTheme({
   scale: 1,
   white: "#FFFFFF",
   black: zincColors[9],
-  primaryColor: "zinc",
+  primaryColor: "primary",
   primaryShade: { light: 9, dark: 0 },
   autoContrast: true, //TODO: Remove if causing issuing
   luminanceThreshold: 0.3,
@@ -122,14 +151,14 @@ const shadcn = createTheme({
     md: rem("24px"),
     lg: rem("28px"),
   },
-  // breakpoints: { // TODO: Correct breakpoint values
-  //   xs: 0,
-  //   sm: 640,
-  //   md: 768,
-  //   lg: 1024,
-  //   xl: 1280,
-  //   xxl: 1536,
-  // },
+  breakpoints: {
+    // xs: rem(480),
+    // sm: rem(640),
+    // md: rem(768),
+    // lg: rem(1024),
+    // xl: rem(1280),
+    // xxl: rem(1536),
+  },
   headings: {
     fontFamily: "Geist",
     // fontWeight: string;
@@ -154,17 +183,28 @@ const shadcn = createTheme({
     },
   },
   shadows: {
-    //TODO: Correct shadow values
-    // xs: "0px 1px 2px rgba(0, 0, 0, 0.04)",
-    // sm: "0px 2px 4px rgba(0, 0, 0, 0.04)",
-    // md: "0px 4px 8px rgba(0, 0, 0, 0.04)",
-    // lg: "0px 8px 16px rgba(0, 0, 0, 0.04)",
-    // xl: "0px 12px 24px rgba(0, 0, 0, 0.04)",
-    // xxl: "0px 16px 32px rgba(0, 0,0, 0.04)",
+    xs: "0 1px 2px rgba(0, 0, 0, 0.05)",
+    sm: "0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+    md: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)",
+    lg: "0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)",
+    xl: "0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04)",
+    xxl: "0 25px 50px rgba(0, 0, 0, 0.25)",
   },
+  
   cursorType: "pointer",
   other: {
     style: "shadcn",
+    cardBg: "var(--mantine-color-white)",
+  },
+  components: {
+    Card: Card.extend({
+      styles: () => ({
+        root: {
+        
+        },
+      }),
+    }),
+    
   },
 
 });
@@ -173,17 +213,148 @@ export const mantineTheme = mergeThemeOverrides(common, mantine);
 
 export const shadcnTheme = mergeThemeOverrides(common, shadcn);
 
-
 export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   variables: {
-    //  variables that do not depend on color scheme
+    // variables that do not depend on color scheme
   },
   light: {
     // variables for light color scheme only
-    "--mantine-color-body": theme.white,
-    "--mantine-color-default-color": theme?.black,
-    "--mantine-primary-color-contrast": theme.white,
-    "--mantine-color-default-border": theme.colors.dark[2],
+   // variables for light color scheme only
+   "--mantine-color-body": theme.white,
+   "--mantine-color-default-color": theme?.black,
+   // "--mantine-primary-color-contrast": theme.white,
+   "--mantine-color-default-border": theme.colors.dark[2],
+
+    // all variables that depend on lighth color scheme
+    // "--mantine-primary-color-contrast": "var(--mantine-color-white)",
+    // "--mantine-color-bright": "var(--mantine-color-black)",
+    // "--mantine-color-text": "#000",
+    // "--mantine-color-body": "#fff",
+    // "--mantine-color-error": "var(--mantine-color-red-6)",
+    // "--mantine-color-placeholder": "var(--mantine-color-gray-5)",
+    // "--mantine-color-anchor": "var(--mantine-color-blue-6)",
+    // "--mantine-color-default": "var(--mantine-color-white)",
+    // "--mantine-color-default-hover": "var(--mantine-color-gray-0)",
+    // "--mantine-color-default-color": "var(--mantine-color-black)",
+    // "--mantine-color-default-border": "var(--mantine-color-gray-4)",
+    // "--mantine-color-dimmed": "var(--mantine-color-gray-6)",
+
+    // "--mantine-color-dark-text": "var(--mantine-color-dark-filled)",
+    // "--mantine-color-dark-filled": "var(--mantine-color-dark-6)",
+    // "--mantine-color-dark-filled-hover": "var(--mantine-color-dark-7)",
+    // "--mantine-color-dark-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-dark-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-dark-light-color": "var(--mantine-color-dark-6)",
+    // "--mantine-color-dark-outline": "var(--mantine-color-dark-6)",
+    // "--mantine-color-dark-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-zinc-text": "var(--mantine-color-zinc-6)",
+    // "--mantine-color-zinc-filled": "var(--mantine-color-zinc-6)",
+    // "--mantine-color-zinc-filled-hover": "var(--mantine-color-zinc-7)",
+    // "--mantine-color-zinc-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-zinc-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-zinc-light-color": "var(--mantine-color-zinc-6)",
+    // "--mantine-color-zinc-outline": "var(--mantine-color-zinc-6)",
+    // "--mantine-color-zinc-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-slate-text": "var(--mantine-color-slate-6)",
+    // "--mantine-color-slate-filled": "var(--mantine-color-slate-6)",
+    // "--mantine-color-slate-filled-hover": "var(--mantine-color-slate-7)",
+    // "--mantine-color-slate-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-slate-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-slate-light-color": "var(--mantine-color-slate-6)",
+    // "--mantine-color-slate-outline": "var(--mantine-color-slate-6)",
+    // "--mantine-color-slate-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-stone-text": "var(--mantine-color-stone-6)",
+    // "--mantine-color-stone-filled": "var(--mantine-color-stone-6)",
+    // "--mantine-color-stone-filled-hover": "var(--mantine-color-stone-7)",
+    // "--mantine-color-stone-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-stone-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-stone-light-color": "var(--mantine-color-stone-6)",
+    // "--mantine-color-stone-outline": "var(--mantine-color-stone-6)",
+    // "--mantine-color-stone-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-gray-text": "var(--mantine-color-gray-6)",
+    // "--mantine-color-gray-filled": "var(--mantine-color-gray-6)",
+    // "--mantine-color-gray-filled-hover": "var(--mantine-color-gray-7)",
+    // "--mantine-color-gray-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-gray-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-gray-light-color": "var(--mantine-color-gray-6)",
+    // "--mantine-color-gray-outline": "var(--mantine-color-gray-6)",
+    // "--mantine-color-gray-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-neutral-text": "var(--mantine-color-neutral-6)",
+    // "--mantine-color-neutral-filled": "var(--mantine-color-neutral-6)",
+    // "--mantine-color-neutral-filled-hover": "var(--mantine-color-neutral-7)",
+    // "--mantine-color-neutral-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-neutral-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-neutral-light-color": "var(--mantine-color-neutral-6)",
+    // "--mantine-color-neutral-outline": "var(--mantine-color-neutral-6)",
+    // "--mantine-color-neutral-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-red-text": "var(--mantine-color-red-6)",
+    // "--mantine-color-red-filled": "var(--mantine-color-red-6)",
+    // "--mantine-color-red-filled-hover": "var(--mantine-color-red-7)",
+    // "--mantine-color-red-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-red-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-red-light-color": "var(--mantine-color-red-6)",
+    // "--mantine-color-red-outline": "var(--mantine-color-red-6)",
+    // "--mantine-color-red-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-rose-text": "var(--mantine-color-rose-6)",
+    // "--mantine-color-rose-filled": "var(--mantine-color-rose-6)",
+    // "--mantine-color-rose-filled-hover": "var(--mantine-color-rose-7)",
+    // "--mantine-color-rose-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-rose-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-rose-light-color": "var(--mantine-color-rose-6)",
+    // "--mantine-color-rose-outline": "var(--mantine-color-rose-6)",
+    // "--mantine-color-rose-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-orange-text": "var(--mantine-color-orange-6)",
+    // "--mantine-color-orange-filled": "var(--mantine-color-orange-6)",
+    // "--mantine-color-orange-filled-hover": "var(--mantine-color-orange-7)",
+    // "--mantine-color-orange-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-orange-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-orange-light-color": "var(--mantine-color-orange-6)",
+    // "--mantine-color-orange-outline": "var(--mantine-color-orange-6)",
+    // "--mantine-color-orange-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-green-text": "var(--mantine-color-green-6)",
+    // "--mantine-color-green-filled": "var(--mantine-color-green-6)",
+    // "--mantine-color-green-filled-hover": "var(--mantine-color-green-7)",
+    // "--mantine-color-green-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-green-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-green-light-color": "var(--mantine-color-green-6)",
+    // "--mantine-color-green-outline": "var(--mantine-color-green-6)",
+    // "--mantine-color-green-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-blue-text": "var(--mantine-color-blue-6)",
+    // "--mantine-color-blue-filled": "var(--mantine-color-blue-6)",
+    // "--mantine-color-blue-filled-hover": "var(--mantine-color-blue-7)",
+    // "--mantine-color-blue-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-blue-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-blue-light-color": "var(--mantine-color-blue-6)",
+    // "--mantine-color-blue-outline": "var(--mantine-color-blue-6)",
+    // "--mantine-color-blue-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-yellow-text": "var(--mantine-color-yellow-6)",
+    // "--mantine-color-yellow-filled": "var(--mantine-color-yellow-6)",
+    // "--mantine-color-yellow-filled-hover": "var(--mantine-color-yellow-7)",
+    // "--mantine-color-yellow-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-yellow-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-yellow-light-color": "var(--mantine-color-yellow-6)",
+    // "--mantine-color-yellow-outline": "var(--mantine-color-yellow-6)",
+    // "--mantine-color-yellow-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-violet-text": "var(--mantine-color-violet-6)",
+    // "--mantine-color-violet-filled": "var(--mantine-color-violet-6)",
+    // "--mantine-color-violet-filled-hover": "var(--mantine-color-violet-7)",
+    // "--mantine-color-violet-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-violet-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-violet-light-color": "var(--mantine-color-violet-6)",
+    // "--mantine-color-violet-outline": "var(--mantine-color-violet-6)",
+    // "--mantine-color-violet-outline-hover": "rgba(46, 46, 46, 0.05)",
   },
   dark: {
     // variables for dark color scheme only
@@ -191,8 +362,141 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-placeholder": theme?.white,
     "--mantine-color-white": "var(--mantine-primary-color-contrast)",
     "--mantine-color-default-color": theme?.white,
-    "--mantine-primary-color-contrast": theme.black,
+    // "--mantine-primary-color-contrast": theme.black,
     "--mantine-color-default-border": theme.colors.dark[7],
+    "--mantine-color-bright": theme?.white,
+
+    // all variables that depend on dark color scheme
+    // "--mantine-primary-color-contrast": "var(--mantine-color-white)",
+    // "--mantine-color-bright": "var(--mantine-color-white)",
+    // "--mantine-color-text": "var(--mantine-color-dark-0)",
+    // "--mantine-color-body": "var(--mantine-color-dark-7)",
+    // "--mantine-color-error": "var(--mantine-color-red-8)",
+    // "--mantine-color-placeholder": "var(--mantine-color-dark-3)",
+    // "--mantine-color-anchor": "var(--mantine-color-blue-4)",
+    // "--mantine-color-default": "var(--mantine-color-dark-6)",
+    // "--mantine-color-default-hover": "var(--mantine-color-dark-5)",
+    // "--mantine-color-default-color": "var(--mantine-color-white)",
+    // "--mantine-color-default-border": "var(--mantine-color-dark-4)",
+    // "--mantine-color-dimmed": "var(--mantine-color-dark-2)",  
+
+    // "--mantine-color-dark-text": "var(--mantine-color-dark-filled)",
+    // "--mantine-color-dark-filled": "var(--mantine-color-dark-6)",
+    // "--mantine-color-dark-filled-hover": "var(--mantine-color-dark-7)",
+    // "--mantine-color-dark-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-dark-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-dark-light-color": "var(--mantine-color-dark-6)",
+    // "--mantine-color-dark-outline": "var(--mantine-color-dark-6)",
+    // "--mantine-color-dark-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-zinc-text": "var(--mantine-color-zinc-6)",
+    // "--mantine-color-zinc-filled": "var(--mantine-color-zinc-6)",
+    // "--mantine-color-zinc-filled-hover": "var(--mantine-color-zinc-7)",
+    // "--mantine-color-zinc-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-zinc-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-zinc-light-color": "var(--mantine-color-zinc-6)",
+    // "--mantine-color-zinc-outline": "var(--mantine-color-zinc-6)",
+    // "--mantine-color-zinc-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-slate-text": "var(--mantine-color-slate-6)",
+    // "--mantine-color-slate-filled": "var(--mantine-color-slate-6)",
+    // "--mantine-color-slate-filled-hover": "var(--mantine-color-slate-7)",
+    // "--mantine-color-slate-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-slate-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-slate-light-color": "var(--mantine-color-slate-6)",
+    // "--mantine-color-slate-outline": "var(--mantine-color-slate-6)",
+    // "--mantine-color-slate-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-stone-text": "var(--mantine-color-stone-6)",
+    // "--mantine-color-stone-filled": "var(--mantine-color-stone-6)",
+    // "--mantine-color-stone-filled-hover": "var(--mantine-color-stone-7)",
+    // "--mantine-color-stone-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-stone-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-stone-light-color": "var(--mantine-color-stone-6)",
+    // "--mantine-color-stone-outline": "var(--mantine-color-stone-6)",
+    // "--mantine-color-stone-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-gray-text": "var(--mantine-color-gray-6)",
+    // "--mantine-color-gray-filled": "var(--mantine-color-gray-6)",
+    // "--mantine-color-gray-filled-hover": "var(--mantine-color-gray-7)",
+    // "--mantine-color-gray-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-gray-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-gray-light-color": "var(--mantine-color-gray-6)",
+    // "--mantine-color-gray-outline": "var(--mantine-color-gray-6)",
+    // "--mantine-color-gray-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-neutral-text": "var(--mantine-color-neutral-6)",
+    // "--mantine-color-neutral-filled": "var(--mantine-color-neutral-6)",
+    // "--mantine-color-neutral-filled-hover": "var(--mantine-color-neutral-7)",
+    // "--mantine-color-neutral-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-neutral-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-neutral-light-color": "var(--mantine-color-neutral-6)",
+    // "--mantine-color-neutral-outline": "var(--mantine-color-neutral-6)",
+    // "--mantine-color-neutral-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-red-text": "var(--mantine-color-red-6)",
+    // "--mantine-color-red-filled": "var(--mantine-color-red-6)",
+    // "--mantine-color-red-filled-hover": "var(--mantine-color-red-7)",
+    // "--mantine-color-red-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-red-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-red-light-color": "var(--mantine-color-red-6)",
+    // "--mantine-color-red-outline": "var(--mantine-color-red-6)",
+    // "--mantine-color-red-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-rose-text": "var(--mantine-color-rose-6)",
+    // "--mantine-color-rose-filled": "var(--mantine-color-rose-6)",
+    // "--mantine-color-rose-filled-hover": "var(--mantine-color-rose-7)",
+    // "--mantine-color-rose-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-rose-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-rose-light-color": "var(--mantine-color-rose-6)",
+    // "--mantine-color-rose-outline": "var(--mantine-color-rose-6)",
+    // "--mantine-color-rose-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-orange-text": "var(--mantine-color-orange-6)",
+    // "--mantine-color-orange-filled": "var(--mantine-color-orange-6)",
+    // "--mantine-color-orange-filled-hover": "var(--mantine-color-orange-7)",
+    // "--mantine-color-orange-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-orange-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-orange-light-color": "var(--mantine-color-orange-6)",
+    // "--mantine-color-orange-outline": "var(--mantine-color-orange-6)",
+    // "--mantine-color-orange-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-green-text": "var(--mantine-color-green-6)",
+    // "--mantine-color-green-filled": "var(--mantine-color-green-6)",
+    // "--mantine-color-green-filled-hover": "var(--mantine-color-green-7)",
+    // "--mantine-color-green-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-green-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-green-light-color": "var(--mantine-color-green-6)",
+    // "--mantine-color-green-outline": "var(--mantine-color-green-6)",
+    // "--mantine-color-green-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-blue-text": "var(--mantine-color-blue-6)",
+    // "--mantine-color-blue-filled": "var(--mantine-color-blue-6)",
+    // "--mantine-color-blue-filled-hover": "var(--mantine-color-blue-7)",
+    // "--mantine-color-blue-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-blue-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-blue-light-color": "var(--mantine-color-blue-6)",
+    // "--mantine-color-blue-outline": "var(--mantine-color-blue-6)",
+    // "--mantine-color-blue-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-yellow-text": "var(--mantine-color-yellow-6)",
+    // "--mantine-color-yellow-filled": "var(--mantine-color-yellow-6)",
+    // "--mantine-color-yellow-filled-hover": "var(--mantine-color-yellow-7)",
+    // "--mantine-color-yellow-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-yellow-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-yellow-light-color": "var(--mantine-color-yellow-6)",
+    // "--mantine-color-yellow-outline": "var(--mantine-color-yellow-6)",
+    // "--mantine-color-yellow-outline-hover": "rgba(46, 46, 46, 0.05)",
+
+    // "--mantine-color-violet-text": "var(--mantine-color-violet-6)",
+    // "--mantine-color-violet-filled": "var(--mantine-color-violet-6)",
+    // "--mantine-color-violet-filled-hover": "var(--mantine-color-violet-7)",
+    // "--mantine-color-violet-light": "rgba(46, 46, 46, 0.1)",
+    // "--mantine-color-violet-light-hover": "rgba(46, 46, 46, 0.12)",
+    // "--mantine-color-violet-light-color": "var(--mantine-color-violet-6)",
+    // "--mantine-color-violet-outline": "var(--mantine-color-violet-6)",
+    // "--mantine-color-violet-outline-hover": "rgba(46, 46, 46, 0.05)",
+   
   },
 });
 
@@ -202,11 +506,8 @@ export const mantineCssVariableResolver: CSSVariablesResolver = () => ({
   },
   light: {
     // variables for light color scheme only
-   
   },
   dark: {
     // variables for dark color scheme only
-    
   },
 });
-

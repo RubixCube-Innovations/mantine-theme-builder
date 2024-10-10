@@ -109,6 +109,9 @@ export function CardsActivityGoal() {
                         gridAxis="none"
                         withXAxis={false}
                         withYAxis={false}
+                        barProps={() => ({
+                            isAnimationActive: true,
+                        })}
                     />
 
                 </Box>

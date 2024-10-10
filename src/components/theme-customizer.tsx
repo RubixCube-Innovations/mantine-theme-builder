@@ -5,6 +5,7 @@ import {
   Group,
   MantineColorShade,
   Popover,
+  rgba,
   SimpleGrid,
   Stack,
   Text,
@@ -15,6 +16,14 @@ import * as React from "react";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
 import { useTheme } from "../ThemeContext";
 import { mantineTheme, shadcnTheme } from "../theme";
+import { radiusMapping } from "../utils/data";
+import { useLocalStorage } from "@mantine/hooks";
+
+export interface IThemeConfig {
+  style: string;
+  color: string;
+  radius: string;
+}
 
 export default function ThemeCustomizer() {
   return (
@@ -37,18 +46,34 @@ export default function ThemeCustomizer() {
 }
 
 function Customizer() {
-  const { colorScheme, setColorScheme } = useMantineColorScheme();
-
   const { setTheme } = useTheme();
-  const [config, setConfig] = React.useState({
-    color: MANTINE_DEFAULT_COLORS[0].id,
+  const { colorScheme, setColorScheme } = useMantineColorScheme();
+  
+  const [localThemeConfig, setLocalThemeConfig, removeLocalThemeConfig] =
+  useLocalStorage<IThemeConfig>({ key: "mantine-theme" });
+  
+  const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
+  const [config, setConfig] = React.useState<IThemeConfig>({
     style: "mantine",
-    radius: 0.5,
+    color: MANTINE_DEFAULT_COLORS[0].id,
+    radius: "md",
   });
 
-  const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
+  console.log("localThemeConfig", localThemeConfig);
+  console.log('config', config)
 
+  React.useEffect(() => {
+    if (localThemeConfig){
+      setConfig(localThemeConfig);
 
+      if (localThemeConfig?.style === "shadcn") {
+        setBaseColors(SHADCN_DEFAULT_COLORS);
+      } else {
+        setBaseColors(MANTINE_DEFAULT_COLORS);
+      }
+    }
+  }
+  , [localThemeConfig]);
 
   const mantineColorButtons = baseColors.map((color) => (
     <Button
@@ -56,14 +81,25 @@ function Customizer() {
       leftSection={<ColorSwatch size={20} color={color.color} />}
       key={color.id}
       onClick={() => {
-        setConfig({
+        const updatedConfig = {
           ...config,
           color: color.id,
-        });
+        }
+        setConfig(updatedConfig);
+        setLocalThemeConfig(updatedConfig);
         setTheme((currentTheme) => ({
           ...currentTheme,
           primaryColor: color.id,
           primaryShade: color?.primaryShade as unknown as MantineColorShade,
+          ...(colorScheme === "dark" && {
+            other: {
+              ...currentTheme?.other,
+              cardBg:
+                color?.id === "zinc"
+                  ? "var(--mantine-color-dark-6)"
+                  : rgba("var(--mantine-primary-color-light-hover)", 0.05),
+            },
+          }),
         }));
       }}
     >
@@ -90,12 +126,13 @@ function Customizer() {
                 ...config,
                 color: MANTINE_DEFAULT_COLORS[0].id,
                 style: "mantine",
-                radius: 0.5,
+                radius: "md",
               });
               setTheme({
                 ...mantineTheme,
                 primaryColor: MANTINE_DEFAULT_COLORS[0].id,
               });
+              removeLocalThemeConfig();
             }}
           >
             <ResetIcon />
@@ -110,16 +147,19 @@ function Customizer() {
               variant={config.style === "mantine" ? "outline" : "default"}
               size="xs"
               onClick={() => {
-                setConfig({
+                //TODO: Refactoring needed
+                const updatedConfig = {
                   ...config,
                   style: "mantine",
                   color: MANTINE_DEFAULT_COLORS[0].id,
-                });
-                setBaseColors(MANTINE_DEFAULT_COLORS);
+                }
+                setConfig(updatedConfig);
+                setLocalThemeConfig(updatedConfig);
                 setTheme(() => ({
                   ...mantineTheme,
                   primaryColor: MANTINE_DEFAULT_COLORS[0].id,
                 }));
+               
               }}
             >
               Mantine
@@ -128,16 +168,18 @@ function Customizer() {
               variant={config.style === "shadcn" ? "outline" : "default"}
               size="xs"
               onClick={() => {
-                setConfig({
+                const updatedConfig = {
                   ...config,
                   style: "shadcn",
                   color: SHADCN_DEFAULT_COLORS[0].id,
-                });
-                setBaseColors(SHADCN_DEFAULT_COLORS);
+                }
+                setConfig(updatedConfig);
+                setLocalThemeConfig(updatedConfig);
                 setTheme(() => ({
                   ...shadcnTheme,
                   primaryColor: SHADCN_DEFAULT_COLORS[0].id,
                 }));
+                
               }}
             >
               Shadcn
@@ -151,19 +193,25 @@ function Customizer() {
         <Stack gap="xs">
           <Text size="xs">Radius</Text>
           <SimpleGrid cols={5}>
-            {["0", "0.3", "0.5", "0.75", "1.0"].map((value) => {
+            {["0", "xs", "sm", "md", "lg", "xl"].map((value: string) => {
               return (
                 <Button
                   variant={
-                    config.radius === parseFloat(value) ? "outline" : "default"
+                    config.radius === value ? "outline" : "default"
                   }
                   size="xs"
                   key={value}
                   onClick={() => {
-                    setConfig({
+                    const updatedConfig = {
                       ...config,
-                      radius: parseFloat(value),
-                    });
+                      radius: value,
+                    }
+                    setConfig(updatedConfig);
+                    setLocalThemeConfig(updatedConfig);
+                    setTheme((prev) => ({
+                      ...prev,
+                      defaultRadius: value,
+                    }));
                   }}
                 >
                   {value}
