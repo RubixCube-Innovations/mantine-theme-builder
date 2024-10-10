@@ -3,6 +3,8 @@
 
 **Mantine Theme Builder** is an open-source project that lets developers easily create and customize modern themes for Mantine components. Inspired by the shadcn themes, this tool is perfect for developers who want a fast and intuitive way to style their Mantine-based UI.
 
+![image](https://github.com/user-attachments/assets/0b673eec-ed49-4928-a021-5bee7d0ec8e3)
+
 ## Features
 
 - **Customizable Styles**: Choose from a selection of predefined styles to quickly update the look of your UI.
@@ -66,3 +68,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Mantine Style Presets
 - shadcn-like Mantine Themes
 - Mantine Theme Exporter
+- Mantine Theme Generator
+- Mantine Shadcn Themes
+- Shadcn Themes for Mantine
