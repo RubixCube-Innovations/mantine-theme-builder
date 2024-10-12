@@ -98,6 +98,7 @@ const common = createTheme({
 
 const mantine = createTheme({
   /** Put your mantine theme override here */
+  primaryColor: "blue",
   other: {
     style: "mantine",
   },
