@@ -1,4 +1,4 @@
-import { MantinePrimaryShade } from "@mantine/core";
+import { MantinePrimaryShade, MantineThemeOverride } from "@mantine/core";
 import { mantineTheme, shadcnTheme } from "../theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "./colors";
 
@@ -34,4 +34,13 @@ export const getBasePrimaryShade = (style: string | undefined, color: string | u
     return SHADCN_DEFAULT_COLORS.find((item) => item.id === baseColor)?.primaryShade as MantinePrimaryShade;
   }
   return MANTINE_DEFAULT_COLORS.find((item) => item.id === baseColor)?.primaryShade as MantinePrimaryShade;
+};
+
+export const formatThemeObj = (obj: MantineThemeOverride) => {
+  return JSON.stringify(obj, null, 2);
+};
+
+export const handleCopyCode = async (theme: MantineThemeOverride) => {
+  const prettyObject = JSON.stringify(theme, null, 2); // Pretty format with 2 spaces
+  await navigator.clipboard.writeText(prettyObject);
 };

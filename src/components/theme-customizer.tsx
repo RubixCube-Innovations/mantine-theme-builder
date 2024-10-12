@@ -2,6 +2,8 @@ import {
   Box,
   Button,
   ColorSwatch,
+  CopyButton,
+  Flex,
   Group,
   MantineColorShade,
   Popover,
@@ -12,11 +14,12 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
-import { MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
+import { MoonIcon, ResetIcon, SunIcon, MagicWandIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { useTheme } from "../ThemeContext";
 import { mantineTheme, shadcnTheme } from "../theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
+import { formatThemeObj } from "../utils/functions";
 
 export interface IThemeConfig {
   style: string;
@@ -25,6 +28,8 @@ export interface IThemeConfig {
 }
 
 export default function ThemeCustomizer() {
+  const { theme } = useTheme();
+
   return (
     <Group>
       <Popover position="bottom-start">
@@ -37,9 +42,19 @@ export default function ThemeCustomizer() {
         </Popover.Dropdown>
       </Popover>
 
-      <Button variant="subtle" size="sm">
-        Copy Code
-      </Button>
+      <CopyButton value={formatThemeObj(theme)}>
+        {({ copied, copy }) => (
+          <Button variant="subtle" size="sm" onClick={copy}>
+            {copied ? (
+              <Flex align={"center"} gap={"xs"}>
+                <Text>Copied</Text> <MagicWandIcon />
+              </Flex>
+            ) : (
+              <Text>Copy Code</Text>
+            )}
+          </Button>
+        )}
+      </CopyButton>
     </Group>
   );
 }
@@ -47,10 +62,11 @@ export default function ThemeCustomizer() {
 function Customizer() {
   const { setTheme } = useTheme();
   const { colorScheme, setColorScheme } = useMantineColorScheme();
-  
-  const [localThemeConfig, setLocalThemeConfig, removeLocalThemeConfig] =
-  useLocalStorage<IThemeConfig>({ key: "mantine-theme" });
-  
+
+  const [localThemeConfig, setLocalThemeConfig, removeLocalThemeConfig] = useLocalStorage<IThemeConfig>({
+    key: "mantine-theme",
+  });
+
   const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
   const [config, setConfig] = React.useState<IThemeConfig>({
     style: "mantine",
@@ -59,10 +75,10 @@ function Customizer() {
   });
 
   console.log("localThemeConfig", localThemeConfig);
-  console.log('config', config)
+  console.log("config", config);
 
   React.useEffect(() => {
-    if (localThemeConfig){
+    if (localThemeConfig) {
       setConfig(localThemeConfig);
 
       if (localThemeConfig?.style === "shadcn") {
@@ -71,8 +87,7 @@ function Customizer() {
         setBaseColors(MANTINE_DEFAULT_COLORS);
       }
     }
-  }
-  , [localThemeConfig]);
+  }, [localThemeConfig]);
 
   const mantineColorButtons = baseColors.map((color) => (
     <Button
@@ -83,7 +98,7 @@ function Customizer() {
         const updatedConfig = {
           ...config,
           color: color.id,
-        }
+        };
         setConfig(updatedConfig);
         setLocalThemeConfig(updatedConfig);
         setTheme((currentTheme) => ({
@@ -151,14 +166,13 @@ function Customizer() {
                   ...config,
                   style: "mantine",
                   color: MANTINE_DEFAULT_COLORS[0].id,
-                }
+                };
                 setConfig(updatedConfig);
                 setLocalThemeConfig(updatedConfig);
                 setTheme(() => ({
                   ...mantineTheme,
                   primaryColor: MANTINE_DEFAULT_COLORS[0].id,
                 }));
-               
               }}
             >
               Mantine
@@ -171,14 +185,13 @@ function Customizer() {
                   ...config,
                   style: "shadcn",
                   color: SHADCN_DEFAULT_COLORS[0].id,
-                }
+                };
                 setConfig(updatedConfig);
                 setLocalThemeConfig(updatedConfig);
                 setTheme(() => ({
                   ...shadcnTheme,
                   primaryColor: SHADCN_DEFAULT_COLORS[0].id,
                 }));
-                
               }}
             >
               Shadcn
@@ -195,16 +208,14 @@ function Customizer() {
             {["0", "xs", "sm", "md", "lg", "xl"].map((value: string) => {
               return (
                 <Button
-                  variant={
-                    config.radius === value ? "outline" : "default"
-                  }
+                  variant={config.radius === value ? "outline" : "default"}
                   size="xs"
                   key={value}
                   onClick={() => {
                     const updatedConfig = {
                       ...config,
                       radius: value,
-                    }
+                    };
                     setConfig(updatedConfig);
                     setLocalThemeConfig(updatedConfig);
                     setTheme((prev) => ({
