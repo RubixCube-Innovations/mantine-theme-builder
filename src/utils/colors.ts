@@ -1,18 +1,4 @@
-export const MANTINE_DEFAULT_COLORS = [
-  { id: "blue", name: "Blue", color: "#3B82F6", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "gray", name: "Gray", color: "#6B7280", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "red", name: "Red", color: "#EF4444", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "pink", name: "Pink", color: "#F43F5E", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "grape", name: "Grape", color: "#8B5CF6", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "violet", name: "Violet", color: "#8B5CF6", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "indigo", name: "Indigo", color: "#6366F1", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "cyan", name: "Cyan", color: "#22D3EE", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "teal", name: "Teal", color: "#14B8A6", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "green", name: "Green", color: "#10B981", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "lime", name: "Lime", color: "#65A30D", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "yellow", name: "Yellow", color: "#F59E0B", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-  { id: "orange", name: "Orange", color: "#F97316", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
-];
+
 type ColorPalette = [string, string, string, string, string, string, string, string, string, string];
 // Note: 500 shade in tailwind color is not included in the color palette except for orange, green and blue
 // Color shades in tailwind are 50, 100, 200, 300, 400, 600, 700, 800, 900, 950
@@ -212,4 +198,20 @@ export const SHADCN_DEFAULT_COLORS = [
   { id: "blue", name: "Blue", color: "#3B82F6", colorPalette: blueColors, primaryShade: { light: 6, dark: 5 } },
   { id: "yellow", name: "Yellow", color: "#F59E0B", colorPalette: yellowColors, primaryShade: { light: 4, dark: 4 } },
   { id: "violet", name: "Violet", color: "#8B5CF6", colorPalette: violetColors, primaryShade: { light: 5, dark: 6 } },
+];
+
+export const MANTINE_DEFAULT_COLORS = [
+  { id: "blue", name: "Blue", color: "#3B82F6", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "gray", name: "Gray", color: "#6B7280", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "red", name: "Red", color: "#EF4444", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "pink", name: "Pink", color: "#F43F5E", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "grape", name: "Grape", color: "#8B5CF6", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "violet", name: "Violet", color: "#8B5CF6", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "indigo", name: "Indigo", color: "#6366F1", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "cyan", name: "Cyan", color: "#22D3EE", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "teal", name: "Teal", color: "#14B8A6", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "green", name: "Green", color: "#10B981", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "lime", name: "Lime", color: "#65A30D", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "yellow", name: "Yellow", color: "#F59E0B", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
+  { id: "orange", name: "Orange", color: "#F97316", colorPalette: {}, primaryShade: { light: 6, dark: 6 } },
 ];
