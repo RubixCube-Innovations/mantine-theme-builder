@@ -2,8 +2,6 @@ import {
   Box,
   Button,
   ColorSwatch,
-  CopyButton,
-  Flex,
   Group,
   MantineColorShade,
   Popover,
@@ -14,12 +12,12 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
-import { MoonIcon, ResetIcon, SunIcon, MagicWandIcon } from "@radix-ui/react-icons";
+import { MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { useTheme } from "../ThemeContext";
 import { mantineTheme, shadcnTheme } from "../theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
-import { formatThemeObj } from "../utils/functions";
+import CopyThemeModal from "./modals/copy-modal";
 
 export interface IThemeConfig {
   style: string;
@@ -28,8 +26,6 @@ export interface IThemeConfig {
 }
 
 export default function ThemeCustomizer() {
-  const { theme } = useTheme();
-
   return (
     <Group>
       <Popover position="bottom-start">
@@ -42,19 +38,7 @@ export default function ThemeCustomizer() {
         </Popover.Dropdown>
       </Popover>
 
-      <CopyButton value={formatThemeObj(theme)}>
-        {({ copied, copy }) => (
-          <Button variant="subtle" size="sm" onClick={copy}>
-            {copied ? (
-              <Flex align={"center"} gap={"xs"}>
-                <Text>Copied</Text> <MagicWandIcon />
-              </Flex>
-            ) : (
-              <Text>Copy Code</Text>
-            )}
-          </Button>
-        )}
-      </CopyButton>
+      <CopyThemeModal />
     </Group>
   );
 }
