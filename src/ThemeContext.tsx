@@ -3,10 +3,7 @@ import { MantineProvider, MantineThemeOverride } from "@mantine/core";
 import { readLocalStorageValue } from "@mantine/hooks";
 import React, { createContext, useContext, useState } from "react";
 import { IThemeConfig } from "./components/theme-customizer";
-import {
-  mantineCssVariableResolver,
-  shadcnCssVariableResolver
-} from "./theme";
+import { mantineCssVariableResolver, shadcnCssVariableResolver } from "./theme";
 import { getBasePrimaryShade, getBaseTheme } from "./utils/functions";
 
 // Define the shape of the context
@@ -28,19 +25,18 @@ export const useTheme = () => {
 };
 
 // Theme provider component
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const localStorageTheme = readLocalStorageValue<IThemeConfig>({
     key: "mantine-theme",
   });
 
   const [theme, setTheme] = useState<MantineThemeOverride>(() => {
     const baseTheme = getBaseTheme(localStorageTheme?.style);
-    const primaryShade = getBasePrimaryShade(localStorageTheme?.style, localStorageTheme?.color);
+    const initPrimeColor = localStorageTheme?.color || baseTheme?.primaryColor;
+    const primaryShade = getBasePrimaryShade(localStorageTheme?.style, initPrimeColor);
     return {
       ...baseTheme,
-      primaryColor: localStorageTheme?.color,
+      primaryColor: initPrimeColor,
       primaryShade: primaryShade,
       defaultRadius: localStorageTheme?.radius,
     };
@@ -50,11 +46,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <MantineProvider
         theme={theme}
-        cssVariablesResolver={
-          theme.other?.style === "shadcn"
-            ? shadcnCssVariableResolver
-            : mantineCssVariableResolver
-        }
+        cssVariablesResolver={theme.other?.style === "shadcn" ? shadcnCssVariableResolver : mantineCssVariableResolver}
       >
         {children}
       </MantineProvider>
