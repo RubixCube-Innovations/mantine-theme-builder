@@ -19,7 +19,7 @@ const CopyThemeModal = () => {
   );
 
   const title = (
-    <Flex align={"center"} gap={"3xs"}>
+    <Flex align={"center"} gap={"2xs"}>
       <Title size="h5">Current Theme</Title>
       {copyCode}
     </Flex>
