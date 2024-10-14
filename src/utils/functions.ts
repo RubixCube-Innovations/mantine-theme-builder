@@ -36,8 +36,39 @@ export const getBasePrimaryShade = (style: string | undefined, color: string | u
   return MANTINE_DEFAULT_COLORS.find((item) => item.id === baseColor)?.primaryShade as MantinePrimaryShade;
 };
 
+// Helper function to recursively replace all matching values
+const replaceCalcWithRem = (value: string) => {
+  // Regex to match the pattern calc(<dynamic_value>rem * var(--mantine-scale))
+  const regex = /calc\(([\d.]+)rem \* var\(--mantine-scale\)\)/;
+
+  // If the value is a string and matches the regex pattern
+  if (typeof value === "string" && regex.test(value)) {
+    // Replace with rem(<dynamic_value>)
+    return value.replace(regex, (match, dynamicValue) => `rem(${dynamicValue})`);
+  }
+
+  // Return the value if no match is found
+  return value;
+};
+
+// Recursively walk through theme object and replace values matching the pattern
+const traverseAndReplace = (obj: { [key: string]: unknown }) => {
+  const result: { [key: string]: unknown } = {};
+  for (const key in obj) {
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      // If the value is an object or array, recursively apply the function
+      result[key] = traverseAndReplace(obj[key] as { [key: string]: unknown });
+    } else {
+      // Otherwise, replace the value if it matches the pattern
+      result[key] = replaceCalcWithRem(obj[key] as string);
+    }
+  }
+  return result;
+};
+
 export const formatThemeObj = (obj: MantineThemeOverride) => {
-  return JSON.stringify(obj, null, 2);
+  // return JSON.stringify(obj, null, 2);
+  return JSON.stringify(traverseAndReplace(obj), null, 2);
 };
 
 export const handleCopyCode = async (theme: MantineThemeOverride) => {
