@@ -1,5 +1,5 @@
 import { MantinePrimaryShade, MantineThemeOverride } from "@mantine/core";
-import { mantineTheme, shadcnTheme } from "../theme";
+import { mantineCssVariableResolver, mantineTheme, shadcnCssVariableResolver, shadcnTheme } from "../theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "./colors";
 
 /**
@@ -71,7 +71,17 @@ export const formatThemeObj = (obj: MantineThemeOverride) => {
   return JSON.stringify(traverseAndReplace(obj), null, 2);
 };
 
+export const formatCssVariable = (obj: any) => {
+  return JSON.stringify(obj, null, 2);
+};
+
 export const handleCopyCode = async (theme: MantineThemeOverride) => {
   const prettyObject = JSON.stringify(theme, null, 2); // Pretty format with 2 spaces
   await navigator.clipboard.writeText(prettyObject);
+};
+
+export const getCurrentCSSResolverVariables = (theme: any) => {
+  const cssResolverVars =
+    theme.other?.style === "shadcn" ? shadcnCssVariableResolver(theme) : mantineCssVariableResolver(theme);
+  return cssResolverVars;
 };
