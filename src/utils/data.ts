@@ -6,14 +6,7 @@ export const UserProfileData = {
   job: "Struggling Software Engineer | Tech stack: Javascript, Typescript, React, Nextjs, Nodejs | UI/UX Designer",
 };
 
-export const skills = [
-  "React",
-  "Mantine",
-  "Figma",
-  "Bootstrap",
-  "Typescript",
-  "Sass/SCSS",
-];
+export const skills = ["React", "Mantine", "Figma", "Bootstrap", "Typescript", "Sass/SCSS"];
 
 export const ICON_SIZE = 16;
 
@@ -65,4 +58,10 @@ export const radiusMapping: { [key: string]: string } = {
   "0.5": "sm",
   "0.75": "md",
   "1.0": "lg",
+};
+
+export const themeModalTabs = {
+  createTheme: "createTheme",
+  cssResolver: "cssResolver",
+  // createStyle: "createStyle",
 };
