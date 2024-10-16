@@ -25,7 +25,7 @@ const CopyThemeModal = () => {
           position="left"
           offset={5}
         >
-          <Button variant="transparent" size="sm" onClick={copy} px={"4px"}>
+          <Button variant="subtle" size="sm" onClick={copy} px={"4px"}>
             {copied ? <MagicWandIcon /> : <CopyIcon />}
           </Button>
         </Tooltip>

@@ -85,3 +85,20 @@ export const getCurrentCSSResolverVariables = (theme: any) => {
     theme.other?.style === "shadcn" ? shadcnCssVariableResolver(theme) : mantineCssVariableResolver(theme);
   return cssResolverVars;
 };
+export const getSecondaryPalette = (style: string | undefined, color: string | undefined) => {
+  if(style === "shadcn") {
+    return SHADCN_DEFAULT_COLORS.find((item) => item.id === color)?.secondaryPalette;
+  }
+  return [
+    "#C9C9C9", // dark 0
+    "#b8b8b8", // dark 1
+    "#828282", // dark 2
+    "#696969", // dark 3
+    "#424242", // dark 4
+    "#3b3b3b", // dark 5
+    "#2e2e2e", // dark 6
+    "#242424", // dark 7
+    "#1f1f1f", // dark 8
+    "#141414"  // dark 9
+  ];
+}

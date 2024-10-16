@@ -37,7 +37,7 @@ export function CardsCookieSettings() {
                 </Group>
             </Card.Section>
             <Card.Section p="md">
-                <Button variant="outline" fullWidth>
+                <Button variant="default" fullWidth>
                     Save preferences
                 </Button>
             </Card.Section>

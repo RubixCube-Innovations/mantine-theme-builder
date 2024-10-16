@@ -112,7 +112,7 @@ export function CardsChat() {
           </Group>
           <Tooltip label="New message">
             <ActionIcon
-              variant="outline"
+              variant="default"
               radius={"50%"}
               onClick={() => spotlight.open()}
             >
@@ -172,7 +172,7 @@ export function CardsChat() {
               placeholder="Type your message..."
               style={{ flex: 1 }}
             />
-            <Button type="submit" disabled={inputLength === 0} p={"xs"}>
+            <Button type="submit" variant="primary" disabled={inputLength === 0} p={"xs"}>
               <PaperPlaneIcon
                 width={rem(16)}
                 style={{ transform: "rotate(-45deg)" }}

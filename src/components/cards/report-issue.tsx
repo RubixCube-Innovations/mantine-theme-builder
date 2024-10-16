@@ -65,7 +65,7 @@ export function CardsReportIssue() {
         />
       </Stack>
       <Group justify="space-between" mt="xl">
-        <Button variant="outline">Cancel</Button>
+        <Button variant="default">Cancel</Button>
         <Button>Submit</Button>
       </Group>
     </Card>

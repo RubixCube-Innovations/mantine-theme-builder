@@ -76,7 +76,7 @@ export function CardsActivityGoal() {
 
                 <Group justify="space-between">
                     <ActionIcon
-                        variant="outline"
+                        variant="default"
                         size="md"
                         onClick={() => onClick(-10)}
                         disabled={goal <= 200}
@@ -91,7 +91,7 @@ export function CardsActivityGoal() {
                         </Text>
                     </Box>
                     <ActionIcon
-                        variant="outline"
+                        variant="default"
                         size="md"
                         onClick={() => onClick(10)}
                         disabled={goal >= 400}

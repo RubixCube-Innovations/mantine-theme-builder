@@ -4,6 +4,7 @@ import {
   ColorSwatch,
   Group,
   MantineColorShade,
+  MantineColorsTuple,
   Popover,
   rgba,
   SimpleGrid,
@@ -18,6 +19,7 @@ import { useTheme } from "../ThemeContext";
 import { mantineTheme, shadcnTheme } from "../theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
 import CopyThemeModal from "./modals/copy-modal";
+import { getSecondaryPalette } from "../utils/functions";
 
 export interface IThemeConfig {
   style: string;
@@ -89,15 +91,11 @@ function Customizer() {
           ...currentTheme,
           primaryColor: color.id,
           primaryShade: color?.primaryShade as unknown as MantineColorShade,
-          ...(colorScheme === "dark" && {
-            other: {
-              ...currentTheme?.other,
-              cardBg:
-                color?.id === "zinc"
-                  ? "var(--mantine-color-dark-6)"
-                  : rgba("var(--mantine-primary-color-light-hover)", 0.05),
-            },
-          }),
+          colors: {
+            ...currentTheme?.colors,
+            secondary: getSecondaryPalette(config.style, color.id) as unknown as MantineColorsTuple,
+            dark: getSecondaryPalette(config.style, color.id) as unknown as MantineColorsTuple,
+          },
         }));
       }}
     >
