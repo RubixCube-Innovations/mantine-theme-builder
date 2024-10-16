@@ -1,0 +1,5 @@
+.global-mantine-input {
+  &:focus-within {
+    outline: rem(1px) solid var(--mantine-primary-color-filled) !important;
+  }
+}

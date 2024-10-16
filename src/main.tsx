@@ -8,6 +8,7 @@ import "@mantine/spotlight/styles.css";
 import "./styles/index.css"
 // import "./styles/App.css";
 import "./styles/fonts.css";
+import "./styles/mantine.css";
 
 import { ThemeProvider } from "./ThemeContext.tsx";
 

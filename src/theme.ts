@@ -1,6 +1,5 @@
 import {
   alpha,
-  Button,
   Card,
   Checkbox,
   Container,
@@ -9,17 +8,15 @@ import {
   defaultVariantColorsResolver,
   Divider,
   Input,
-  InputCssVariables,
   mergeThemeOverrides,
   Paper,
-  parseThemeColor,
-  PartialTransformVars,
   Popover,
   rem,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
+
 import {
   amberColors,
   blueColors,
@@ -253,11 +250,10 @@ const shadcn = createTheme({
       }),
     }),
     Input: Input.extend({
-      styles: () => ({
-        input: {
-        
-        },
-      }),
+      classNames: {
+        input: "global-mantine-input",
+
+      },
       vars: () => {
           return {
             input: {
