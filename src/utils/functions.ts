@@ -44,7 +44,7 @@ const replaceCalcWithRem = (value: string) => {
   // If the value is a string and matches the regex pattern
   if (typeof value === "string" && regex.test(value)) {
     // Replace with rem(<dynamic_value>)
-    return value.replace(regex, (match, dynamicValue) => `rem(${dynamicValue})`);
+    return value.replace(regex, (_, dynamicValue) => `rem(${dynamicValue})`);
   }
 
   // Return the value if no match is found
