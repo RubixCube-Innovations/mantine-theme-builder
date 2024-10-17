@@ -1,6 +1,6 @@
 import * as React from "react"
 import { MinusIcon, PlusIcon } from "@radix-ui/react-icons"
-import { ActionIcon, Box, Button, Card, Group, rem, Stack, Text, Title } from "@mantine/core"
+import { ActionIcon, alpha, Box, Button, Card, Group, rem, Stack, Text, Title } from "@mantine/core"
 import { BarChart } from "@mantine/charts"
 
 const data = [
@@ -104,7 +104,7 @@ export function CardsActivityGoal() {
                     <BarChart data={data}
                         h={rem(60)}
                         dataKey="day"
-                        series={[{ name: 'goal' }]}
+                        series={[{ name: 'goal', color: alpha("var(--mantine-primary-color-filled)", 0.2) }]}
                         tickLine="none"
                         gridAxis="none"
                         withXAxis={false}

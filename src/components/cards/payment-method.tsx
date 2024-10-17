@@ -17,7 +17,7 @@ export function CardsPaymentMethod() {
 
   return (
     <Card shadow="sm" padding="lg">
-      <Title order={3}>Payment Method</Title>
+      <Title order={5}>Payment Method</Title>
       <Text c="dimmed" size="sm">
         Add a new payment method to your account.
       </Text>

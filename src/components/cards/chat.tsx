@@ -196,11 +196,12 @@ export function CardsChat() {
         <Spotlight.Search
           size="sm"
           placeholder="Search users..."
+          variant="unstyled"
           leftSection={
             <MagnifyingGlassIcon style={{ width: rem(20), height: rem(20) }} />
           }
         />
-        <Spotlight.ActionsList>
+        <Spotlight.ActionsList style={{borderTop: "1px solid var(--mantine-color-default-border)"}}>
           {items.length > 0 ? (
             items
           ) : (

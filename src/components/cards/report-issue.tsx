@@ -17,7 +17,7 @@ export function CardsReportIssue() {
   return (
     <Card>
       <Card.Section p="md">
-        <Title order={3}>Report an issue</Title>
+        <Title order={5}>Report an issue</Title>
         <Text size="sm" c="dimmed">
           What area are you having problems with?
         </Text>

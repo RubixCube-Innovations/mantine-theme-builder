@@ -32,6 +32,7 @@ import {
   yellowColors,
   zincColors,
 } from "./utils/colors";
+import { Spotlight } from "@mantine/spotlight";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem(200),
@@ -250,9 +251,14 @@ const shadcn = createTheme({
       }),
     }),
     Input: Input.extend({
-      classNames: {
-        input: "global-mantine-input",
+      classNames: (_theme, props) => {
+        if(props.variant !== "unstyled") 
+          return {
+          input: "global-mantine-input",
+          };
 
+        return {
+        };
       },
       vars: () => {
           return {
@@ -321,6 +327,14 @@ const shadcn = createTheme({
         },
       }),
     }),
+    Spotlight: Spotlight.extend({
+      styles: () => ({
+        content: {
+          backgroundColor: "var(--mantine-color-default)",
+          border: "1px solid var(--mantine-color-default-border)",
+        },
+      }),
+    }),
   },
 });
 
@@ -352,7 +366,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     // "--mantine-color-placeholder": "var(--mantine-color-gray-5)",
     // "--mantine-color-anchor": "var(--mantine-color-blue-6)",
     "--mantine-color-default": "var(--mantine-color-white)",
-    // "--mantine-color-default-hover": "var(--mantine-color-gray-0)",
+    "--mantine-color-default-hover": "var(--mantine-color-dark-1)",
     // "--mantine-color-default-color": "var(--mantine-color-black)",
     "--mantine-color-default-border": "var(--mantine-color-dark-2)",
     // "--mantine-color-dimmed": "var(--mantine-color-gray-6)",
@@ -440,7 +454,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     // "--mantine-color-placeholder": "var(--mantine-color-dark-3)",
     // "--mantine-color-anchor": "var(--mantine-color-blue-4)",
     "--mantine-color-default": "var(--mantine-color-dark-9)",
-    // "--mantine-color-default-hover": "var(--mantine-color-dark-5)",
+    "--mantine-color-default-hover": "var(--mantine-color-dark-7)",
     // "--mantine-color-default-color": "var(--mantine-color-white)",
     "--mantine-color-default-border": "var(--mantine-color-dark-7)",
     // "--mantine-color-dimmed": "var(--mantine-color-dark-2)",  

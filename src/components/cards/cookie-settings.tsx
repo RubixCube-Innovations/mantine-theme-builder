@@ -4,7 +4,7 @@ export function CardsCookieSettings() {
     return (
         <Card>
             <Card.Section p="md" pb="xs">
-                <Title order={3}>Cookie Settings</Title>
+                <Title order={5}>Cookie Settings</Title>
                 <Text size="sm" c="dimmed">Manage your cookie settings here.</Text>
             </Card.Section>
             <Card.Section p="md" pt="xs">

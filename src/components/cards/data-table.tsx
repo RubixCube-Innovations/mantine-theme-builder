@@ -189,7 +189,7 @@ export function CardsDataTable() {
     <Card shadow="sm" padding="lg">
       <Stack gap="sm">
         <Box>
-          <Title order={3}>Payments</Title>
+          <Title order={5}>Payments</Title>
           <Text size="sm" c="dimmed">
             Manage your payments.
           </Text>

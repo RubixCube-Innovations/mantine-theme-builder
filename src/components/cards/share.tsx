@@ -4,7 +4,7 @@ export function CardsShare() {
     return (
         <Card>
             <Card.Section p="md"  py="xs">
-                <Title order={3}>Share this document</Title>
+                <Title order={5}>Share this document</Title>
                 <Text size="sm" c="dimmed">
                     Anyone with the link can view this document.
                 </Text>
