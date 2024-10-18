@@ -186,11 +186,11 @@ export const amberColors: ColorPalette = [
 ];
 
 export const SHADCN_DEFAULT_COLORS = [
-  { id: "zinc", name: "Zinc", color: "#71717A", primaryPalette: zincColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: { light: 1, dark: 7}, secondaryPalette: zincColors },
-  { id: "slate", name: "Slate", color: "#64748B", primaryPalette: slateColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: {light: 8, dark: 7}, secondaryPalette: slateColors },
-  { id: "stone", name: "Stone", color: "#78716C", primaryPalette: stoneColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: {light: 1, dark: 7}, secondaryPalette: stoneColors },
-  { id: "gray", name: "Gray", color: "#6B7280", primaryPalette: grayColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: {light: 1, dark: 7}, secondaryPalette: grayColors },
-  { id: "neutral", name: "Neutral", color: "#737373", primaryPalette: neutralColors, primaryShade: { light: 8, dark: 0 }, secondaryShade: {light: 1, dark: 7}, secondaryPalette: neutralColors },
+  { id: "zinc", name: "Zinc", color: "#71717A", primaryPalette: zincColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: zincColors, secondaryShade: { light: 1, dark: 7}, },
+  { id: "slate", name: "Slate", color: "#64748B", primaryPalette: slateColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: slateColors, secondaryShade: {light: 8, dark: 7} },
+  { id: "stone", name: "Stone", color: "#78716C", primaryPalette: stoneColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: stoneColors, secondaryShade: {light: 1, dark: 7} },
+  { id: "gray", name: "Gray", color: "#6B7280", primaryPalette: grayColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: grayColors, secondaryShade: {light: 1, dark: 7} },
+  { id: "neutral", name: "Neutral", color: "#737373", primaryPalette: neutralColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: neutralColors, secondaryShade: {light: 1, dark: 7} },
   { id: "red", name: "Red", color: "#EF4444", primaryPalette: redColors, primaryShade: { light: 5, dark: 5 }, secondaryPalette: neutralColors },
   { id: "rose", name: "Rose", color: "#F43F5E", primaryPalette: roseColors, primaryShade: { light: 5, dark: 5 }, secondaryPalette: zincColors },
   { id: "orange", name: "Orange", color: "#F97316", primaryPalette: orangeColors, primaryShade: { light: 5, dark: 6 }, secondaryPalette: stoneColors },

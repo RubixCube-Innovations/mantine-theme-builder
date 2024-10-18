@@ -117,7 +117,7 @@ export function CardsActivityGoal() {
                 </Box>
 
                 <Box>
-                    <Button w="100%">Set Goal</Button>
+                    <Button w="100%" variant="light">Set Goal</Button>
                 </Box>
             </Stack>
         </Card>
