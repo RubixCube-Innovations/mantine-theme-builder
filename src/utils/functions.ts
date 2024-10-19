@@ -52,7 +52,7 @@ const replaceCalcWithRem = (value: string) => {
 };
 
 // Recursively walk through theme object and replace values matching the pattern
-const traverseAndReplace = (obj: { [key: string]: unknown }) => {
+export const traverseAndReplace = (obj: { [key: string]: unknown }) => {
   const result: { [key: string]: unknown } = {};
   for (const key in obj) {
     if (typeof obj[key] === "object" && obj[key] !== null) {
@@ -68,7 +68,8 @@ const traverseAndReplace = (obj: { [key: string]: unknown }) => {
 
 export const formatThemeObj = (obj: MantineThemeOverride) => {
   // return JSON.stringify(obj, null, 2);
-  return JSON.stringify(traverseAndReplace(obj), null, 2);
+  // return JSON.stringify(traverseAndReplace(obj), null, 2);
+  return convertThemeToObj(obj);
 };
 
 export const formatCssVariable = (obj: any) => {
@@ -86,7 +87,7 @@ export const getCurrentCSSResolverVariables = (theme: any) => {
   return cssResolverVars;
 };
 export const getSecondaryPalette = (style: string | undefined, color: string | undefined) => {
-  if(style === "shadcn") {
+  if (style === "shadcn") {
     return SHADCN_DEFAULT_COLORS.find((item) => item.id === color)?.secondaryPalette;
   }
   return [
@@ -99,6 +100,30 @@ export const getSecondaryPalette = (style: string | undefined, color: string | u
     "#2e2e2e", // dark 6
     "#242424", // dark 7
     "#1f1f1f", // dark 8
-    "#141414"  // dark 9
+    "#141414", // dark 9
   ];
-}
+};
+
+export const convertThemeToObj = (obj: any) => {
+  let ret = "{";
+
+  for (const k in obj) {
+    let v = obj[k];
+
+    if (typeof v === "function") {
+      v = v.toString();
+    } else if (v instanceof Array) {
+      v = JSON.stringify(v);
+    } else if (typeof v === "object") {
+      v = convertThemeToObj(v);
+    } else {
+      v = `"${v}"`;
+    }
+
+    ret += `\n  ${k}: ${v},`;
+  }
+
+  ret += "\n}";
+
+  return ret;
+};
