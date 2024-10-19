@@ -186,18 +186,18 @@ export const amberColors: ColorPalette = [
 ];
 
 export const SHADCN_DEFAULT_COLORS = [
-  { id: "zinc", name: "Zinc", color: "#71717A", primaryPalette: zincColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: zincColors, secondaryShade: { light: 1, dark: 7}, },
-  { id: "slate", name: "Slate", color: "#64748B", primaryPalette: slateColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: slateColors, secondaryShade: {light: 1, dark: 7} },
-  { id: "stone", name: "Stone", color: "#78716C", primaryPalette: stoneColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: stoneColors, secondaryShade: {light: 1, dark: 7} },
-  { id: "gray", name: "Gray", color: "#6B7280", primaryPalette: grayColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: grayColors, secondaryShade: {light: 1, dark: 7} },
-  { id: "neutral", name: "Neutral", color: "#737373", primaryPalette: neutralColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: neutralColors, secondaryShade: {light: 1, dark: 7} },
-  { id: "red", name: "Red", color: "#EF4444", primaryPalette: redColors, primaryShade: { light: 5, dark: 5 }, secondaryPalette: neutralColors, secondaryShade: { light: 1, dark: 7 } },
-  { id: "rose", name: "Rose", color: "#F43F5E", primaryPalette: roseColors, primaryShade: { light: 5, dark: 5 }, secondaryPalette: zincColors, secondaryShade: { light: 1, dark: 7} },
-  { id: "orange", name: "Orange", color: "#F97316", primaryPalette: orangeColors, primaryShade: { light: 5, dark: 6 }, secondaryPalette: stoneColors },
-  { id: "green", name: "Green", color: "#10B981", primaryPalette: greenColors, primaryShade: { light: 6, dark: 5 }, secondaryPalette: zincColors },
-  { id: "blue", name: "Blue", color: "#3B82F6", primaryPalette: blueColors, primaryShade: { light: 6, dark: 5 }, secondaryPalette: slateColors },
-  { id: "yellow", name: "Yellow", color: "#F59E0B", primaryPalette: yellowColors, primaryShade: { light: 4, dark: 4 }, secondaryPalette: stoneColors },
-  { id: "violet", name: "Violet", color: "#8B5CF6", primaryPalette: violetColors, primaryShade: { light: 5, dark: 6 }, secondaryPalette: grayColors },
+  { id: "zinc", name: "Zinc", color: "#71717A", primaryPalette: zincColors, primaryShade: { light: 8, dark: 0 }, secondary: "zinc", secondaryPalette: zincColors },
+  { id: "slate", name: "Slate", color: "#64748B", primaryPalette: slateColors, primaryShade: { light: 8, dark: 0 }, secondary: "slate", secondaryPalette: slateColors },
+  { id: "stone", name: "Stone", color: "#78716C", primaryPalette: stoneColors, primaryShade: { light: 8, dark: 0 }, secondary: "stone", secondaryPalette: stoneColors},
+  { id: "gray", name: "Gray", color: "#6B7280", primaryPalette: grayColors, primaryShade: { light: 8, dark: 0 }, secondary: "gray", secondaryPalette: grayColors },
+  { id: "neutral", name: "Neutral", color: "#737373", primaryPalette: neutralColors, primaryShade: { light: 8, dark: 0 }, secondary: "neutral", secondaryPalette: neutralColors },
+  { id: "red", name: "Red", color: "#EF4444", primaryPalette: redColors, primaryShade: { light: 5, dark: 5 }, secondary: "neutral", secondaryPalette: neutralColors },
+  { id: "rose", name: "Rose", color: "#F43F5E", primaryPalette: roseColors, primaryShade: { light: 5, dark: 5 }, secondary: "zinc", secondaryPalette: zincColors },
+  { id: "orange", name: "Orange", color: "#F97316", primaryPalette: orangeColors, primaryShade: { light: 5, dark: 6 }, secondary: "stone", secondaryPalette: stoneColors },
+  { id: "green", name: "Green", color: "#10B981", primaryPalette: greenColors, primaryShade: { light: 6, dark: 5 }, secondary: 'zinc', secondaryPalette: zincColors },
+  { id: "blue", name: "Blue", color: "#3B82F6", primaryPalette: blueColors, primaryShade: { light: 6, dark: 5 }, secondary: "slate", secondaryPalette: slateColors },
+  { id: "yellow", name: "Yellow", color: "#F59E0B", primaryPalette: yellowColors, primaryShade: { light: 4, dark: 4 }, secondary: "stone", secondaryPalette: stoneColors },
+  { id: "violet", name: "Violet", color: "#8B5CF6", primaryPalette: violetColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },
 ];
 
 export const MANTINE_DEFAULT_COLORS = [

@@ -76,7 +76,8 @@ function Customizer() {
 
   const mantineColorButtons = baseColors.map((color) => (
     <Button
-      variant={config.color === color.id ? "outline" : "default"}
+    variant={"outline"}
+    style={{ borderColor: config.color === color.id ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
       leftSection={<ColorSwatch size={20} color={color.color} />}
       key={color.id}
       onClick={() => {
@@ -139,7 +140,8 @@ function Customizer() {
 
           <SimpleGrid cols={3}>
             <Button
-              variant={config?.style === "mantine" ? "outline" : "default"}
+              variant={"outline"}
+              style={{ borderColor: config.style === "mantine" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
               size="xs"
               onClick={() => {
                 //TODO: Refactoring needed
@@ -159,7 +161,8 @@ function Customizer() {
               Mantine
             </Button>
             <Button
-              variant={config?.style === "shadcn" ? "outline" : "default"}
+              variant={"outline"}
+              style={{ borderColor: config.style === "shadcn" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
               size="xs"
               onClick={() => {
                 const updatedConfig = {
@@ -189,7 +192,8 @@ function Customizer() {
             {["0", "xs", "sm", "md", "lg", "xl"].map((value: string) => {
               return (
                 <Button
-                  variant={config.radius === value ? "outline" : "default"}
+                  variant={"outline"}
+                  style={{ borderColor: config.radius === value ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
                   size="xs"
                   key={value}
                   onClick={() => {
@@ -215,7 +219,8 @@ function Customizer() {
           <Text size="xs">Mode</Text>
           <SimpleGrid cols={3}>
             <Button
-              variant={colorScheme === "light" ? "outline" : "default"}
+              variant={"outline"}
+              style={{ borderColor: colorScheme === "light" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
               size="xs"
               onClick={() => setColorScheme("light")}
             >
@@ -225,7 +230,8 @@ function Customizer() {
               </Group>
             </Button>
             <Button
-              variant={colorScheme === "dark" ? "outline" : "default"}
+                variant={"outline"}
+              style={{ borderColor: colorScheme === "dark" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
               size="xs"
               onClick={() => setColorScheme("dark")}
             >

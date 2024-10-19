@@ -151,66 +151,52 @@ export const convertThemeToObj = (obj: any) => {
 export const getPrimaryContrastColorDay = (color: string) => {
   console.log(color);
   if (color === "zinc" || color === "slate" || color === "stone" || color === "gray" || color === "neutral" || color === "red" || color === "rose") {
-    return SHADCN_DEFAULT_COLORS.find((item) => item.id === color)?.primaryPalette[0] as string;
+    return `var(--mantine-primary-color-0)`
   } 
   else if (color === "orange" || color === "blue" || color === "violet"){
-    return SHADCN_DEFAULT_COLORS.find((item) => item.id === color)?.secondaryPalette[0] as string;
+    return `var(--mantine-color-dark-0)` 
   } 
   else if (color === "green"){
-    return SHADCN_DEFAULT_COLORS.find((item) => item.id === "rose")?.primaryPalette[0] as string;
+    return `var(--mantine-color-rose-0)` 
   }
   else if (color === "yellow"){
     return "#422006";
   }
   else {
-    return "#000000";
+    return `var(--mantine-primary-color-0)`
   }
-};//TODO: convert return value as css variable
+};
 
 
 /**
- * Returns the appropriate text color for a given color in night mode.
+ * Retrieves the text color for a given color identifier based on predefined palettes.
  *
- * This function determines the text color based on the provided color name.
- * It checks the color against predefined categories and returns the corresponding
- * color from the `SHADCN_DEFAULT_COLORS` palette.
- *
- * @param color - The name of the color to get the text color for. 
- *                Supported values are:
- *                - "zinc"
- *                - "slate"
- *                - "stone"
- *                - "gray"
- *                - "neutral"
- *                - "red"
- *                - "rose"
- *                - "orange"
- *                - "violet"
- *                - "blue"
- *                - "green"
- *                - "yellow"
- * @returns The hex code or palette color for the text color in night mode.
+ * @param color - The color identifier to retrieve the text color for. 
+ *                Accepted values are "zinc", "slate", "stone", "gray", "neutral", 
+ *                "red", "rose", "orange", "blue", "violet", "green", and "yellow".
+ * @returns The corresponding text color from the predefined palettes. 
+ *          If the color is "yellow", a specific hex color code is returned.
+ *          If the color is "green", the primary palette color for "rose" is returned.
+ *          Otherwise, the primary or secondary palette color for the given color is returned.
  */
 export const getPrimaryContrastColorNight = (color: string) => {
-  if (color === "zinc" || color === " slate" || color === "stone" || color === "gray" || color === "neutral") {
-    return SHADCN_DEFAULT_COLORS.find((item) => item.id === color)?.primaryPalette[8] as string; //TODO: convert return value as css variable
+  if (color === "zinc" || color === " slate" || color === "stone" || color === "gray" || color === "neutral" || color === "blue") {
+    return `var(--mantine-color-dark-8)`; 
   } 
   else if (color === "red" || color === "rose"){
-    return SHADCN_DEFAULT_COLORS.find((item) => item.id === color)?.primaryPalette[0] as string;
+    return `var(--mantine-primary-color-0)`; 
   }
   else if (color === "orange" || color === "violet"){
-    return SHADCN_DEFAULT_COLORS.find((item) => item.id === color)?.secondaryPalette[0] as string;
+    return `var(--mantine-color-dark-0)`; 
   } 
-  else if (color === "blue"){
-    return SHADCN_DEFAULT_COLORS.find((item) => item.id === color)?.secondaryPalette[8] as string;
-  }
+
   else if (color === "green"){
-    return SHADCN_DEFAULT_COLORS.find((item) => item.id === "green")?.primaryPalette[9] as string;
+    return `var(--mantine-primary-color-9)`; 
   }
   else if (color === "yellow"){
     return "#422006";
   }
   else {
-    return "#000000";
+    return `var(--mantine-color-dark-8)`;
   }
-};//TODO: convert return value as css variable
+};
