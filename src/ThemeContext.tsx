@@ -1,10 +1,10 @@
 // ThemeContext.tsx
-import { MantineProvider, MantineThemeOverride } from "@mantine/core";
+import { MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mantine/core";
 import { readLocalStorageValue } from "@mantine/hooks";
 import React, { createContext, useContext, useState } from "react";
 import { IThemeConfig } from "./components/theme-customizer";
 import { mantineCssVariableResolver, shadcnCssVariableResolver } from "./theme";
-import { getBasePrimaryShade, getBaseTheme } from "./utils/functions";
+import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette } from "./utils/functions";
 
 // Define the shape of the context
 interface ThemeContextType {
@@ -39,6 +39,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       primaryColor: initPrimeColor,
       primaryShade: primaryShade,
       defaultRadius: localStorageTheme?.radius,
+      colors: {
+        ...baseTheme?.colors,
+        secondary: getSecondaryPalette(localStorageTheme?.style, initPrimeColor) as unknown as MantineColorsTuple,
+        dark: getSecondaryPalette(localStorageTheme?.style, initPrimeColor) as unknown as MantineColorsTuple,
+      }
     };
   });
 

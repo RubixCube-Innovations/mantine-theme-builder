@@ -238,6 +238,7 @@ const shadcn = createTheme({
         ...defaultResolvedColors,
         background: "var(--mantine-primary-color-light)",
         hover: "var(--mantine-primary-color-light-hover)",
+        color: "var(--mantine-primary-color-light-color)",
       };
     }
 
@@ -245,7 +246,10 @@ const shadcn = createTheme({
       return {
         ...defaultResolvedColors,
         background: "var(--mantine-color-default)",
-        border: "1px solid var(--mantine-primary-color-filled)",
+        border: "1px solid var(--mantine-color-default-border)",
+        hover: "var(--mantine-color-default-hover)",
+        color: "var(--mantine-color-default-color)",
+        // border: "1px solid var(--mantine-color-default-border)",
       };
     }
 
@@ -377,23 +381,19 @@ const shadcn = createTheme({
       styles: () => ({
         thumb: {
           backgroundColor: "var(--mantine-color-default)",
+          borderColor: "var(--mantine-color-default-border)",
         },
         track: {
           borderColor: "var(--mantine-color-default-border)",
-          "&:focus": {
-            borderColor: "var(--mantine-primary-color-filled)",
-          },
         },
       }),
+          
     }),
     Tooltip: Tooltip.extend({
       styles: () => ({
         tooltip: {
           backgroundColor: "var(--mantine-color-default)",
           border: "1px solid var(--mantine-color-default-border)",
-          "&:focus": {
-            borderColor: "var(--mantine-primary-color-filled)",
-          },
         },
       }),
     }),
@@ -407,7 +407,7 @@ const shadcn = createTheme({
     Code: Code.extend({
       vars: () => ({
         root: {
-          "--code-bg": "var(--mantine-color-zinc-8)",
+          "--code-bg": "var(--mantine-color-dark-filled)",
         },
       }),
       styles: () => ({
@@ -436,102 +436,48 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     // variables that do not depend on color scheme
     "--mantine-heading-font-weight":	"600",
     "--mantine-primary-color-filled-hover": `${alpha("var(--mantine-primary-color-filled)", 0.9)}`,
-    // "--mantine-primary-color-light":	var(--mantine-color-blue-light),
+    "--mantine-primary-color-light":	"var(--mantine-color-dark-light)",
     "--mantine-primary-color-light-hover": `${alpha("var(--mantine-primary-color-light)", 0.8)}`,
-    // "--mantine-primary-color-light-color": "var(--mantine-primary-color-filled)",
+    "--mantine-primary-color-light-color": "var(--mantine-color-dark-light-color)",
   },
   light: {
    // variables for light color scheme only
-
-   "--mantine-color-body": theme.white,
-   "--mantine-color-default-color": theme?.black,
-   // "--mantine-primary-color-contrast": theme.white,
 
     // all variables that depend on lighth color scheme
     // "--mantine-primary-color-contrast": "var(--mantine-color-white)",
     // "--mantine-color-bright": "var(--mantine-color-black)",
     // "--mantine-color-text": "#000",
-    // "--mantine-color-body": "#fff",
+    "--mantine-color-body": theme.white,
     // "--mantine-color-error": "var(--mantine-color-red-6)",
     // "--mantine-color-placeholder": "var(--mantine-color-gray-5)",
     // "--mantine-color-anchor": "var(--mantine-color-blue-6)",
-    "--mantine-color-default": "var(--mantine-color-white)",
-    "--mantine-color-default-hover": "var(--mantine-color-dark-1)",
-    // "--mantine-color-default-color": "var(--mantine-color-black)",
-    "--mantine-color-default-border": "var(--mantine-color-dark-2)",
-    // "--mantine-color-dimmed": "var(--mantine-color-gray-6)",
 
-    // "--mantine-color-dark-text": "var(--mantine-color-dark-filled)",
-    // "--mantine-color-dark-light-color": "var(--mantine-color-dark-6)",
-    // "--mantine-color-dark-outline": "var(--mantine-color-dark-6)",
-    // "--mantine-color-dark-outline-hover": "rgba(46, 46, 46, 0.05)",
+    "--mantine-color-default": "var(--mantine-color-white)", //used as default surface color
+    "--mantine-color-default-hover": "var(--mantine-color-dark-1)", // used as default hover color
+    "--mantine-color-default-color": "var(--mantine-color-dark-9)", // used as default text color
+    "--mantine-color-default-border": "var(--mantine-color-dark-2)", // used as default border color
+    "--mantine-color-dimmed": "var(--mantine-color-dark-10)", // used as dimmed text color
 
-    // "--mantine-color-zinc-text": "var(--mantine-color-zinc-6)",
-    // "--mantine-color-zinc-light-color": "var(--mantine-color-zinc-6)",
-    // "--mantine-color-zinc-outline": "var(--mantine-color-zinc-6)",
-    // "--mantine-color-zinc-outline-hover": "rgba(46, 46, 46, 0.05)",
 
-    // "--mantine-color-slate-text": "var(--mantine-color-slate-6)",
-    // "--mantine-color-slate-light-color": "var(--mantine-color-slate-6)",
-    // "--mantine-color-slate-outline": "var(--mantine-color-slate-6)",
-    // "--mantine-color-slate-outline-hover": "rgba(46, 46, 46, 0.05)",
+    "--mantine-color-dark-filled": "var(--mantine-color-white)", //used as secondary surface color
+    "--mantine-color-dark-filled-hover": "var(--mantine-color-dark-1)", //used as secondary hover color
 
-    // "--mantine-color-stone-text": "var(--mantine-color-stone-6)",
-    // "--mantine-color-stone-light-color": "var(--mantine-color-stone-6)",
-    // "--mantine-color-stone-outline": "var(--mantine-color-stone-6)",
-    // "--mantine-color-stone-outline-hover": "rgba(46, 46, 46, 0.05)",
+    "--mantine-color-dark-light": "var(--mantine-color-dark-1)", //used as primary light color
+    "--mantine-color-dark-light-hover": `${alpha("var(--mantine-color-dark-light)", 0.8)}`, //used as primary light hover color
 
-    // "--mantine-color-gray-text": "var(--mantine-color-gray-6)",
-    // "--mantine-color-gray-light-color": "var(--mantine-color-gray-6)",
-    // "--mantine-color-gray-outline": "var(--mantine-color-gray-6)",
-    // "--mantine-color-gray-outline-hover": "rgba(46, 46, 46, 0.05)",
+    // "--mantine-color-dark-text": "var(--mantine-color-dark-filled)",    
+    "--mantine-color-dark-light-color": "var(--mantine-color-dark-8)", // used as primary light variant's text color
 
-    // "--mantine-color-neutral-text": "var(--mantine-color-neutral-6)",
-    // "--mantine-color-neutral-light-color": "var(--mantine-color-neutral-6)",
-    // "--mantine-color-neutral-outline": "var(--mantine-color-neutral-6)",
-    // "--mantine-color-neutral-outline-hover": "rgba(46, 46, 46, 0.05)",
+    "--mantine-color-dark-outline": "var(--mantine-color-dark-2)",
+    "--mantine-color-dark-outline-hover": "var(--mantine-color-dark-1)",
 
-    // "--mantine-color-red-text": "var(--mantine-color-red-6)",
-    // "--mantine-color-red-light-color": "var(--mantine-color-red-6)",
-    // "--mantine-color-red-outline": "var(--mantine-color-red-6)",
-    // "--mantine-color-red-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-rose-text": "var(--mantine-color-rose-6)",
-    // "--mantine-color-rose-light-color": "var(--mantine-color-rose-6)",
-    // "--mantine-color-rose-outline": "var(--mantine-color-rose-6)",
-    // "--mantine-color-rose-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-orange-text": "var(--mantine-color-orange-6)",
-    // "--mantine-color-orange-light-color": "var(--mantine-color-orange-6)",
-    // "--mantine-color-orange-outline": "var(--mantine-color-orange-6)",
-    // "--mantine-color-orange-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-green-text": "var(--mantine-color-green-6)",
-    // "--mantine-color-green-light-color": "var(--mantine-color-green-6)",
-    // "--mantine-color-green-outline": "var(--mantine-color-green-6)",
-    // "--mantine-color-green-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-blue-text": "var(--mantine-color-blue-6)",
-    // "--mantine-color-blue-light-color": "var(--mantine-color-blue-6)",
-    // "--mantine-color-blue-outline": "var(--mantine-color-blue-6)",
-    // "--mantine-color-blue-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-yellow-text": "var(--mantine-color-yellow-6)",
-    // "--mantine-color-yellow-light-color": "var(--mantine-color-yellow-6)",
-    // "--mantine-color-yellow-outline": "var(--mantine-color-yellow-6)",
-    // "--mantine-color-yellow-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-violet-text": "var(--mantine-color-violet-6)",
-    // "--mantine-color-violet-light-color": "var(--mantine-color-violet-6)",
-    // "--mantine-color-violet-outline": "var(--mantine-color-violet-6)",
-    // "--mantine-color-violet-outline-hover": "rgba(46, 46, 46, 0.05)",
   },
   dark: {
     // variables for dark color scheme only
-    "--mantine-color-body": theme.black,
+   
     "--mantine-color-placeholder": theme?.white,
-    "--mantine-color-white": "var(--mantine-primary-color-contrast)",
-    "--mantine-color-default-color": theme?.white,
+    // "--mantine-color-white": "var(--mantine-primary-color-contrast)",
+    // "--mantine-color-default-color": theme?.white,
     // "--mantine-primary-color-contrast": theme.black,
     "--mantine-color-bright": theme?.white,
 
@@ -539,81 +485,28 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     // "--mantine-primary-color-contrast": "var(--mantine-color-white)",
     // "--mantine-color-bright": "var(--mantine-color-white)",
     // "--mantine-color-text": "var(--mantine-color-dark-0)",
-    // "--mantine-color-body": "var(--mantine-color-dark-7)",
+    "--mantine-color-body": theme.black,
     // "--mantine-color-error": "var(--mantine-color-red-8)",
     // "--mantine-color-placeholder": "var(--mantine-color-dark-3)",
     // "--mantine-color-anchor": "var(--mantine-color-blue-4)",
-    "--mantine-color-default": "var(--mantine-color-dark-9)",
-    "--mantine-color-default-hover": "var(--mantine-color-dark-7)",
-    // "--mantine-color-default-color": "var(--mantine-color-white)",
-    "--mantine-color-default-border": "var(--mantine-color-dark-7)",
-    // "--mantine-color-dimmed": "var(--mantine-color-dark-2)",  
+
+    "--mantine-color-default": "var(--mantine-color-dark-9)", //used as default surface color
+    "--mantine-color-default-hover": "var(--mantine-color-dark-7)", // used as default hover color
+    "--mantine-color-default-color": "var(--mantine-color-dark-1)", // used as default text color
+    "--mantine-color-default-border": "var(--mantine-color-dark-7)", // used as default border color
+    "--mantine-color-dimmed": "var(--mantine-color-dark-4)", // used as dimmed text color
+
+    "--mantine-color-dark-filled": "var(--mantine-color-dark-8)", //used as secondary surface color
+    "--mantine-color-dark-filled-hover": `${alpha("var(--mantine-color-dark-filled)", 0.9)}`, //used as secondary hover color
+
+    "--mantine-color-dark-light": "var(--mantine-color-dark-7)", //used as primary light color
+    "--mantine-color-dark-light-hover": `${alpha("var(--mantine-color-dark-light)", 0.8)}`, //used as primary light hover color
 
     // "--mantine-color-dark-text": "var(--mantine-color-dark-filled)",
-    // "--mantine-color-dark-light-color": "var(--mantine-color-dark-6)",
-    // "--mantine-color-dark-outline": "var(--mantine-color-dark-6)",
-    // "--mantine-color-dark-outline-hover": "rgba(46, 46, 46, 0.05)",
+    "--mantine-color-dark-light-color": "var(--mantine-color-dark-0)", // used as primary light text color
 
-    // "--mantine-color-zinc-text": "var(--mantine-color-zinc-6)",
-    // "--mantine-color-zinc-light-color": "var(--mantine-color-zinc-6)",
-    // "--mantine-color-zinc-outline": "var(--mantine-color-zinc-6)",
-    // "--mantine-color-zinc-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-slate-text": "var(--mantine-color-slate-6)",
-    // "--mantine-color-slate-light-color": "var(--mantine-color-slate-6)",
-    // "--mantine-color-slate-outline": "var(--mantine-color-slate-6)",
-    // "--mantine-color-slate-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-stone-text": "var(--mantine-color-stone-6)",
-    // "--mantine-color-stone-light-color": "var(--mantine-color-stone-6)",
-    // "--mantine-color-stone-outline": "var(--mantine-color-stone-6)",
-    // "--mantine-color-stone-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-gray-text": "var(--mantine-color-gray-6)",
-    // "--mantine-color-gray-light-color": "var(--mantine-color-gray-6)",
-    // "--mantine-color-gray-outline": "var(--mantine-color-gray-6)",
-    // "--mantine-color-gray-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-neutral-text": "var(--mantine-color-neutral-6)",
-    // "--mantine-color-neutral-light-color": "var(--mantine-color-neutral-6)",
-    // "--mantine-color-neutral-outline": "var(--mantine-color-neutral-6)",
-    // "--mantine-color-neutral-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-red-text": "var(--mantine-color-red-6)",
-    // "--mantine-color-red-light-color": "var(--mantine-color-red-6)",
-    // "--mantine-color-red-outline": "var(--mantine-color-red-6)",
-    // "--mantine-color-red-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-rose-text": "var(--mantine-color-rose-6)",
-    // "--mantine-color-rose-light-color": "var(--mantine-color-rose-6)",
-    // "--mantine-color-rose-outline": "var(--mantine-color-rose-6)",
-    // "--mantine-color-rose-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-orange-text": "var(--mantine-color-orange-6)",
-    // "--mantine-color-orange-light-color": "var(--mantine-color-orange-6)",
-    // "--mantine-color-orange-outline": "var(--mantine-color-orange-6)",
-    // "--mantine-color-orange-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-green-text": "var(--mantine-color-green-6)",
-    // "--mantine-color-green-light-color": "var(--mantine-color-green-6)",
-    // "--mantine-color-green-outline": "var(--mantine-color-green-6)",
-    // "--mantine-color-green-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-blue-text": "var(--mantine-color-blue-6)",
-    // "--mantine-color-blue-light-color": "var(--mantine-color-blue-6)",
-    // "--mantine-color-blue-outline": "var(--mantine-color-blue-6)",
-    // "--mantine-color-blue-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-yellow-text": "var(--mantine-color-yellow-6)",
-    // "--mantine-color-yellow-light-color": "var(--mantine-color-yellow-6)",
-    // "--mantine-color-yellow-outline": "var(--mantine-color-yellow-6)",
-    // "--mantine-color-yellow-outline-hover": "rgba(46, 46, 46, 0.05)",
-
-    // "--mantine-color-violet-text": "var(--mantine-color-violet-6)",
-    // "--mantine-color-violet-light-color": "var(--mantine-color-violet-6)",
-    // "--mantine-color-violet-outline": "var(--mantine-color-violet-6)",
-    // "--mantine-color-violet-outline-hover": "rgba(46, 46, 46, 0.05)",
-   
+    "--mantine-color-dark-outline": "var(--mantine-color-dark-7)",
+    "--mantine-color-dark-outline-hover": "var(--mantine-color-dark-7)",
   },
 });
 

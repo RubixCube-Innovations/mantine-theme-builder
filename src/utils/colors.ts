@@ -1,32 +1,20 @@
 
-type ColorPalette = [string, string, string, string, string, string, string, string, string, string];
+type ColorPalette = [string, string, string, string, string, string, string, string, string, string, string];
 // Note: 500 shade in tailwind color is not included in the color palette except for orange, green and blue
 // Color shades in tailwind are 50, 100, 200, 300, 400, 600, 700, 800, 900, 950
 
 export const zincColors: ColorPalette = [
   "#fafafa",
   "#f4f4f5",
-  "#e4e4e7", // card light border color
+  "#e4e4e7", 
   "#d4d4d8",
   "#a1a1aa",
   "#52525b",
   "#3f3f46",
-  "#27272a", // card dark border color
-  "#18181b", // button text color
-  "#09090b", // card dark background
-];
-
-export const darkColors: ColorPalette = [
-  "#fafafa",
-  "#f4f4f5",
-  "#e4e4e7",
-  "#1e293b", 
-  "#27272a", //correct
-  "#71717a",
-  "#09090b", //correct
-  "#27272a",
+  "#27272a", 
   "#18181b",
-  "#09090b",
+  "#09090b", 
+  "#71717A" // base color as zinc[10]
 ];
 
 export const slateColors: ColorPalette = [
@@ -40,6 +28,7 @@ export const slateColors: ColorPalette = [
   "#1e293b",
   "#0f172a",
   "#020617",
+  "#64748B" // base color as slate[10]
 ];
 
 export const stoneColors: ColorPalette = [
@@ -53,6 +42,7 @@ export const stoneColors: ColorPalette = [
   "#292524",
   "#1c1917",
   "#0c0a09",
+  "#78716C" // base color as stone[10]
 ];
 
 export const grayColors: ColorPalette = [
@@ -66,6 +56,7 @@ export const grayColors: ColorPalette = [
   "#1f2937",
   "#111827",
   "#030712",
+  "#6B7280" // base color as gray[10]
 ];
 
 export const neutralColors: ColorPalette = [
@@ -79,6 +70,7 @@ export const neutralColors: ColorPalette = [
   "#262626",
   "#171717",
   "#0a0a0a",
+  "#737373" // base color as neutral[10]
 ];
 
 export const redColors: ColorPalette = [
@@ -92,6 +84,7 @@ export const redColors: ColorPalette = [
   "#991B1B",
   "#7F1D1D",
   "#450A0A",
+  "#EF4444" // base color as red[10]
 ];
 
 export const roseColors: ColorPalette = [
@@ -105,6 +98,7 @@ export const roseColors: ColorPalette = [
   "#9f1239",
   "#881337",
   "#4c0519",
+  "#F43F5E" // base color as rose[10]
 ];
 
 export const orangeColors: ColorPalette = [
@@ -118,6 +112,7 @@ export const orangeColors: ColorPalette = [
   "#9a3412", // [7] -> shade 800
   "#7c2d12", // [8] -> shade 900
   "#431407", // [9] -> shade 950
+  "#F97316", // [10] -> orange base
 ];
 
 export const greenColors: ColorPalette = [
@@ -131,6 +126,7 @@ export const greenColors: ColorPalette = [
   "#166534", // [7] -> shade 800
   "#14532D", // [8] -> shade 900
   "#052E16", // [9] -> shade 950
+  "#10B981", // [10] -> green base
 ];
 
 export const blueColors: ColorPalette = [
@@ -144,6 +140,7 @@ export const blueColors: ColorPalette = [
   "#1e40af", // [7] -> shade 800
   "#1e3a8a", // [8] -> shade 900
   "#172554", // [9] -> shade 950
+  "#3B82F6", // [10] -> blue base
 ];
 
 export const yellowColors: ColorPalette = [
@@ -157,6 +154,7 @@ export const yellowColors: ColorPalette = [
   "#854d0e",
   "#713f12",
   "#3f2c06",
+  "#F59E0B", // base color as yellow[10]
 ];
 
 export const violetColors: ColorPalette = [
@@ -170,6 +168,7 @@ export const violetColors: ColorPalette = [
   "#5b21b6",
   "#4c1d95",
   "#1e1b4b",
+  "#8B5CF6", // base color as violet[10]
 ];
 
 export const amberColors: ColorPalette = [
@@ -183,16 +182,17 @@ export const amberColors: ColorPalette = [
   "#92400E",
   "#78350F",
   "#451A03",
+  "#F59E0B", // base color as amber[10]
 ];
 
 export const SHADCN_DEFAULT_COLORS = [
   { id: "zinc", name: "Zinc", color: "#71717A", primaryPalette: zincColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: zincColors, secondaryShade: { light: 1, dark: 7}, },
-  { id: "slate", name: "Slate", color: "#64748B", primaryPalette: slateColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: slateColors, secondaryShade: {light: 8, dark: 7} },
+  { id: "slate", name: "Slate", color: "#64748B", primaryPalette: slateColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: slateColors, secondaryShade: {light: 1, dark: 7} },
   { id: "stone", name: "Stone", color: "#78716C", primaryPalette: stoneColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: stoneColors, secondaryShade: {light: 1, dark: 7} },
   { id: "gray", name: "Gray", color: "#6B7280", primaryPalette: grayColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: grayColors, secondaryShade: {light: 1, dark: 7} },
   { id: "neutral", name: "Neutral", color: "#737373", primaryPalette: neutralColors, primaryShade: { light: 8, dark: 0 }, secondaryPalette: neutralColors, secondaryShade: {light: 1, dark: 7} },
-  { id: "red", name: "Red", color: "#EF4444", primaryPalette: redColors, primaryShade: { light: 5, dark: 5 }, secondaryPalette: neutralColors },
-  { id: "rose", name: "Rose", color: "#F43F5E", primaryPalette: roseColors, primaryShade: { light: 5, dark: 5 }, secondaryPalette: zincColors },
+  { id: "red", name: "Red", color: "#EF4444", primaryPalette: redColors, primaryShade: { light: 5, dark: 5 }, secondaryPalette: neutralColors, secondaryShade: { light: 1, dark: 7 } },
+  { id: "rose", name: "Rose", color: "#F43F5E", primaryPalette: roseColors, primaryShade: { light: 5, dark: 5 }, secondaryPalette: zincColors, secondaryShade: { light: 1, dark: 7} },
   { id: "orange", name: "Orange", color: "#F97316", primaryPalette: orangeColors, primaryShade: { light: 5, dark: 6 }, secondaryPalette: stoneColors },
   { id: "green", name: "Green", color: "#10B981", primaryPalette: greenColors, primaryShade: { light: 6, dark: 5 }, secondaryPalette: zincColors },
   { id: "blue", name: "Blue", color: "#3B82F6", primaryPalette: blueColors, primaryShade: { light: 6, dark: 5 }, secondaryPalette: slateColors },

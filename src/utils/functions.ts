@@ -86,6 +86,15 @@ export const getCurrentCSSResolverVariables = (theme: any) => {
     theme.other?.style === "shadcn" ? shadcnCssVariableResolver(theme) : mantineCssVariableResolver(theme);
   return cssResolverVars;
 };
+/**
+ * Retrieves the secondary color palette based on the provided style and color.
+ *
+ * @param style - The style identifier, which can be "shadcn" or "mantine" or undefined.
+ * @param color - The color identifier, which can be undefined.
+ * @returns An array of color strings representing the secondary palette.
+ *          If the style is "shadcn" and a matching color is found, the corresponding secondary palette is returned.
+ *          Otherwise, a default grayscale palette is returned.
+ */
 export const getSecondaryPalette = (style: string | undefined, color: string | undefined) => {
   if (style === "shadcn") {
     return SHADCN_DEFAULT_COLORS.find((item) => item.id === color)?.secondaryPalette;

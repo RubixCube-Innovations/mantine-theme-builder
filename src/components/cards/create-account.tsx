@@ -13,10 +13,10 @@ export function CardsCreateAccount() {
             </Card.Section>
             <Card.Section p="md" py="xs">
                 <Group justify='space-between' grow>
-                    <Button variant="default" leftSection={<Icons.gitHub />}>
+                    <Button variant="outline" leftSection={<Icons.gitHub />}>
                         GitHub
                     </Button>
-                    <Button variant="default" leftSection={<Icons.google />}>
+                    <Button variant="outline" leftSection={<Icons.google />}>
                         Google
                     </Button>
                 </Group>
