@@ -35,6 +35,7 @@ import {
   zincColors,
 } from "./utils/colors";
 import { Spotlight } from "@mantine/spotlight";
+import { getPrimaryContrastColorDay, getPrimaryContrastColorNight } from "./utils/functions";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem(200),
@@ -230,6 +231,7 @@ const shadcn = createTheme({
         ...defaultResolvedColors,
         background: "var(--mantine-primary-color-filled)",
         hover: "var(--mantine-primary-color-filled-hover)",
+        color: "var(--mantine-primary-color-contrast)",
       };
     }
 
@@ -444,12 +446,12 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
    // variables for light color scheme only
 
     // all variables that depend on lighth color scheme
-    // "--mantine-primary-color-contrast": "var(--mantine-color-white)",
+    "--mantine-primary-color-contrast": getPrimaryContrastColorDay(theme.primaryColor), 
     // "--mantine-color-bright": "var(--mantine-color-black)",
-    // "--mantine-color-text": "#000",
+    // "--mantine-color-text": "var(--mantine-color-dark-9",
     "--mantine-color-body": theme.white,
     // "--mantine-color-error": "var(--mantine-color-red-6)",
-    // "--mantine-color-placeholder": "var(--mantine-color-gray-5)",
+    "--mantine-color-placeholder": "var(--mantine-color-dark-10)",
     // "--mantine-color-anchor": "var(--mantine-color-blue-6)",
 
     "--mantine-color-default": "var(--mantine-color-white)", //used as default surface color
@@ -475,19 +477,19 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   dark: {
     // variables for dark color scheme only
    
-    "--mantine-color-placeholder": theme?.white,
+    // "--mantine-color-placeholder": theme?.white,
     // "--mantine-color-white": "var(--mantine-primary-color-contrast)",
     // "--mantine-color-default-color": theme?.white,
     // "--mantine-primary-color-contrast": theme.black,
     "--mantine-color-bright": theme?.white,
 
     // all variables that depend on dark color scheme
-    // "--mantine-primary-color-contrast": "var(--mantine-color-white)",
+    "--mantine-primary-color-contrast": getPrimaryContrastColorNight(theme.primaryColor), 
     // "--mantine-color-bright": "var(--mantine-color-white)",
     // "--mantine-color-text": "var(--mantine-color-dark-0)",
     "--mantine-color-body": theme.black,
     // "--mantine-color-error": "var(--mantine-color-red-8)",
-    // "--mantine-color-placeholder": "var(--mantine-color-dark-3)",
+    "--mantine-color-placeholder": "var(--mantine-color-dark-4)",
     // "--mantine-color-anchor": "var(--mantine-color-blue-4)",
 
     "--mantine-color-default": "var(--mantine-color-dark-9)", //used as default surface color

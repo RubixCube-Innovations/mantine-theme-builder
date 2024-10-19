@@ -27,7 +27,7 @@ export const slateColors: ColorPalette = [
   "#334155",
   "#1e293b",
   "#0f172a",
-  "#020617",
+  "#020817", //orginal tailwind color was #020617
   "#64748B" // base color as slate[10]
 ];
 
@@ -60,7 +60,7 @@ export const grayColors: ColorPalette = [
 ];
 
 export const neutralColors: ColorPalette = [
-  "#fafafa",
+  "#fafafa", //button text color in light mode
   "#f5f5f5",
   "#e5e5e5",
   "#d4d4d4",
@@ -68,7 +68,7 @@ export const neutralColors: ColorPalette = [
   "#525252",
   "#404040",
   "#262626",
-  "#171717",
+  "#171717", //button text color in dark mode
   "#0a0a0a",
   "#737373" // base color as neutral[10]
 ];
