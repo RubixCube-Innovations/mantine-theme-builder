@@ -3,3 +3,26 @@
     outline: rem(1px) solid var(--mantine-primary-color-filled) ;
   }
 }
+
+.globalMantineTableRow {
+  &:hover {
+    background-color: rgb(from var(--mantine-color-default-hover) r g b / 0.5);
+  }
+}
+
+.globalMantineButton {
+  &:disabled {
+    cursor: default;
+    background-color: var(--mantine-color-default);
+    opacity: 0.5;
+  }
+}
+
+.globalMantineCheckbox {
+  background-color: var(--mantine-color-default);
+  border-color: var(--mantine-primary-color-filled);
+  &:checked {
+    background-color: var(--mantine-primary-color-filled);
+    border-color: var(--mantine-primary-color-filled);
+  }
+}

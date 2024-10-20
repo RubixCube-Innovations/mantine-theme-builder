@@ -62,6 +62,7 @@ export function CardsStats() {
               withXAxis={false}
               withYAxis={false}
               lineProps={{ isAnimationActive: true, dataKey: "revenue" }}
+              withTooltip={false}
             />
           </Box>
         </Box>
@@ -88,6 +89,7 @@ export function CardsStats() {
               withXAxis={false}
               withYAxis={false}
               barProps={{ isAnimationActive: true, dataKey: "subscription" }}
+              withTooltip={false}
             />
           </Box>
         </Box>
