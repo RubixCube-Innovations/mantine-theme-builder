@@ -16,7 +16,7 @@ import {
   rem,
   Switch,
   Table,
-  Tooltip
+  Tooltip,
 } from "@mantine/core";
 
 import {
@@ -79,8 +79,8 @@ const common = createTheme({
           "--container-size": fluid
             ? "100%"
             : size !== undefined && size in CONTAINER_SIZES
-            ? CONTAINER_SIZES[size]
-            : rem(size),
+              ? CONTAINER_SIZES[size]
+              : rem(size),
         },
       }),
     }),
@@ -165,18 +165,9 @@ const shadcn = createTheme({
     md: rem("24px"),
     lg: rem("28px"),
   },
-  breakpoints: {
-    // xs: rem(480),
-    // sm: rem(640),
-    // md: rem(768),
-    // lg: rem(1024),
-    // xl: rem(1280),
-    // xxl: rem(1536),
-  },
+
   headings: {
     fontFamily: "Geist",
-    // fontWeight: string;
-    // textWrap: 'wrap' | 'nowrap' | 'balance' | 'pretty' | 'stable';
     sizes: {
       h1: {
         fontSize: rem("36px"),
@@ -204,29 +195,26 @@ const shadcn = createTheme({
     xl: "0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04)",
     xxl: "0 25px 50px rgba(0, 0, 0, 0.25)",
   },
-  
+
   cursorType: "pointer",
   other: {
     style: "shadcn",
-    // cardBg: "var(--mantine-color-white)",
   },
   variantColorResolver: (component) => {
     const defaultResolvedColors = defaultVariantColorsResolver(component);
-    // const parsedColor = parseThemeColor({
-    //   color: component.color || component.theme.primaryColor,
-    //   theme: component.theme,
-    // });
 
-    if (component.variant === "default") { //TODO: style is different in accordion for this variant. Handle it later here or in component section
+    if (component.variant === "default") {
+      //TODO: style is different in accordion for this variant. Handle it later here or in component section
       return {
         ...defaultResolvedColors,
-       background: "var(--mantine-color-default)",
-       border: "1px solid var(--mantine-color-default-border)",
-       hover: "var(--mantine-color-default-hover)",
+        background: "var(--mantine-color-default)",
+        border: "1px solid var(--mantine-color-default-border)",
+        hover: "var(--mantine-color-default-hover)",
       };
     }
 
-    if (component.variant === "filled") { //TODO: style is different in accordion for this variant. Handle it later here or in component section
+    if (component.variant === "filled") {
+      //TODO: style is different in accordion for this variant. Handle it later here or in component section
       return {
         ...defaultResolvedColors,
         background: "var(--mantine-primary-color-filled)",
@@ -251,11 +239,10 @@ const shadcn = createTheme({
         border: "1px solid var(--mantine-color-default-border)",
         hover: "var(--mantine-color-default-hover)",
         color: "var(--mantine-color-default-color)",
-        // border: "1px solid var(--mantine-color-default-border)",
       };
     }
 
-    if(component.variant === "subtle") {
+    if (component.variant === "subtle") {
       return {
         ...defaultResolvedColors,
         background: "var(--mantine-color-default)",
@@ -263,47 +250,35 @@ const shadcn = createTheme({
       };
     }
 
-    if(component.variant === "transparent") {
+    if (component.variant === "transparent") {
       return {
         ...defaultResolvedColors,
-        // background: "transparent",
-        // border: "1px solid var(--mantine-color-default-border)",
       };
     }
 
     if (component.variant === "unstyled") {
       return {
         ...defaultResolvedColors,
-        // background: "transparent",
-        // border: "1px solid var(--mantine-color-default-border)",
       };
     }
 
     if (component.variant === "pills") {
       return {
         ...defaultResolvedColors,
-        // backgroundColor: "var(--mantine-primary-color-filled)",
-        // borderRadius: "1000px",
-        // border: "1px solid var(--mantine-primary-color-filled)",
-        // hover: "var(--mantine-primary-color-filled-hover)",
       };
     }
 
-    if (component.variant === "contained") { //only for accordion
+    if (component.variant === "contained") {
+      //only for accordion
       return {
         ...defaultResolvedColors,
-        // backgroundColor: "var(--mantine-primary-color-filled)",
-        // border: "1px solid var(--mantine-primary-color-filled)",
-        // hover: "var(--mantine-primary-color-filled-hover)",
       };
     }
 
-    if (component.variant === "separated") { //only for accordion
+    if (component.variant === "separated") {
+      //only for accordion
       return {
         ...defaultResolvedColors,
-        // backgroundColor: "var(--mantine-primary-color-filled)",
-        // border: "1px solid var(--mantine-primary-color-filled)",
-        // hover: "var(--mantine-primary-color-filled-hover)",
       };
     }
 
@@ -313,7 +288,7 @@ const shadcn = createTheme({
     Card: Card.extend({
       styles: () => ({
         root: {
-          backgroundColor:  "var(--mantine-color-default)",
+          backgroundColor: "var(--mantine-color-default)",
           borderColor: "var(--mantine-color-default-border)",
         },
       }),
@@ -328,24 +303,22 @@ const shadcn = createTheme({
     }),
     Input: Input.extend({
       classNames: (_theme, props) => {
-        if(props.variant !== "unstyled") 
+        if (props.variant !== "unstyled")
           return {
-          input: "globalMantineInput",
+            input: "globalMantineInput",
           };
 
-        return {
-        };
+        return {};
       },
       vars: () => {
-          return {
-            input: {
-              "--input-bd": "var(--mantine-color-default-border)",
-              "--input-bd-focus": "var(--mantine-primary-color-filled)", // border color not changing on focus
-              "--input-bg": "var(--mantine-color-default)",
-            },
-            wrapper: {
-            },
-          };
+        return {
+          input: {
+            "--input-bd": "var(--mantine-color-default-border)",
+            "--input-bd-focus": "var(--mantine-primary-color-filled)", // border color not changing on focus
+            "--input-bg": "var(--mantine-color-default)",
+          },
+          wrapper: {},
+        };
       },
     }),
     Divider: Divider.extend({
@@ -368,7 +341,7 @@ const shadcn = createTheme({
         },
         td: {
           borderColor: "var(--mantine-color-default-border)",
-        },  
+        },
       }),
     }),
     Checkbox: Checkbox.extend({
@@ -389,7 +362,6 @@ const shadcn = createTheme({
           borderColor: "var(--mantine-color-default-border)",
         },
       }),
-          
     }),
     Tooltip: Tooltip.extend({
       styles: () => ({
@@ -436,23 +408,19 @@ export const shadcnTheme = mergeThemeOverrides(common, shadcn);
 export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight":	"600",
+    "--mantine-heading-font-weight": "600",
     "--mantine-primary-color-filled-hover": `${alpha("var(--mantine-primary-color-filled)", 0.9)}`,
-    "--mantine-primary-color-light":	"var(--mantine-color-dark-light)",
+    "--mantine-primary-color-light": "var(--mantine-color-dark-light)",
     "--mantine-primary-color-light-hover": `${alpha("var(--mantine-primary-color-light)", 0.8)}`,
     "--mantine-primary-color-light-color": "var(--mantine-color-dark-light-color)",
   },
   light: {
-   // variables for light color scheme only
+    // variables for light color scheme only
 
     // all variables that depend on lighth color scheme
-    "--mantine-primary-color-contrast": getPrimaryContrastColorDay(theme.primaryColor), 
-    // "--mantine-color-bright": "var(--mantine-color-black)",
-    // "--mantine-color-text": "var(--mantine-color-dark-9",
+    "--mantine-primary-color-contrast": getPrimaryContrastColorDay(theme.primaryColor),
     "--mantine-color-body": "var(--mantine-color-white)",
-    // "--mantine-color-error": "var(--mantine-color-red-6)",
     "--mantine-color-placeholder": "var(--mantine-color-dark-10)",
-    // "--mantine-color-anchor": "var(--mantine-color-blue-6)",
 
     "--mantine-color-default": "var(--mantine-color-white)", //used as default surface color
     "--mantine-color-default-hover": "var(--mantine-color-dark-1)", // used as default hover color
@@ -460,37 +428,25 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-default-border": "var(--mantine-color-dark-2)", // used as default border color
     "--mantine-color-dimmed": "var(--mantine-color-dark-10)", // used as dimmed text color
 
-
     "--mantine-color-dark-filled": "var(--mantine-color-white)", //used as secondary surface color
     "--mantine-color-dark-filled-hover": "var(--mantine-color-dark-1)", //used as secondary hover color
 
     "--mantine-color-dark-light": "var(--mantine-color-dark-1)", //used as primary light color
     "--mantine-color-dark-light-hover": `${alpha("var(--mantine-color-dark-light)", 0.8)}`, //used as primary light hover color
 
-    // "--mantine-color-dark-text": "var(--mantine-color-dark-filled)",    
     "--mantine-color-dark-light-color": "var(--mantine-color-dark-8)", // used as primary light variant's text color
 
     "--mantine-color-dark-outline": "var(--mantine-color-dark-2)",
     "--mantine-color-dark-outline-hover": "var(--mantine-color-dark-1)",
-
   },
   dark: {
     // variables for dark color scheme only
-   
-    // "--mantine-color-placeholder": theme?.white,
-    // "--mantine-color-white": "var(--mantine-primary-color-contrast)",
-    // "--mantine-color-default-color": theme?.white,
-    // "--mantine-primary-color-contrast": theme.black,
-    // "--mantine-color-bright": theme?.white,
 
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": getPrimaryContrastColorNight(theme.primaryColor), 
-    // "--mantine-color-bright": "var(--mantine-color-white)",
-    // "--mantine-color-text": "var(--mantine-color-dark-0)",
+    "--mantine-primary-color-contrast": getPrimaryContrastColorNight(theme.primaryColor),
+
     "--mantine-color-body": "var(--mantine-color-black)",
-    // "--mantine-color-error": "var(--mantine-color-red-8)",
     "--mantine-color-placeholder": "var(--mantine-color-dark-4)",
-    // "--mantine-color-anchor": "var(--mantine-color-blue-4)",
 
     "--mantine-color-default": "var(--mantine-color-dark-9)", //used as default surface color
     "--mantine-color-default-hover": "var(--mantine-color-dark-7)", // used as default hover color
@@ -504,7 +460,6 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-dark-light": "var(--mantine-color-dark-7)", //used as primary light color
     "--mantine-color-dark-light-hover": `${alpha("var(--mantine-color-dark-light)", 0.8)}`, //used as primary light hover color
 
-    // "--mantine-color-dark-text": "var(--mantine-color-dark-filled)",
     "--mantine-color-dark-light-color": "var(--mantine-color-dark-0)", // used as primary light text color
 
     "--mantine-color-dark-outline": "var(--mantine-color-dark-7)",
