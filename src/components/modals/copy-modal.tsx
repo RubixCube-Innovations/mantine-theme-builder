@@ -42,7 +42,7 @@ const CopyThemeModal = () => {
   return (
     <>
       <Modal
-        size={"xl"}
+        size={"75%"}
         opened={opened}
         onClose={close}
         title={title}
@@ -66,7 +66,7 @@ const CopyThemeModal = () => {
           {copyCode}
         </Flex>
 
-        <ScrollArea h={405} style={{ borderRadius: "var(--mantine-radius-default)" }}>
+        <ScrollArea h={450} style={{ borderRadius: "var(--mantine-radius-default)" }}>
           <Code block lang="json">
             {tab === themeModalTabs?.createTheme ? formatThemeObj(theme) : getCssResolverVariables(theme)}
           </Code>
