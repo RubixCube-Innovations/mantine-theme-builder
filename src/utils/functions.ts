@@ -129,7 +129,8 @@ export const convertThemeToObj = (obj: any) => {
     let v = obj[k];
 
     if (typeof v === "function") {
-      v = v.toString();
+      // v = v.toString();
+      v = `${v}`
     } else if (v instanceof Array) {
       v = JSON.stringify(v);
     } else if (typeof v === "object") {
