@@ -12,13 +12,17 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
-import { MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
+import { InfoCircledIcon, MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { useTheme } from "../ThemeContext";
 import { mantineTheme, shadcnTheme } from "../theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
 import CopyThemeModal from "./modals/copy-modal";
 import { getSecondaryPalette } from "../utils/functions";
+
+import { Tooltip } from "@mantine/core";
+import {  } from "@radix-ui/react-icons";
+
 
 export interface IThemeConfig {
   style: string;
@@ -180,6 +184,19 @@ function Customizer() {
             >
               Shadcn
             </Button>
+            
+            <Button
+              variant={"outline"}
+              style={{ borderColor: config.style === "radixui" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
+              size="xs"
+              disabled
+            >
+             RadixUI
+             <Tooltip label="RadixUI inspired glassmoriphic themes coming soon.">
+              <InfoCircledIcon width={"14px"} height={"14px"} style={{marginLeft:"var(--mantine-spacing-2xs)"}}/>
+              </Tooltip>
+            </Button>
+           
           </SimpleGrid>
         </Stack>
         <Stack gap="xs">

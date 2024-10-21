@@ -112,6 +112,7 @@ export function CardsActivityGoal() {
                         barProps={() => ({
                             isAnimationActive: true,
                         })}
+                        withTooltip={false}
                     />
 
                 </Box>

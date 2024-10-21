@@ -264,14 +264,14 @@ export function CardsDataTable() {
 
           <Group>
             <Button
-              variant="default"
+              variant="outline"
               // disabled={!table.getCanPreviousPage()}
               onClick={table.previousPage}
             >
               Previous
             </Button>
             <Button
-              variant="default"
+              variant="outline"
               // disabled={!table.getCanNextPage()}
               onClick={table.nextPage}
             >
