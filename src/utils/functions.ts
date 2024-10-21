@@ -1,6 +1,7 @@
 import { MantinePrimaryShade, MantineThemeOverride } from "@mantine/core";
 import { mantineCssVariableResolver, mantineTheme, shadcnCssVariableResolver, shadcnTheme } from "../theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "./colors";
+import { generateThemeTemplate } from "./themeTemplate";
 
 /**
  * Get the base theme based on the style.
@@ -55,7 +56,7 @@ const replaceCalcWithRem = (value: string) => {
 export const traverseAndReplace = (obj: { [key: string]: unknown }) => {
   const result: { [key: string]: unknown } = {};
   for (const key in obj) {
-    if (typeof obj[key] === "object" && obj[key] !== null) {
+    if (typeof obj[key] === "object" && obj[key] !== null && !Array.isArray(obj[key])) {
       // If the value is an object or array, recursively apply the function
       result[key] = traverseAndReplace(obj[key] as { [key: string]: unknown });
     } else {
@@ -66,10 +67,13 @@ export const traverseAndReplace = (obj: { [key: string]: unknown }) => {
   return result;
 };
 
-export const formatThemeObj = (obj: MantineThemeOverride) => {
-  // return JSON.stringify(obj, null, 2);
-  // return JSON.stringify(traverseAndReplace(obj), null, 2);
-  return convertThemeToObj(obj);
+export const formatThemeObj = (theme: MantineThemeOverride) => {
+  const replacedJSON = traverseAndReplace(theme);
+  const JSONstring = convertThemeToObj(replacedJSON);
+  const currentCssResolver = getCurrentCSSResolverVariables(theme);
+  const variableResolver = formatCssVariable(currentCssResolver);
+
+  return generateThemeTemplate(JSONstring, variableResolver);
 };
 
 export const formatCssVariable = (obj: any) => {
@@ -113,6 +117,11 @@ export const getSecondaryPalette = (style: string | undefined, color: string | u
   ];
 };
 
+export const getCssResolverVariables = (theme: any) => {
+  const cssResolverVars = getCurrentCSSResolverVariables(theme);
+  return formatCssVariable(cssResolverVars);
+};
+
 export const convertThemeToObj = (obj: any) => {
   let ret = "{";
 
@@ -140,63 +149,66 @@ export const convertThemeToObj = (obj: any) => {
 /**
  * Retrieves the text color for a given color identifier based on predefined palettes.
  *
- * @param color - The color identifier to retrieve the text color for. 
- *                Accepted values are "zinc", "slate", "stone", "gray", "neutral", 
+ * @param color - The color identifier to retrieve the text color for.
+ *                Accepted values are "zinc", "slate", "stone", "gray", "neutral",
  *                "red", "rose", "orange", "blue", "violet", "green", and "yellow".
- * @returns The corresponding text color from the predefined palettes. 
+ * @returns The corresponding text color from the predefined palettes.
  *          If the color is "yellow", a specific hex color code is returned.
  *          If the color is "green", the primary palette color for "rose" is returned.
  *          Otherwise, the primary or secondary palette color for the given color is returned.
  */
 export const getPrimaryContrastColorDay = (color: string) => {
-  console.log(color);
-  if (color === "zinc" || color === "slate" || color === "stone" || color === "gray" || color === "neutral" || color === "red" || color === "rose") {
-    return `var(--mantine-primary-color-0)`
-  } 
-  else if (color === "orange" || color === "blue" || color === "violet"){
-    return `var(--mantine-color-dark-0)` 
-  } 
-  else if (color === "green"){
-    return `var(--mantine-color-rose-0)` 
-  }
-  else if (color === "yellow"){
+  if (
+    color === "zinc" ||
+    color === "slate" ||
+    color === "stone" ||
+    color === "gray" ||
+    color === "neutral" ||
+    color === "red" ||
+    color === "rose"
+  ) {
+    return `var(--mantine-primary-color-0)`;
+  } else if (color === "orange" || color === "blue" || color === "violet") {
+    return `var(--mantine-color-dark-0)`;
+  } else if (color === "green") {
+    return `var(--mantine-color-rose-0)`;
+  } else if (color === "yellow") {
     return "#422006";
-  }
-  else {
-    return `var(--mantine-primary-color-0)`
+  } else {
+    return `var(--mantine-primary-color-0)`;
   }
 };
-
 
 /**
  * Retrieves the text color for a given color identifier based on predefined palettes.
  *
- * @param color - The color identifier to retrieve the text color for. 
- *                Accepted values are "zinc", "slate", "stone", "gray", "neutral", 
+ * @param color - The color identifier to retrieve the text color for.
+ *                Accepted values are "zinc", "slate", "stone", "gray", "neutral",
  *                "red", "rose", "orange", "blue", "violet", "green", and "yellow".
- * @returns The corresponding text color from the predefined palettes. 
+ * @returns The corresponding text color from the predefined palettes.
  *          If the color is "yellow", a specific hex color code is returned.
  *          If the color is "green", the primary palette color for "rose" is returned.
  *          Otherwise, the primary or secondary palette color for the given color is returned.
  */
 export const getPrimaryContrastColorNight = (color: string) => {
-  if (color === "zinc" || color === " slate" || color === "stone" || color === "gray" || color === "neutral" || color === "blue") {
-    return `var(--mantine-color-dark-8)`; 
-  } 
-  else if (color === "red" || color === "rose"){
-    return `var(--mantine-primary-color-0)`; 
-  }
-  else if (color === "orange" || color === "violet"){
-    return `var(--mantine-color-dark-0)`; 
-  } 
-
-  else if (color === "green"){
-    return `var(--mantine-primary-color-9)`; 
-  }
-  else if (color === "yellow"){
+  if (
+    color === "zinc" ||
+    color === " slate" ||
+    color === "stone" ||
+    color === "gray" ||
+    color === "neutral" ||
+    color === "blue"
+  ) {
+    return `var(--mantine-color-dark-8)`;
+  } else if (color === "red" || color === "rose") {
+    return `var(--mantine-primary-color-0)`;
+  } else if (color === "orange" || color === "violet") {
+    return `var(--mantine-color-dark-0)`;
+  } else if (color === "green") {
+    return `var(--mantine-primary-color-9)`;
+  } else if (color === "yellow") {
     return "#422006";
-  }
-  else {
+  } else {
     return `var(--mantine-color-dark-8)`;
   }
 };

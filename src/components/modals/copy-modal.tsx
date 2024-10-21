@@ -1,37 +1,14 @@
-import { Button, Code, CopyButton, Flex, Modal, ScrollArea, SegmentedControl, Title, Tooltip } from "@mantine/core";
-import { MagicWandIcon, CopyIcon } from "@radix-ui/react-icons";
-import { formatCssVariable, formatThemeObj, getCurrentCSSResolverVariables } from "../../utils/functions";
+import { Button, Flex, Modal, ScrollArea, Title } from "@mantine/core";
+import { formatThemeObj } from "../../utils/functions";
 import { useTheme } from "../../ThemeContext";
 import { useDisclosure } from "@mantine/hooks";
-import { useState } from "react";
-import { themeModalTabs } from "../../utils/data";
+import { CodeHighlightTabs } from "@mantine/code-highlight";
+import { generateCSSTemplate } from "../../utils/cssTemplate";
+import { TypeScriptIcon, CssIcon } from '@mantinex/dev-icons'
 
 const CopyThemeModal = () => {
   const { theme } = useTheme();
   const [opened, { open, close }] = useDisclosure(false);
-  const [tab, setTab] = useState<string>(themeModalTabs?.createTheme);
-
-  const getCssResolverVariables = (theme: any) => {
-    const cssResolverVars = getCurrentCSSResolverVariables(theme);
-    return formatCssVariable(cssResolverVars);
-  };
-
-  const copyCode = (
-    <CopyButton value={tab === themeModalTabs?.createTheme ? formatThemeObj(theme) : getCssResolverVariables(theme)}>
-      {({ copied, copy }) => (
-        <Tooltip
-          label={copied ? "Copied" : "Copy"}
-          transitionProps={{ transition: "fade-left", duration: 300 }}
-          position="left"
-          offset={5}
-        >
-          <Button variant="subtle" size="sm" onClick={copy} px={"4px"}>
-            {copied ? <MagicWandIcon /> : <CopyIcon />}
-          </Button>
-        </Tooltip>
-      )}
-    </CopyButton>
-  );
 
   const title = (
     <Flex align={"center"}>
@@ -39,10 +16,13 @@ const CopyThemeModal = () => {
     </Flex>
   );
 
+  const tsIcon = <TypeScriptIcon size={18} />;
+  const cssIcon = <CssIcon size={18} />;
+
   return (
     <>
       <Modal
-        size={"75%"}
+        size={"90%"}
         opened={opened}
         onClose={close}
         title={title}
@@ -53,23 +33,26 @@ const CopyThemeModal = () => {
           },
         }}
       >
-        <Flex justify={"space-between"} align={"center"} gap={"2xs"}>
-          <SegmentedControl
-            my={"xs"}
-            value={tab}
-            onChange={setTab}
-            data={[
-              { label: "createTheme", value: themeModalTabs?.createTheme },
-              { label: "CSSVariablesResolver", value: themeModalTabs?.cssResolver },
+        <ScrollArea h={550} style={{ borderRadius: "var(--mantine-radius-default)" }}>
+          <CodeHighlightTabs
+            code={[
+              {
+                fileName: "theme.ts",
+                code: formatThemeObj(theme),
+                language: "tsx",
+                icon: tsIcon,
+              },
+              {
+                fileName: "App.css",
+                code: generateCSSTemplate(),
+                language: "scss",
+                icon: cssIcon,
+              },
             ]}
+            withCopyButton
+            copyLabel="Copy theme code"
+            copiedLabel="Copied!"
           />
-          {copyCode}
-        </Flex>
-
-        <ScrollArea h={450} style={{ borderRadius: "var(--mantine-radius-default)" }}>
-          <Code block lang="json">
-            {tab === themeModalTabs?.createTheme ? formatThemeObj(theme) : getCssResolverVariables(theme)}
-          </Code>
         </ScrollArea>
       </Modal>
 
