@@ -1,5 +1,5 @@
 import { LineChart } from "@mantine/charts";
-import { Box, Card, Text, Title, useMantineTheme } from "@mantine/core";
+import { alpha, Box, Card, Text, Title, useMantineTheme } from "@mantine/core";
 import { ChartTooltip } from "../chart-tooltip";
 import { metricData } from "../../utils/data";
 // import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
@@ -22,7 +22,7 @@ export function CardsMetric() {
             data={metricData}
             dataKey="date"
             series={[
-              { name: "average", color: "var(--mantine-primary-color-light)" },
+              { name: "average", color: alpha(`var(--mantine-primary-color-filled)`, 0.25) },
               { name: "today", color: theme?.primaryColor },
             ]}
             tickLine="none"

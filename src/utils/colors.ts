@@ -68,7 +68,7 @@ export const neutralColors: ColorPalette = [
   "#525252",
   "#404040",
   "#262626",
-  "#171717", //button text color in dark mode
+  "#171717", 
   "#0a0a0a",
   "#737373" // base color as neutral[10]
 ];
@@ -192,9 +192,9 @@ export const SHADCN_DEFAULT_COLORS = [
   { id: "gray", name: "Gray", color: "#6B7280", primaryPalette: grayColors, primaryShade: { light: 8, dark: 0 }, secondary: "gray", secondaryPalette: grayColors },
   { id: "neutral", name: "Neutral", color: "#737373", primaryPalette: neutralColors, primaryShade: { light: 8, dark: 0 }, secondary: "neutral", secondaryPalette: neutralColors },
   { id: "red", name: "Red", color: "#EF4444", primaryPalette: redColors, primaryShade: { light: 5, dark: 5 }, secondary: "neutral", secondaryPalette: neutralColors },
-  { id: "rose", name: "Rose", color: "#F43F5E", primaryPalette: roseColors, primaryShade: { light: 5, dark: 5 }, secondary: "zinc", secondaryPalette: zincColors },
+  { id: "rose", name: "Rose", color: "#F43F5E", primaryPalette: roseColors, primaryShade: { light: 5, dark: 5 }, secondary: "stone", secondaryPalette: stoneColors },
   { id: "orange", name: "Orange", color: "#F97316", primaryPalette: orangeColors, primaryShade: { light: 5, dark: 6 }, secondary: "stone", secondaryPalette: stoneColors },
-  { id: "green", name: "Green", color: "#10B981", primaryPalette: greenColors, primaryShade: { light: 6, dark: 5 }, secondary: 'zinc', secondaryPalette: zincColors },
+  { id: "green", name: "Green", color: "#10B981", primaryPalette: greenColors, primaryShade: { light: 6, dark: 5 }, secondary: 'stone', secondaryPalette: stoneColors },
   { id: "blue", name: "Blue", color: "#3B82F6", primaryPalette: blueColors, primaryShade: { light: 6, dark: 5 }, secondary: "slate", secondaryPalette: slateColors },
   { id: "yellow", name: "Yellow", color: "#F59E0B", primaryPalette: yellowColors, primaryShade: { light: 4, dark: 4 }, secondary: "stone", secondaryPalette: stoneColors },
   { id: "violet", name: "Violet", color: "#8B5CF6", primaryPalette: violetColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },

@@ -6,10 +6,10 @@ import "@mantine/charts/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/spotlight/styles.css";
 import "./styles/index.css"
+import '@mantine/code-highlight/styles.css';
 // import "./styles/App.css";
 import "./styles/fonts.css";
 import "./styles/mantine.css";
-import '@mantine/code-highlight/styles.css';
 
 import { ThemeProvider } from "./ThemeContext.tsx";
 

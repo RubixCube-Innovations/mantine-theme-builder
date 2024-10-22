@@ -21,6 +21,7 @@ import {
   Tooltip,
 } from "@mantine/core";
 
+import { Spotlight } from "@mantine/spotlight";
 import {
   amberColors,
   blueColors,
@@ -36,8 +37,7 @@ import {
   yellowColors,
   zincColors,
 } from "./utils/colors";
-import { Spotlight } from "@mantine/spotlight";
-import { getPrimaryContrastColorDay, getPrimaryContrastColorNight } from "./utils/functions";
+import { getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getPrimaryLightColorDay, getPrimaryLightColorNight } from "./utils/functions";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem(200),
@@ -249,7 +249,7 @@ const shadcn = createTheme({
     if (component.variant === "subtle") {
       return {
         ...defaultResolvedColors,
-        background: "var(--mantine-color-default)",
+        background: "transparent",
         hover: "var(--mantine-color-default-hover)",
         color: "var(--mantine-color-default-color)",
       };
@@ -291,9 +291,9 @@ const shadcn = createTheme({
   },
   components: {
     Card: Card.extend({
-      styles: () => ({
+      styles: (theme) => ({
         root: {
-          backgroundColor: "var(--mantine-color-default)",
+          backgroundColor: (theme.primaryColor === "rose" || theme.primaryColor === "green") ? "var(--mantine-color-dark-filled)" : "var(--mantine-color-default)",
           borderColor: "var(--mantine-color-default-border)",
         },
       }),
@@ -315,12 +315,12 @@ const shadcn = createTheme({
 
         return {};
       },
-      vars: () => {
+      vars: (theme) => {
         return {
           input: {
             "--input-bd": "var(--mantine-color-default-border)",
             "--input-bd-focus": "var(--mantine-primary-color-filled)", // border color not changing on focus
-            "--input-bg": "var(--mantine-color-default)",
+            "--input-bg": (theme.primaryColor === "rose" || theme.primaryColor === "green") ? "var(--mantine-color-dark-filled)" : "var(--mantine-color-default)",
           },
           wrapper: {},
         };
@@ -457,16 +457,16 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-anchor": "var(--mantine-color-dark-10)", // used as anchor color
 
     "--mantine-color-default": "var(--mantine-color-bright)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-dark-1)", // used as default hover color
+    "--mantine-color-default-hover": getPrimaryLightColorDay(theme.primaryColor), // used as default hover color
     "--mantine-color-default-color": "var(--mantine-color-dark-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-dark-2)", // used as default border color
+    "--mantine-color-default-border": getDefaultBorderColorDay(theme.primaryColor), // used as default border color
     "--mantine-color-dimmed": "var(--mantine-color-dark-10)", // used as dimmed text color
 
 
-    "--mantine-color-dark-filled": "var(--mantine-color-white)", // used as secondary surface color
+    "--mantine-color-dark-filled": "var(--mantine-color-bright)", // used as secondary surface color
     "--mantine-color-dark-filled-hover": "var(--mantine-color-dark-1)", // used as secondary hover color
 
-    "--mantine-color-dark-light": "var(--mantine-color-dark-1)", // used as primary light color
+    "--mantine-color-dark-light": getPrimaryLightColorDay(theme.primaryColor), // used as primary light color
     "--mantine-color-dark-light-hover": `${alpha("var(--mantine-color-dark-light)", 0.8)}`, // used as primary light hover color
 
     "--mantine-color-dark-text": "var(--mantine-primary-color-contrast)", // can be used as dark text color
@@ -486,15 +486,15 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-anchor": "var(--mantine-color-dark-4)", // used as anchor color
 
     "--mantine-color-default": "var(--mantine-color-dark-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-dark-7)", // used as default hover color
+    "--mantine-color-default-hover": getPrimaryLightColorNight(theme.primaryColor), // used as default hover color
     "--mantine-color-default-color": "var(--mantine-color-dark-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-dark-7)", // used as default border color
+    "--mantine-color-default-border": getDefaultBorderColorNight(theme.primaryColor), // used as default border color
     "--mantine-color-dimmed": "var(--mantine-color-dark-4)", // used as dimmed text color
 
     "--mantine-color-dark-filled": "var(--mantine-color-dark-8)", // used as secondary surface color
     "--mantine-color-dark-filled-hover": `${alpha("var(--mantine-color-dark-filled)", 0.9)}`, //used as secondary hover color
 
-    "--mantine-color-dark-light": "var(--mantine-color-dark-7)", // used as primary light color
+    "--mantine-color-dark-light": getPrimaryLightColorNight(theme.primaryColor), // used as primary light color
     "--mantine-color-dark-light-hover": `${alpha("var(--mantine-color-dark-light)", 0.8)}`, // used as primary light hover color
 
     "--mantine-color-dark-text": "var(--mantine-primary-color-contrast)", // can be used as dark text color

@@ -139,7 +139,7 @@ export function CardsChat() {
               bg={
                 message.role === "user"
                   ? "var(--mantine-primary-color-filled)"
-                  : "var(--mantine-color-gray-light)"
+                  : "var(--mantine-color-dark-outline)"
               }
               withBorder={false}
               shadow="none"

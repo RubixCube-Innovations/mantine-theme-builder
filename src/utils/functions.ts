@@ -213,3 +213,35 @@ export const getPrimaryContrastColorNight = (color: string) => {
     return `var(--mantine-color-dark-8)`;
   }
 };
+
+export const getPrimaryLightColorDay = (color: string) => {
+  if (color === "rose" || color === "green" ) {
+    return `var(--mantine-color-zinc-1)`;
+  } else {
+    return `var(--mantine-color-dark-1)`;
+  }
+}
+
+export const getPrimaryLightColorNight = (color: string) => {
+  if (color === "rose" || color === "green") {
+    return `var(--mantine-color-dark-7)`;
+  } else {
+    return `var(--mantine-color-dark-7)`;
+  }
+}
+
+export const getDefaultBorderColorDay = (color: string) => {
+  if (color === "rose" || color === "green") {
+    return `var(--mantine-color-zinc-2)`;
+  } else {
+    return `var(--mantine-color-dark-2)`;
+  }
+}
+
+export const getDefaultBorderColorNight = (color: string) => {
+  if (color === "rose" || color === "green") {
+    return `var(--mantine-color-zinc-7)`;
+  } else {
+    return `var(--mantine-color-dark-7)`;
+  }
+}

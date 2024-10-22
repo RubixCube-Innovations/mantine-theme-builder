@@ -19,7 +19,8 @@
 }
 
 .globalMantineCheckbox {
-  background-color: var(--mantine-color-default);
+  /* background-color: var(--mantine-color-default); */
+  background-color: transparent;
   border-color: var(--mantine-primary-color-filled);
   &:checked {
     background-color: var(--mantine-primary-color-filled);
