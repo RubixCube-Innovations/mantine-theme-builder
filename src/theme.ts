@@ -291,11 +291,13 @@ const shadcn = createTheme({
   },
   components: {
     Card: Card.extend({
-      styles: (theme) => ({
+      styles: () => ({
         root: {
-          backgroundColor: (theme.primaryColor === "rose" || theme.primaryColor === "green") ? "var(--mantine-color-dark-filled)" : "var(--mantine-color-default)",
           borderColor: "var(--mantine-color-default-border)",
         },
+      }),
+      classNames: (theme) => ({
+        root: (theme.primaryColor === "rose" || theme.primaryColor === "green") ? "globalMantineCardRoot__roseGreen" : "globalMantineCardRoot",
       }),
     }),
     Popover: Popover.extend({

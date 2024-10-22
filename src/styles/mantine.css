@@ -27,3 +27,11 @@
     border-color: var(--mantine-primary-color-filled);
   }
 }
+
+.globalMantineCardRoot {
+  background-color: var(--mantine-color-default);
+}
+
+.globalMantineCardRoot__roseGreen {
+  background-color: var(--mantine-color-dark-filled);
+}
