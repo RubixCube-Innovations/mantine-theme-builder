@@ -359,7 +359,13 @@ const shadcn = createTheme({
           return {
             input: "globalMantineCheckbox",
           };
-        }
+        },
+        vars: () => ({
+          "root": {
+            "--checkbox-color": "var(--mantine-primary-color-filled)",
+            "--checkbox-icon-color": "var(--mantine-primary-color-contrast)",
+          }
+        }),
     }),
 
     Switch: Switch.extend({

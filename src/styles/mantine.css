@@ -23,7 +23,6 @@
   background-color: transparent;
   border-color: var(--mantine-primary-color-filled);
   &:checked {
-    background-color: var(--mantine-primary-color-filled);
     border-color: var(--mantine-primary-color-filled);
   }
 }
