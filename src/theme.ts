@@ -291,11 +291,6 @@ const shadcn = createTheme({
   },
   components: {
     Card: Card.extend({
-      styles: () => ({
-        root: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
       classNames: (theme) => ({
         root: (theme.primaryColor === "rose" || theme.primaryColor === "green") ? "globalMantineCardRoot__roseGreen" : "globalMantineCardRoot",
       }),
