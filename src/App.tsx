@@ -64,11 +64,11 @@ export default function ThemesPage() {
           title={"About the project"}
           size={"xl"}
           centered
-          scrollAreaComponent={ScrollArea.Autosize}
+          // scrollAreaComponent={ScrollArea.Autosize}
         >
-          <ScrollArea h={"600px"} pe={"xs"}>
+          {/* <ScrollArea h={"600px"} pe={"xs"}> */}
             <AboutPage />
-          </ScrollArea>
+          {/* </ScrollArea> */}
         </Modal>
 
         {/* <ColorSwitcher /> */}
