@@ -34,3 +34,7 @@
 .globalMantineCardRoot__roseGreen {
   background-color: var(--mantine-color-dark-filled);
 }
+
+.mantine-Modal-content{
+  overflow-y: hidden;
+}
