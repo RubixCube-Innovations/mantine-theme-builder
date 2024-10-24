@@ -98,8 +98,8 @@ export const getShadcnTheme = (color: string | undefined) => {
   }
 }
 
-export const getShadcnVariableResolver = (theme: MantineThemeOverride) => {
-  if(theme.primaryColor === "rose" || theme.primaryColor === "green"){
+export const getShadcnVariableResolver = (color: string | undefined) => {
+  if(color === "rose" || color === "green"){
     return shadcnGeneralCssVariableResolver;
   }else{
     return shadcnSpecialCssVariableResolver;
@@ -108,7 +108,7 @@ export const getShadcnVariableResolver = (theme: MantineThemeOverride) => {
 
 export const getCurrentCSSResolverVariables = (theme: any) => {
   const cssResolverVars =
-    theme.other?.style === "shadcn" ? getShadcnVariableResolver(theme) : mantineCssVariableResolver(theme);
+    theme.other?.style === "shadcn" ? getShadcnVariableResolver(theme.primaryColor)(theme) : mantineCssVariableResolver(theme);
   return cssResolverVars;
 };
 /**

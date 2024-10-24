@@ -51,7 +51,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <MantineProvider
         theme={theme}
-        cssVariablesResolver={theme.other?.style === "shadcn" ? getShadcnVariableResolver(theme) : mantineCssVariableResolver}
+        cssVariablesResolver={theme.other?.style === "shadcn" ? getShadcnVariableResolver(theme.primaryColor) : mantineCssVariableResolver}
       >
         {children}
       </MantineProvider>
