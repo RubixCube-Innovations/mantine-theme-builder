@@ -15,13 +15,14 @@ import { useLocalStorage } from "@mantine/hooks";
 import { InfoCircledIcon, MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { useTheme } from "../ThemeContext";
-import { mantineTheme, shadcnTheme } from "../theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
+import { getSecondaryPalette, getShadcnTheme } from "../utils/functions";
 import CopyThemeModal from "./modals/copy-modal";
-import { getSecondaryPalette } from "../utils/functions";
 
 import { Tooltip } from "@mantine/core";
-import {  } from "@radix-ui/react-icons";
+import { } from "@radix-ui/react-icons";
+import { mantineTheme } from "../themes/mantine/mantine-theme";
+import { shadcnGeneralTheme } from "../themes/shadcn/shadcn-general-theme";
 
 
 export interface IThemeConfig {
@@ -91,12 +92,13 @@ function Customizer() {
         };
         setConfig(updatedConfig);
         setLocalThemeConfig(updatedConfig);
-        setTheme((currentTheme) => ({
-          ...currentTheme,
+        const shadcnTheme = getShadcnTheme(color.id);
+        setTheme(() => ({
+          ...(shadcnTheme),
           primaryColor: color.id,
           primaryShade: color?.primaryShade as unknown as MantineColorShade,
           colors: {
-            ...currentTheme?.colors,
+            ...(shadcnTheme?.colors),
             secondary: getSecondaryPalette(config.style, color.id) as unknown as MantineColorsTuple,
             dark: getSecondaryPalette(config.style, color.id) as unknown as MantineColorsTuple,
           },
@@ -177,7 +179,7 @@ function Customizer() {
                 setConfig(updatedConfig);
                 setLocalThemeConfig(updatedConfig);
                 setTheme(() => ({
-                  ...shadcnTheme,
+                  ...shadcnGeneralTheme,
                   primaryColor: SHADCN_DEFAULT_COLORS[0].id,
                 }));
               }}
