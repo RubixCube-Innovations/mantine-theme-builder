@@ -455,7 +455,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-primary-color-light-color": "var(--mantine-color-dark-light-color)",
   },
   light: {
-    // all variables that depend on lighth color scheme
+    // all variables that depend on light color scheme
     "--mantine-primary-color-contrast": getPrimaryContrastColorDay(theme.primaryColor), // used as primary color contrast
     "--mantine-color-bright": "var(--mantine-color-dark-0)", // used as theme's bright color
     "--mantine-color-text": "var(--mantine-color-dark-9)", // used as text color
