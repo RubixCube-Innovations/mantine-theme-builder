@@ -1,10 +1,10 @@
 import { Button, Flex, Modal, ScrollArea, Title } from "@mantine/core";
-import { formatThemeObj } from "../../utils/functions";
 import { useTheme } from "../../ThemeContext";
 import { useDisclosure } from "@mantine/hooks";
 import { CodeHighlightTabs } from "@mantine/code-highlight";
 import { generateCSSTemplate } from "../../utils/cssTemplate";
-import { TypeScriptIcon, CssIcon } from '@mantinex/dev-icons'
+import { TypeScriptIcon, CssIcon } from "@mantinex/dev-icons";
+import { generatedTheme } from "../../generatedTheme";
 
 const CopyThemeModal = () => {
   const { theme } = useTheme();
@@ -38,7 +38,7 @@ const CopyThemeModal = () => {
             code={[
               {
                 fileName: "theme.ts",
-                code: formatThemeObj(theme),
+                code: generatedTheme[theme.primaryColor as string],
                 language: "tsx",
                 icon: tsIcon,
               },
