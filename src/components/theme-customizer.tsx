@@ -93,12 +93,12 @@ function Customizer() {
         setConfig(updatedConfig);
         setLocalThemeConfig(updatedConfig);
        
-        setTheme(() => ({
-          ...(shadcnTheme),
+        setTheme((currentTheme) => ({
+          ...(currentTheme),
           primaryColor: color.id,
           primaryShade: color?.primaryShade as unknown as MantineColorShade,
           colors: {
-            ...(shadcnTheme?.colors),
+            ...(currentTheme?.colors),
             secondary: getSecondaryPalette(config.style, color.id) as unknown as MantineColorsTuple,
             dark: getSecondaryPalette(config.style, color.id) as unknown as MantineColorsTuple,
           },
