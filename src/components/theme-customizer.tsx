@@ -16,13 +16,13 @@ import { InfoCircledIcon, MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-i
 import * as React from "react";
 import { useTheme } from "../ThemeContext";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
-import { getSecondaryPalette, getShadcnTheme } from "../utils/functions";
+import { getSecondaryPalette } from "../utils/functions";
 import CopyThemeModal from "./modals/copy-modal";
 
 import { Tooltip } from "@mantine/core";
 import { } from "@radix-ui/react-icons";
 import { mantineTheme } from "../themes/mantine/mantine-theme";
-import { shadcnGeneralTheme } from "../themes/shadcn/shadcn-general-theme";
+import { shadcnTheme } from "../themes/shadcn/shadcn-theme";
 
 
 export interface IThemeConfig {
@@ -92,7 +92,7 @@ function Customizer() {
         };
         setConfig(updatedConfig);
         setLocalThemeConfig(updatedConfig);
-        const shadcnTheme = getShadcnTheme(color.id);
+       
         setTheme(() => ({
           ...(shadcnTheme),
           primaryColor: color.id,
@@ -179,7 +179,7 @@ function Customizer() {
                 setConfig(updatedConfig);
                 setLocalThemeConfig(updatedConfig);
                 setTheme(() => ({
-                  ...shadcnGeneralTheme,
+                  ...shadcnTheme,
                   primaryColor: SHADCN_DEFAULT_COLORS[0].id,
                 }));
               }}

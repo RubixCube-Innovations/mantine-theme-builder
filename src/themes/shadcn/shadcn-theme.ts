@@ -47,7 +47,7 @@ import {
   };
   
   
-  export const shadcnSpecialTheme  = createTheme({
+  export const shadcnTheme  = createTheme({
     /** Put your shadcn theme override here */
     colors: {
       zinc: zincColors,

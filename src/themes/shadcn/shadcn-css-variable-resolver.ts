@@ -1,7 +1,7 @@
 import { alpha, CSSVariablesResolver } from "@mantine/core";
 import { getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getPrimaryLightColorDay, getPrimaryLightColorNight } from "../../utils/functions";
 
-export const shadcnGeneralCssVariableResolver: CSSVariablesResolver = (theme) => ({
+export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     variables: {
       // variables that do not depend on color scheme
       "--mantine-heading-font-weight": "600",

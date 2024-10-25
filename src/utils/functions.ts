@@ -1,10 +1,8 @@
 import { MantinePrimaryShade, MantineThemeOverride } from "@mantine/core";
 import { mantineCssVariableResolver } from "../themes/mantine/mantine-css-variable-resolver";
 import { mantineTheme } from "../themes/mantine/mantine-theme";
-import { shadcnGeneralCssVariableResolver } from "../themes/shadcn/shadcn-general-css-variable-resolver";
-import { shadcnGeneralTheme } from "../themes/shadcn/shadcn-general-theme";
-import { shadcnSpecialCssVariableResolver } from "../themes/shadcn/shadcn-special-css-variable-resolver";
-import { shadcnSpecialTheme } from "../themes/shadcn/shadcn-special-theme";
+import { shadcnCssVariableResolver } from "../themes/shadcn/shadcn-css-variable-resolver";
+import { shadcnTheme } from "../themes/shadcn/shadcn-theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "./colors";
 import { generateThemeTemplate } from "./themeTemplate";
 
@@ -14,9 +12,9 @@ import { generateThemeTemplate } from "./themeTemplate";
  * @param style - The style of the theme, e.g., "shadcn".
  * @returns The base theme for the given style.
  */
-export const getBaseTheme = (style: string | undefined, color: string | undefined) => {
+export const getBaseTheme = (style: string | undefined) => {
   if (style === "shadcn") {
-    return getShadcnTheme(color);
+    return shadcnTheme;
   }
   return mantineTheme;
 };
@@ -90,25 +88,9 @@ export const handleCopyCode = async (theme: MantineThemeOverride) => {
   await navigator.clipboard.writeText(prettyObject);
 };
 
-export const getShadcnTheme = (color: string | undefined) => {
-  if(color === "rose" || color === "green"){
-    return shadcnSpecialTheme
-  }else {
-    return shadcnGeneralTheme;
-  }
-}
-
-export const getShadcnVariableResolver = (color: string | undefined) => {
-  if(color === "rose" || color === "green"){
-    return shadcnGeneralCssVariableResolver;
-  }else{
-    return shadcnSpecialCssVariableResolver;
-  }
-}
-
 export const getCurrentCSSResolverVariables = (theme: any) => {
   const cssResolverVars =
-    theme.other?.style === "shadcn" ? getShadcnVariableResolver(theme.primaryColor)(theme) : mantineCssVariableResolver(theme);
+    theme.other?.style === "shadcn" ? shadcnCssVariableResolver(theme) : mantineCssVariableResolver(theme);
   return cssResolverVars;
 };
 /**

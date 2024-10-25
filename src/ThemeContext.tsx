@@ -4,7 +4,8 @@ import { readLocalStorageValue } from "@mantine/hooks";
 import React, { createContext, useContext, useState } from "react";
 import { IThemeConfig } from "./components/theme-customizer";
 import { mantineCssVariableResolver } from "./themes/mantine/mantine-css-variable-resolver";
-import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette, getShadcnVariableResolver } from "./utils/functions";
+import { shadcnCssVariableResolver } from "./themes/shadcn/shadcn-css-variable-resolver";
+import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette } from "./utils/functions";
 
 // Define the shape of the context
 interface ThemeContextType {
@@ -31,7 +32,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   });
 
   const [theme, setTheme] = useState<MantineThemeOverride>(() => {
-    const baseTheme = getBaseTheme(localStorageTheme?.style, localStorageTheme?.color);
+    const baseTheme = getBaseTheme(localStorageTheme?.style);
     const initPrimeColor = localStorageTheme?.color || baseTheme?.primaryColor;
     const primaryShade = getBasePrimaryShade(localStorageTheme?.style, initPrimeColor);
     return {
@@ -51,7 +52,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <MantineProvider
         theme={theme}
-        cssVariablesResolver={theme.other?.style === "shadcn" ? getShadcnVariableResolver(theme.primaryColor) : mantineCssVariableResolver}
+        cssVariablesResolver={theme.other?.style === "shadcn" ? shadcnCssVariableResolver : mantineCssVariableResolver}
       >
         {children}
       </MantineProvider>
