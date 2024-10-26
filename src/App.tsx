@@ -9,13 +9,13 @@ import {
   ScrollArea,
   Stack,
   Text,
-  Title,
+  Title
 } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { AboutPage } from "./components/about/about";
 import MantineCards from "./components/cards/mantine-cards";
 import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
 import ThemeCustomizer from "./components/theme-customizer";
-import { useDisclosure } from "@mantine/hooks";
-import { AboutPage } from "./components/about/about";
 
 export default function ThemesPage() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -64,9 +64,9 @@ export default function ThemesPage() {
           title={"About the project"}
           size={"xl"}
           centered
-          scrollAreaComponent={ScrollArea.Autosize}
+          // scrollAreaComponent={ScrollArea.Autosize}
         >
-          <ScrollArea h={"600px"} pe={"xs"}>
+          <ScrollArea h={"600px"} pe={"sm"}>
             <AboutPage />
           </ScrollArea>
         </Modal>

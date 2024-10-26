@@ -29,8 +29,16 @@
 
 .globalMantineCardRoot {
   background-color: var(--mantine-color-default);
+  border-color: var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-default);
 }
 
 .globalMantineCardRoot__roseGreen {
   background-color: var(--mantine-color-dark-filled);
+  border-color: var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-default);
+}
+
+.mantine-Modal-content{
+  overflow-y: hidden;
 }

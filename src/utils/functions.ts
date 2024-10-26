@@ -1,5 +1,8 @@
 import { MantinePrimaryShade, MantineThemeOverride } from "@mantine/core";
-import { mantineCssVariableResolver, mantineTheme, shadcnCssVariableResolver, shadcnTheme } from "../theme";
+import { mantineCssVariableResolver } from "../themes/mantine/mantine-css-variable-resolver";
+import { mantineTheme } from "../themes/mantine/mantine-theme";
+import { shadcnCssVariableResolver } from "../themes/shadcn/shadcn-css-variable-resolver";
+import { shadcnTheme } from "../themes/shadcn/shadcn-theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "./colors";
 import { generateThemeTemplate } from "./themeTemplate";
 

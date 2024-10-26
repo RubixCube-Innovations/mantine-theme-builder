@@ -54,6 +54,7 @@ export const AboutPage = () => {
       </Box>
       <Box mt="md">
         <Title order={4}>🎗️ Support</Title>
+        <Divider my="sm" />
         <Text>If you find this project useful, plese consider</Text>
         <List type="unordered">
           <List.Item icon="⭐️">Starring the repository on GitHub</List.Item>

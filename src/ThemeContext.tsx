@@ -3,7 +3,8 @@ import { MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mant
 import { readLocalStorageValue } from "@mantine/hooks";
 import React, { createContext, useContext, useState } from "react";
 import { IThemeConfig } from "./components/theme-customizer";
-import { mantineCssVariableResolver, shadcnCssVariableResolver } from "./theme";
+import { mantineCssVariableResolver } from "./themes/mantine/mantine-css-variable-resolver";
+import { shadcnCssVariableResolver } from "./themes/shadcn/shadcn-css-variable-resolver";
 import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette } from "./utils/functions";
 
 // Define the shape of the context
