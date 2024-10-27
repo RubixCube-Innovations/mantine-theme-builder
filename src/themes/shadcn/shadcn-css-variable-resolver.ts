@@ -1,13 +1,13 @@
 import { alpha, CSSVariablesResolver } from "@mantine/core";
-import { getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getPrimaryLightColorDay, getPrimaryLightColorNight } from "../../utils/functions";
+import { getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getPrimaryLightColorDay, getPrimaryLightColorNight } from "../../utils/theme-functions";
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     variables: {
       // variables that do not depend on color scheme
       "--mantine-heading-font-weight": "600",
-      "--mantine-primary-color-filled-hover": `${alpha("var(--mantine-primary-color-filled)", 0.9)}`,
+      "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
       "--mantine-primary-color-light": "var(--mantine-color-dark-light)",
-      "--mantine-primary-color-light-hover": `${alpha("var(--mantine-primary-color-light)", 0.8)}`,
+      "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
       "--mantine-primary-color-light-color": "var(--mantine-color-dark-light-color)",
     },
     light: {
@@ -31,7 +31,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
       "--mantine-color-dark-filled-hover": "var(--mantine-color-dark-1)", // used as secondary hover color
   
       "--mantine-color-dark-light": getPrimaryLightColorDay(theme.primaryColor), // used as primary light color
-      "--mantine-color-dark-light-hover": `${alpha("var(--mantine-color-dark-light)", 0.8)}`, // used as primary light hover color
+      "--mantine-color-dark-light-hover": alpha("var(--mantine-color-dark-light)", 0.8), // used as primary light hover color
   
       "--mantine-color-dark-text": "var(--mantine-primary-color-contrast)", // can be used as dark text color
       "--mantine-color-dark-light-color": "var(--mantine-color-dark-8)", // used as primary light variant's text color
@@ -56,10 +56,10 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
       "--mantine-color-dimmed": "var(--mantine-color-dark-4)", // used as dimmed text color
   
       "--mantine-color-dark-filled": "var(--mantine-color-dark-8)", // used as secondary surface color
-      "--mantine-color-dark-filled-hover": `${alpha("var(--mantine-color-dark-filled)", 0.9)}`, //used as secondary hover color
+      "--mantine-color-dark-filled-hover": alpha("var(--mantine-color-dark-filled)", 0.9), //used as secondary hover color
   
       "--mantine-color-dark-light": getPrimaryLightColorNight(theme.primaryColor), // used as primary light color
-      "--mantine-color-dark-light-hover": `${alpha("var(--mantine-color-dark-light)", 0.8)}`, // used as primary light hover color
+      "--mantine-color-dark-light-hover": alpha("var(--mantine-color-dark-light)", 0.8), // used as primary light hover color
   
       "--mantine-color-dark-text": "var(--mantine-primary-color-contrast)", // can be used as dark text color
       "--mantine-color-dark-light-color": "var(--mantine-color-dark-0)", // used as primary light text color

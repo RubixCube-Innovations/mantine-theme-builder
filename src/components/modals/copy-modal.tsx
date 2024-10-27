@@ -1,10 +1,13 @@
-import { Button, Flex, Modal, ScrollArea, Title } from "@mantine/core";
+import { Button, Flex, MantineThemeOverride, Modal, ScrollArea, Title } from "@mantine/core";
 import { useTheme } from "../../ThemeContext";
 import { useDisclosure } from "@mantine/hooks";
 import { CodeHighlightTabs } from "@mantine/code-highlight";
-import { generateCSSTemplate } from "../../utils/cssTemplate";
 import { TypeScriptIcon, CssIcon } from "@mantinex/dev-icons";
-import { generatedTheme } from "../../generatedTheme";
+import { generatedMantineTheme } from "../../themes/generated/generatedMantineTheme";
+import { generatedShadcnTheme } from "../../themes/generated/generatedShadcnTheme";
+import { generatedMantineCssVariableResolver } from "../../themes/generated/generatedMantineCssVariableResolver";
+import { generatedShadcnCssVariableResolver } from "../../themes/generated/generatedShadcnCssVariableResolver";
+import { generateCSSTemplate } from "../../utils/cssTemplate";
 
 const CopyThemeModal = () => {
   const { theme } = useTheme();
@@ -18,6 +21,31 @@ const CopyThemeModal = () => {
 
   const tsIcon = <TypeScriptIcon size={18} />;
   const cssIcon = <CssIcon size={18} />;
+
+  const getGeneratedTheme = (theme: MantineThemeOverride) => {
+    if (theme.other?.style === "mantine") {
+      const color = theme.primaryColor as keyof typeof generatedMantineTheme;
+      return generatedMantineTheme[color];
+    }
+
+    if (theme.other?.style === "shadcn") {
+      const color = theme.primaryColor as keyof typeof generatedShadcnTheme;
+      return generatedShadcnTheme[color];
+    }
+  };
+
+  const getGeneratedCssVariables = (theme: MantineThemeOverride) => {
+    if (theme.other?.style === "mantine") {
+      const color = theme.primaryColor as keyof typeof generatedMantineTheme;
+      return generatedMantineCssVariableResolver[color];
+    }
+
+    if (theme.other?.style === "shadcn") {
+      const color = theme.primaryColor as keyof typeof generatedShadcnTheme;
+      return generatedShadcnCssVariableResolver[color];
+    }
+  }
+  
 
   return (
     <>
@@ -38,14 +66,20 @@ const CopyThemeModal = () => {
             code={[
               {
                 fileName: "theme.ts",
-                code: generatedTheme[theme.primaryColor as string],
+                code: getGeneratedTheme(theme) ?? "Error occured while generating theme",
                 language: "tsx",
                 icon: tsIcon,
               },
               {
-                fileName: "App.css",
+                fileName: "cssVariableResolver.ts",
+                code: getGeneratedCssVariables(theme) ?? "Error occured while generating css variables",
+                language: "tsx",
+                icon: tsIcon,
+              },
+              {
+                fileName: "style.css",
                 code: generateCSSTemplate(),
-                language: "scss",
+                language: "tsx",
                 icon: cssIcon,
               },
             ]}

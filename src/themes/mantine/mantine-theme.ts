@@ -8,13 +8,13 @@ import {
   
         
   const CONTAINER_SIZES: Record<string, string> = {
-    xxs: rem(200),
-    xs: rem(300),
-    sm: rem(400),
-    md: rem(500),
-    lg: rem(600),
-    xl: rem(1400),
-    xxl: rem(1600),
+    xxs: rem("200px"),
+    xs: rem("300px"),
+    sm: rem("400px"),
+    md: rem("500px"),
+    lg: rem("600px"),
+    xl: rem("1400px"),
+    xxl: rem("1600px"),
   };
 
   
