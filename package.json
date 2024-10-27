@@ -7,7 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "compileTs": "node ./js/scripts/compileTs.cjs",
+    "generateThemes": "node ./js/scripts/generateThemes.cjs",
+    "generateCssVariableResolver": "node ./js/scripts/generateCssVariableResolver.cjs",
+    "generateStyles": "node ./js/scripts/generateStyles.cjs",
+    "generate": "npm run compileTs && npm run generateThemes && npm run generateCssVariableResolver && npm run generateStyles"
   },
   "dependencies": {
     "@mantine/charts": "^7.13.2",
