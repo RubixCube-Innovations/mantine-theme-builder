@@ -89,7 +89,7 @@ const CopyThemeModal = () => {
                         Copy the `theme.ts` and `cssVariableResolver.ts` and paste it into your project.
                       </List.Item>
                       <List.Item>Import the theme object and cssVariableResolver and pass it to `MantineProvider` component.</List.Item>
-                      <List.Item>Copy the styles.css and include it in your project's main file.</List.Item>
+                      <List.Item>Copy the styles.css and import it in your project's main file.</List.Item>
                       <List.Item>
                         Woohoo! You are all set!
                       </List.Item>

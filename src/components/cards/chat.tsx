@@ -20,6 +20,7 @@ import {
   PlusIcon,
 } from "@radix-ui/react-icons";
 import { useState } from "react";
+import { useTheme } from "../../ThemeContext";
 
 const users = [
   {
@@ -75,6 +76,7 @@ export function CardsChat() {
 
   const [input, setInput] = useState("");
   const inputLength = input.trim().length;
+  const {theme} = useTheme();
 
   const items = users
     .filter((item) =>
@@ -139,7 +141,9 @@ export function CardsChat() {
               bg={
                 message.role === "user"
                   ? "var(--mantine-primary-color-filled)"
-                  : "var(--mantine-color-dark-outline)"
+                  : (theme.other?.style === "shadcn" 
+                  ? "light-dark(var(--mantine-color-dark-2), var(--mantine-color-dark-7))"
+                  : "light-dark(var(--mantine-color-dark-1=0), var(--mantine-color-dark-5))")
               }
               withBorder={false}
               shadow="none"
