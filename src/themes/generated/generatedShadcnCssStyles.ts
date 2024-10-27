@@ -41,4 +41,10 @@ export const generatedShadcnCssStyles = `.globalMantineInput {
 
 .mantine-Modal-content{
   overflow-y: hidden;
+}
+
+.globalMantineHoverCard {
+  background-color: var(--mantine-color-default);
+  border-color: var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-default);
 }`;

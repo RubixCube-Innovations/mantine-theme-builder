@@ -9,6 +9,7 @@ export const generatedShadcnTheme = {
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -403,6 +404,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -416,6 +422,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -810,6 +817,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -823,6 +835,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -1217,6 +1230,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -1230,6 +1248,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -1624,6 +1643,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -1637,6 +1661,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -2031,6 +2056,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -2044,6 +2074,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -2438,6 +2469,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -2451,6 +2487,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -2845,6 +2882,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -2858,6 +2900,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -3252,6 +3295,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -3265,6 +3313,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -3659,6 +3708,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -3672,6 +3726,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -4066,6 +4121,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -4079,6 +4139,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -4473,6 +4534,11 @@ export const shadcnTheme = createTheme({
         underline: "always",
       },
     }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
   },
 });
 `,
@@ -4486,6 +4552,7 @@ export const shadcnTheme = createTheme({
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  HoverCard,
   Input,
   Modal,
   Paper,
@@ -4879,6 +4946,11 @@ export const shadcnTheme = createTheme({
       defaultProps: {
         underline: "always",
       },
+    }),
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
     }),
   },
 });

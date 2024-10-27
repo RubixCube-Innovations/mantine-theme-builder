@@ -9,9 +9,10 @@ export const AboutPage = () => {
         <Divider my="sm" />
         <Text>
           Mantine is an amazing library with a wide range of components, extensive customization options, and a vibrant
-          community. It offers a developer experience unmatched by many React libraries.  However, its default styling can feel 
-          less modern compared to frameworks like shadcn and Radix, which many companies prefer.
-           Setting up colors and styles to match those modern aesthetics can be time-consuming and may hinder projects that need a quick start.
+          community. It offers a developer experience unmatched by many React libraries. However, its default styling
+          can feel less modern compared to frameworks like shadcn and Radix, which many companies prefer. Setting up
+          colors and styles to match those modern aesthetics can be time-consuming and may hinder projects that need a
+          quick start.
         </Text>
         <br />
         <Text>
@@ -22,18 +23,41 @@ export const AboutPage = () => {
         </Text>
       </Box>
       <Box mt="md">
-        <Title order={3}>🤔 How to Use</Title>
+        <Title order={3}>📌 Project Maintenance and Future Plans</Title>
         <Divider my="sm" />
-        <List type="ordered">
-          <List.Item>Copy the `theme.ts` file from Mantine Theme Builder and paste it into your project.</List.Item>
-          <List.Item>Import the theme object and pass it to `MantineProvider` in your project.</List.Item>
-          <List.Item>Import the `cssVariableResolver` and pass it to the same component.</List.Item>
-          <List.Item>Copy the `mantine.css` file from the builder and include it in your project.</List.Item>
-        </List>
         <Text>
+          Currently, all the components used in this project's theme are completed. The basic styling and variable color
+          assignments are set up for you, making it easy to get started. However, Mantine offers over 100 components,
+          and we plan to extensively verify that the generated themes for styles such as Shadcn, Radix, or any new
+          theme, support all Mantine components, variants, and states.
           <br />
-          By following these simple steps, you'll have a modern, shadcn-like theme integrated seamlessly with your
-          Mantine components, saving you time and effort.
+          <br />
+          For now, we're checking whether this project is useful for the community. If you find value in it, please star
+          the repository and share your feedback via this form. This will help us understand its impact. If there's
+          enough interest, we'll make sure to bring comprehensive support for all components, making it easier for
+          anyone looking to adopt modern theming for Mantine projects and get started instantly.
+        </Text>
+      </Box>
+      <Box mt="lg">
+        <Title order={3}>🎨 Understanding the Color Schema</Title>
+        <Divider my="sm" />
+        <Text>
+          Mantine offers a robust and flexible theming system that we have fully leveraged to create modern, cohesive
+          designs. The themes and color schemes you see on this site are a result of carefully crafted configurations,
+          making it easy to integrate modern aesthetics. Understanding how these variables and customizations work is
+          essential to fully unlock the potential of your theme.
+        </Text>
+        <br />
+        <Text>
+          To learn about these variables, their roles, and best practices for theming, refer to our detailed blogs where
+          we explain the color schema and provide practical examples. Our blogs cover how to approach theming your
+          components, how to use these variables effectively, and how to create a cohesive design system for your
+          project.
+          <br />
+          <br />
+          We encourage you to read through these articles if you're looking to customize this theme or understand the
+          best way to utilize the predefined color variables. This will help you maintain consistency and visual harmony
+          throughout your project.
         </Text>
       </Box>
       <Box mt={"md"}>

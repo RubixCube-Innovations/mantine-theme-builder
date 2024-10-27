@@ -1,5 +1,5 @@
 import { CodeHighlightTabs } from "@mantine/code-highlight";
-import { Button, Flex, MantineThemeOverride, Modal, ScrollArea, Title } from "@mantine/core";
+import { ActionIcon, Box, Button, CloseIcon, Divider, Flex, Group, HoverCard, List, MantineThemeOverride, Modal, ScrollArea, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { CssIcon, TypeScriptIcon } from "@mantinex/dev-icons";
 import { useTheme } from "../../ThemeContext";
@@ -9,16 +9,11 @@ import { generatedMantineTheme } from "../../themes/generated/generatedMantineTh
 import { generatedShadcnCssStyles } from "../../themes/generated/generatedShadcnCssStyles";
 import { generatedShadcnCssVariableResolver } from "../../themes/generated/generatedShadcnCssVariableResolver";
 import { generatedShadcnTheme } from "../../themes/generated/generatedShadcnTheme";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 const CopyThemeModal = () => {
   const { theme } = useTheme();
   const [opened, { open, close }] = useDisclosure(false);
-
-  const title = (
-    <Flex align={"center"}>
-      <Title size="h5">Current Theme</Title>
-    </Flex>
-  );
 
   const tsIcon = <TypeScriptIcon size={18} />;
   const cssIcon = <CssIcon size={18} />;
@@ -63,7 +58,6 @@ const CopyThemeModal = () => {
         size={"xl"}
         opened={opened}
         onClose={close}
-        title={title}
         transitionProps={{ transition: "fade", duration: 200 }}
         styles={{
           header: {
@@ -71,10 +65,48 @@ const CopyThemeModal = () => {
           },
         }}
         centered
+        withCloseButton={false}
       >
+        <Box mb={"md"}>
+          <Flex justify={"space-between"}>
+            <Title order={4}>Current Theme</Title>
+            <Group>
+              <HoverCard shadow="md">
+                <HoverCard.Target>
+                  <Group gap={"3xs"}>
+                    <InfoCircledIcon color="var(--mantine-color-dimmed)" />
+                    <Text c="dimmed" size="sm">
+                      How to use?
+                    </Text>
+                  </Group>
+                </HoverCard.Target>
+                <HoverCard.Dropdown>
+                  <Box>
+                    <Title order={5}>🤔 How to Use?</Title>
+                    <Divider my="xs" />
+                    <List type="ordered" size="sm">
+                      <List.Item>
+                        Copy the `theme.ts` and `cssVariableResolver.ts` and paste it into your project.
+                      </List.Item>
+                      <List.Item>Import the theme object and cssVariableResolver and pass it to `MantineProvider` component.</List.Item>
+                      <List.Item>Copy the styles.css and include it in your project's main file.</List.Item>
+                      <List.Item>
+                        Woohoo! You are all set!
+                      </List.Item>
+                    </List>
+                   
+                  </Box>
+                </HoverCard.Dropdown>
+              </HoverCard>
+              <ActionIcon size="md" variant="subtle" onClick={close}>
+                <CloseIcon />
+              </ActionIcon>
+            </Group>
+          </Flex>
+        </Box>
         <ScrollArea h={"750"} style={{ borderRadius: "var(--mantine-radius-default)" }}>
           <CodeHighlightTabs
-            style={{maxWidth: "44.5rem"}}
+            style={{ maxWidth: "44.5rem" }}
             code={[
               {
                 fileName: "theme.ts",
