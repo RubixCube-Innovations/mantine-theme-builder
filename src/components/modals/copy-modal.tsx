@@ -1,13 +1,14 @@
-import { Button, Flex, MantineThemeOverride, Modal, ScrollArea, Title } from "@mantine/core";
-import { useTheme } from "../../ThemeContext";
-import { useDisclosure } from "@mantine/hooks";
 import { CodeHighlightTabs } from "@mantine/code-highlight";
-import { TypeScriptIcon, CssIcon } from "@mantinex/dev-icons";
-import { generatedMantineTheme } from "../../themes/generated/generatedMantineTheme";
-import { generatedShadcnTheme } from "../../themes/generated/generatedShadcnTheme";
+import { Button, Flex, MantineThemeOverride, Modal, ScrollArea, Title } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { CssIcon, TypeScriptIcon } from "@mantinex/dev-icons";
+import { useTheme } from "../../ThemeContext";
+import { generatedMantineCssStyles } from "../../themes/generated/generatedMantineCssStyles";
 import { generatedMantineCssVariableResolver } from "../../themes/generated/generatedMantineCssVariableResolver";
+import { generatedMantineTheme } from "../../themes/generated/generatedMantineTheme";
+import { generatedShadcnCssStyles } from "../../themes/generated/generatedShadcnCssStyles";
 import { generatedShadcnCssVariableResolver } from "../../themes/generated/generatedShadcnCssVariableResolver";
-import { generateCSSTemplate } from "../../utils/cssTemplate";
+import { generatedShadcnTheme } from "../../themes/generated/generatedShadcnTheme";
 
 const CopyThemeModal = () => {
   const { theme } = useTheme();
@@ -46,11 +47,20 @@ const CopyThemeModal = () => {
     }
   }
   
+  const getGeneratedCssStyles = (theme: MantineThemeOverride) => {
+    if (theme.other?.style === "mantine") {
+      return generatedMantineCssStyles;
+    }
+
+    if (theme.other?.style === "shadcn") {
+      return generatedShadcnCssStyles;
+    }
+  }
 
   return (
     <>
       <Modal
-        size={"90%"}
+        size={"xl"}
         opened={opened}
         onClose={close}
         title={title}
@@ -60,9 +70,11 @@ const CopyThemeModal = () => {
             paddingRight: "var(--mantine-spacing-lg",
           },
         }}
+        centered
       >
-        <ScrollArea h={550} style={{ borderRadius: "var(--mantine-radius-default)" }}>
+        <ScrollArea h={"750"} style={{ borderRadius: "var(--mantine-radius-default)" }}>
           <CodeHighlightTabs
+            style={{maxWidth: "44.5rem"}}
             code={[
               {
                 fileName: "theme.ts",
@@ -78,13 +90,13 @@ const CopyThemeModal = () => {
               },
               {
                 fileName: "style.css",
-                code: generateCSSTemplate(),
+                code: getGeneratedCssStyles(theme) ?? "Error occured while generating css styles",
                 language: "tsx",
                 icon: cssIcon,
               },
             ]}
             withCopyButton
-            copyLabel="Copy theme code"
+            copyLabel="Copy code"
             copiedLabel="Copied!"
           />
         </ScrollArea>

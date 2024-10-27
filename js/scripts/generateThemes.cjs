@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } = require("../generated/colors.cjs");
+const { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS, amberColors } = require("../generated/colors.cjs");
 const { getShadcnInputBg, getShadcnCardClassname } = require("../generated/theme-functions.cjs");
 
 function generateThemes(style, colors, inputFilePath, outputFileName) {
@@ -25,6 +25,21 @@ function generateThemes(style, colors, inputFilePath, outputFileName) {
     // Remove the prettier-ignore comments
     updatedContent = updatedContent.replaceAll("// prettier-ignore", "");
 
+    // Add the colors declaration before the export line
+    if (style === "shadcn") {
+      const amberColorDeclaration = `const amberColors = ${JSON.stringify(amberColors)};`;
+
+      const colorDeclarations = SHADCN_DEFAULT_COLORS.map((color) => {
+        return `const ${color.id}Colors = ${JSON.stringify(color.primaryPalette)};`;
+      }).join("\n");
+
+      // Add amberColorDeclaration as the last line
+      const allDeclarations = `${colorDeclarations}\n${amberColorDeclaration}`;
+
+      const exportLine = "export const shadcnTheme = createTheme({";
+      updatedContent = updatedContent.replace(exportLine, `${allDeclarations}\n\n${exportLine}`);
+    }
+
     return updatedContent;
   }
 
@@ -37,7 +52,9 @@ function generateThemes(style, colors, inputFilePath, outputFileName) {
         .replace("{ light: 9, dark: 0 }", JSON.stringify(color.primaryShade))
         .replaceAll("getShadcnCardClassname(theme.primaryColor)", `"${getShadcnCardClassname(color.id)}"`)
         .replaceAll("getShadcnInputBg(theme.primaryColor)", `"${getShadcnInputBg(color.id)}"`);
-    } else return template.replace(`primaryColor: "blue"`, `primaryColor: "${color.id}"`);
+    } else {
+      return template.replace(`primaryColor: "blue"`, `primaryColor: "${color.id}"`);
+    }
   }
 
   let generatedColors = {};
