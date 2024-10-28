@@ -20,10 +20,9 @@ import { getSecondaryPalette } from "../utils/functions";
 import CopyThemeModal from "./modals/copy-modal";
 
 import { Tooltip } from "@mantine/core";
-import { } from "@radix-ui/react-icons";
+import {} from "@radix-ui/react-icons";
 import { mantineTheme } from "../themes/mantine/mantine-theme";
 import { shadcnTheme } from "../themes/shadcn/shadcn-theme";
-
 
 export interface IThemeConfig {
   style: string;
@@ -57,15 +56,12 @@ function Customizer() {
     key: "mantine-theme",
   });
 
-  const [baseColors, setBaseColors] = React.useState(MANTINE_DEFAULT_COLORS);
+  const [baseColors, setBaseColors] = React.useState<any>(SHADCN_DEFAULT_COLORS);
   const [config, setConfig] = React.useState<IThemeConfig>({
-    style: "mantine",
-    color: MANTINE_DEFAULT_COLORS[0].id,
+    style: "shadcn",
+    color: SHADCN_DEFAULT_COLORS[0].id,
     radius: "md",
   });
-
-  console.log("localThemeConfig", localThemeConfig);
-  console.log("config", config);
 
   React.useEffect(() => {
     if (localThemeConfig) {
@@ -79,10 +75,13 @@ function Customizer() {
     }
   }, [localThemeConfig]);
 
-  const mantineColorButtons = baseColors.map((color) => (
+  const mantineColorButtons = baseColors.map((color: any) => (
     <Button
-    variant={"outline"}
-    style={{ borderColor: config.color === color.id ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
+      variant={"outline"}
+      style={{
+        borderColor:
+          config.color === color.id ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)",
+      }}
       leftSection={<ColorSwatch size={20} color={color.color} />}
       key={color.id}
       onClick={() => {
@@ -92,13 +91,13 @@ function Customizer() {
         };
         setConfig(updatedConfig);
         setLocalThemeConfig(updatedConfig);
-       
+
         setTheme((currentTheme) => ({
-          ...(currentTheme),
+          ...currentTheme,
           primaryColor: color.id,
           primaryShade: color?.primaryShade as unknown as MantineColorShade,
           colors: {
-            ...(currentTheme?.colors),
+            ...currentTheme?.colors,
             secondary: getSecondaryPalette(config.style, color.id) as unknown as MantineColorsTuple,
             dark: getSecondaryPalette(config.style, color.id) as unknown as MantineColorsTuple,
           },
@@ -126,14 +125,15 @@ function Customizer() {
             onClick={() => {
               setConfig({
                 ...config,
-                color: MANTINE_DEFAULT_COLORS[0].id,
-                style: "mantine",
-                radius: "md",
+                color: SHADCN_DEFAULT_COLORS[0].id,
+                style: "shadcn",
+                radius: "sm",
               });
               setTheme({
-                ...mantineTheme,
-                primaryColor: MANTINE_DEFAULT_COLORS[0].id,
+                ...shadcnTheme,
+                primaryColor: SHADCN_DEFAULT_COLORS[0].id,
               });
+              setBaseColors(SHADCN_DEFAULT_COLORS);
               removeLocalThemeConfig();
             }}
           >
@@ -147,7 +147,12 @@ function Customizer() {
           <SimpleGrid cols={3}>
             <Button
               variant={"outline"}
-              style={{ borderColor: config.style === "mantine" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
+              style={{
+                borderColor:
+                  config.style === "mantine"
+                    ? "var(--mantine-primary-color-filled)"
+                    : "var(--mantine-color-default-border)",
+              }}
               size="xs"
               onClick={() => {
                 //TODO: Refactoring needed
@@ -168,7 +173,12 @@ function Customizer() {
             </Button>
             <Button
               variant={"outline"}
-              style={{ borderColor: config.style === "shadcn" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
+              style={{
+                borderColor:
+                  config.style === "shadcn"
+                    ? "var(--mantine-primary-color-filled)"
+                    : "var(--mantine-color-default-border)",
+              }}
               size="xs"
               onClick={() => {
                 const updatedConfig = {
@@ -186,19 +196,23 @@ function Customizer() {
             >
               Shadcn
             </Button>
-            
+
             <Button
               variant={"outline"}
-              style={{ borderColor: config.style === "radixui" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
+              style={{
+                borderColor:
+                  config.style === "radixui"
+                    ? "var(--mantine-primary-color-filled)"
+                    : "var(--mantine-color-default-border)",
+              }}
               size="xs"
               disabled
             >
-             RadixUI
-             <Tooltip label="RadixUI inspired glassmoriphic themes coming soon.">
-              <InfoCircledIcon width={"14px"} height={"14px"} style={{marginLeft:"var(--mantine-spacing-2xs)"}}/>
+              RadixUI
+              <Tooltip label="RadixUI inspired glassmoriphic themes coming soon.">
+                <InfoCircledIcon width={"14px"} height={"14px"} style={{ marginLeft: "var(--mantine-spacing-2xs)" }} />
               </Tooltip>
             </Button>
-           
           </SimpleGrid>
         </Stack>
         <Stack gap="xs">
@@ -212,7 +226,12 @@ function Customizer() {
               return (
                 <Button
                   variant={"outline"}
-                  style={{ borderColor: config.radius === value ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
+                  style={{
+                    borderColor:
+                      config.radius === value
+                        ? "var(--mantine-primary-color-filled)"
+                        : "var(--mantine-color-default-border)",
+                  }}
                   size="xs"
                   key={value}
                   onClick={() => {
@@ -239,7 +258,12 @@ function Customizer() {
           <SimpleGrid cols={3}>
             <Button
               variant={"outline"}
-              style={{ borderColor: colorScheme === "light" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
+              style={{
+                borderColor:
+                  colorScheme === "light"
+                    ? "var(--mantine-primary-color-filled)"
+                    : "var(--mantine-color-default-border)",
+              }}
               size="xs"
               onClick={() => setColorScheme("light")}
             >
@@ -249,8 +273,13 @@ function Customizer() {
               </Group>
             </Button>
             <Button
-                variant={"outline"}
-              style={{ borderColor: colorScheme === "dark" ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)" }}
+              variant={"outline"}
+              style={{
+                borderColor:
+                  colorScheme === "dark"
+                    ? "var(--mantine-primary-color-filled)"
+                    : "var(--mantine-color-default-border)",
+              }}
               size="xs"
               onClick={() => setColorScheme("dark")}
             >

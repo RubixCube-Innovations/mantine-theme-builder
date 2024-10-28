@@ -13,10 +13,10 @@ import { generateThemeTemplate } from "./themeTemplate";
  * @returns The base theme for the given style.
  */
 export const getBaseTheme = (style: string | undefined) => {
-  if (style === "shadcn") {
-    return shadcnTheme;
+  if (style === "mantine") {
+    return mantineTheme;
   }
-  return mantineTheme;
+  return shadcnTheme;
 };
 
 /**
@@ -133,7 +133,7 @@ export const convertThemeToObj = (obj: any) => {
 
     if (typeof v === "function") {
       // v = v.toString();
-      v = `${v}`
+      v = `${v}`;
     } else if (v instanceof Array) {
       v = JSON.stringify(v);
     } else if (typeof v === "object") {
@@ -149,4 +149,3 @@ export const convertThemeToObj = (obj: any) => {
 
   return ret;
 };
-

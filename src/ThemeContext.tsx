@@ -1,7 +1,7 @@
 // ThemeContext.tsx
-import { MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mantine/core";
+import { MantineColorShade, MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mantine/core";
 import { readLocalStorageValue } from "@mantine/hooks";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { IThemeConfig } from "./components/theme-customizer";
 import { mantineCssVariableResolver } from "./themes/mantine/mantine-css-variable-resolver";
 import { shadcnCssVariableResolver } from "./themes/shadcn/shadcn-css-variable-resolver";
@@ -31,8 +31,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     key: "mantine-theme",
   });
 
+  const baseTheme = getBaseTheme(localStorageTheme?.style);
   const [theme, setTheme] = useState<MantineThemeOverride>(() => {
-    const baseTheme = getBaseTheme(localStorageTheme?.style);
     const initPrimeColor = localStorageTheme?.color || baseTheme?.primaryColor;
     const primaryShade = getBasePrimaryShade(localStorageTheme?.style, initPrimeColor);
     return {
@@ -44,15 +44,31 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         ...baseTheme?.colors,
         secondary: getSecondaryPalette(localStorageTheme?.style, initPrimeColor) as unknown as MantineColorsTuple,
         dark: getSecondaryPalette(localStorageTheme?.style, initPrimeColor) as unknown as MantineColorsTuple,
-      }
+      },
     };
   });
+
+  useEffect(() => {
+    if (!localStorageTheme?.color) {
+      setTheme(() => ({
+        ...baseTheme,
+        primaryColor: "zinc",
+        primaryShade: { light: 8, dark: 0 } as unknown as MantineColorShade,
+        colors: {
+          ...baseTheme?.colors,
+          secondary: getSecondaryPalette("shadcn", "zinc") as unknown as MantineColorsTuple,
+          dark: getSecondaryPalette("shadcn", "zinc") as unknown as MantineColorsTuple,
+        },
+      }));
+    }
+  }, [localStorageTheme?.color]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <MantineProvider
         theme={theme}
         cssVariablesResolver={theme.other?.style === "shadcn" ? shadcnCssVariableResolver : mantineCssVariableResolver}
+        defaultColorScheme="dark"
       >
         {children}
       </MantineProvider>
