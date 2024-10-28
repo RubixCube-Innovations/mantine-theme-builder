@@ -30,13 +30,13 @@ export function CardsMetric() {
             withXAxis={false}
             withYAxis={false}
             tooltipProps={{
-              content: ({ label, payload }) => (
-                <ChartTooltip label={label} payload={payload} />
-              ),
+              content: ({ label, payload }) => <ChartTooltip label={label} payload={payload} />,
             }}
+            dotProps={{ strokeWidth: 2, fill: "#fff" }}
             lineProps={(series) => ({
               dataKey: series.name,
               isAnimationActive: true,
+              opacity: series.name === "average" ? 0.25 : 1,
             })}
           />
         </div>

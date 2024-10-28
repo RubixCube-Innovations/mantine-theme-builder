@@ -63,6 +63,7 @@ export function CardsStats() {
               withYAxis={false}
               lineProps={{ isAnimationActive: true, dataKey: "revenue" }}
               withTooltip={false}
+              dotProps={{ strokeWidth: 2, fill: "#fff" }}
             />
           </Box>
         </Box>
