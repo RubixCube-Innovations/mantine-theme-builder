@@ -33,7 +33,7 @@ export const AboutPage = () => {
           <br />
           <br />
           For now, we're checking whether this project is useful for the community. If you find value in it, please star
-          the repository and share your feedback via this form. This will help us understand its impact. If there's
+          the repository and share your feedback <Anchor href='#tally-open=mex2Dx&tally-emoji-text=👋&tally-emoji-animation=wave'>via this form.</Anchor> This will help us understand its impact. If there's
           enough interest, we'll make sure to bring comprehensive support for all components, making it easier for
           anyone looking to adopt modern theming for Mantine projects and get started instantly.
         </Text>
@@ -72,7 +72,7 @@ export const AboutPage = () => {
           <Anchor href="https://github.com/gopukr" target="_blank">
             gopukr
           </Anchor>
-          . Contributions from the community are welcome and appreciated. Please see our CONTRIBUTING.md file for more
+          . Contributions from the community are welcome and appreciated. Please see our <Anchor href='https://github.com/RubixCube-Innovations/mantine-theme-builder/blob/main/CONTRIBUTING.md'>CONTRIBUTING.md file</Anchor> for more
           information on how to get involved.
         </Text>
       </Box>

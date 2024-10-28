@@ -42,6 +42,9 @@ export default function ThemesPage() {
               <Button variant="subtle" size="xs">
                 Blogs
               </Button>
+              <Button variant="subtle" size="xs" data-tally-open="mex2Dx" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">
+                Feedback
+              </Button>
             </Group>
             <iframe
               src="https://ghbtns.com/github-btn.html?user=RubixCube-Innovations&repo=mantine-theme-builder&type=star&count=true&size=large"
