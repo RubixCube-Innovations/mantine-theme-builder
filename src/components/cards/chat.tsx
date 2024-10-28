@@ -143,7 +143,7 @@ export function CardsChat() {
                   ? "var(--mantine-primary-color-filled)"
                   : (theme.other?.style === "shadcn" 
                   ? "light-dark(var(--mantine-color-dark-2), var(--mantine-color-dark-7))"
-                  : "light-dark(var(--mantine-color-dark-1=0), var(--mantine-color-dark-5))")
+                  : "light-dark(var(--mantine-color-dark-1), var(--mantine-color-dark-5))")
               }
               withBorder={false}
               shadow="none"
