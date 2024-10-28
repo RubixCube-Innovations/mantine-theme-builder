@@ -1,5 +1,20 @@
 import { CodeHighlightTabs } from "@mantine/code-highlight";
-import { ActionIcon, Box, Button, CloseIcon, Divider, Flex, Group, HoverCard, List, MantineThemeOverride, Modal, ScrollArea, Text, Title } from "@mantine/core";
+import {
+  ActionIcon,
+  Box,
+  Button,
+  CloseIcon,
+  Divider,
+  Flex,
+  Group,
+  HoverCard,
+  List,
+  MantineThemeOverride,
+  Modal,
+  ScrollArea,
+  Text,
+  Title,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { CssIcon, TypeScriptIcon } from "@mantinex/dev-icons";
 import { useTheme } from "../../ThemeContext";
@@ -40,8 +55,8 @@ const CopyThemeModal = () => {
       const color = theme.primaryColor as keyof typeof generatedShadcnTheme;
       return generatedShadcnCssVariableResolver[color];
     }
-  }
-  
+  };
+
   const getGeneratedCssStyles = (theme: MantineThemeOverride) => {
     if (theme.other?.style === "mantine") {
       return generatedMantineCssStyles;
@@ -50,7 +65,7 @@ const CopyThemeModal = () => {
     if (theme.other?.style === "shadcn") {
       return generatedShadcnCssStyles;
     }
-  }
+  };
 
   return (
     <>
@@ -71,7 +86,7 @@ const CopyThemeModal = () => {
           <Flex justify={"space-between"}>
             <Title order={4}>Current Theme</Title>
             <Group>
-              <HoverCard shadow="md">
+              <HoverCard shadow="md" width={430}>
                 <HoverCard.Target>
                   <Group gap={"3xs"}>
                     <InfoCircledIcon color="var(--mantine-color-dimmed)" />
@@ -80,21 +95,20 @@ const CopyThemeModal = () => {
                     </Text>
                   </Group>
                 </HoverCard.Target>
-                <HoverCard.Dropdown>
+                <HoverCard.Dropdown p="md">
                   <Box>
                     <Title order={5}>🤔 How to Use?</Title>
                     <Divider my="xs" />
-                    <List type="ordered" size="sm">
+                    <List type="ordered" size="sm" spacing="sm" my={"lg"} me={"8px"} lh={"lg"}>
                       <List.Item>
                         Copy the `theme.ts` and `cssVariableResolver.ts` and paste it into your project.
                       </List.Item>
-                      <List.Item>Import the theme object and cssVariableResolver and pass it to `MantineProvider` component.</List.Item>
-                      <List.Item>Copy the styles.css and import it in your project's main file.</List.Item>
                       <List.Item>
-                        Woohoo! You are all set!
+                        Import the theme object and cssVariableResolver and pass it to `MantineProvider` component.
                       </List.Item>
+                      <List.Item>Copy the styles.css and import it in your project's main file.</List.Item>
+                      <List.Item>Woohoo! You are all set!</List.Item>
                     </List>
-                   
                   </Box>
                 </HoverCard.Dropdown>
               </HoverCard>
