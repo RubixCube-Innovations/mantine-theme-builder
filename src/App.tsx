@@ -64,7 +64,7 @@ export default function ThemesPage() {
           opened={opened}
           onClose={close}
           // title={<Title order={2}>About Mantine Theme Builder</Title>}
-          title={"About the project"}
+          // title={"About the project"}
           size={"xl"}
           centered
           // scrollAreaComponent={ScrollArea.Autosize}
