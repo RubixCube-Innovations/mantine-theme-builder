@@ -1,16 +1,4 @@
-import {
-  Anchor,
-  Box,
-  Button,
-  Container,
-  Divider,
-  Group,
-  Modal,
-  ScrollArea,
-  Stack,
-  Text,
-  Title
-} from "@mantine/core";
+import { Anchor, Box, Button, Container, Divider, Group, Modal, ScrollArea, Stack, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { AboutPage } from "./components/about/about";
 import MantineCards from "./components/cards/mantine-cards";
@@ -42,7 +30,13 @@ export default function ThemesPage() {
               <Button variant="subtle" size="xs">
                 Blogs
               </Button>
-              <Button variant="subtle" size="xs" data-tally-open="mex2Dx" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">
+              <Button
+                variant="subtle"
+                size="xs"
+                data-tally-open="mex2Dx"
+                data-tally-emoji-text="👋"
+                data-tally-emoji-animation="wave"
+              >
                 Feedback
               </Button>
             </Group>
@@ -68,6 +62,7 @@ export default function ThemesPage() {
           size={"xl"}
           centered
           // scrollAreaComponent={ScrollArea.Autosize}
+          styles={{ content: { paddingTop: "0rem" } }}
         >
           <ScrollArea h={"600px"} pe={"sm"}>
             <AboutPage />

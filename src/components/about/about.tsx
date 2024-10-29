@@ -1,4 +1,4 @@
-import { Anchor, Box, Divider, List, Stack, Text, Title } from '@mantine/core';
+import { Anchor, Box, Divider, List, Stack, Text, Title } from "@mantine/core";
 
 export const AboutPage = () => {
   return (
@@ -19,7 +19,7 @@ export const AboutPage = () => {
           That's where Mantine Theme Builder comes in. This tool provides pre-configured themes inspired by shadcn,
           allowing you to easily integrate modern styling into your Mantine project. Simply copy and paste the theme
           configuration, and you're good to go. In the future, we plan to add more sought-after themes, including the
-          popular glasmorphic theme from Radix.
+          popular Glassmorphic theme from Radix.
         </Text>
       </Box>
       <Box mt="md">
@@ -33,9 +33,11 @@ export const AboutPage = () => {
           <br />
           <br />
           For now, we're checking whether this project is useful for the community. If you find value in it, please star
-          the repository and share your feedback <Anchor href='#tally-open=mex2Dx&tally-emoji-text=👋&tally-emoji-animation=wave'>via this form.</Anchor> This will help us understand its impact. If there's
-          enough interest, we'll make sure to bring comprehensive support for all components, making it easier for
-          anyone looking to adopt modern theming for Mantine projects and get started instantly.
+          the repository and share your feedback{" "}
+          <Anchor href="#tally-open=mex2Dx&tally-emoji-text=👋&tally-emoji-animation=wave">via this form.</Anchor> This
+          will help us understand its impact. If there's enough interest, we'll make sure to bring comprehensive support
+          for all components, making it easier for anyone looking to adopt modern theming for Mantine projects and get
+          started instantly.
         </Text>
       </Box>
       <Box mt="lg">
@@ -72,16 +74,24 @@ export const AboutPage = () => {
           <Anchor href="https://github.com/gopukr" target="_blank">
             gopukr
           </Anchor>
-          . Contributions from the community are welcome and appreciated. Please see our <Anchor href='https://github.com/RubixCube-Innovations/mantine-theme-builder/blob/main/CONTRIBUTING.md'>CONTRIBUTING.md file</Anchor> for more
-          information on how to get involved.
+          . Contributions from the community are welcome and appreciated. Please see our{" "}
+          <Anchor href="https://github.com/RubixCube-Innovations/mantine-theme-builder/blob/main/CONTRIBUTING.md">
+            CONTRIBUTING.md file
+          </Anchor>{" "}
+          for more information on how to get involved.
         </Text>
       </Box>
       <Box mt="md">
         <Title order={4}>🎗️ Support</Title>
         <Divider my="sm" />
-        <Text>If you find this project useful, plese consider</Text>
+        <Text>If you find this project useful, please consider</Text>
         <List type="unordered">
-          <List.Item icon="⭐️">Starring the repository on GitHub</List.Item>
+          <List.Item icon="⭐️">
+            Starring the repository on{" "}
+            <Anchor href="https://github.com/RubixCube-Innovations/mantine-theme-builder" target="_blank">
+              GitHub
+            </Anchor>
+          </List.Item>
           <List.Item icon="🫶">Sharing the project with your friends and colleagues</List.Item>
           <List.Item icon="👩‍💻">Contributing to the project</List.Item>
           {/* <List.Item icon="🥤">Buy me a coffee</List.Item> */}
