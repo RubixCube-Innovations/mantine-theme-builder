@@ -23,7 +23,6 @@ import { Spotlight } from "@mantine/spotlight";
 // prettier-ignore
 import { amberColors, blueColors, grayColors, greenColors, neutralColors, orangeColors, redColors, roseColors, slateColors, stoneColors, violetColors, yellowColors, zincColors } from "../../utils/colors";
 import { getShadcnCardClassname, getShadcnInputBg } from "../../utils/theme-functions";
-import { DatePicker } from "@mantine/dates";
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
