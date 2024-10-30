@@ -6,7 +6,7 @@ export function CardsCalendar() {
   const [value, setValue] = useState<[Date | null, Date | null]>([new Date(2023, 5, 5), new Date(2023, 5, 13)]);
 
   return (
-    <Card p="sm">
+    <Card p="md">
       <DatePicker
         size="sm"
         type="range"
@@ -18,6 +18,7 @@ export function CardsCalendar() {
         }}
         firstDayOfWeek={0}
         defaultDate={new Date(2023, 5)}
+        withCellSpacing={false}
       />
     </Card>
   );

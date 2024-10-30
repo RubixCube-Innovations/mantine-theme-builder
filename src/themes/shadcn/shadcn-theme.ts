@@ -23,6 +23,7 @@ import { Spotlight } from "@mantine/spotlight";
 // prettier-ignore
 import { amberColors, blueColors, grayColors, greenColors, neutralColors, orangeColors, redColors, roseColors, slateColors, stoneColors, violetColors, yellowColors, zincColors } from "../../utils/colors";
 import { getShadcnCardClassname, getShadcnInputBg } from "../../utils/theme-functions";
+import { DatePicker } from "@mantine/dates";
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -249,7 +250,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -350,6 +351,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -396,5 +400,6 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
