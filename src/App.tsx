@@ -27,9 +27,9 @@ export default function ThemesPage() {
               <Button variant="subtle" size="xs" style={{ cursor: "pointer" }} onClick={open}>
                 About
               </Button>
-              <Button variant="subtle" size="xs">
+              {/* <Button variant="subtle" size="xs">
                 Blogs
-              </Button>
+              </Button> */}
               <Button
                 variant="subtle"
                 size="xs"
@@ -39,6 +39,11 @@ export default function ThemesPage() {
               >
                 Feedback
               </Button>
+              <Anchor href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
+              <Button variant="subtle" size="xs">
+                Support
+              </Button>
+              </Anchor>
             </Group>
             <iframe
               src="https://ghbtns.com/github-btn.html?user=RubixCube-Innovations&repo=mantine-theme-builder&type=star&count=true&size=large"
@@ -64,7 +69,7 @@ export default function ThemesPage() {
           // scrollAreaComponent={ScrollArea.Autosize}
           styles={{ content: { paddingTop: "0rem" } }}
         >
-          <ScrollArea h={"600px"} pe={"sm"}>
+          <ScrollArea h={"600px"} pe={"sm"} pl="md" pr="xl">
             <AboutPage />
           </ScrollArea>
         </Modal>
@@ -91,12 +96,17 @@ export default function ThemesPage() {
               </Anchor>
               .
             </Text>
-            <Text size="sm" c="dimmed">
+            {/* <Text size="sm" c="dimmed">
               Made with <span style={{ fontSize: "10px" }}>❤️</span> by{" "}
               <Anchor href="https://rubixcube.tech" target="_blank" rel="noopener noreferrer">
                 RubixCube Innovations
               </Anchor>
-            </Text>
+            </Text> */}
+        
+        <a href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
+        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: "35px",width: "125px"}} />
+        </a>
+           
           </Group>
         </Box>
       </Stack>

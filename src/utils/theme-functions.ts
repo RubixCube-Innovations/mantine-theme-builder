@@ -21,7 +21,7 @@ export const getPrimaryContrastColorDay = (color: string) => {
     ) {
       return `var(--mantine-primary-color-0)`;
     } else if (color === "orange" || color === "blue" || color === "violet") {
-      return `var(--mantine-color-dark-0)`;
+      return `var(--mantine-color-secondary-0)`;
     } else if (color === "green") {
       return `var(--mantine-color-rose-0)`;
     } else if (color === "yellow") {
@@ -51,17 +51,17 @@ export const getPrimaryContrastColorDay = (color: string) => {
       color === "neutral" ||
       color === "blue"
     ) {
-      return "var(--mantine-color-dark-8)";
+      return "var(--mantine-color-secondary-8)";
     } else if (color === "red" || color === "rose") {
       return "var(--mantine-primary-color-0)";
     } else if (color === "orange" || color === "violet") {
-      return "var(--mantine-color-dark-0)";
+      return "var(--mantine-color-secondary-0)";
     } else if (color === "green") {
       return "var(--mantine-primary-color-9)";
     } else if (color === "yellow") {
       return "#422006";
     } else {
-      return "var(--mantine-color-dark-8)";
+      return "var(--mantine-color-secondary-8)";
     }
   };
   
@@ -69,15 +69,15 @@ export const getPrimaryContrastColorDay = (color: string) => {
     if (color === "rose" || color === "green" ) {
       return "var(--mantine-color-zinc-1)";
     } else {
-      return "var(--mantine-color-dark-1)";
+      return "var(--mantine-color-secondary-1)";
     }
   }
   
   export const getPrimaryLightColorNight = (color: string) => {
     if (color === "rose" || color === "green") {
-      return "var(--mantine-color-dark-7)";
+      return "var(--mantine-color-secondary-7)";
     } else {
-      return "var(--mantine-color-dark-7)";
+      return "var(--mantine-color-secondary-7)";
     }
   }
   
@@ -85,7 +85,7 @@ export const getPrimaryContrastColorDay = (color: string) => {
     if (color === "rose" || color === "green") {
       return "var(--mantine-color-zinc-2)";
     } else {
-      return "var(--mantine-color-dark-2)";
+      return "var(--mantine-color-secondary-2)";
     }
   }
   
@@ -93,7 +93,7 @@ export const getPrimaryContrastColorDay = (color: string) => {
     if (color === "rose" || color === "green") {
       return "var(--mantine-color-zinc-7)";
     } else {
-      return "var(--mantine-color-dark-7)";
+      return "var(--mantine-color-secondary-7)";
     }
   }
 
@@ -107,7 +107,7 @@ export const getPrimaryContrastColorDay = (color: string) => {
 
   export const getShadcnInputBg = (color: string) => {
     if (color === "rose" || color === "green") {
-      return "var(--mantine-color-dark-filled)";
+      return "var(--mantine-color-secondary-filled)";
     } else {
       return "var(--mantine-color-default)";
     }

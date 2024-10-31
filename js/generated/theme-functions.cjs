@@ -23,7 +23,7 @@ var getPrimaryContrastColorDay = function (color) {
         return "var(--mantine-primary-color-0)";
     }
     else if (color === "orange" || color === "blue" || color === "violet") {
-        return "var(--mantine-color-dark-0)";
+        return "var(--mantine-color-secondary-0)";
     }
     else if (color === "green") {
         return "var(--mantine-color-rose-0)";
@@ -54,13 +54,13 @@ var getPrimaryContrastColorNight = function (color) {
         color === "gray" ||
         color === "neutral" ||
         color === "blue") {
-        return "var(--mantine-color-dark-8)";
+        return "var(--mantine-color-secondary-8)";
     }
     else if (color === "red" || color === "rose") {
         return "var(--mantine-primary-color-0)";
     }
     else if (color === "orange" || color === "violet") {
-        return "var(--mantine-color-dark-0)";
+        return "var(--mantine-color-secondary-0)";
     }
     else if (color === "green") {
         return "var(--mantine-primary-color-9)";
@@ -69,7 +69,7 @@ var getPrimaryContrastColorNight = function (color) {
         return "#422006";
     }
     else {
-        return "var(--mantine-color-dark-8)";
+        return "var(--mantine-color-secondary-8)";
     }
 };
 exports.getPrimaryContrastColorNight = getPrimaryContrastColorNight;
@@ -78,16 +78,16 @@ var getPrimaryLightColorDay = function (color) {
         return "var(--mantine-color-zinc-1)";
     }
     else {
-        return "var(--mantine-color-dark-1)";
+        return "var(--mantine-color-secondary-1)";
     }
 };
 exports.getPrimaryLightColorDay = getPrimaryLightColorDay;
 var getPrimaryLightColorNight = function (color) {
     if (color === "rose" || color === "green") {
-        return "var(--mantine-color-dark-7)";
+        return "var(--mantine-color-secondary-7)";
     }
     else {
-        return "var(--mantine-color-dark-7)";
+        return "var(--mantine-color-secondary-7)";
     }
 };
 exports.getPrimaryLightColorNight = getPrimaryLightColorNight;
@@ -96,7 +96,7 @@ var getDefaultBorderColorDay = function (color) {
         return "var(--mantine-color-zinc-2)";
     }
     else {
-        return "var(--mantine-color-dark-2)";
+        return "var(--mantine-color-secondary-2)";
     }
 };
 exports.getDefaultBorderColorDay = getDefaultBorderColorDay;
@@ -105,7 +105,7 @@ var getDefaultBorderColorNight = function (color) {
         return "var(--mantine-color-zinc-7)";
     }
     else {
-        return "var(--mantine-color-dark-7)";
+        return "var(--mantine-color-secondary-7)";
     }
 };
 exports.getDefaultBorderColorNight = getDefaultBorderColorNight;
@@ -120,7 +120,7 @@ var getShadcnCardClassname = function (color) {
 exports.getShadcnCardClassname = getShadcnCardClassname;
 var getShadcnInputBg = function (color) {
     if (color === "rose" || color === "green") {
-        return "var(--mantine-color-dark-filled)";
+        return "var(--mantine-color-secondary-filled)";
     }
     else {
         return "var(--mantine-color-default)";

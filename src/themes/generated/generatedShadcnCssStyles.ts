@@ -35,7 +35,7 @@ export const generatedShadcnCssStyles = `.globalMantineInput {
 }
 
 .globalMantineCardRoot__roseGreen {
-  background-color: var(--mantine-color-dark-filled);
+  background-color: var(--mantine-color-secondary-filled);
   border-color: var(--mantine-color-default-border);
   border-radius: var(--mantine-radius-default);
 }

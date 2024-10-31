@@ -40,7 +40,7 @@ export const AboutPage = () => {
           started instantly.
         </Text>
       </Box>
-      <Box mt="lg">
+      {/* <Box mt="lg">
         <Title order={3}>🎨 Understanding the Color Schema</Title>
         <Divider my="sm" />
         <Text>
@@ -61,7 +61,7 @@ export const AboutPage = () => {
           best way to utilize the predefined color variables. This will help you maintain consistency and visual harmony
           throughout your project.
         </Text>
-      </Box>
+      </Box> */}
       <Box mt={"md"}>
         <Title order={3}>🧑‍💻 Contributors</Title>
         <Divider my="sm" />
@@ -94,7 +94,9 @@ export const AboutPage = () => {
           </List.Item>
           <List.Item icon="🫶">Sharing the project with your friends and colleagues</List.Item>
           <List.Item icon="👩‍💻">Contributing to the project</List.Item>
-          {/* <List.Item icon="🥤">Buy me a coffee</List.Item> */}
+          <Anchor href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
+            <List.Item icon="🥤">Buy me a coffee</List.Item>
+          </Anchor>
         </List>
         <br />
       </Box>

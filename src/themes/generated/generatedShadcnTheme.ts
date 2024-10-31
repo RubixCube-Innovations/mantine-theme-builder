@@ -2785,7 +2785,7 @@ export const shadcnTheme = createTheme({
           input: {
             "--input-bd": "var(--mantine-color-default-border)",
             "--input-bd-focus": "var(--mantine-primary-color-filled)",
-            "--input-bg": "var(--mantine-color-dark-filled)",
+            "--input-bg": "var(--mantine-color-secondary-filled)",
           },
           wrapper: {},
         };
@@ -3617,7 +3617,7 @@ export const shadcnTheme = createTheme({
           input: {
             "--input-bd": "var(--mantine-color-default-border)",
             "--input-bd-focus": "var(--mantine-primary-color-filled)",
-            "--input-bg": "var(--mantine-color-dark-filled)",
+            "--input-bg": "var(--mantine-color-secondary-filled)",
           },
           wrapper: {},
         };
