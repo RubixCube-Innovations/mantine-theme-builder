@@ -11,11 +11,14 @@ import { CardsCreateAccount } from "./create-account";
 import { CardsReportIssue } from "./report-issue";
 import { CardsDataTable } from "./data-table";
 import { CardsShare } from "./share";
+import { useMediaQuery } from "@mantine/hooks";
 
 const MantineCards = () => {
+
+  const isMobile = useMediaQuery  ('(max-width: 425px)');
   return (
     <Grid py={"xl"}>
-      <Grid.Col span={{sm: 6, md:6.5}}>
+      <Grid.Col span={{sm: 6, md:5.5, lg: 6.5}}>
         <Stack gap="md">
           <CardsStats />
           <SimpleGrid cols={{lg:2}} spacing="md">
@@ -34,9 +37,9 @@ const MantineCards = () => {
         </Stack>
       </Grid.Col>
 
-      <Grid.Col span={{sm: 6, md: 5.5}}>
+      <Grid.Col span={{sm: 6, md: 6.5, lg: 5.5}}>
         <Stack gap="md">
-          <Group gap={"md"} align="flex-start">
+          <Group gap={"md"} align="flex-start" wrap= {isMobile ? "wrap" : "nowrap"}>
             <CardsCalendar />
             <CardsActivityGoal />
           </Group>

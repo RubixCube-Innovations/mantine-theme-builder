@@ -47,7 +47,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -262,7 +261,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -363,6 +362,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -409,6 +411,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -460,7 +463,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -675,7 +677,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -776,6 +778,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -822,6 +827,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -873,7 +879,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -1088,7 +1093,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -1189,6 +1194,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -1235,6 +1243,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -1286,7 +1295,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -1501,7 +1509,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -1602,6 +1610,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -1648,6 +1659,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -1699,7 +1711,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -1914,7 +1925,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -2015,6 +2026,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -2061,6 +2075,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -2112,7 +2127,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -2327,7 +2341,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -2428,6 +2442,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -2474,6 +2491,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -2525,7 +2543,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -2740,7 +2757,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -2841,6 +2858,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -2887,6 +2907,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -2938,7 +2959,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -3153,7 +3173,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -3254,6 +3274,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -3300,6 +3323,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -3351,7 +3375,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -3566,7 +3589,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -3667,6 +3690,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -3713,6 +3739,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -3764,7 +3791,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -3979,7 +4005,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -4080,6 +4106,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -4126,6 +4155,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -4177,7 +4207,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -4392,7 +4421,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -4493,6 +4522,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -4539,6 +4571,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `,
@@ -4590,7 +4623,6 @@ const violetColors = ["#f5f3ff","#ede9fe","#ddd6fe","#c4b5fd","#a78bfa","#7c3aed
 const amberColors = ["#FFFBEB","#FEF3C7","#FDE68A","#FCD34D","#FBBF24","#D97706","#B45309","#92400E","#78350F","#451A03","#F59E0B"];
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
@@ -4805,7 +4837,7 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "md",
+        // p: "md",
         shadow: "xl",
         radius: "md",
         withBorder: true,
@@ -4906,6 +4938,9 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
       styles: () => ({
         content: {
           border: "1px solid var(--mantine-color-default-border)",
@@ -4952,6 +4987,7 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
+   // DatePicker: used static classes to style the date picker
   },
 });
 `

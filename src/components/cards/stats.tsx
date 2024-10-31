@@ -38,7 +38,7 @@ const data = [
 
 export function CardsStats() {
   return (
-    <SimpleGrid cols={{ lg: 2 }}>
+    <SimpleGrid cols={2}>
       <Card>
         <Box>
           <Text size="sm">Total Revenue</Text>

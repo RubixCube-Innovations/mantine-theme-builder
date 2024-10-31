@@ -34,7 +34,6 @@ const CONTAINER_SIZES: Record<string, string> = {
 };
 
 export const shadcnTheme = createTheme({
-  /** Put your shadcn theme override here */
   colors: {
     zinc: zincColors,
     slate: slateColors,
