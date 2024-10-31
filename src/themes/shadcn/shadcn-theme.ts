@@ -142,7 +142,6 @@ export const shadcnTheme = createTheme({
     const defaultResolvedColors = defaultVariantColorsResolver(component);
 
     if (component.variant === "default") {
-      //TODO: style is different in accordion for this variant. Handle it later here or in component section
       return {
         ...defaultResolvedColors,
         background: "var(--mantine-color-default)",
@@ -152,7 +151,6 @@ export const shadcnTheme = createTheme({
     }
 
     if (component.variant === "filled") {
-      //TODO: style is different in accordion for this variant. Handle it later here or in component section
       return {
         ...defaultResolvedColors,
         background: "var(--mantine-primary-color-filled)",
@@ -186,38 +184,6 @@ export const shadcnTheme = createTheme({
         background: "transparent",
         hover: "var(--mantine-color-default-hover)",
         color: "var(--mantine-color-default-color)",
-      };
-    }
-
-    if (component.variant === "transparent") {
-      return {
-        ...defaultResolvedColors,
-      };
-    }
-
-    if (component.variant === "unstyled") {
-      return {
-        ...defaultResolvedColors,
-      };
-    }
-
-    if (component.variant === "pills") {
-      return {
-        ...defaultResolvedColors,
-      };
-    }
-
-    if (component.variant === "contained") {
-      //only for accordion
-      return {
-        ...defaultResolvedColors,
-      };
-    }
-
-    if (component.variant === "separated") {
-      //only for accordion
-      return {
-        ...defaultResolvedColors,
       };
     }
 
