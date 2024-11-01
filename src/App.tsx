@@ -48,7 +48,7 @@ export default function ThemesPage() {
             <iframe
               src="https://ghbtns.com/github-btn.html?user=RubixCube-Innovations&repo=mantine-theme-builder&type=star&count=true&size=large"
               style={{ border: 0, overflow: "hidden", borderRadius: "var(--mantine-radius-default)" }}
-              width="120"
+              width="130"
               height="30"
               title="GitHub"
             ></iframe>
