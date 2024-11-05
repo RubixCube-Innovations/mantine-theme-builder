@@ -1,63 +1,40 @@
-import { Anchor, Burger, Button, Center, Divider, Group, Menu, Modal, ScrollArea, Text } from "@mantine/core";
+import { Anchor, Burger, Button, Divider, Group, Modal, ScrollArea, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { AboutPage } from "../about/about";
 import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import classes from "./header.module.css";
-import { AboutPage } from "../about/about";
-import { IconChevronDown } from "@tabler/icons-react";
 
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
   const [modalOpened, { open, close }] = useDisclosure(false);
 
-  const links = [
-    { link: '/', label: 'Themes' },
-    { link: '/components', label: 'Components' },
-    { link: '/blocks', label: 'Blocks' },
-    {
-      link: '#1',
-      label: 'About Us',
-      links: [
-        { link: '/about', label: 'About' },
-        { link: '/blog', label: 'Blog' },
-        { link: '/resources', label: 'Resources' },
-        { link: '/community', label: 'Community' },
-      ],
-    },
-    {
-      link: '#2',
-      label: 'Support',
-      links: [
-        { link: '/faq', label: 'FAQ' },
-        { link: '/demo', label: 'Book a demo' },
-        { link: '/forums', label: 'Forums' },
-      ],
-    },
-  ];
+//   const links = [
+//     { link: '/', label: 'Themes' },
+//     { link: '/components', label: 'Components' },
+//     { link: '/blocks', label: 'Blocks' },
+//     {
+//       link: '#1',
+//       label: 'About Us',
+//       links: [
+//         { link: '/about', label: 'About' },
+//         { link: '/blog', label: 'Blog' },
+//         { link: '/resources', label: 'Resources' },
+//         { link: '/community', label: 'Community' },
+//       ],
+//     },
+//     {
+//       link: '#2',
+//       label: 'Support',
+//       links: [
+//         { link: '/faq', label: 'FAQ' },
+//         { link: '/demo', label: 'Book a demo' },
+//         { link: '/forums', label: 'Forums' },
+//       ],
+//     },
+//   ];
 
-  const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
-    ));
-
-    if (menuItems) {
-      return (
-        <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
-          <Menu.Target>
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
-              <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
-                <IconChevronDown size="0.9rem" stroke={1.5} />
-              </Center>
-            </a>
-          </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
-        </Menu>
-      );
-    }
+ 
+    
 
   return (
     <header className={classes.header}>
