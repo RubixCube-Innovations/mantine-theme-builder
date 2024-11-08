@@ -1,8 +1,9 @@
 import { Anchor, Box, Container, Divider, Group, SegmentedControl, Stack, Text, Title } from "@mantine/core";
+import { useState } from "react";
 import MantineCards from "./components/cards/mantine-cards";
+import MantineDemo from "./components/demos/mantine-demo";
 import { Header } from "./components/header/header";
 import ThemeCustomizer from "./components/theme-customizer";
-import { useState } from "react";
 
 export default function ThemesPage() {
 
@@ -39,9 +40,8 @@ export default function ThemesPage() {
       ]}
     />
         </Group>
-        
-        <MantineCards />
 
+       {value === "example" ? <MantineCards /> : <MantineDemo />}
         <Box mt="auto" w="100%">
           <Divider my="sm" />
           <Group justify="space-between" align="center">

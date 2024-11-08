@@ -65,3 +65,34 @@ export const themeModalTabs = {
   cssResolver: "cssResolver",
   // createStyle: "createStyle",
 };
+
+export const demoComponentsNavbarData = [
+  {
+    label: 'Inputs',
+    initiallyOpened: true,
+    links: [
+      { label: 'Checkbox', value: 'checkbox', isActive: false },
+      { label: 'Chip', value: 'chip', isActive: false },
+      { label: 'ColorInput', value: 'color-input', isActive: false },
+      { label: 'ColorPicker', value: 'color-picker', isActive: false },
+    ],
+  },
+  {
+    label: 'Combobox',
+    initiallyOpened: false,
+    links: [
+      { label: 'Autocomplete', value: 'autocomplete', isActive: false },
+      { label: 'Combobox', value: 'combobox', isActive: false },
+      { label: 'Multiselect', value: 'multiselect', isActive: false },
+    ],
+  },
+  {
+    label: 'Buttons',
+    initiallyOpened: false,
+    links: [
+      { label: 'ActionIcon', value: 'action-icon', isActive: false },
+      { label: 'Button', value: 'button', isActive: false },
+      { label: 'CloseButton', value: 'close-button', isActive: false },
+    ],
+  },
+];

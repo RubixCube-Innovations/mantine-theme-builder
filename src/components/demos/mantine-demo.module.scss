@@ -1,0 +1,11 @@
+.navbarWrapper{
+    position: sticky;
+    top: var(--mantine-spacing-xl);
+    z-index: 1;
+}
+
+.content {
+    flex: 1;
+    padding-right: var(--mantine-spacing-md);
+    padding-left: var(--mantine-spacing-md);
+}
