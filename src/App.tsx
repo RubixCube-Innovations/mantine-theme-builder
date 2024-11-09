@@ -16,8 +16,8 @@ export default function ThemesPage() {
         <Box>
           <Title order={1}>Modern Mantine Themes</Title>
           <Text>
-          Save time on styling with our ready-to-use themes for{" "}
-          <Anchor target="_blank" href="https://mantine.dev/">
+            Save time on styling with our ready-to-use themes for{" "}
+            <Anchor target="_blank" href="https://mantine.dev/">
               Mantine
             </Anchor>{" "}
             components. Just copy, paste, and watch your app come to life.
@@ -28,20 +28,20 @@ export default function ThemesPage() {
           <ThemeCustomizer />
         </Box>
         <Group justify="center">
-
-        <SegmentedControl
-        w={"200px"}
-        size="xs"
-      value={value}
-      onChange={setValue}
-      data={[
-        { label: 'Examples', value: 'example' },
-        { label: 'Components', value: 'components' },
-      ]}
-    />
+          <SegmentedControl
+            w={"200px"}
+            size="xs"
+            value={value}
+            onChange={setValue}
+            data={[
+              { label: "Examples", value: "example" },
+              { label: "Components", value: "components" },
+            ]}
+          />
         </Group>
 
-       {value === "example" ? <MantineCards /> : <MantineDemo />}
+        {value === "example" ? <MantineCards /> : <MantineDemo />}
+
         <Box mt="auto" w="100%">
           <Divider my="sm" />
           <Group justify="space-between" align="center">

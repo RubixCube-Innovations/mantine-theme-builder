@@ -3,14 +3,23 @@ import { IconChevronRight } from '@tabler/icons-react';
 import { useState } from 'react';
 import classes from "./navbar.module.scss"
 
-interface NavbarLinksGroupProps {
+
+
+interface NavbarProps {
   label: string;
   initiallyOpened?: boolean;
-  links?: { label: string; value: string, isActive: boolean }[];
+  links?: { label: string; value: string}[];
 }
 
-export default function Navbar({menu}: {menu: NavbarLinksGroupProps[]}) {
-  const menuItems = menu.map((item) => <NavbarLinksGroup {...item} key={item.label} />);
+interface NavbarLinksGroupProps extends NavbarProps {
+  selected: string;
+  setSelected: (value: string) => void;
+}
+
+export default function Navbar({menu}: {menu: NavbarProps[]}) {
+  const [selected, setSelected] = useState(menu?.[0]?.links?.[0].value ?? '');
+
+  const menuItems = menu.map((item) => <NavbarLinksGroup {...item} key={item.label} selected={selected} setSelected={setSelected} />);
 
   return (
     <nav className={classes.navbar}>
@@ -21,14 +30,25 @@ export default function Navbar({menu}: {menu: NavbarLinksGroupProps[]}) {
   );
 }
 
-export function NavbarLinksGroup({ label, initiallyOpened, links }: NavbarLinksGroupProps) {
+export function NavbarLinksGroup({ label, initiallyOpened, links, selected, setSelected }: NavbarLinksGroupProps) {
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(initiallyOpened || false);
+
+  const scrollToSection = (id: string) => {
+    setSelected(id);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+  }
+
   const items = (hasLinks ? links : []).map((link) => (
     <Text
       className={classes.link}
       key={link.label}
-      onClick={(event) => event.preventDefault()}
+      onClick={()=>scrollToSection(link.value)}
+      style={{ backgroundColor: selected === link.value ? 'var(--mantine-color-default-hover)' : undefined }}
     >
       {link.label}
     </Text>
@@ -54,7 +74,11 @@ export function NavbarLinksGroup({ label, initiallyOpened, links }: NavbarLinksG
           )}
         </Group>
       </UnstyledButton>
-      {hasLinks ? <Collapse in={opened}>{items}</Collapse> : null}
+      {hasLinks ? <Collapse in={opened}>
+      <Box className={classes.linkGroup}>
+      {items}
+      </Box>
+      </Collapse> : null}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Button } from '@mantine/core';
-import { MantineDemo } from '../../../mantine/demo/Demo/Demo';
-import { interactiveVariantsControl } from '../../../../utils/variants-data';
+import { MantineDemo } from '../../mantine/demo/Demo/Demo';
+import { interactiveVariantsControl } from '../../../utils/variants-data';
 
 const code = `
 import { Button } from '@mantine/core';
@@ -24,5 +24,6 @@ export const buttonDemoConfigurator: MantineDemo = {
     { type: 'color', prop: 'color', initialValue: 'blue', libraryValue: 'blue' },
     { type: 'size', prop: 'size', initialValue: 'sm', libraryValue: 'sm' },
     { type: 'size', prop: 'radius', initialValue: 'sm', libraryValue: 'sm' },
+    { prop: 'disabled', type: 'boolean', initialValue: false, libraryValue: false },
   ],
 };

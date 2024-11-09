@@ -72,6 +72,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
