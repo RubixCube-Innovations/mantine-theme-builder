@@ -75,7 +75,7 @@ export function NavbarLinksGroup({ label, initiallyOpened, links, selected, setS
         </Group>
       </UnstyledButton>
       {hasLinks ? <Collapse in={opened}>
-      <Box className={classes.linkGroup}>
+      <Box className={classes.linkGroup} pt={"4xs"}>
       {items}
       </Box>
       </Collapse> : null}

@@ -1,5 +1,5 @@
 import { cloneElement, useState } from 'react';
-import { Stack } from '@mantine/core';
+import { Button, Stack } from '@mantine/core';
 import { DemoAreaProps } from '../DemoArea';
 import { DemoCode } from '../DemoCode';
 import { DemoColumns } from '../DemoColumns';
@@ -66,6 +66,7 @@ export function ConfiguratorDemo({
   const [state, setState] = useState(initialState);
   const setStateField = (field: string, value: any) =>
     setState((current) => ({ ...current, [field]: value }));
+  const [showCode, setShowCode] = useState(false);
 
   const items = controls.map((control) => {
     const ControlComponent = ControlComponents[control.type] as any;
@@ -86,6 +87,9 @@ export function ConfiguratorDemo({
         controls={
           <Stack className={classes.controls} gap="sm">
             {items}
+            <Button variant='light' onClick={() => setShowCode((s) => !s)} fullWidth>
+              {showCode ? 'Hide code' : 'Show code'}
+            </Button>
           </Stack>
         }
         centered={centered}
@@ -97,7 +101,9 @@ export function ConfiguratorDemo({
       >
         {cloneElement(children as JSX.Element, state)}
       </DemoColumns>
-      <DemoCode code={getCodeArray({ code, controls, state })} />
+
+
+    {showCode && <DemoCode code={getCodeArray({ code, controls, state })} />}
     </DemoRoot>
   );
 }

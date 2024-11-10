@@ -1,21 +1,50 @@
-import { buttonDemoConfigurator } from "../components/demos/buttons/button-demo";
-import { checkboxDemo } from "../components/demos/inputs/checkbox-demo";
-import { checkboxGroupDemo } from "../components/demos/inputs/checkbox-group-demo";
-import { chipDemo } from "../components/demos/inputs/chip-demo";
-import { colorInputDemo } from "../components/demos/inputs/color-input-demo";
-import { fieldsetDemo } from "../components/demos/inputs/fieldset-demo";
-import { fileInputDemo } from "../components/demos/inputs/file-input";
-import { nativeSelectDemo } from "../components/demos/inputs/native-select-demo";
-import { pinInputDemo } from "../components/demos/inputs/pin-input-demo";
-import { radioDemo } from "../components/demos/inputs/radio-demo";
-import { radioGroupDemo } from "../components/demos/inputs/radio-group-demo";
-import { ratingDemo } from "../components/demos/inputs/rating-demo";
-import { segmentedControlDemo } from "../components/demos/inputs/segmented-control-demo";
-import { sliderDemo } from "../components/demos/inputs/slider-demo";
-import { switchDemo } from "../components/demos/inputs/switch-demo";
-import { switchGroupDemo } from "../components/demos/inputs/switch-group-demo";
-import { textInputDemo } from "../components/demos/inputs/text-input-demo";
-import { textareaDemo } from "../components/demos/inputs/textarea-demo";
+import { actionIconDemo } from "../components/components-demo/buttons/action-icon-demo";
+import { buttonDemo } from "../components/components-demo/buttons/button-demo";
+import { closeButtonDemo } from "../components/components-demo/buttons/close-button-demo";
+import { autocompleteDemo } from "../components/components-demo/combobox/autocomplete-demo";
+import { multiSelectDemo } from "../components/components-demo/combobox/multi-select-demo";
+import { pillsInputDemo } from "../components/components-demo/combobox/pills-input-demo";
+import { selectDemo } from "../components/components-demo/combobox/select-demo";
+import { tagsInputDemo } from "../components/components-demo/combobox/tags-input-demo";
+import { accordionDemo } from "../components/components-demo/data-display/accordion-demo";
+import { avatarDemo } from "../components/components-demo/data-display/avatar-demo";
+import { backgroundImageDemo } from "../components/components-demo/data-display/background-image-demo";
+import { badgeDemo } from "../components/components-demo/data-display/badge-demo";
+import { cardDemo } from "../components/components-demo/data-display/card-demo";
+import { imageDemo } from "../components/components-demo/data-display/image-demo";
+import { indicatorDemo } from "../components/components-demo/data-display/indicator-demo";
+import { spoilerDemo } from "../components/components-demo/data-display/spoiler-demo";
+import { themeIconDemo } from "../components/components-demo/data-display/theme-icon-demo";
+import { timelineDemo } from "../components/components-demo/data-display/timeline-demo";
+import { alertDemo } from "../components/components-demo/feedback/alert-demo";
+import { loaderDemo } from "../components/components-demo/feedback/loader-demo";
+import { notificationDemo } from "../components/components-demo/feedback/notification-demo";
+import { progressDemo } from "../components/components-demo/feedback/progress-demo";
+import { ringProgressDemo } from "../components/components-demo/feedback/ring-progress-demo";
+import { semiCircleProgressDemo } from "../components/components-demo/feedback/semi-circle-progress-demo";
+import { skeletonDemo } from "../components/components-demo/feedback/skeleton-demo";
+import { checkboxDemo } from "../components/components-demo/inputs/checkbox-demo";
+import { checkboxGroupDemo } from "../components/components-demo/inputs/checkbox-group-demo";
+import { chipDemo } from "../components/components-demo/inputs/chip-demo";
+import { colorInputDemo } from "../components/components-demo/inputs/color-input-demo";
+import { fieldsetDemo } from "../components/components-demo/inputs/fieldset-demo";
+import { fileInputDemo } from "../components/components-demo/inputs/file-input";
+import { nativeSelectDemo } from "../components/components-demo/inputs/native-select-demo";
+import { pinInputDemo } from "../components/components-demo/inputs/pin-input-demo";
+import { radioDemo } from "../components/components-demo/inputs/radio-demo";
+import { radioGroupDemo } from "../components/components-demo/inputs/radio-group-demo";
+import { ratingDemo } from "../components/components-demo/inputs/rating-demo";
+import { segmentedControlDemo } from "../components/components-demo/inputs/segmented-control-demo";
+import { sliderDemo } from "../components/components-demo/inputs/slider-demo";
+import { switchDemo } from "../components/components-demo/inputs/switch-demo";
+import { switchGroupDemo } from "../components/components-demo/inputs/switch-group-demo";
+import { textInputDemo } from "../components/components-demo/inputs/text-input-demo";
+import { textareaDemo } from "../components/components-demo/inputs/textarea-demo";
+import { anchorDemo } from "../components/components-demo/navigation/anchor-demo";
+import { navLinkDemo } from "../components/components-demo/navigation/nav-link-demo";
+import { paginationDemo } from "../components/components-demo/navigation/pagination-demo";
+import { stepperDemo } from "../components/components-demo/navigation/stepper-demo";
+import { tabsDemo } from "../components/components-demo/navigation/tabs-demo";
 
 export const UserProfileData = {
   avatar:
@@ -88,7 +117,7 @@ export const themeModalTabs = {
 export const demoComponentsNavbarData = [
   {
     label: 'Inputs',
-    initiallyOpened: true,
+    initiallyOpened: false,
     links: [
       { label: 'Checkbox', value: 'checkbox', demo: checkboxDemo },
       { label: 'Checkbox Group', value: 'checkbox-group', demo: checkboxGroupDemo },
@@ -109,24 +138,65 @@ export const demoComponentsNavbarData = [
       { label: 'Text Input', value: 'text-input', demo: textInputDemo },
     ],
   },
-  // {
-  //   label: 'Combobox',
-  //   initiallyOpened: true,
-  //   links: [
-  //     { label: 'Autocomplete', value: 'autocomplete', demo: null },
-  //     { label: 'Multiselect', value: 'multiselect', demo: null },
-  //     { label: 'Pills Input', value: 'pills-input', demo: null },
-  //     { label: 'Select', value: 'select', demo: null },
-  //     { label: 'Tag Input', value: 'tag-input', demo: null },
-  //   ],
-  // },
+  {
+    label: 'Combobox',
+    initiallyOpened: false,
+    links: [
+      { label: 'Autocomplete', value: 'autocomplete', demo: autocompleteDemo },
+      { label: 'Multiselect', value: 'multiselect', demo: multiSelectDemo },
+      { label: 'Pills Input', value: 'pills-input', demo: pillsInputDemo },
+      { label: 'Select', value: 'select', demo: selectDemo },
+      { label: 'Tag Input', value: 'tag-input', demo: tagsInputDemo },
+    ],
+  },
   {
     label: 'Buttons',
+    initiallyOpened: false,
+    links: [
+      { label: 'ActionIcon', value: 'action-icon', demo: actionIconDemo },
+      { label: 'Button', value: 'button', demo: buttonDemo },
+      { label: 'CloseButton', value: 'close-button', demo: closeButtonDemo },
+    ],
+  },
+  {
+    label: 'Navigation',
     initiallyOpened: true,
     links: [
-      // { label: 'ActionIcon', value: 'action-icon' },
-      { label: 'Button', value: 'button', demo: buttonDemoConfigurator },
-      // { label: 'CloseButton', value: 'close-button' },
+      { label: 'Anchor', value: 'anchor', demo: anchorDemo },
+      { label: 'NavLink', value: 'nav-link', demo: navLinkDemo },
+      { label: 'Pagination', value: 'pagination', demo: paginationDemo },
+      { label: 'Stepper', value: 'stepper', demo: stepperDemo },
+      { label: 'Tabs', value: 'tabs', demo: tabsDemo },
+    ],
+  },
+  {
+    label: 'Feedback',
+    initiallyOpened: true,
+    links: [
+      { label: 'Alert', value: 'alert', demo: alertDemo },
+      { label: 'Loader', value: 'loader', demo: loaderDemo },
+      { label: 'Notification', value: 'notification', demo: notificationDemo },
+      { label: 'Progress', value: 'progress', demo: progressDemo },
+      { label: 'RingProgress', value: 'ring-progress', demo: ringProgressDemo },
+      { label: 'SemiCircleProgress', value: 'semi-circle-progress', demo: semiCircleProgressDemo },
+      { label: 'Skeleton', value: 'skeleton', demo: skeletonDemo },
+    ],
+  },
+  {
+    label: 'Data Display',
+    initiallyOpened: true,
+    links: [
+      { label: 'Accordion', value: 'accordion', demo: accordionDemo },
+      { label: 'Avatar', value: 'avatar', demo: avatarDemo },
+      { label: 'BackgroundImage', value: 'background-image', demo: backgroundImageDemo },
+      { label: 'Badge', value: 'badge', demo: badgeDemo },
+      { label: 'Card', value: 'card', demo: cardDemo },
+      { label: 'ColorSwatch', value: 'color-swatch', demo: colorInputDemo },
+      { label: 'Image', value: 'image', demo: imageDemo },
+      { label: 'Indicator', value: 'indicator', demo: indicatorDemo },
+      { label: 'Spoiler', value: 'spoiler', demo: spoilerDemo },
+      { label: 'ThemeIcon', value: 'theme-icon', demo: themeIconDemo },
+      { label: 'Timeline', value: 'timeline', demo: timelineDemo },
     ],
   },
 ];

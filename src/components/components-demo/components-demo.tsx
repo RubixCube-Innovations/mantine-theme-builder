@@ -2,9 +2,9 @@ import { Box, Divider, Group, ScrollArea, Stack, Title } from "@mantine/core";
 import { demoComponentsNavbarData } from "../../utils/data";
 import { Demo } from "../mantine/demo/Demo/Demo";
 import Navbar from "../navbar/navbar";
-import classes from "./mantine-demo.module.scss";
+import classes from "./components-demo.module.scss";
 
-const MantineDemo = () => {
+const ComponentsDemo = () => {
   return (
     <Group gap={"2rem"} align="flex-start" pt={"md"}>
       <Box className={classes.navbarWrapper} visibleFrom="md">
@@ -37,4 +37,4 @@ const MantineDemo = () => {
   );
 };
 
-export default MantineDemo;
+export default ComponentsDemo;

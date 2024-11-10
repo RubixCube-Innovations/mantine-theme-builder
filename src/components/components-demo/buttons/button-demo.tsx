@@ -14,7 +14,7 @@ function Wrapper(props: any) {
   return <Button {...props}>Button</Button>;
 }
 
-export const buttonDemoConfigurator: MantineDemo = {
+export const buttonDemo: MantineDemo = {
   type: 'configurator',
   component: Wrapper,
   code,
@@ -25,5 +25,6 @@ export const buttonDemoConfigurator: MantineDemo = {
     { type: 'size', prop: 'size', initialValue: 'sm', libraryValue: 'sm' },
     { type: 'size', prop: 'radius', initialValue: 'sm', libraryValue: 'sm' },
     { prop: 'disabled', type: 'boolean', initialValue: false, libraryValue: false },
+    { prop: 'loading', type: 'boolean', initialValue: false, libraryValue: false },
   ],
 };
