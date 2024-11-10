@@ -23,9 +23,9 @@ export default function Navbar({menu}: {menu: NavbarProps[]}) {
 
   return (
     <nav className={classes.navbar}>
-      <ScrollArea>
-        <div className={classes.links}>{menuItems}</div>
-      </ScrollArea>
+        <ScrollArea className={classes.links} h={"calc(100vh - 60px)"} scrollbarSize={"xs"}>
+          {menuItems}
+          </ScrollArea>
     </nav>
   );
 }

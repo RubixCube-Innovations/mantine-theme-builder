@@ -82,6 +82,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),

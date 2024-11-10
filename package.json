@@ -19,6 +19,7 @@
     "@mantine/code-highlight": "^7.13.2",
     "@mantine/core": "^7.13.2",
     "@mantine/dates": "^7.13.2",
+    "@mantine/form": "^7.13.5",
     "@mantine/hooks": "^7.13.2",
     "@mantine/spotlight": "^7.13.2",
     "@mantinex/dev-icons": "^1.0.2",

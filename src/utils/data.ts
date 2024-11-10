@@ -1,6 +1,16 @@
 import { actionIconDemo } from "../components/components-demo/buttons/action-icon-demo";
 import { buttonDemo } from "../components/components-demo/buttons/button-demo";
 import { closeButtonDemo } from "../components/components-demo/buttons/close-button-demo";
+import { areaChartDemo } from "../components/components-demo/charts/area-chart-demo";
+import { barchartDemo } from "../components/components-demo/charts/bar-chart-demo";
+import { bubbleChartDemo } from "../components/components-demo/charts/bubble-chart-demo";
+import { compositeChartDemo } from "../components/components-demo/charts/composite-chart-demo";
+import { donutChartDemo } from "../components/components-demo/charts/donot-chart-demo";
+import { lineChartDemo } from "../components/components-demo/charts/line-chart-demo";
+import { pieChartDemo } from "../components/components-demo/charts/pie-chart-demo";
+import { radarChartDemo } from "../components/components-demo/charts/radar-chart-demo";
+import { scatterChartDemo } from "../components/components-demo/charts/scatter-chart-demo";
+import { sparklineDemo } from "../components/components-demo/charts/sparkline-demo";
 import { autocompleteDemo } from "../components/components-demo/combobox/autocomplete-demo";
 import { multiSelectDemo } from "../components/components-demo/combobox/multi-select-demo";
 import { pillsInputDemo } from "../components/components-demo/combobox/pills-input-demo";
@@ -40,11 +50,32 @@ import { switchDemo } from "../components/components-demo/inputs/switch-demo";
 import { switchGroupDemo } from "../components/components-demo/inputs/switch-group-demo";
 import { textInputDemo } from "../components/components-demo/inputs/text-input-demo";
 import { textareaDemo } from "../components/components-demo/inputs/textarea-demo";
+import { dateInputDemo } from "../components/components-demo/miscellaneous/date-picker-input-demo";
+import { dividerDemo } from "../components/components-demo/miscellaneous/divider-demo";
+import { paperDemo } from "../components/components-demo/miscellaneous/paper-demo";
+import { scrollAreaDemo } from "../components/components-demo/miscellaneous/scroll-area-demo";
 import { anchorDemo } from "../components/components-demo/navigation/anchor-demo";
 import { navLinkDemo } from "../components/components-demo/navigation/nav-link-demo";
 import { paginationDemo } from "../components/components-demo/navigation/pagination-demo";
 import { stepperDemo } from "../components/components-demo/navigation/stepper-demo";
 import { tabsDemo } from "../components/components-demo/navigation/tabs-demo";
+import { dialogDemo } from "../components/components-demo/overlays/dialog-demo";
+import { drawerDemo } from "../components/components-demo/overlays/drawer-demo";
+import { hoverCardDemo } from "../components/components-demo/overlays/hover-card-demo";
+import { loadingOverlayDemo } from "../components/components-demo/overlays/loading-overlay-demo";
+import { menuDemo } from "../components/components-demo/overlays/menu-demo";
+import { modalDemo } from "../components/components-demo/overlays/modal-demo";
+import { overlayDemo } from "../components/components-demo/overlays/overlay-demo";
+import { popoverDemo } from "../components/components-demo/overlays/popover-demo";
+import { tooltipDemo } from "../components/components-demo/overlays/tooltip-demo";
+import { blockquoteDemo } from "../components/components-demo/typography/blockquote-demo";
+import { codeDemo } from "../components/components-demo/typography/code-demo";
+import { highlightDemo } from "../components/components-demo/typography/highlight-demo";
+import { listDemo } from "../components/components-demo/typography/list-demo";
+import { markDemo } from "../components/components-demo/typography/mark-demo";
+import { tableDemo } from "../components/components-demo/typography/table-demo";
+import { textDemo } from "../components/components-demo/typography/text-demo";
+import { titleDemo } from "../components/components-demo/typography/title-demo";
 
 export const UserProfileData = {
   avatar:
@@ -117,7 +148,7 @@ export const themeModalTabs = {
 export const demoComponentsNavbarData = [
   {
     label: 'Inputs',
-    initiallyOpened: false,
+    initiallyOpened: true,
     links: [
       { label: 'Checkbox', value: 'checkbox', demo: checkboxDemo },
       { label: 'Checkbox Group', value: 'checkbox-group', demo: checkboxGroupDemo },
@@ -140,7 +171,7 @@ export const demoComponentsNavbarData = [
   },
   {
     label: 'Combobox',
-    initiallyOpened: false,
+    initiallyOpened: true,
     links: [
       { label: 'Autocomplete', value: 'autocomplete', demo: autocompleteDemo },
       { label: 'Multiselect', value: 'multiselect', demo: multiSelectDemo },
@@ -151,7 +182,7 @@ export const demoComponentsNavbarData = [
   },
   {
     label: 'Buttons',
-    initiallyOpened: false,
+    initiallyOpened: true,
     links: [
       { label: 'ActionIcon', value: 'action-icon', demo: actionIconDemo },
       { label: 'Button', value: 'button', demo: buttonDemo },
@@ -183,6 +214,21 @@ export const demoComponentsNavbarData = [
     ],
   },
   {
+    label: 'Overlays',
+    initiallyOpened: true,
+    links: [
+      { label: 'Dialog', value: 'dialog', demo: dialogDemo },
+      { label: 'Drawer', value: 'drawer', demo: drawerDemo },
+      { label: 'HoverCard', value: 'hover-card', demo: hoverCardDemo },
+      { label: 'Loading Overlay', value: 'loading-overlay', demo: loadingOverlayDemo },
+      { label: 'Menu', value: 'menu', demo: menuDemo },
+      { label: 'Modal', value: 'modal', demo: modalDemo },
+      { label: 'Overlay', value: 'overlay', demo: overlayDemo },
+      { label: 'Popover', value: 'popover', demo: popoverDemo },
+      { label: 'Tooltip', value: 'tooltip', demo: tooltipDemo },
+    ],
+  },
+  {
     label: 'Data Display',
     initiallyOpened: true,
     links: [
@@ -197,6 +243,46 @@ export const demoComponentsNavbarData = [
       { label: 'Spoiler', value: 'spoiler', demo: spoilerDemo },
       { label: 'ThemeIcon', value: 'theme-icon', demo: themeIconDemo },
       { label: 'Timeline', value: 'timeline', demo: timelineDemo },
+    ],
+  },
+  {
+    label: 'Typography',
+    initiallyOpened: true,
+    links: [
+      { label: 'Blockquote', value: 'blockquote', demo: blockquoteDemo },
+      { label: 'Code', value: 'code', demo: codeDemo },
+      { label: 'Highlight', value: 'highlight', demo: highlightDemo },
+      { label: 'List', value: 'list', demo: listDemo },
+      { label: 'Mark', value: 'mark', demo: markDemo },
+      { label: 'Table', value: 'table', demo: tableDemo },
+      { label: 'Text', value: 'text', demo: textDemo },
+      { label: 'Title', value: 'title', demo: titleDemo },
+    ],
+  },
+  {
+    label: 'Miscellaneous',
+    initiallyOpened: true,
+    links: [
+      { label: 'Divider', value: 'divider', demo: dividerDemo },
+      { label: 'Paper', value: 'paper', demo: paperDemo },
+      { label: 'ScrollArea', value: 'scroll-area', demo: scrollAreaDemo },
+      { label: 'DateInput', value: 'date-input', demo: dateInputDemo },
+    ],
+  },
+  {
+    label: 'Charts',
+    initiallyOpened: true,
+    links: [
+      { label: 'AreaChart', value: 'area-chart', demo: areaChartDemo },
+      { label: 'BarChart', value: 'bar-chart', demo: barchartDemo },
+      { label: 'LineChart', value: 'line-chart', demo: lineChartDemo },
+      { label: 'CompositeChart', value: 'composite-chart', demo: compositeChartDemo },
+      { label: 'DonutChart', value: 'donut-chart', demo: donutChartDemo },
+      { label: 'PieChart', value: 'pie-chart', demo: pieChartDemo },
+      { label: 'RadarChart', value: 'radar-chart', demo: radarChartDemo },
+      { label: 'ScatterChart', value: 'scatter-chart', demo: scatterChartDemo },
+      { label: 'BubbleChart', value: 'bubble-chart', demo: bubbleChartDemo },
+      { label: 'Sparkline', value: 'sparkline', demo: sparklineDemo },
     ],
   },
 ];
