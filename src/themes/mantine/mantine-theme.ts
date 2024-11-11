@@ -1,4 +1,4 @@
-import { Card, Container, createTheme, Paper, rem } from "@mantine/core";
+import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -63,6 +63,11 @@ export const mantineTheme = createTheme({
         shadow: "xl",
         radius: "var(--mantine-radius-default)",
         withBorder: true,
+      },
+    }),
+    Select: Select.extend({
+      defaultProps: {
+        checkIconPosition: "right",
       },
     }),
   },
