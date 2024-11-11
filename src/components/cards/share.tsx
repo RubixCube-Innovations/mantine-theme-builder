@@ -44,6 +44,10 @@ export function CardsShare() {
                                 ]}
                                 defaultValue={person.access}
                                 style={{ width: '110px' }}
+                                comboboxProps={{
+                                    width: 130,
+                                    position: 'bottom-start',
+                                }}
                             />
                         </Group>
                     ))}
