@@ -14,6 +14,7 @@ import {
   Paper,
   Popover,
   rem,
+  Select,
   Switch,
   Table,
   Tooltip,
@@ -366,6 +367,11 @@ export const shadcnTheme = createTheme({
         dropdown: "globalMantineHoverCard",
       }),
     }),
-   // DatePicker: used static classes to style the date picker
+    Select: Select.extend({
+      defaultProps: {
+        checkIconPosition: "right",
+      },
+    }),
+    // DatePicker: used static classes to style the date picker
   },
 });

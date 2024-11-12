@@ -1,14 +1,4 @@
-import {
-    Button,
-    Card,
-    Group,
-    Select,
-    Stack,
-    Text,
-    TextInput,
-    Textarea,
-    Title
-} from "@mantine/core";
+import { Button, Card, Group, Select, Stack, Text, TextInput, Textarea, Title } from "@mantine/core";
 import * as React from "react";
 
 export function CardsReportIssue() {
@@ -49,14 +39,14 @@ export function CardsReportIssue() {
               { value: "4", label: "Severity 4 (Lowest)" },
             ]}
             defaultValue="2"
+            comboboxProps={{
+              width: 200,
+              position: "bottom-start",
+            }}
           />
         </Group>
 
-        <TextInput
-          label="Subject"
-          id={`subject-${id}`}
-          placeholder="I need help with..."
-        />
+        <TextInput label="Subject" id={`subject-${id}`} placeholder="I need help with..." />
 
         <Textarea
           label="Description"

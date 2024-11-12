@@ -14,11 +14,7 @@ import {
   Tooltip,
 } from "@mantine/core";
 import { spotlight, Spotlight } from "@mantine/spotlight";
-import {
-  MagnifyingGlassIcon,
-  PaperPlaneIcon,
-  PlusIcon,
-} from "@radix-ui/react-icons";
+import { MagnifyingGlassIcon, PaperPlaneIcon, PlusIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { useTheme } from "../../ThemeContext";
 
@@ -76,23 +72,17 @@ export function CardsChat() {
 
   const [input, setInput] = useState("");
   const inputLength = input.trim().length;
-  const {theme} = useTheme();
+  const { theme } = useTheme();
 
   const items = users
-    .filter((item) =>
-      item.name.toLowerCase().includes(query.toLowerCase().trim())
-    )
+    .filter((item) => item.name.toLowerCase().includes(query.toLowerCase().trim()))
     .map((item) => (
       <Spotlight.Action
         key={item.email}
         label={item.name}
         px={0}
         leftSection={
-          <Avatar
-            src={item.avatar}
-            radius="xl"
-            onClick={() => setSelectedUsers([...selectedUsers, item])}
-          />
+          <Avatar src={item.avatar} radius="xl" onClick={() => setSelectedUsers([...selectedUsers, item])} />
         }
       />
     ));
@@ -113,11 +103,7 @@ export function CardsChat() {
             </div>
           </Group>
           <Tooltip label="New message">
-            <ActionIcon
-              variant="default"
-              radius={"50%"}
-              onClick={() => spotlight.open()}
-            >
+            <ActionIcon variant="default" radius={"50%"} onClick={() => spotlight.open()}>
               <PlusIcon width={rem(16)} />
             </ActionIcon>
           </Tooltip>
@@ -133,17 +119,13 @@ export function CardsChat() {
               style={{
                 alignSelf: message.role === "user" ? "flex-end" : "flex-start",
               }}
-              c={
-                message.role === "user"
-                  ? "var(--mantine-primary-color-contrast)"
-                  : "var(--mantine-color-text)"
-              }
+              c={message.role === "user" ? "var(--mantine-primary-color-contrast)" : "var(--mantine-color-text)"}
               bg={
                 message.role === "user"
                   ? "var(--mantine-primary-color-filled)"
-                  : (theme.other?.style === "shadcn" 
-                  ? "light-dark(var(--mantine-color-dark-2), var(--mantine-color-dark-7))"
-                  : "light-dark(var(--mantine-color-dark-1), var(--mantine-color-dark-5))")
+                  : theme.other?.style === "shadcn"
+                    ? "light-dark(var(--mantine-color-dark-2), var(--mantine-color-dark-7))"
+                    : "light-dark(var(--mantine-color-dark-1), var(--mantine-color-dark-5))"
               }
               withBorder={false}
               shadow="none"
@@ -177,60 +159,48 @@ export function CardsChat() {
               style={{ flex: 1 }}
             />
             <Button type="submit" variant="primary" disabled={inputLength === 0} p={"xs"}>
-              <PaperPlaneIcon
-                width={rem(16)}
-                style={{ transform: "rotate(-45deg)" }}
-              />
+              <PaperPlaneIcon width={rem(16)} style={{ transform: "rotate(-45deg)" }} />
             </Button>
           </Group>
         </form>
       </Card>
 
       <Spotlight.Root query={query} onQueryChange={setQuery} size={"lg"}>
-        <Box mb="sm">
-          <Text size="lg" fw={"bold"}>
-            New message
-          </Text>
-          <Text c={"dimmed"} size="sm">
-            Invite a user to this thread. This will create a new group message.
-          </Text>
-        </Box>
-
-        <Divider />
-        <Spotlight.Search
-          size="sm"
-          placeholder="Search users..."
-          variant="unstyled"
-          leftSection={
-            <MagnifyingGlassIcon style={{ width: rem(20), height: rem(20) }} />
-          }
-        />
-        <Spotlight.ActionsList style={{borderTop: "1px solid var(--mantine-color-default-border)"}}>
-          {items.length > 0 ? (
-            items
-          ) : (
-            <Spotlight.Empty>Nothing found...</Spotlight.Empty>
-          )}
-        </Spotlight.ActionsList>
-
-        <Divider />
-        <Group gap="xs" justify="space-between" mt="md">
-          {selectedUsers.length > 0 ? (
-            selectedUsers.map((user) => (
-              <Avatar key={user.email} src={user.avatar} radius="xl" />
-            ))
-          ) : (
-            <Text c="dimmed" size="sm">
-              Select users to add to this thread.
+        <Box p={theme.other?.style === "shadcn" ? "md" : ""}>
+          <Box mb="sm">
+            <Text size="lg" fw={"bold"}>
+              New message
             </Text>
-          )}
-          <Button
-            onClick={() => spotlight.close()}
-            disabled={selectedUsers.length < 2}
-          >
-            Continue
-          </Button>
-        </Group>
+            <Text c={"dimmed"} size="sm">
+              Invite a user to this thread. This will create a new group message.
+            </Text>
+          </Box>
+
+          <Divider />
+          <Spotlight.Search
+            size="sm"
+            placeholder="Search users..."
+            variant="unstyled"
+            leftSection={<MagnifyingGlassIcon style={{ width: rem(20), height: rem(20) }} />}
+          />
+          <Spotlight.ActionsList style={{ borderTop: "1px solid var(--mantine-color-default-border)" }}>
+            {items.length > 0 ? items : <Spotlight.Empty>Nothing found...</Spotlight.Empty>}
+          </Spotlight.ActionsList>
+
+          <Divider />
+          <Group gap="xs" justify="space-between" mt="md">
+            {selectedUsers.length > 0 ? (
+              selectedUsers.map((user) => <Avatar key={user.email} src={user.avatar} radius="xl" />)
+            ) : (
+              <Text c="dimmed" size="sm">
+                Select users to add to this thread.
+              </Text>
+            )}
+            <Button onClick={() => spotlight.close()} disabled={selectedUsers.length < 2}>
+              Continue
+            </Button>
+          </Group>
+        </Box>
       </Spotlight.Root>
     </>
   );
