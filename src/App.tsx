@@ -34,8 +34,8 @@ export default function ThemesPage() {
             value={value}
             onChange={setValue}
             data={[
-              { label: "Examples", value: "example" },
-              { label: "Components", value: "components" },
+              { label: "Example", value: "example" },
+              { label: "All Components", value: "components" },
             ]}
           />
         </Group>

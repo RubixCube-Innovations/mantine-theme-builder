@@ -21,7 +21,9 @@ export function Header() {
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes" },
-    // { id: "blogs", href: "/blogs", label: "Blogs" },
+    { id: "blocks", href: "/blocks", label: "Blocks" },
+    // { id: "starter-kit", href: "/starter-kit", label: "Starter Kit" },
+    // { id: "templates", href: "/templates", label: "Templates" },
     { id: "feedback", href: "/feedback", label: "Feedback", onClick: handleFeedbackClick },
     { id: "about", href: "/about", label: "About Us", onClick: open },
     { id: "donate", label: "Support Us", onClick: () => window.open("https://www.buymeacoffee.com/abhishekslal01", "_blank") },
