@@ -180,6 +180,11 @@ export const generatedShadcnCssStyles = `.globalMantineInput {
   }
 }
 
+/* Title */
+.mantine-Title-root {
+  letter-spacing: -0.025em;
+}
+
 
 
 

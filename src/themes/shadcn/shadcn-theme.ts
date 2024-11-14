@@ -17,7 +17,7 @@ import {
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -372,6 +372,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
