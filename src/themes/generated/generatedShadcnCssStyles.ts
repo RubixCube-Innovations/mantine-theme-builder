@@ -158,6 +158,33 @@ export const generatedShadcnCssStyles = `.globalMantineInput {
   }
 }
 
+/* Menu Dropdown */
+.mantine-Menu-dropdown {
+  background-color: var(--mantine-color-default);
+  border-color: var(--mantine-color-default-border);
+
+  .mantine-Menu-item {
+    background-color: transparent;
+    &:hover {
+      background-color: var(--mantine-color-default-hover);
+    }
+  }
+}
+
+/* Segmented Control */
+.mantine-SegmentedControl-root {
+  background-color: var(--mantine-color-secondary-outline-hover);
+
+  .mantine-SegmentedControl-indicator {
+    background-color: var(--mantine-color-default);
+  }
+}
+
+/* Title */
+.mantine-Title-root {
+  letter-spacing: -0.025em;
+}
+
 
 
 
