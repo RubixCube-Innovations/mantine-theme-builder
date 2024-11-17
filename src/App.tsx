@@ -4,6 +4,7 @@ import { AboutPage } from "./components/about/about";
 import MantineCards from "./components/cards/mantine-cards";
 import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
 import ThemeCustomizer from "./components/theme-customizer";
+// import BlockPage from "./feature/blocks/components/block-page/block-page";
 
 export default function ThemesPage() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -40,9 +41,9 @@ export default function ThemesPage() {
                 Feedback
               </Button>
               <Anchor href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
-              <Button variant="subtle" size="xs">
-                Support
-              </Button>
+                <Button variant="subtle" size="xs">
+                  Support
+                </Button>
               </Anchor>
             </Group>
             <iframe
@@ -77,6 +78,7 @@ export default function ThemesPage() {
         {/* <ColorSwitcher /> */}
 
         <MantineCards />
+        {/* <BlockPage /> */}
 
         <Box mt="auto" w="100%">
           <Divider my="sm" />
@@ -102,11 +104,14 @@ export default function ThemesPage() {
                 RubixCube Innovations
               </Anchor>
             </Text> */}
-        
-        <a href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
-        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: "35px",width: "125px"}} />
-        </a>
-           
+
+            <a href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
+              <img
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                alt="Buy Me A Coffee"
+                style={{ height: "35px", width: "125px" }}
+              />
+            </a>
           </Group>
         </Box>
       </Stack>

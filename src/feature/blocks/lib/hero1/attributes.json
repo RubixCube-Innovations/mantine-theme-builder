@@ -1,0 +1,8 @@
+{
+  "title": "hero1",
+  "category": "hero",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  }
+}

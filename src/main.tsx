@@ -7,6 +7,7 @@ import "@mantine/dates/styles.css";
 import "@mantine/spotlight/styles.css";
 import "./styles/index.css"
 import '@mantine/code-highlight/styles.css';
+import '@mantinex/shiki/styles.css';
 // import "./styles/App.css";
 import "./styles/fonts.css";
 import "./styles/shadcn-styles.css";

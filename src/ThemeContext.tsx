@@ -6,6 +6,7 @@ import { IThemeConfig } from "./components/theme-customizer";
 import { mantineCssVariableResolver } from "./themes/mantine/mantine-css-variable-resolver";
 import { shadcnCssVariableResolver } from "./themes/shadcn/shadcn-css-variable-resolver";
 import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette } from "./utils/functions";
+import { ShikiProvider } from "@mantinex/shiki";
 
 // Define the shape of the context
 interface ThemeContextType {
@@ -63,6 +64,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   }, [localStorageTheme?.color]);
 
+  async function loadShiki() {
+    const { getHighlighter } = await import("shikiji");
+    const shiki = await getHighlighter({
+      langs: ["tsx", "scss", "html", "bash", "json"],
+    });
+
+    return shiki;
+  }
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <MantineProvider
@@ -70,7 +80,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         cssVariablesResolver={theme.other?.style === "shadcn" ? shadcnCssVariableResolver : mantineCssVariableResolver}
         defaultColorScheme="dark"
       >
-        {children}
+        <ShikiProvider loadShiki={loadShiki}>{children}</ShikiProvider>
       </MantineProvider>
     </ThemeContext.Provider>
   );

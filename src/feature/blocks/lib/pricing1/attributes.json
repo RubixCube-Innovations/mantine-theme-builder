@@ -1,0 +1,8 @@
+{
+  "title": "pricing1",
+  "category": "pricing",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  }
+}
