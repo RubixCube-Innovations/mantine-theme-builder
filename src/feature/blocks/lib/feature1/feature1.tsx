@@ -1,67 +1,74 @@
-import { Grid, Card, Text, Title, Center, Box } from "@mantine/core";
+import { Grid, Card, Text, Title, Center, Box, Stack } from "@mantine/core";
 import { ZoomInIcon, BarChartIcon, CircleIcon, HandIcon, LayersIcon, BellIcon } from "@radix-ui/react-icons";
+import classes from "./feature1.module.css";
 
 const reasons = [
   {
     title: "Quality",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+    description: "We deliver exceptional results that exceed expectations, setting new standards in the industry.",
     icon: <ZoomInIcon />,
   },
   {
     title: "Experience",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+    description: "Decades of combined expertise ensures your project is handled with professional excellence.",
     icon: <BarChartIcon />,
   },
   {
     title: "Support",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+    description: "24/7 dedicated support team ready to assist you with any questions or concerns.",
     icon: <CircleIcon />,
   },
   {
     title: "Innovation",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+    description: "Cutting-edge solutions that keep you ahead of the curve in today's dynamic market.",
     icon: <HandIcon />,
   },
   {
     title: "Results",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+    description: "Proven track record of delivering measurable outcomes and tangible business value.",
     icon: <LayersIcon />,
   },
   {
     title: "Efficiency",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+    description: "Streamlined processes that save time and resources while maximizing productivity.",
     icon: <BellIcon />,
   },
 ];
 
 export const Feature1 = () => {
   return (
-    <Box py={96}>
-      <Box className="container mx-auto">
-        <Box mb={40}>
-          <Title order={2} ta="center" fz={{ base: 24, lg: 40 }} fw={600}>
-            Why Work With Us?
-          </Title>
-        </Box>
-        <Grid gutter={40}>
-          {reasons.map((reason, i) => (
-            <Grid.Col key={i} span={{ base: 12, md: 6, lg: 3 }}>
-              <Card p="lg" shadow="sm" radius="md" withBorder>
-                <Center mb={20}>{reason.icon}</Center>
-                <Title order={3} mb={10}>
-                  {reason.title}
-                </Title>
-                <Text color="dimmed">{reason.description}</Text>
-              </Card>
-            </Grid.Col>
-          ))}
-        </Grid>
+    <Box py={120} className={classes.wrapper}>
+      <Box px="md" mx="auto" maw={1200}>
+        <Stack gap={60}>
+          <Box>
+            <Title className={classes.title} order={2} ta="center" size={40} fw={800}>
+              Why Work With Us?
+            </Title>
+            <Text c="dimmed" ta="center" size="lg" maw={600} mx="auto" mt="md">
+              Discover the unique advantages that set us apart and make us your ideal partner for success
+            </Text>
+          </Box>
+
+          <Grid gutter={40}>
+            {reasons.map((reason, i) => (
+              <Grid.Col key={i} span={{ base: 12, md: 6, lg: 4 }}>
+                <Card className={classes.card} p={30} radius="md" withBorder>
+                  <Stack gap="lg">
+                    <Center>
+                      <Box className={classes.iconWrapper}>{reason.icon}</Box>
+                    </Center>
+                    <Stack gap="sm">
+                      <Text className={classes.cardTitle}>{reason.title}</Text>
+                      <Text size="md" c="dimmed" lh={1.6}>
+                        {reason.description}
+                      </Text>
+                    </Stack>
+                  </Stack>
+                </Card>
+              </Grid.Col>
+            ))}
+          </Grid>
+        </Stack>
       </Box>
     </Box>
   );

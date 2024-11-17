@@ -1,0 +1,39 @@
+.container {
+  padding: 4rem 1rem;
+}
+
+.title {
+  font-size: 8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--mantine-color-blue-9) 0%, var(--mantine-color-indigo-9) 100%);
+  margin-bottom: 1.5rem;
+}
+
+.socialButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialButton:hover {
+  transform: translateY(-2px);
+}
+
+.socialIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--mantine-color-dimmed);
+}
+
+.successMessage {
+  text-align: center;
+  color: var(--mantine-primary-color-7);
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: 1rem;
+  border-radius: var(--mantine-radius-md);
+}

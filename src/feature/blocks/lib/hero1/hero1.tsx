@@ -1,37 +1,91 @@
-import { Badge, Box, Container, Flex, Grid, Image } from "@mantine/core";
-import { Button } from "@mantine/core";
+import { Container, Title, Text, Button, Group, Stack, Grid, ThemeIcon, Box, Paper, rem, rgba } from "@mantine/core";
+import { GitHubLogoIcon, RocketIcon, LightningBoltIcon, StarIcon, DashboardIcon } from "@radix-ui/react-icons";
 
 export const Hero1 = () => {
+  const features = [
+    { icon: <LightningBoltIcon />, label: "Lightning Fast" },
+    { icon: <StarIcon />, label: "Production Ready" },
+    { icon: <DashboardIcon />, label: "Modern Design" },
+  ];
+
   return (
-    <Container mx="auto" maw={1200}>
-      <Grid>
-        <Grid.Col span={{ base: 12, lg: 6 }}>
-          <Flex direction="column" align="center" justify="center" ta="center">
-            <Badge variant="outline" display="flex" ta="center">
-              New Release
-              <Image src="" ml={8} fz={16} />
-            </Badge>
-            <Box mt={24} fz={40} fw="bold">
-              Welcome to Our Website
-            </Box>
-            <Box mb={32} maw={600} fz={18} color="#6b7280">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro
-              facilis quo animi consequatur. Explicabo.
-            </Box>
-            <Flex direction="column" align="center" gap={8} w="100%">
-              <Button w="100%">Primary Button</Button>
-              <Button variant="outline" w="100%">
-                Secondary Button
-                <Image src="" ml={8} fz={16} />
-              </Button>
-            </Flex>
-          </Flex>
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, lg: 6 }}>
-          <Image
-           src="https://www.shadcnblocks.com/images/block/placeholder-1.svg" alt="placeholder hero" mih={384} w="100%" radius={8} fit="cover" />
-        </Grid.Col>
-      </Grid>
-    </Container>
+    <Box>
+      <Container size="xl" py={120}>
+        <Grid gutter={40} align="center">
+          <Grid.Col span={{ base: 12, md: 7 }}>
+            <Stack gap="xl">
+              <Group gap={"xs"}>
+                <ThemeIcon size="lg" radius="md" variant="transparent">
+                  <RocketIcon style={{ width: 20, height: 20 }} />
+                </ThemeIcon>
+                <Text fw={500} size="sm" style={{ letterSpacing: 1 }} tt="uppercase">
+                  Launch Your Project Today
+                </Text>
+              </Group>
+
+              <Title
+                order={1}
+                size="h1"
+                style={{
+                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                  lineHeight: 1,
+                  background:
+                    "linear-gradient(45deg, var(--mantine-primary-color-filled) 35%, var(--mantine-primary-color-contrast) 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Build Faster, Scale Better with Our Platform
+              </Title>
+
+              <Text size="xl" c="dimmed" maw={600}>
+                Experience the next generation of web development. Build scalable applications with modern tools and
+                frameworks.
+              </Text>
+
+              <Group mt="xl">
+                <Button size="lg" leftSection={<RocketIcon />}>
+                  Get Started
+                </Button>
+                <Button size="lg" variant="default" leftSection={<GitHubLogoIcon />}>
+                  View on GitHub
+                </Button>
+              </Group>
+
+              <Group mt={30} gap="xl">
+                {features.map((feature, index) => (
+                  <Group key={index} gap="xs">
+                    <ThemeIcon
+                      size="md"
+                      variant="light"
+                      color="blue"
+                      style={{ background: rgba("var(--mantine-primary-color-filled)", 0.07) }}
+                    >
+                      {feature.icon}
+                    </ThemeIcon>
+                    <Text size="sm" c="dimmed">
+                      {feature.label}
+                    </Text>
+                  </Group>
+                ))}
+              </Group>
+            </Stack>
+          </Grid.Col>
+
+          <Grid.Col span={{ base: 12, md: 5 }}>
+            <Paper
+              radius="md"
+              p="xl"
+              style={{
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+              }}
+              h={rem(320)}
+            ></Paper>
+          </Grid.Col>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
