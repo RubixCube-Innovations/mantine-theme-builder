@@ -1,0 +1,5 @@
+.root {
+  border: 1px solid var(--demo-border);
+  border-radius: var(--mantine-radius-md);
+  --demo-border: var(--mantine-color-default-border);
+}

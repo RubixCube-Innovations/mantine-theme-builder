@@ -30,12 +30,13 @@ export interface IThemeConfig {
   radius: string;
 }
 
+const BUTTON_LABEL = "Change Theme";
 export default function ThemeCustomizer({ isBlockPage = false }: { isBlockPage?: boolean }) {
   return (
     <Group>
       <Popover position="bottom-start">
         <Popover.Target>
-          <Button size="sm">Customize</Button>
+          <Button size="sm">{BUTTON_LABEL}</Button>
         </Popover.Target>
 
         <Popover.Dropdown>
@@ -119,7 +120,7 @@ function Customizer() {
       <Stack gap="md">
         <Group justify="space-between">
           <Box>
-            <Text fw={500}>Customize</Text>
+            <Text fw={500}>{BUTTON_LABEL}</Text>
             <Text size="xs" c="dimmed">
               Pick a style and color for your components.
             </Text>
@@ -225,10 +226,10 @@ function Customizer() {
           <Text size="xs">Color</Text>
           <SimpleGrid cols={3}>{mantineColorButtons}</SimpleGrid>
         </Stack>
-        <Stack gap="xs">
+        {/* <Stack gap="xs">
           <Text size="xs">Radius</Text>
           <SimpleGrid cols={5}>
-            {["0", "xs", "sm", "md", "lg", "xl"].map((value: string) => {
+            {[ "xs", "sm", "md", "lg", "xl"].map((value: string) => {
               return (
                 <Button
                   variant={"outline"}
@@ -258,7 +259,7 @@ function Customizer() {
               );
             })}
           </SimpleGrid>
-        </Stack>
+        </Stack> */}
         <Stack gap="xs">
           <Text size="xs">Mode</Text>
           <SimpleGrid cols={3}>

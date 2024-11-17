@@ -1,0 +1,124 @@
+@use "sass:math";
+
+/*  Define variables for your breakpoints,
+ values must be the same as in your theme */
+
+$mantine-breakpoint-xs: "36em";
+$mantine-breakpoint-sm: "48em";
+$mantine-breakpoint-md: "62em";
+$mantine-breakpoint-lg: "75em";
+$mantine-breakpoint-xl: "88em";
+
+@function rem($value) {
+  @return #{math.div(math.div($value, $value * 0 + 1), 16)}rem;
+}
+
+@mixin light {
+  [data-mantine-color-scheme="light"] & {
+    @content;
+  }
+}
+
+@mixin dark {
+  [data-mantine-color-scheme="dark"] & {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin smaller-than($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin larger-than($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+/* Add direction mixins if you need rtl support */
+@mixin rtl {
+  [dir="rtl"] & {
+    @content;
+  }
+}
+
+@mixin ltr {
+  [dir="ltr"] & {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @include smaller-than($mantine-breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin except-mobile {
+  @include larger-than($mantine-breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include larger-than($mantine-breakpoint-sm) {
+    @include smaller-than($mantine-breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+@mixin except-tablet {
+  @include smaller-than($mantine-breakpoint-sm) {
+    @content;
+  }
+
+  @include larger-than($mantine-breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include larger-than($mantine-breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin except-desktop {
+  @include smaller-than($mantine-breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @include larger-than($mantine-breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin except-large-desktop {
+  @include smaller-than($mantine-breakpoint-xl) {
+    @content;
+  }
+}
+
+
+
+
+

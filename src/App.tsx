@@ -1,82 +1,46 @@
-import { Anchor, Box, Button, Container, Divider, Group, Modal, ScrollArea, Stack, Text, Title } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { AboutPage } from "./components/about/about";
+import { Anchor, Box, Container, Divider, Group, SegmentedControl, Stack, Text, Title } from "@mantine/core";
+import { useState } from "react";
 import MantineCards from "./components/cards/mantine-cards";
-import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
+import ComponentsDemo from "./components/components-demo/components-demo";
+import { Header } from "./components/header/header";
 import ThemeCustomizer from "./components/theme-customizer";
 
 export default function ThemesPage() {
-  const [opened, { open, close }] = useDisclosure(false);
 
+  const [value, setValue] = useState("example")
   return (
-    <Container size={"xl"} p={{ sm: "md", md: "xl" }} h={"100%"} mt={"sm"}>
-      <Stack h={"100%"} w={"100%"}>
-        <Group w={"100%"} justify="space-between" align="center" wrap="wrap">
-          <Box>
-            <Title order={1}>Mantine Theme Builder</Title>
-            <Text>
-              Shadcn inspired themes for{" "}
-              <Anchor target="_blank" href="https://mantine.dev/">
-                Mantine
-              </Anchor>{" "}
-              components that you can copy and paste into your apps.
-            </Text>
-          </Box>
-          <Group>
-            <Group gap={"0"}>
-              <Button variant="subtle" size="xs" style={{ cursor: "pointer" }} onClick={open}>
-                About
-              </Button>
-              {/* <Button variant="subtle" size="xs">
-                Blogs
-              </Button> */}
-              <Button
-                variant="subtle"
-                size="xs"
-                data-tally-open="mex2Dx"
-                data-tally-emoji-text="👋"
-                data-tally-emoji-animation="wave"
-              >
-                Feedback
-              </Button>
-              <Anchor href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
-                <Button variant="subtle" size="xs">
-                  Support
-                </Button>
-              </Anchor>
-            </Group>
-            <iframe
-              src="https://ghbtns.com/github-btn.html?user=RubixCube-Innovations&repo=mantine-theme-builder&type=star&count=true&size=large"
-              style={{ border: 0, overflow: "hidden", borderRadius: "var(--mantine-radius-default)" }}
-              width="130"
-              height="30"
-              title="GitHub"
-            ></iframe>
-            <ColorSchemeSwitch />
-          </Group>
-        </Group>
+    <Container size={"xl"} h={"100%"} px={"0px"}>
+      <Header />
+
+      <Stack h={"100%"} w={"100%"} p={{ sm: "md", md: "3xl" }} pt={"2rem"}>
+        <Box>
+          <Title order={1}>Modern Mantine Themes</Title>
+          <Text>
+            Save time on styling with our ready-to-use themes for{" "}
+            <Anchor target="_blank" href="https://mantine.dev/">
+              Mantine
+            </Anchor>{" "}
+            components. Just copy, paste, and watch your app come to life.
+          </Text>
+        </Box>
+
         <Box>
           <ThemeCustomizer />
         </Box>
+        <Group justify="center">
+          <SegmentedControl
+            w={"200px"}
+            size="xs"
+            value={value}
+            onChange={setValue}
+            data={[
+              { label: "Example", value: "example" },
+              { label: "All Components", value: "components" },
+            ]}
+          />
+        </Group>
 
-        <Modal
-          opened={opened}
-          onClose={close}
-          // title={<Title order={2}>About Mantine Theme Builder</Title>}
-          // title={"About the project"}
-          size={"xl"}
-          centered
-          // scrollAreaComponent={ScrollArea.Autosize}
-          styles={{ content: { paddingTop: "0rem" } }}
-        >
-          <ScrollArea h={"600px"} pe={"sm"} pl="md" pr="xl">
-            <AboutPage />
-          </ScrollArea>
-        </Modal>
-
-        {/* <ColorSwitcher /> */}
-
-        <MantineCards />
+        {value === "example" ? <MantineCards /> : <ComponentsDemo />}
 
         <Box mt="auto" w="100%">
           <Divider my="sm" />

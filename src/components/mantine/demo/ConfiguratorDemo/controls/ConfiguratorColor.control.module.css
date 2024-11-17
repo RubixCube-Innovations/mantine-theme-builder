@@ -1,0 +1,32 @@
+.swatch {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mantine-color-white);
+  flex: 1 0 calc(15% - 4px);
+}
+
+.check {
+  width: 12px;
+  height: 12px;
+}
+
+.colorControl {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 calc(15% - 4px);
+  height: 28px;
+  border-radius: var(--mantine-radius-sm);
+  border: 1px solid;
+
+  @mixin where-light {
+    border-color: var(--mantine-color-gray-5);
+  }
+
+  @mixin where-dark {
+    border-color: var(--mantine-color-dark-3);
+  }
+}

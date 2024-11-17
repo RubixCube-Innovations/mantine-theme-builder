@@ -1,0 +1,39 @@
+import { Button, Popover, Text } from '@mantine/core';
+import { MantineDemo } from '../../mantine/demo';
+
+const code = `
+import { Popover, Text, Button } from '@mantine/core';
+
+function Demo() {
+  return (
+    <Popover width={200} position="bottom" withArrow shadow="md">
+      <Popover.Target>
+        <Button>Toggle popover</Button>
+      </Popover.Target>
+      <Popover.Dropdown>
+        <Text size="xs">This is uncontrolled popover, it is opened when button is clicked</Text>
+      </Popover.Dropdown>
+    </Popover>
+  );
+}
+`;
+
+function Demo() {
+  return (
+    <Popover width={200} position="bottom" withArrow shadow="md">
+      <Popover.Target>
+        <Button>Toggle popover</Button>
+      </Popover.Target>
+      <Popover.Dropdown>
+        <Text size="xs">This is uncontrolled popover, it is opened when button is clicked</Text>
+      </Popover.Dropdown>
+    </Popover>
+  );
+}
+
+export const popoverDemo: MantineDemo = {
+  type: 'code',
+  code,
+  centered: true,
+  component: Demo,
+};

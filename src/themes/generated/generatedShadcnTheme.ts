@@ -18,7 +18,7 @@ export const generatedShadcnTheme = {
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -86,6 +86,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -95,6 +96,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -383,6 +385,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -406,7 +409,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -474,6 +477,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -483,6 +487,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -771,6 +776,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -794,7 +800,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -862,6 +868,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -871,6 +878,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -1159,6 +1167,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -1182,7 +1191,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -1250,6 +1259,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -1259,6 +1269,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -1547,6 +1558,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -1570,7 +1582,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -1638,6 +1650,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -1647,6 +1660,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -1935,6 +1949,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -1958,7 +1973,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -2026,6 +2041,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -2035,6 +2051,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -2323,6 +2340,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -2346,7 +2364,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -2414,6 +2432,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -2423,6 +2442,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -2711,6 +2731,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -2734,7 +2755,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -2802,6 +2823,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -2811,6 +2833,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -3099,6 +3122,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -3122,7 +3146,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -3190,6 +3214,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -3199,6 +3224,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -3487,6 +3513,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -3510,7 +3537,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -3578,6 +3605,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -3587,6 +3615,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -3875,6 +3904,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -3898,7 +3928,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -3966,6 +3996,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -3975,6 +4006,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -4263,6 +4295,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
@@ -4286,7 +4319,7 @@ export const shadcnTheme = createTheme({
   Select,
   Switch,
   Table,
-  Tooltip,
+  Tooltip
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -4354,6 +4387,7 @@ export const shadcnTheme = createTheme({
   },
   defaultRadius: "sm",
   spacing: {
+    "4xs": rem("2px"),
     "3xs": rem("4px"),
     "2xs": rem("8px"),
     xs: rem("10px"),
@@ -4363,6 +4397,7 @@ export const shadcnTheme = createTheme({
     xl: rem("24px"),
     "2xl": rem("28px"),
     "3xl": rem("32px"),
+    "4xl": rem("40px"),
   },
   fontSizes: {
     xs: rem("12px"),
@@ -4651,6 +4686,7 @@ export const shadcnTheme = createTheme({
         checkIconPosition: "right",
       },
     }),
+    // Title: used static class (.mantine-Title-root) to style the title
     // DatePicker: used static classes to style the date picker
   },
 });
