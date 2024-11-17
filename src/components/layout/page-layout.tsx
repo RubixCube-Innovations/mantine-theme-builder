@@ -1,11 +1,16 @@
 import { Anchor, Box, Button, Container, Divider, Group, Modal, ScrollArea, Stack, Text, Title } from "@mantine/core";
+import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import { useDisclosure } from "@mantine/hooks";
-import { AboutPage } from "./components/about/about";
-import MantineCards from "./components/cards/mantine-cards";
-import ColorSchemeSwitch from "./components/color-scheme-switch/color-scheme-switch";
-import ThemeCustomizer from "./components/theme-customizer";
+import { AboutPage } from "../about/about";
+import React from "react";
 
-export default function ThemesPage() {
+interface LayoutProps {
+  children: React.ReactNode;
+  title?: string;
+  description?: string | React.ReactNode;
+}
+
+const PageLayout = ({ children, title, description }: LayoutProps) => {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
@@ -13,14 +18,18 @@ export default function ThemesPage() {
       <Stack h={"100%"} w={"100%"}>
         <Group w={"100%"} justify="space-between" align="center" wrap="wrap">
           <Box>
-            <Title order={1}>Mantine Theme Builder</Title>
-            <Text>
-              Shadcn inspired themes for{" "}
-              <Anchor target="_blank" href="https://mantine.dev/">
-                Mantine
-              </Anchor>{" "}
-              components that you can copy and paste into your apps.
-            </Text>
+            <Title order={1}>{title || "Mantine Theme Builder"}</Title>
+            {description ? (
+              description
+            ) : (
+              <Text>
+                Shadcn inspired themes for{" "}
+                <Anchor target="_blank" href="https://mantine.dev/">
+                  Mantine
+                </Anchor>{" "}
+                components that you can copy and paste into your apps.
+              </Text>
+            )}
           </Box>
           <Group>
             <Group gap={"0"}>
@@ -28,8 +37,8 @@ export default function ThemesPage() {
                 About
               </Button>
               {/* <Button variant="subtle" size="xs">
-                Blogs
-              </Button> */}
+            Blogs
+          </Button> */}
               <Button
                 variant="subtle"
                 size="xs"
@@ -55,9 +64,6 @@ export default function ThemesPage() {
             <ColorSchemeSwitch />
           </Group>
         </Group>
-        <Box>
-          <ThemeCustomizer />
-        </Box>
 
         <Modal
           opened={opened}
@@ -74,9 +80,7 @@ export default function ThemesPage() {
           </ScrollArea>
         </Modal>
 
-        {/* <ColorSwitcher /> */}
-
-        <MantineCards />
+        {children}
 
         <Box mt="auto" w="100%">
           <Divider my="sm" />
@@ -97,11 +101,11 @@ export default function ThemesPage() {
               .
             </Text>
             {/* <Text size="sm" c="dimmed">
-              Made with <span style={{ fontSize: "10px" }}>❤️</span> by{" "}
-              <Anchor href="https://rubixcube.tech" target="_blank" rel="noopener noreferrer">
-                RubixCube Innovations
-              </Anchor>
-            </Text> */}
+          Made with <span style={{ fontSize: "10px" }}>❤️</span> by{" "}
+          <Anchor href="https://rubixcube.tech" target="_blank" rel="noopener noreferrer">
+            RubixCube Innovations
+          </Anchor>
+        </Text> */}
 
             <a href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
               <img
@@ -115,4 +119,6 @@ export default function ThemesPage() {
       </Stack>
     </Container>
   );
-}
+};
+
+export default PageLayout;

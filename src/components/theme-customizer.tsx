@@ -30,7 +30,7 @@ export interface IThemeConfig {
   radius: string;
 }
 
-export default function ThemeCustomizer() {
+export default function ThemeCustomizer({ isBlockPage = false }: { isBlockPage?: boolean }) {
   return (
     <Group>
       <Popover position="bottom-start">
@@ -43,7 +43,13 @@ export default function ThemeCustomizer() {
         </Popover.Dropdown>
       </Popover>
 
-      <CopyThemeModal />
+      {isBlockPage ? (
+        <Button variant="subtle" size="sm">
+          Request Blocks
+        </Button>
+      ) : (
+        <CopyThemeModal />
+      )}
     </Group>
   );
 }

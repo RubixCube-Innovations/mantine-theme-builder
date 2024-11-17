@@ -1,16 +1,13 @@
-import { Container } from "@mantine/core";
-import { ComponentCanvas } from "../component-canvas/component-canvas";
-import { components } from "../../data/components";
+import BlockComponents from "./block-components";
+import ThemeCustomizer from "../../../../components/theme-customizer";
+import PageLayout from "../../../../components/layout/page-layout";
 
 const BlockPage = () => {
-  const canvases = components.map((component, index) => (
-    <ComponentCanvas {...component} key={component.slug} zIndex={components.length - index} />
-  ));
-
   return (
-    <Container size="xl" mt={50}>
-      {canvases}
-    </Container>
+    <PageLayout>
+      <ThemeCustomizer isBlockPage={true} />
+      <BlockComponents />
+    </PageLayout>
   );
 };
 

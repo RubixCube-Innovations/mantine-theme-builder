@@ -32,7 +32,12 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
         })}
       >
         {state === "preview" ? (
-          <Box mod={{ dimmed: props.attributes.dimmed }} className={classes.preview} style={{ zIndex: props.zIndex }}>
+          <Box
+            mod={{ dimmed: props.attributes.dimmed }}
+            className={classes.preview}
+            style={{ zIndex: props.zIndex }}
+            bg={"var(--mantine-color-body)"}
+          >
             <ComponentPreview canvas={props.attributes.canvas}>
               <MantineThemeProvider inherit theme={{ primaryColor }}>
                 <Component {...props.attributes.props} />

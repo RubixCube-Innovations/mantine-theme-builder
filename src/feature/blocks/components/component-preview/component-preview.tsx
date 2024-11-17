@@ -15,6 +15,7 @@ export function ComponentPreview({ children, canvas, withSpacing = false }: Comp
         maxWidth: canvas?.maxWidth ? rem(canvas.maxWidth) : "100%",
         marginLeft: canvas?.center ? "auto" : "unset",
         marginRight: canvas?.center ? "auto" : "unset",
+        backgroundColor: "var(--mantine-color-body)",
       }}
     >
       {children}

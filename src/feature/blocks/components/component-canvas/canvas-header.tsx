@@ -1,6 +1,5 @@
-import { GithubIcon } from "@mantinex/dev-icons";
-import { IconExternalLink, IconCode, IconEye } from "@tabler/icons-react";
-import { Group, Text, ActionIcon, Badge, SegmentedControl, Center, Box } from "@mantine/core";
+import { IconCode, IconEye } from "@tabler/icons-react";
+import { Group, Text, SegmentedControl, Center, Box } from "@mantine/core";
 
 import { UiComponent } from "../../data/types";
 import { ColorControl } from "./color-control";
@@ -19,13 +18,13 @@ export interface CanvasHeaderProps extends UiComponent, React.ComponentPropsWith
 export function CanvasHeader({
   attributes,
   slug,
-  component,
+  // component,
   state,
   onStateChange,
   primaryColor,
   onPrimaryColorChange,
-  excludeExternal = false,
-//   zIndex,
+  // excludeExternal = false,
+  //   zIndex,
   ...others
 }: CanvasHeaderProps) {
   return (
@@ -36,7 +35,7 @@ export function CanvasHeader({
           {attributes.title}
         </Text>
 
-        <Group gap="xs" className={classes.actions}>
+        {/* <Group gap="xs" className={classes.actions}>
           {!excludeExternal && (
             <ActionIcon
               variant="default"
@@ -63,7 +62,7 @@ export function CanvasHeader({
           </ActionIcon>
 
           {attributes.responsive && <Badge variant="light">Responsive</Badge>}
-        </Group>
+        </Group> */}
       </Group>
 
       <Group className={classes.controls}>

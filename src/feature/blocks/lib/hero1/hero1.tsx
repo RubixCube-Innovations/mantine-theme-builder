@@ -1,5 +1,6 @@
-import { Container, Title, Text, Button, Group, Stack, Grid, ThemeIcon, Box, Paper, rem, rgba } from "@mantine/core";
+import { Container, Title, Text, Button, Group, Stack, Grid, ThemeIcon, Box, Paper, rgba } from "@mantine/core";
 import { GitHubLogoIcon, RocketIcon, LightningBoltIcon, StarIcon, DashboardIcon } from "@radix-ui/react-icons";
+import classes from "./hero1.module.css";
 
 export const Hero1 = () => {
   const features = [
@@ -16,25 +17,14 @@ export const Hero1 = () => {
             <Stack gap="xl">
               <Group gap={"xs"}>
                 <ThemeIcon size="lg" radius="md" variant="transparent">
-                  <RocketIcon style={{ width: 20, height: 20 }} />
+                  <RocketIcon style={{ width: 20, height: 20 }} color="var(--mantine-primary-color-filled)" />
                 </ThemeIcon>
                 <Text fw={500} size="sm" style={{ letterSpacing: 1 }} tt="uppercase">
                   Launch Your Project Today
                 </Text>
               </Group>
 
-              <Title
-                order={1}
-                size="h1"
-                style={{
-                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                  lineHeight: 1,
-                  background:
-                    "linear-gradient(45deg, var(--mantine-primary-color-filled) 35%, var(--mantine-primary-color-contrast) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
+              <Title className={classes?.title} order={1} size="h1">
                 Build Faster, Scale Better with Our Platform
               </Title>
 
@@ -73,16 +63,7 @@ export const Hero1 = () => {
           </Grid.Col>
 
           <Grid.Col span={{ base: 12, md: 5 }}>
-            <Paper
-              radius="md"
-              p="xl"
-              style={{
-                background: "rgba(255, 255, 255, 0.1)",
-                backdropFilter: "blur(20px)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-              }}
-              h={rem(320)}
-            ></Paper>
+            <Paper className={classes?.paper} radius="md" p="xl"></Paper>
           </Grid.Col>
         </Grid>
       </Container>

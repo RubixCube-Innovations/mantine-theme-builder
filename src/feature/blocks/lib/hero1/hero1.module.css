@@ -1,0 +1,22 @@
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  background: linear-gradient(
+    45deg,
+    var(--mantine-primary-color-filled) 35%,
+    var(--mantine-primary-color-contrast) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.themeIconBackground {
+  background: rgba(var(--mantine-primary-color-filled), 0.07);
+}
+
+.paper {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: rem(320px);
+}

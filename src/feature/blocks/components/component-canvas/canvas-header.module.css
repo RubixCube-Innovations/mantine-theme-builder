@@ -53,10 +53,10 @@ export default createStyles((theme) => ({
     justify-content: space-between;
     align-items: center;
     padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
-    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-6));
+    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
     border-top-right-radius: var(--mantine-radius-md);
     border-top-left-radius: var(--mantine-radius-md);
-    border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
+    border-bottom: rem(1px) solid var(--mantine-color-default-border);
   
     @media (max-width: $mantine-breakpoint-sm) {
       flex-direction: column;
@@ -77,7 +77,7 @@ export default createStyles((theme) => ({
   
   .action {
     border-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-7));
-    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
+    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-9));
   
     @mixin hover {
       background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
