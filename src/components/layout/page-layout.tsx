@@ -15,18 +15,11 @@ const PageLayout = ({ children, title, description }: LayoutProps) => {
 
       <Stack h={"100%"} w={"100%"} p={{ sm: "md", md: "3xl" }} pt={"2rem"}>
         <Box>
-          <Title order={1}>{title || "Modern Mantine Themes"}</Title>
-          {description ? (
-            description
-          ) : (
+          <Title order={1}>{title}</Title>
             <Text>
-              Save time on styling with our ready-to-use themes for{" "}
-              <Anchor target="_blank" href="https://mantine.dev/">
-                Mantine
-              </Anchor>{" "}
-              components. Just copy, paste, and watch your app come to life.
+              {description}
             </Text>
-          )}
+    
         </Box>
 
         {children}

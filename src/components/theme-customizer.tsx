@@ -46,7 +46,7 @@ export default function ThemeCustomizer({ isBlockPage = false }: { isBlockPage?:
 
       {isBlockPage ? (
         <Button variant="subtle" size="sm">
-          Request Blocks
+          Request a block
         </Button>
       ) : (
         <CopyThemeModal />
@@ -226,7 +226,7 @@ function Customizer() {
           <Text size="xs">Color</Text>
           <SimpleGrid cols={3}>{mantineColorButtons}</SimpleGrid>
         </Stack>
-        {/* <Stack gap="xs">
+        <Stack gap="xs">
           <Text size="xs">Radius</Text>
           <SimpleGrid cols={5}>
             {[ "xs", "sm", "md", "lg", "xl"].map((value: string) => {
@@ -259,7 +259,7 @@ function Customizer() {
               );
             })}
           </SimpleGrid>
-        </Stack> */}
+        </Stack>
         <Stack gap="xs">
           <Text size="xs">Mode</Text>
           <SimpleGrid cols={3}>

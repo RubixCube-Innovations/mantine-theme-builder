@@ -4,7 +4,7 @@ import PageLayout from "../../../../components/layout/page-layout";
 
 const BlockPage = () => {
   return (
-    <PageLayout>
+    <PageLayout title="Mantine UI Blocks" description="Accelerate your development with our ever-growing library of beautifully designed UI blocks. Just copy, paste, and customize.">
       <ThemeCustomizer isBlockPage={true} />
       <BlockComponents />
     </PageLayout>

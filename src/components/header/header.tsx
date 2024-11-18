@@ -4,10 +4,13 @@ import { IconChevronDown } from "@tabler/icons-react";
 import { AboutPage } from "../about/about";
 import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import classes from "./header.module.scss";
+import { useNavigate } from "@tanstack/react-router";
 
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
   const [modalOpened, { open, close }] = useDisclosure(false);
+  const navigate = useNavigate();
+
 
   type IMenuItem = { id: string; href?: string; label: string; onClick?: () => void; links?: IMenuItem[] };
 
@@ -26,7 +29,7 @@ export function Header() {
     // { id: "templates", href: "/templates", label: "Templates" },
     { id: "feedback", href: "/feedback", label: "Feedback", onClick: handleFeedbackClick },
     { id: "about", href: "/about", label: "About Us", onClick: open },
-    { id: "donate", label: "Support Us", onClick: () => window.open("https://www.buymeacoffee.com/abhishekslal01", "_blank") },
+    { id: "donate", label: "Donate", onClick: () => window.open("https://www.buymeacoffee.com/abhishekslal01", "_blank") },
   ];
 
 
@@ -39,7 +42,7 @@ export function Header() {
         clickedItem.onClick();
       }
       else if (clickedItem.href) {
-        window.location.href = link.href as string;
+        navigate({ to: link.href })
       }  
     };
 
@@ -66,7 +69,7 @@ export function Header() {
         size="xs"
         key={link.label}
         className={classes.link}
-        bg={link.href === window.location.pathname ? "var(--mantine-color-default-hover)" : undefined}
+        bg={link.href === window.location.pathname  ? "var(--mantine-color-default-hover)" : undefined}
         onClick={() => handleClick(link)}
       >
 

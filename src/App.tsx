@@ -1,38 +1,44 @@
-import { Anchor, Box, Container, Divider, Group, SegmentedControl, Stack, Text, Title } from "@mantine/core";
+import { Anchor, Group, SegmentedControl, Stack } from "@mantine/core";
+import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import MantineCards from "./components/cards/mantine-cards";
 import ComponentsDemo from "./components/components-demo/components-demo";
-import { Header } from "./components/header/header";
+import PageLayout from "./components/layout/page-layout";
 import ThemeCustomizer from "./components/theme-customizer";
 
-export default function ThemesPage() {
+export default function ThemesPage({ tab }: { tab: string }) {
 
-  const [value, setValue] = useState("example")
+  const [value, setValue] = useState(tab ?? "example");
+ 
+  const navigate = useNavigate();
+
+
+  const onTabChange = (value: string) => {
+    setValue(value);
+    navigate({ to: value === "components" ? "/components" : "/" });
+  }
+
   return (
-    <Container size={"xl"} h={"100%"} px={"0px"}>
-      <Header />
-
-      <Stack h={"100%"} w={"100%"} p={{ sm: "md", md: "3xl" }} pt={"2rem"}>
-        <Box>
-          <Title order={1}>Modern Mantine Themes</Title>
-          <Text>
-            Save time on styling with our ready-to-use themes for{" "}
-            <Anchor target="_blank" href="https://mantine.dev/">
-              Mantine
-            </Anchor>{" "}
-            components. Just copy, paste, and watch your app come to life.
-          </Text>
-        </Box>
-
-        <Box>
-          <ThemeCustomizer />
-        </Box>
+    <PageLayout
+      title="Mantine Modern Themes"
+      description={
+        <>
+          Save time on styling with our ready-to-use themes for{" "}
+          <Anchor target="_blank" href="https://mantine.dev/">
+            Mantine
+          </Anchor>{" "}
+          components. Just copy, paste, and watch your app come to life.
+        </>
+      }
+    >
+      <Stack>
+        <ThemeCustomizer />
         <Group justify="center">
           <SegmentedControl
             w={"200px"}
             size="xs"
             value={value}
-            onChange={setValue}
+            onChange={onTabChange} 
             data={[
               { label: "Example", value: "example" },
               { label: "All Components", value: "components" },
@@ -42,41 +48,7 @@ export default function ThemesPage() {
 
         {value === "example" ? <MantineCards /> : <ComponentsDemo />}
 
-        <Box mt="auto" w="100%">
-          <Divider my="sm" />
-          <Group justify="space-between" align="center">
-            <Text size="sm">
-              This project is inspired by{" "}
-              <Anchor href="https://ui.shadcn.com/themes" target="_blank" rel="noopener noreferrer">
-                Shadcn Themes.
-              </Anchor>{" "}
-              The source code is available on{" "}
-              <Anchor
-                href="https://github.com/RubixCube-Innovations/mantine-theme-builder"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </Anchor>
-              .
-            </Text>
-            {/* <Text size="sm" c="dimmed">
-              Made with <span style={{ fontSize: "10px" }}>❤️</span> by{" "}
-              <Anchor href="https://rubixcube.tech" target="_blank" rel="noopener noreferrer">
-                RubixCube Innovations
-              </Anchor>
-            </Text> */}
-
-            <a href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
-              <img
-                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-                alt="Buy Me A Coffee"
-                style={{ height: "35px", width: "125px" }}
-              />
-            </a>
-          </Group>
-        </Box>
       </Stack>
-    </Container>
+   </PageLayout>
   );
 }
