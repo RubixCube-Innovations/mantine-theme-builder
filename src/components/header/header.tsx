@@ -32,26 +32,25 @@ export function Header() {
     { id: "donate", label: "Donate", onClick: () => window.open("https://www.buymeacoffee.com/abhishekslal01", "_blank") },
   ];
 
-
-
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => <Menu.Item key={item.id}>{item.label}</Menu.Item>);
 
     const handleClick = (clickedItem: IMenuItem) => {
       if (clickedItem.onClick) {
         clickedItem.onClick();
+      } else if (clickedItem.href) {
+        navigate({ to: link.href });
       }
-      else if (clickedItem.href) {
-        navigate({ to: link.href })
-      }  
     };
+
+    const isHomeActive = (window.location.pathname === "/" || window.location.pathname === "/components") && link.id === "home";
+    const isActive = window.location.pathname === link.href;
 
     if (menuItems) {
       return (
         <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal width={rem("120px")}>
           <Menu.Target>
             <Button size="xs" variant="subtle" className={classes.link} onClick={() => handleClick(link)}>
-             
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
                 <IconChevronDown size="0.9rem" stroke={1.5} />
@@ -69,11 +68,9 @@ export function Header() {
         size="xs"
         key={link.label}
         className={classes.link}
-        bg={link.href === window.location.pathname  ? "var(--mantine-color-default-hover)" : undefined}
+        bg={(isHomeActive || isActive) ? "var(--mantine-color-default-hover)" : undefined}
         onClick={() => handleClick(link)}
       >
-
-
         {link.label}
       </Button>
     );
