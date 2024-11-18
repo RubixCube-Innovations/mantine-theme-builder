@@ -32,15 +32,19 @@ To start contributing, follow these steps:
    ```bash
    npm start
    ```
-5. **Commit your changes**: Once you're satisfied with your changes, commit them.
+5. **Generate updated themes**: If you have updated any theme or style files, run the following command to regenerate the updated themes.
+   ```bash
+   npm run generate
+   ```
+6. **Commit your changes**: Once you're satisfied with your changes, commit them.
    ```bash
    git commit -m "Description of your changes"
    ```
-6. **Push your changes**: Push your changes to your forked repo.
+7. **Push your changes**: Push your changes to your forked repo.
    ```bash
    git push origin your-branch-name
    ```
-7. **Submit a pull request**: Go to the original repo on GitHub and submit a pull request with a clear description of your changes.
+8. **Submit a pull request**: Go to the original repo on GitHub and submit a pull request with a clear description of your changes.
 
 ## Code Style
 
