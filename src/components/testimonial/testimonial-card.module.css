@@ -1,0 +1,53 @@
+.container {
+  padding: 2rem 0;
+}
+
+.testimonialCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: scale(1.05);
+}
+
+.quoteIcon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: rgba(0, 0, 0, 0.1);
+  width: 24px;
+  height: 24px;
+}
+
+.quoteText {
+  text-align: center;
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+.testimonialFooter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+}
+
+.starRating {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.starIcon {
+  width: 16px;
+  height: 16px;
+}
