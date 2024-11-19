@@ -6,7 +6,7 @@ import classes from "./components-demo.module.scss";
 
 const ComponentsDemo = () => {
   return (
-    <Group gap={"2rem"} align="flex-start" pt={"md"}>
+    <Group gap={"2rem"} align="flex-start" pt={"xl"}>
       <Box className={classes.navbarWrapper} visibleFrom="md">
         <Navbar menu={demoComponentsNavbarData} />
       </Box>

@@ -24,6 +24,7 @@ export function Header() {
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes" },
+    { id: "components", href: "/components", label: "Components" },
     { id: "blocks", href: "/blocks", label: "Blocks" },
     // { id: "starter-kit", href: "/starter-kit", label: "Starter Kit" },
     // { id: "templates", href: "/templates", label: "Templates" },
@@ -43,7 +44,7 @@ export function Header() {
       }
     };
 
-    const isHomeActive = (window.location.pathname === "/" || window.location.pathname === "/components") && link.id === "home";
+    // const isHomeActive = (window.location.pathname === "/" || window.location.pathname === "/components") && link.id === "home";
     const isActive = window.location.pathname === link.href;
 
     if (menuItems) {
@@ -68,7 +69,7 @@ export function Header() {
         size="xs"
         key={link.label}
         className={classes.link}
-        bg={(isHomeActive || isActive) ? "var(--mantine-color-default-hover)" : undefined}
+        bg={(isActive) ? "var(--mantine-color-default-hover)" : undefined}
         onClick={() => handleClick(link)}
       >
         {link.label}
