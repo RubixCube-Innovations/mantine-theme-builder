@@ -8,7 +8,7 @@ const BlockComponents = () => {
   ));
 
   return (
-    <Container size="xl" mt={50} miw={"100%"} px={0}>
+    <Container size="xl" pt={"xl"} miw={"100%"} px={0}>
       {canvases}
     </Container>
   );

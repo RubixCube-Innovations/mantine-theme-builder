@@ -1,39 +1,40 @@
-import { Anchor, Group, SegmentedControl, Stack } from "@mantine/core";
-import { useNavigate } from "@tanstack/react-router";
+import { Anchor, Stack } from "@mantine/core";
+// import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import MantineCards from "./components/cards/mantine-cards";
 import ComponentsDemo from "./components/components-demo/components-demo";
 import PageLayout from "./components/layout/page-layout";
 import ThemeCustomizer from "./components/theme-customizer";
 
-export default function ThemesPage({ tab }: { tab: string }) {
+export default function ThemesPage({ tab = "example" }: { tab: string }) {
 
-  const [value, setValue] = useState(tab ?? "example");
+  const [value] = useState(tab);
  
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-
-  const onTabChange = (value: string) => {
-    setValue(value);
-    navigate({ to: value === "components" ? "/components" : "/" });
-  }
+  // const onTabChange = (value: string) => {
+  //   setValue(value);
+  //   navigate({ to: value === "components" ? "/components" : "/" });
+  // }
 
   return (
     <PageLayout
-      title="Mantine Modern Themes"
+      title={tab === "example" ? "Mantine Modern Themes" : "Mantine Components Playground"}
       description={
-        <>
+        tab === "example" ? <>
           Save time on styling with our ready-to-use themes for{" "}
           <Anchor target="_blank" href="https://mantine.dev/">
             Mantine
           </Anchor>{" "}
           components. Just copy, paste, and watch your app come to life.
+        </> : <>
+        Preview all Mantine components with your theme. Explore variants, sizes, and states in real time.
         </>
       }
     >
-      <Stack>
+      <Stack px={"md"}>
         <ThemeCustomizer />
-        <Group justify="center">
+        {/* <Group justify="center">
           <SegmentedControl
             w={"200px"}
             size="xs"
@@ -44,9 +45,10 @@ export default function ThemesPage({ tab }: { tab: string }) {
               { label: "All Components", value: "components" },
             ]}
           />
-        </Group>
+        </Group> */}
 
         {value === "example" ? <MantineCards /> : <ComponentsDemo />}
+        <MantineCards />
 
       </Stack>
    </PageLayout>

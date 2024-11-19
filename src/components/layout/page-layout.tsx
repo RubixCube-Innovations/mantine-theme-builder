@@ -14,7 +14,7 @@ const PageLayout = ({ children, title, description }: LayoutProps) => {
       <Header />
 
       <Stack h={"100%"} w={"100%"} p={{ sm: "md", md: "3xl" }} pt={"2rem"}>
-        <Box>
+        <Box px={"md"}>
           <Title order={1}>{title}</Title>
             <Text>
               {description}
