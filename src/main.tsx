@@ -1,8 +1,8 @@
 import "@mantine/charts/styles.css";
-import "@mantine/code-highlight/styles.css";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/spotlight/styles.css";
+import "@mantine/code-highlight/styles.css";
 import "@mantinex/shiki/styles.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
