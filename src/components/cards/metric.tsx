@@ -36,7 +36,7 @@ export function CardsMetric() {
             lineProps={(series) => ({
               dataKey: series.name,
               isAnimationActive: true,
-              opacity: series.name === "average" ? 0.25 : 1,
+              // opacity: series.name === "average" ? 0.25 : 1,
             })}
           />
         </div>
