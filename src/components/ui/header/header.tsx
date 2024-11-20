@@ -1,7 +1,7 @@
 import { Burger, Button, Center, Divider, Group, Menu, Modal, rem, ScrollArea, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons-react";
-import { AboutPage } from "../../about/about";
+import { AboutPage } from "../../custom/about/about";
 import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import classes from "./header.module.scss";
 import { useNavigate } from "@tanstack/react-router";

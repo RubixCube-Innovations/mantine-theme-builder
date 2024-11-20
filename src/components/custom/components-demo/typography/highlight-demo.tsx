@@ -1,5 +1,5 @@
 import { Highlight, HighlightProps } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 function Wrapper(props: HighlightProps) {
   return <Highlight maw={400} mx="auto" {...props} />;

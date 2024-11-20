@@ -1,6 +1,6 @@
 import { LineChart } from '@mantine/charts';
 import { data, dataCode } from './data/_area-data';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { LineChart } from '@mantine/charts';

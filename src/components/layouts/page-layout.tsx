@@ -1,7 +1,7 @@
 import { Anchor, Box, Container, Divider, Group, Stack, Text, Title } from "@mantine/core";
 import React from "react";
-import ChangeThemeButton from "../change-theme-section/change-theme-button";
 import { Header } from "../ui/header/header";
+import ChangeThemeSection from "../custom/change-theme-section/change-theme-section";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -21,7 +21,7 @@ const PageLayout = ({ children, title, description, isBlockPage }: LayoutProps) 
             <Title order={1}>{title}</Title>
             <Text>{description}</Text>
           </Box>
-          <ChangeThemeButton isBlockPage={isBlockPage} />
+          <ChangeThemeSection isBlockPage={isBlockPage} />
           {children}
         </Stack>
 

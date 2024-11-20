@@ -1,5 +1,5 @@
 import { Group, Radio, RadioGroupProps } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Radio, Group } from '@mantine/core';

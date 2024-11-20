@@ -1,5 +1,5 @@
 import { Avatar, Indicator, IndicatorProps } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 function Demo(props: IndicatorProps) {
   return (

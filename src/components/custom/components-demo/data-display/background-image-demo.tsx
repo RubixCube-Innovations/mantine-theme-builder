@@ -1,5 +1,5 @@
 import { BackgroundImage, BackgroundImageProps, Box, Center, Text } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 function Wrapper(props: BackgroundImageProps) {
   return (

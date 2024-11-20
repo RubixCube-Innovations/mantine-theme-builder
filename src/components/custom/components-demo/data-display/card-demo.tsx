@@ -1,5 +1,5 @@
 import { Badge, Button, Card, Group, Image, Text } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';

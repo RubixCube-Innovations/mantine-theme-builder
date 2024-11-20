@@ -1,5 +1,5 @@
 import { Chip, ChipProps } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 function Wrapper(props: ChipProps) {
   return (

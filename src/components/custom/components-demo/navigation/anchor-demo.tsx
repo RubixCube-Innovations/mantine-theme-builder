@@ -1,5 +1,5 @@
 import { Anchor } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Anchor } from '@mantine/core';

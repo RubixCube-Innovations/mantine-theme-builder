@@ -1,5 +1,5 @@
 import { Sparkline } from '@mantine/charts';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Sparkline } from '@mantine/charts';

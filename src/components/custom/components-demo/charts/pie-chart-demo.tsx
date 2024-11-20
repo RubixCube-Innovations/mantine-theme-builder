@@ -1,5 +1,5 @@
 import { PieChart } from '@mantine/charts';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 import { data, dataCode } from './data/_pie-data';
 
 const code = `

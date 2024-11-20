@@ -1,5 +1,5 @@
 import { Button, Popover, Text } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Popover, Text, Button } from '@mantine/core';

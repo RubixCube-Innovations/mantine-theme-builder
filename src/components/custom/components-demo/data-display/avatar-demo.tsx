@@ -1,6 +1,6 @@
 import { Avatar } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
-import { staticVariantsControl } from '../../../utils/variants-data';
+import { MantineDemo } from '../../../mantine/demo';
+import { staticVariantsControl } from '../../../../utils/variants-data';
 
 const code = `
 import { Avatar } from '@mantine/core';

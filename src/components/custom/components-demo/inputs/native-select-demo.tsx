@@ -1,6 +1,6 @@
 import { NativeSelect } from "@mantine/core";
-import { inputControls } from "../../../utils/input-controls";
-import { MantineDemo } from "../../mantine/demo";
+import { MantineDemo } from "../../../mantine/demo";
+import { inputControls } from "../../../../utils/input-controls";
 
 const code = `
 import { NativeSelect } from '@mantine/core';

@@ -1,5 +1,5 @@
 import { Divider, Text } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Text, Divider } from '@mantine/core';

@@ -1,5 +1,5 @@
 import { Box, ScrollArea, ScrollAreaProps, Text } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 function Content() {
     return (

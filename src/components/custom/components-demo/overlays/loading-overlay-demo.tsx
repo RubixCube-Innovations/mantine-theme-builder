@@ -1,7 +1,7 @@
 import { Box, Button, Group, LoadingOverlay } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { AuthenticationForm } from './authentication-form';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { useDisclosure } from '@mantine/hooks';

@@ -1,5 +1,5 @@
 import { CloseButton } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { CloseButton } from '@mantine/core';

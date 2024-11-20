@@ -1,5 +1,5 @@
 import { DonutChart } from '@mantine/charts';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 import { data, dataCode } from './data/_donut-data';
 
 const code = `

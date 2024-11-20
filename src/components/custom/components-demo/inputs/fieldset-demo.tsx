@@ -1,5 +1,5 @@
 import { Fieldset, TextInput } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Fieldset, TextInput } from '@mantine/core';

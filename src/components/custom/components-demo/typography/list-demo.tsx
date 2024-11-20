@@ -1,5 +1,5 @@
 import { List, ListProps } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 function Wrapper(props: ListProps) {
   return (

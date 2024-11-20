@@ -7,7 +7,7 @@ import {
     IconTrash,
   } from '@tabler/icons-react';
   import { Button, Menu, rem, Text } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 
 function DemoMenuItems({ widthRightSection = true, withTarget = true }) {

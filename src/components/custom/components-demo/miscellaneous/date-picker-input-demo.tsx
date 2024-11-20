@@ -1,6 +1,6 @@
 import { DateInput } from '@mantine/dates';
-import { MantineDemo } from '../../mantine/demo';
-import { inputControls } from '../../../utils/input-controls';
+import { MantineDemo } from '../../../mantine/demo';
+import { inputControls } from '../../../../utils/input-controls';
 
 const code = `
 import { DateInput } from '@mantine/dates';

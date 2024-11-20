@@ -1,5 +1,5 @@
 import { Pagination } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 function Wrapper(props: any) {
   return <Pagination total={10} {...props} />;

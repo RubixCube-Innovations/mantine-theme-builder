@@ -1,7 +1,7 @@
 import { IconAdjustments } from '@tabler/icons-react';
 import { ActionIcon } from '@mantine/core';
-import { interactiveVariantsControl } from '../../../utils/variants-data';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
+import { interactiveVariantsControl } from '../../../../utils/variants-data';
 
 const code = `
 import { ActionIcon } from '@mantine/core';

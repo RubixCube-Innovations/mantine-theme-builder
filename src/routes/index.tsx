@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Anchor } from "@mantine/core";
 import * as z from "zod";
 import PageLayout from "../components/layouts/page-layout";
-import MantineCards from "../components/custom/example-cards/mantine-cards";
+import MantineCards from "../components/custom/theme-example-cards/mantine-cards";
 
 const indexSearchSchema = z.object({
   tab: z.string().optional(),

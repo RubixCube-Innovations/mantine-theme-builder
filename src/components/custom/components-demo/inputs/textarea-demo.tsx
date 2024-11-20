@@ -1,6 +1,6 @@
 import { Textarea } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
-import { inputControls } from '../../../utils/input-controls';
+import { MantineDemo } from '../../../mantine/demo';
+import { inputControls } from '../../../../utils/input-controls';
 
 const code = `
 import { Textarea } from '@mantine/core';

@@ -1,6 +1,6 @@
 import { Button } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo/Demo/Demo';
-import { interactiveVariantsControl } from '../../../utils/variants-data';
+import { MantineDemo } from '../../../mantine/demo';
+import { interactiveVariantsControl } from '../../../../utils/variants-data';
 
 const code = `
 import { Button } from '@mantine/core';

@@ -1,5 +1,5 @@
 import { Checkbox, CheckboxGroupProps, Group } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Checkbox, Group } from '@mantine/core';

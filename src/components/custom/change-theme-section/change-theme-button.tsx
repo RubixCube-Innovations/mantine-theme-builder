@@ -14,15 +14,14 @@ import {
 import { useLocalStorage } from "@mantine/hooks";
 import { InfoCircledIcon, MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
-import { useTheme } from "../../theme-context";
-import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../../utils/colors";
-import { getSecondaryPalette } from "../../utils/functions";
-import CopyThemeCodeButton from "./copy-theme-code-button";
 
 import { Tooltip } from "@mantine/core";
-import {} from "@radix-ui/react-icons";
-import { mantineTheme } from "../../themes/mantine/mantine-theme";
-import { shadcnTheme } from "../../themes/shadcn/shadcn-theme";
+import { } from "@radix-ui/react-icons";
+import { useTheme } from "../../../theme-context";
+import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../../../utils/colors";
+import { getSecondaryPalette } from "../../../utils/functions";
+import { shadcnTheme } from "../../../themes/shadcn/shadcn-theme";
+import { mantineTheme } from "../../../themes/mantine/mantine-theme";
 
 export interface IThemeConfig {
   style: string;
@@ -31,27 +30,17 @@ export interface IThemeConfig {
 }
 
 const BUTTON_LABEL = "Change Theme";
-export default function ChangeThemeButton({ isBlockPage = false }: { isBlockPage?: boolean }) {
+export default function ChangeThemeButton() {
   return (
-    <Group>
-      <Popover position="bottom-start">
-        <Popover.Target>
-          <Button size="sm">{BUTTON_LABEL}</Button>
-        </Popover.Target>
+    <Popover position="bottom-start">
+      <Popover.Target>
+        <Button size="sm">{BUTTON_LABEL}</Button>
+      </Popover.Target>
 
-        <Popover.Dropdown>
-          <Customizer />
-        </Popover.Dropdown>
-      </Popover>
-
-      {isBlockPage ? (
-        <Button variant="subtle" size="sm">
-          Request a block
-        </Button>
-      ) : (
-        <CopyThemeCodeButton />
-      )}
-    </Group>
+      <Popover.Dropdown>
+        <Customizer />
+      </Popover.Dropdown>
+    </Popover>
   );
 }
 
@@ -229,7 +218,7 @@ function Customizer() {
         <Stack gap="xs">
           <Text size="xs">Radius</Text>
           <SimpleGrid cols={5}>
-            {[ "xs", "sm", "md", "lg", "xl"].map((value: string) => {
+            {["xs", "sm", "md", "lg", "xl"].map((value: string) => {
               return (
                 <Button
                   variant={"outline"}

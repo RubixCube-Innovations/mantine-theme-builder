@@ -1,5 +1,5 @@
 import { Group, Switch, SwitchGroupProps } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Switch, Group } from '@mantine/core';

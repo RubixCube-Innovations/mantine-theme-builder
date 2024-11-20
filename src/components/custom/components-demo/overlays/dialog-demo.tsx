@@ -1,6 +1,7 @@
 import { Button, Dialog, Group, Text, TextInput } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
+// import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { useDisclosure } from '@mantine/hooks';

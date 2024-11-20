@@ -1,5 +1,5 @@
 import { Loader } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Loader } from '@mantine/core';

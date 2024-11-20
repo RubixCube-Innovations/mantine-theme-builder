@@ -1,5 +1,5 @@
 import { Button, Group, HoverCard, Text } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { HoverCard, Button, Text, Group } from '@mantine/core';

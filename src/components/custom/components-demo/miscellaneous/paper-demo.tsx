@@ -1,5 +1,5 @@
 import { Box, Paper, Text } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 function Wrapper(props: any) {
   return (

@@ -1,6 +1,6 @@
 import { ScatterChart } from '@mantine/charts';
 import { doubleData, doubleDataCode } from './data/_scatter-data';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { ScatterChart } from '@mantine/charts';

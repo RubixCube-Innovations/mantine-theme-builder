@@ -1,6 +1,6 @@
 import { TextInput } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
-import { inputControls } from '../../../utils/input-controls';
+import { inputControls } from '../../../../utils/input-controls';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { TextInput } from '@mantine/core';
@@ -20,7 +20,8 @@ function Wrapper(props: any) {
   return <TextInput {...props} placeholder="Input placeholder" />;
 }
 
-export const textInputDemo: MantineDemo = {
+export const textInputDemo: MantineDemo
+ = {
   type: 'configurator',
   component: Wrapper,
   code,

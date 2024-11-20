@@ -1,6 +1,6 @@
 import { Pill, PillsInput } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
-import { inputControls } from '../../../utils/input-controls';
+import { MantineDemo } from '../../../mantine/demo';
+import { inputControls } from '../../../../utils/input-controls';
 
 const code = `
 import { PillsInput, Pill } from '@mantine/core';

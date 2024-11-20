@@ -1,5 +1,5 @@
 import { Table, TableProps } from '@mantine/core';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 
 const elements = [
     { position: 6, mass: 12.011, symbol: 'C', name: 'Carbon' },

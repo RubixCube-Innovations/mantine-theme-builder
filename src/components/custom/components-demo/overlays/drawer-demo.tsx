@@ -1,6 +1,6 @@
 import { Button, Drawer } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { MantineDemo } from '../../mantine/demo';
+import { MantineDemo } from '../../../mantine/demo';
 import { AuthenticationForm } from './authentication-form';
 
 const code = `

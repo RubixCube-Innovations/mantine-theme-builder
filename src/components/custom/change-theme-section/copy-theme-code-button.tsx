@@ -17,14 +17,14 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { CssIcon, TypeScriptIcon } from "@mantinex/dev-icons";
-import { useTheme } from "../../theme-context";
-import { generatedMantineCssStyles } from "../../themes/generated/generatedMantineCssStyles";
-import { generatedMantineCssVariableResolver } from "../../themes/generated/generatedMantineCssVariableResolver";
-import { generatedMantineTheme } from "../../themes/generated/generatedMantineTheme";
-import { generatedShadcnCssStyles } from "../../themes/generated/generatedShadcnCssStyles";
-import { generatedShadcnCssVariableResolver } from "../../themes/generated/generatedShadcnCssVariableResolver";
-import { generatedShadcnTheme } from "../../themes/generated/generatedShadcnTheme";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { useTheme } from "../../../theme-context";
+import { generatedMantineTheme } from "../../../themes/generated/generatedMantineTheme";
+import { generatedShadcnTheme } from "../../../themes/generated/generatedShadcnTheme";
+import { generatedMantineCssVariableResolver } from "../../../themes/generated/generatedMantineCssVariableResolver";
+import { generatedShadcnCssVariableResolver } from "../../../themes/generated/generatedShadcnCssVariableResolver";
+import { generatedMantineCssStyles } from "../../../themes/generated/generatedMantineCssStyles";
+import { generatedShadcnCssStyles } from "../../../themes/generated/generatedShadcnCssStyles";
 
 const CopyThemeCodeButton = () => {
   const { theme } = useTheme();
