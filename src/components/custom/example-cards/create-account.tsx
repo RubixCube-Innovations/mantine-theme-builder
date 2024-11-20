@@ -1,6 +1,6 @@
 
 import { Button, Card, TextInput, Divider, Text, Group, Title } from '@mantine/core';
-import { Icons } from '../icons';
+import { Icons } from '../../icons';
 
 export function CardsCreateAccount() {
     return (

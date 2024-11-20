@@ -14,15 +14,15 @@ import {
 import { useLocalStorage } from "@mantine/hooks";
 import { InfoCircledIcon, MoonIcon, ResetIcon, SunIcon } from "@radix-ui/react-icons";
 import * as React from "react";
-import { useTheme } from "../ThemeContext";
-import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../utils/colors";
-import { getSecondaryPalette } from "../utils/functions";
-import CopyThemeModal from "./modals/copy-modal";
+import { useTheme } from "../../theme-context";
+import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../../utils/colors";
+import { getSecondaryPalette } from "../../utils/functions";
+import CopyThemeCodeButton from "./copy-theme-code-button";
 
 import { Tooltip } from "@mantine/core";
 import {} from "@radix-ui/react-icons";
-import { mantineTheme } from "../themes/mantine/mantine-theme";
-import { shadcnTheme } from "../themes/shadcn/shadcn-theme";
+import { mantineTheme } from "../../themes/mantine/mantine-theme";
+import { shadcnTheme } from "../../themes/shadcn/shadcn-theme";
 
 export interface IThemeConfig {
   style: string;
@@ -31,7 +31,7 @@ export interface IThemeConfig {
 }
 
 const BUTTON_LABEL = "Change Theme";
-export default function ThemeCustomizer({ isBlockPage = false }: { isBlockPage?: boolean }) {
+export default function ChangeThemeButton({ isBlockPage = false }: { isBlockPage?: boolean }) {
   return (
     <Group>
       <Popover position="bottom-start">
@@ -49,7 +49,7 @@ export default function ThemeCustomizer({ isBlockPage = false }: { isBlockPage?:
           Request a block
         </Button>
       ) : (
-        <CopyThemeModal />
+        <CopyThemeCodeButton />
       )}
     </Group>
   );

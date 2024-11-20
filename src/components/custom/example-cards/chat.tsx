@@ -16,7 +16,7 @@ import {
 import { spotlight, Spotlight } from "@mantine/spotlight";
 import { MagnifyingGlassIcon, PaperPlaneIcon, PlusIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
-import { useTheme } from "../../ThemeContext";
+import { useTheme } from "../../../theme-context";
 
 const users = [
   {

@@ -17,7 +17,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { CssIcon, TypeScriptIcon } from "@mantinex/dev-icons";
-import { useTheme } from "../../ThemeContext";
+import { useTheme } from "../../theme-context";
 import { generatedMantineCssStyles } from "../../themes/generated/generatedMantineCssStyles";
 import { generatedMantineCssVariableResolver } from "../../themes/generated/generatedMantineCssVariableResolver";
 import { generatedMantineTheme } from "../../themes/generated/generatedMantineTheme";
@@ -26,7 +26,7 @@ import { generatedShadcnCssVariableResolver } from "../../themes/generated/gener
 import { generatedShadcnTheme } from "../../themes/generated/generatedShadcnTheme";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
-const CopyThemeModal = () => {
+const CopyThemeCodeButton = () => {
   const { theme } = useTheme();
   const [opened, { open, close }] = useDisclosure(false);
 
@@ -155,4 +155,4 @@ const CopyThemeModal = () => {
   );
 };
 
-export default CopyThemeModal;
+export default CopyThemeCodeButton;

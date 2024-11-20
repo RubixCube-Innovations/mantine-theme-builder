@@ -2,7 +2,7 @@
 import { MantineColorShade, MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mantine/core";
 import { readLocalStorageValue } from "@mantine/hooks";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { IThemeConfig } from "./components/theme-customizer";
+import { IThemeConfig } from "./components/change-theme-section/change-theme-button";
 import { mantineCssVariableResolver } from "./themes/mantine/mantine-css-variable-resolver";
 import { shadcnCssVariableResolver } from "./themes/shadcn/shadcn-css-variable-resolver";
 import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette } from "./utils/functions";

@@ -1,7 +1,7 @@
 import { LineChart } from "@mantine/charts";
 import { alpha, Box, Card, Text, Title, useMantineTheme } from "@mantine/core";
-import { ChartTooltip } from "../chart-tooltip";
-import { metricData } from "../../utils/data";
+import { metricData } from "../../../utils/data";
+import { ChartTooltip } from "../../chart-tooltip";
 // import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
 
 export function CardsMetric() {

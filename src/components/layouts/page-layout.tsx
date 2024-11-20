@@ -1,28 +1,29 @@
 import { Anchor, Box, Container, Divider, Group, Stack, Text, Title } from "@mantine/core";
 import React from "react";
-import { Header } from "../header/header";
+import ChangeThemeButton from "../change-theme-section/change-theme-button";
+import { Header } from "../ui/header/header";
 
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
   description?: string | React.ReactNode;
+  isBlockPage?: boolean;
 }
 
-const PageLayout = ({ children, title, description }: LayoutProps) => {
+const PageLayout = ({ children, title, description, isBlockPage }: LayoutProps) => {
   return (
     <Container size={"xl"} h={"100%"} px={"0px"}>
       <Header />
 
       <Stack h={"100%"} w={"100%"} p={{ sm: "md", md: "3xl" }} pt={"2rem"}>
-        <Box px={"md"}>
-          <Title order={1}>{title}</Title>
-            <Text>
-              {description}
-            </Text>
-    
-        </Box>
-
-        {children}
+        <Stack px={"md"}>
+          <Box>
+            <Title order={1}>{title}</Title>
+            <Text>{description}</Text>
+          </Box>
+          <ChangeThemeButton isBlockPage={isBlockPage} />
+          {children}
+        </Stack>
 
         <Box mt="auto" w="100%">
           <Divider my="sm" />
