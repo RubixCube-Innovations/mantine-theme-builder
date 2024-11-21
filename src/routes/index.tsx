@@ -4,7 +4,7 @@ import { Anchor } from "@mantine/core";
 import * as z from "zod";
 import PageLayout from "../components/layouts/page-layout";
 import MantineCards from "../components/custom/theme-example-cards/mantine-cards";
-import { LandingTestimonialGrid } from "../components/testimonial/testimonial-grid";
+import { LandingTestimonialGrid } from "../components/custom/testimonial/testimonial-grid";
 import { testimonialItems } from "../utils/testimonials";
 
 const indexSearchSchema = z.object({
