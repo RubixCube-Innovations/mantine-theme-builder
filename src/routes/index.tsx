@@ -4,6 +4,8 @@ import { Anchor } from "@mantine/core";
 import * as z from "zod";
 import PageLayout from "../components/layouts/page-layout";
 import MantineCards from "../components/custom/theme-example-cards/mantine-cards";
+import { LandingTestimonialGrid } from "../components/testimonial/testimonial-grid";
+import { testimonialItems } from "../utils/testimonials";
 
 const indexSearchSchema = z.object({
   tab: z.string().optional(),
@@ -29,6 +31,12 @@ function RouteComponent() {
       }
     >
       <MantineCards />
+
+      <LandingTestimonialGrid
+        title="Community Reviews"
+        description="See why our community values what we do. Real testimonials from real people who’ve been part of the journey."
+        testimonialItems={testimonialItems}
+      />
     </PageLayout>
   );
 }
