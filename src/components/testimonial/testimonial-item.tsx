@@ -1,6 +1,6 @@
 import { Image } from "@mantine/core";
 import clsx from "clsx";
-import { BadgeIcon } from "@radix-ui/react-icons";
+// import { DiscordLogoIcon } from "@radix-ui/react-icons";
 
 export interface TestimonialItem {
   className?: string;
@@ -27,7 +27,7 @@ export const LandingTestimonial = ({
   name,
   handle,
   featured,
-  verified = true,
+  // verified = true,
 }: TestimonialItem) => {
   const missingUrl = !url || url === "#";
 
@@ -37,22 +37,23 @@ export const LandingTestimonial = ({
       target="_blank"
       rel="noopener noreferrer"
       className={clsx(
-        "w-full inline-block bg-white dark:bg-neutral-900 rounded-2xl shadow-md ring-1 ring-gray-900/5",
+        "w-full inline-block rounded-2xl",
         featured ? "shadow-xl" : "p-6",
         missingUrl
           ? "cursor-default pointer-events-none"
           : "cursor-pointer hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors",
         className
       )}
+      style={{ border: "1px solid var(--mantine-color-default-border)" }}
     >
-      <figure>
+      <figure className="m-0">
         <blockquote
           className={clsx(
-            "text-gray-900 dark:text-gray-100",
+            "text-gray-900 dark:text-gray-100 m-0",
             featured ? "p-6 text-lg font-semibold leading-7 tracking-tight sm:text-xl sm:leading-8" : ""
           )}
         >
-          <p className="whitespace-pre-line">{`“${text}”`}</p>
+          <p className="whitespace-pre-line mt-0">{`“${text}”`}</p>
         </blockquote>
 
         <figcaption
@@ -70,7 +71,8 @@ export const LandingTestimonial = ({
           />
           <div className="flex-auto">
             <div className="font-semibold flex gap-0.5 items-center">
-              {name} {verified && <BadgeIcon className="flex-shrink-0 fill-blue-500 text-white w-4 h-4" />}
+              {name}
+              {/* {verified && <DiscordLogoIcon className="flex-shrink-0 fill-blue-500 text-white w-4 h-4" />} */}
             </div>
             <div className="text-gray-600">{`${handle}`}</div>
           </div>

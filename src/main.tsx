@@ -8,14 +8,15 @@ import { ThemeProvider } from "./ThemeContext";
 import { routeTree } from "./routeTree.gen";
 
 import "@mantine/core/styles.css";
-import "./styles/index.scss";
-import "./styles/fonts.css";
-import "./styles/shadcn-styles.css";
 import "@mantine/charts/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/spotlight/styles.css";
 import "@mantinex/shiki/styles.css";
 import "@mantine/code-highlight/styles.css";
+
+import "./styles/index.scss";
+import "./styles/shadcn-styles.css";
+import "./styles/fonts.css";
 
 // Create a new router instance
 const router = createRouter({ routeTree });

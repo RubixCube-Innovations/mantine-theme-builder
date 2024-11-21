@@ -48,14 +48,14 @@ export const LandingTestimonialGrid = ({
     >
       <div className="w-full p-6 max-w-full container-wide relative flex flex-col items-center">
         {title ? (
-          <h2 className="md:text-center text-3xl font-semibold leading-tight md:leading-tight max-w-sm sm:max-w-none md:text-4xl lg:text-5xl">
+          <h2 className="md:text-center text-3xl font-semibold leading-tight md:leading-tight max-w-sm sm:max-w-none md:text-3xl lg:text-4xl">
             {title}
           </h2>
         ) : (
           titleComponent
         )}
 
-        {description ? <p className="mt-6 md:text-xl">{description}</p> : descriptionComponent}
+        {description ? <p className="mt-0 md:text-xl">{description}</p> : descriptionComponent}
       </div>
 
       <div className="relative isolate">

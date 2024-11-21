@@ -5,18 +5,18 @@ import MantineCards from "./components/cards/mantine-cards";
 import ComponentsDemo from "./components/components-demo/components-demo";
 import PageLayout from "./components/layout/page-layout";
 import ThemeCustomizer from "./components/theme-customizer";
+import { LandingTestimonialGrid } from "./components/testimonial/testimonial-grid";
+import { testimonialItems } from "./utils/testimonials";
 
 export default function ThemesPage({ tab }: { tab: string }) {
-
   const [value, setValue] = useState(tab ?? "example");
- 
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
 
   const onTabChange = (value: string) => {
     setValue(value);
     navigate({ to: value === "components" ? "/components" : "/" });
-  }
+  };
 
   return (
     <PageLayout
@@ -38,7 +38,7 @@ export default function ThemesPage({ tab }: { tab: string }) {
             w={"200px"}
             size="xs"
             value={value}
-            onChange={onTabChange} 
+            onChange={onTabChange}
             data={[
               { label: "Example", value: "example" },
               { label: "All Components", value: "components" },
@@ -48,7 +48,12 @@ export default function ThemesPage({ tab }: { tab: string }) {
 
         {value === "example" ? <MantineCards /> : <ComponentsDemo />}
 
+        <LandingTestimonialGrid
+          title="Community Reviews"
+          description="See why our community values what we do. Real testimonials from real people who’ve been part of the journey."
+          testimonialItems={testimonialItems}
+        />
       </Stack>
-   </PageLayout>
+    </PageLayout>
   );
 }
