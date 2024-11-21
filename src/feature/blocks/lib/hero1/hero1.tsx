@@ -63,7 +63,13 @@ export const Hero1 = () => {
           </Grid.Col>
 
           <Grid.Col span={{ base: 12, md: 5 }}>
-            <Paper className={classes?.paper} radius="md" p="xl"></Paper>
+            <Paper
+              mih={320}
+              radius="md"
+              p="xl"
+              bg={"rgba(255, 255, 255, 0.1)"}
+              bd={" 1px solid rgba(255, 255, 255, 0.1) "}
+            ></Paper>
           </Grid.Col>
         </Grid>
       </Container>
