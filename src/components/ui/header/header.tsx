@@ -1,13 +1,14 @@
-import { Burger, Button, Center, Divider, Group, Menu, Modal, rem, ScrollArea, Text } from "@mantine/core";
+import { Burger, Button, Center, Divider, Drawer, Group, Menu, Modal, rem, ScrollArea, Stack, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons-react";
+import { useNavigate } from "@tanstack/react-router";
 import { AboutPage } from "../../custom/about/about";
 import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import classes from "./header.module.scss";
-import { useNavigate } from "@tanstack/react-router";
 
+const APP_NAME = "MantineHub";
 export function Header() {
-  const [opened, { toggle }] = useDisclosure(false);
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [modalOpened, { open, close }] = useDisclosure(false);
   const navigate = useNavigate();
 
@@ -32,19 +33,17 @@ export function Header() {
     { id: "about", href: "/about", label: "About Us", onClick: open },
     { id: "donate", label: "Donate", onClick: () => window.open("https://www.buymeacoffee.com/abhishekslal01", "_blank") },
   ];
+  const handleClick = (clickedItem: IMenuItem) => {
+    if (clickedItem.onClick) {
+      clickedItem.onClick();
+    } else if (clickedItem.href) {
+      navigate({ to: clickedItem.href });
+    }
+  };
 
-  const items = links.map((link) => {
+
+  const getItems = (view = "header") => links.map((link) => {
     const menuItems = link.links?.map((item) => <Menu.Item key={item.id}>{item.label}</Menu.Item>);
-
-    const handleClick = (clickedItem: IMenuItem) => {
-      if (clickedItem.onClick) {
-        clickedItem.onClick();
-      } else if (clickedItem.href) {
-        navigate({ to: link.href });
-      }
-    };
-
-    // const isHomeActive = (window.location.pathname === "/" || window.location.pathname === "/components") && link.id === "home";
     const isActive = window.location.pathname === link.href;
 
     if (menuItems) {
@@ -66,11 +65,12 @@ export function Header() {
     return (
       <Button
         variant="subtle"
-        size="xs"
+        size={view === "drawer" ? "md" : "xs"}
         key={link.label}
         className={classes.link}
         bg={(isActive) ? "var(--mantine-color-default-hover)" : undefined}
         onClick={() => handleClick(link)}
+        justify={view === "drawer" ? "start" : "center"}
       >
         {link.label}
       </Button>
@@ -78,13 +78,14 @@ export function Header() {
   });
 
   return (
+    <>
     <header className={classes.header}>
       <div className={classes.inner}>
         <Text size="md" fw={"bolder"}>
-          MantineHub
+          {APP_NAME}
         </Text>
         <Group gap={5} visibleFrom="sm">
-          {items}
+          {getItems("header")}
         </Group>
         <Group>
           <iframe
@@ -96,7 +97,7 @@ export function Header() {
           ></iframe>
           <ColorSchemeSwitch />
         </Group>
-        <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
+        <Burger opened={drawerOpened} onClick={toggleDrawer} size="sm" hiddenFrom="sm" />
       </div>
       <Modal
         opened={modalOpened}
@@ -114,5 +115,21 @@ export function Header() {
       </Modal>
       <Divider />
     </header>
+    <Drawer
+        opened={drawerOpened}
+        onClose={closeDrawer}
+        size="100%"
+        title={<Text size="md" fw={"bolder"}>{APP_NAME}</Text>}
+        hiddenFrom="sm"
+        p={0}
+      >
+        <Divider pb={"md"}/>
+        <ScrollArea h="calc(100vh - 80px">
+          <Stack gap="sm" >
+            {getItems("drawer")}
+          </Stack>
+        </ScrollArea>
+      </Drawer>
+    </>
   );
 }
