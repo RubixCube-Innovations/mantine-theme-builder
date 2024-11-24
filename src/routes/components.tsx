@@ -9,7 +9,7 @@ export const Route = createFileRoute("/components")({
 function RouteComponent() {
   return (
     <PageLayout
-      title="Mantine Components Playground"
+      title="Mantine Components Playground ⛹️‍♂️"
       description="Preview all Mantine components with your theme. Explore variants, sizes, and states in real time."
     >
       <ComponentsDemo />

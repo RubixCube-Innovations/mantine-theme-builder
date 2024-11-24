@@ -7,7 +7,7 @@ const ChangeThemeSection = ({ isBlockPage = false }: { isBlockPage?: boolean }) 
     <Group>
       <ChangeThemeButton />
       {isBlockPage ? (
-        <Button variant="subtle" size="sm">
+        <Button variant="subtle" size="sm" component="a" href="https://github.com/RubixCube-Innovations/mantine-theme-builder/issues/new?title=Block+Request:" target="_blank">
           Request a block
         </Button>
       ) : (

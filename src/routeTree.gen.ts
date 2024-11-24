@@ -11,12 +11,19 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as FeedbackImport } from './routes/feedback'
 import { Route as ComponentsImport } from './routes/components'
 import { Route as BlocksImport } from './routes/blocks'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const FeedbackRoute = FeedbackImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const ComponentsRoute = ComponentsImport.update({
   id: '/components',
@@ -74,6 +81,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsImport
       parentRoute: typeof rootRoute
     }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -84,6 +98,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blocks': typeof BlocksRoute
   '/components': typeof ComponentsRoute
+  '/feedback': typeof FeedbackRoute
 }
 
 export interface FileRoutesByTo {
@@ -91,6 +106,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blocks': typeof BlocksRoute
   '/components': typeof ComponentsRoute
+  '/feedback': typeof FeedbackRoute
 }
 
 export interface FileRoutesById {
@@ -99,14 +115,15 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blocks': typeof BlocksRoute
   '/components': typeof ComponentsRoute
+  '/feedback': typeof FeedbackRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/blocks' | '/components'
+  fullPaths: '/' | '/about' | '/blocks' | '/components' | '/feedback'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/blocks' | '/components'
-  id: '__root__' | '/' | '/about' | '/blocks' | '/components'
+  to: '/' | '/about' | '/blocks' | '/components' | '/feedback'
+  id: '__root__' | '/' | '/about' | '/blocks' | '/components' | '/feedback'
   fileRoutesById: FileRoutesById
 }
 
@@ -115,6 +132,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlocksRoute: typeof BlocksRoute
   ComponentsRoute: typeof ComponentsRoute
+  FeedbackRoute: typeof FeedbackRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -122,6 +140,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlocksRoute: BlocksRoute,
   ComponentsRoute: ComponentsRoute,
+  FeedbackRoute: FeedbackRoute,
 }
 
 export const routeTree = rootRoute
@@ -137,7 +156,8 @@ export const routeTree = rootRoute
         "/",
         "/about",
         "/blocks",
-        "/components"
+        "/components",
+        "/feedback"
       ]
     },
     "/": {
@@ -151,6 +171,9 @@ export const routeTree = rootRoute
     },
     "/components": {
       "filePath": "components.tsx"
+    },
+    "/feedback": {
+      "filePath": "feedback.tsx"
     }
   }
 }

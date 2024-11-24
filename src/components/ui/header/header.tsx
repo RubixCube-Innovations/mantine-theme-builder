@@ -1,27 +1,17 @@
-import { Burger, Button, Center, Divider, Drawer, Group, Menu, Modal, rem, ScrollArea, Stack, Text } from "@mantine/core";
+import { Burger, Button, Center, Divider, Drawer, Group, Menu, rem, ScrollArea, Stack, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons-react";
 import { useNavigate } from "@tanstack/react-router";
-import { AboutPage } from "../../custom/about/about";
 import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import classes from "./header.module.scss";
 
 const APP_NAME = "MantineHub";
 export function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-  const [modalOpened, { open, close }] = useDisclosure(false);
   const navigate = useNavigate();
 
 
   type IMenuItem = { id: string; href?: string; label: string; onClick?: () => void; links?: IMenuItem[] };
-
-  const handleFeedbackClick = () => {
-    const feedbackLink = document.createElement('a');
-    feedbackLink.href = "#tally-open=mex2Dx&tally-emoji-text=👋&tally-emoji-animation=wave";
-    document.body.appendChild(feedbackLink);
-    feedbackLink.click();
-    document.body.removeChild(feedbackLink);
-  };
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes" },
@@ -29,8 +19,8 @@ export function Header() {
     { id: "blocks", href: "/blocks", label: "Blocks" },
     // { id: "starter-kit", href: "/starter-kit", label: "Starter Kit" },
     // { id: "templates", href: "/templates", label: "Templates" },
-    { id: "feedback", href: "/feedback", label: "Feedback", onClick: handleFeedbackClick },
-    { id: "about", href: "/about", label: "About Us", onClick: open },
+    { id: "feedback", href: "/feedback", label: "Feedback" },
+    { id: "about", href: "/about", label: "About Us" },
     { id: "donate", label: "Donate", onClick: () => window.open("https://www.buymeacoffee.com/abhishekslal01", "_blank") },
   ];
   const handleClick = (clickedItem: IMenuItem) => {
@@ -99,20 +89,6 @@ export function Header() {
         </Group>
         <Burger opened={drawerOpened} onClick={toggleDrawer} size="sm" hiddenFrom="sm" />
       </div>
-      <Modal
-        opened={modalOpened}
-        onClose={close}
-        // title={<Title order={2}>About Mantine Theme Builder</Title>}
-        // title={"About the project"}
-        size={"xl"}
-        centered
-        // scrollAreaComponent={ScrollArea.Autosize}
-        styles={{ content: { paddingTop: "0rem" } }}
-      >
-        <ScrollArea h={"600px"} pe={"sm"} pl="md" pr="xl">
-          <AboutPage />
-        </ScrollArea>
-      </Modal>
       <Divider />
     </header>
     <Drawer

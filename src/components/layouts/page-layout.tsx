@@ -8,9 +8,10 @@ interface LayoutProps {
   title?: string;
   description?: string | React.ReactNode;
   isBlockPage?: boolean;
+  showActionButtons?: boolean;
 }
 
-const PageLayout = ({ children, title, description, isBlockPage }: LayoutProps) => {
+const PageLayout = ({ children, title, description, isBlockPage, showActionButtons = true }: LayoutProps) => {
   return (
     <Container size={"xl"} h={"100%"} px={"0px"}>
       <Header />
@@ -21,12 +22,12 @@ const PageLayout = ({ children, title, description, isBlockPage }: LayoutProps) 
             <Title order={1}>{title}</Title>
             <Text>{description}</Text>
           </Box>
-          <ChangeThemeSection isBlockPage={isBlockPage} />
+          {showActionButtons && <ChangeThemeSection isBlockPage={isBlockPage} />}
           {children}
         </Stack>
 
-        <Box mt="auto" w="100%">
-          <Divider my="sm" />
+        <Box mt="auto" w="100%" p={"lg"}>
+          <Divider mb="sm" />
           <Group justify="space-between" align="center">
             <Text size="sm">
               This project is inspired by{" "}
@@ -44,11 +45,11 @@ const PageLayout = ({ children, title, description, isBlockPage }: LayoutProps) 
               .
             </Text>
             {/* <Text size="sm" c="dimmed">
-          Made with <span style={{ fontSize: "10px" }}>❤️</span> by{" "}
-          <Anchor href="https://rubixcube.tech" target="_blank" rel="noopener noreferrer">
-            RubixCube Innovations
-          </Anchor>
-        </Text> */}
+              Made with <span style={{ fontSize: "10px" }}>❤️</span> by{" "}
+              <Anchor href="https://rubixcube.tech" target="_blank" rel="noopener noreferrer">
+                RubixCube Innovations
+              </Anchor>
+            </Text> */}
 
             <a href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
               <img

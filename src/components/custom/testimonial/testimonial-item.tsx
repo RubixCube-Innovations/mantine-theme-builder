@@ -1,83 +1,47 @@
-import { Image } from "@mantine/core";
-import clsx from "clsx";
-// import { DiscordLogoIcon } from "@radix-ui/react-icons";
+import { Box, Text, Group, Stack, Avatar, UnstyledButton } from "@mantine/core";
 
-export interface TestimonialItem {
+export interface ITestimonialItem {
   className?: string;
   url?: string;
   text: string;
   imageSrc: string;
   name: string;
   handle: string;
-  featured?: boolean;
-  verified?: boolean;
-  size?: "full" | "half" | "third"; // NB: Only applies to testimonials in a list, not grid.
 }
 
-/**
- * Shows a testimonial with an image, name, and handle.
- *
- * Meant to be used with a `LandingTestimonialList` or `LandingTestimonialGrid`.
- */
-export const LandingTestimonial = ({
-  className,
-  url,
-  text,
-  imageSrc,
-  name,
-  handle,
-  featured,
-  // verified = true,
-}: TestimonialItem) => {
+export const TestimonialItem = ({ url, text, imageSrc, name, handle }: ITestimonialItem) => {
   const missingUrl = !url || url === "#";
-
   return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={clsx(
-        "w-full inline-block rounded-2xl",
-        featured ? "shadow-xl" : "p-6",
-        missingUrl
-          ? "cursor-default pointer-events-none"
-          : "cursor-pointer hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors",
-        className
-      )}
-      style={{ border: "1px solid var(--mantine-color-default-border)" }}
+    <UnstyledButton
+      component={!missingUrl ? "a" : "div"}
+      href={!missingUrl ? url : undefined}
+      target={!missingUrl ? "_blank" : undefined}
+      p="md"
+      style={{
+        borderRadius: "var(--mantine-radius-default)",
+        border: `1px solid var(--mantine-color-default-border)`,
+        cursor: missingUrl ? "default" : "pointer",
+      }}
     >
-      <figure className="m-0">
-        <blockquote
-          className={clsx(
-            "text-gray-900 dark:text-gray-100 m-0",
-            featured ? "p-6 text-lg font-semibold leading-7 tracking-tight sm:text-xl sm:leading-8" : ""
-          )}
-        >
-          <p className="whitespace-pre-line mt-0">{`“${text}”`}</p>
-        </blockquote>
+      <Stack justify="space-between" component="figure" m={0} h={"100%"}>
+        <Box component="blockquote" m={0} p={0} bd={"1px solid var(--mantine-default-border)"}>
+          <Text fs={"italic"} fz={"md"}>
+            "{text}"
+          </Text>
+        </Box>
 
-        <figcaption
-          className={clsx(
-            "flex items-center gap-x-4",
-            featured ? "flex-wrap gap-y-4 border-t border-gray-900/10 px-6 py-4 sm:flex-nowrap" : "mt-6"
-          )}
-        >
-          <Image
-            width={100}
-            height={100}
-            className="h-10 w-10 flex-none rounded-full bg-gray-50"
-            src={imageSrc}
-            alt=""
-          />
-          <div className="flex-auto">
-            <div className="font-semibold flex gap-0.5 items-center">
-              {name}
-              {/* {verified && <DiscordLogoIcon className="flex-shrink-0 fill-blue-500 text-white w-4 h-4" />} */}
-            </div>
-            <div className="text-gray-600">{`${handle}`}</div>
-          </div>
-        </figcaption>
-      </figure>
-    </a>
+        <Box component="figcaption" mt={"md"}>
+          <Group gap="md" align="center">
+            <Avatar src={imageSrc} size="md" radius="xl" />
+            <Stack gap={2}>
+              <Text fw={600}>{name}</Text>
+              <Text c="dimmed" size="sm">
+                {handle}
+              </Text>
+            </Stack>
+          </Group>
+        </Box>
+      </Stack>
+    </UnstyledButton>
   );
 };

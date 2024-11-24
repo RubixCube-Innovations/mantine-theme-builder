@@ -2,10 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Anchor } from "@mantine/core";
 import * as z from "zod";
-import PageLayout from "../components/layouts/page-layout";
 import MantineCards from "../components/custom/theme-example-cards/mantine-cards";
-import { LandingTestimonialGrid } from "../components/custom/testimonial/testimonial-grid";
-import { testimonialItems } from "../utils/testimonials";
+import PageLayout from "../components/layouts/page-layout";
 
 const indexSearchSchema = z.object({
   tab: z.string().optional(),
@@ -19,7 +17,7 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
   return (
     <PageLayout
-      title="Mantine Modern Themes"
+      title="Mantine Modern Themes 🎨"
       description={
         <>
           Save time on styling with our ready-to-use themes for{" "}
@@ -32,11 +30,6 @@ function RouteComponent() {
     >
       <MantineCards />
 
-      <LandingTestimonialGrid
-        title="Community Reviews"
-        description="See why our community values what we do. Real testimonials from real people who’ve been part of the journey."
-        testimonialItems={testimonialItems}
-      />
     </PageLayout>
   );
 }

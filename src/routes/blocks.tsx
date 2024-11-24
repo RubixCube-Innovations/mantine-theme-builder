@@ -9,8 +9,9 @@ export const Route = createFileRoute("/blocks")({
 function RouteComponent() {
   return (
     <PageLayout
-      title="Mantine UI Blocks"
+      title="Mantine UI Blocks 🚀"
       description="Accelerate your development with our ever-growing library of beautifully designed UI blocks. Just copy, paste, and customize."
+      isBlockPage
     >
       <BlockComponents />
     </PageLayout>

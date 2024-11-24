@@ -9,12 +9,12 @@ export const testimonialItems = [
     url: "https://discord.com/channels/854810300876062770/905183891541856297/1302582803380043837"
   },
   {
-    name: "Federico Cappelletti",
-    text: "I literally love you.",
-    handle: "@federicocappelletti",
-    imageSrc: "https://picsum.photos/100/100.webp?random=2",
-    platform: "discord",
-    url: "https://discord.com/channels/854810300876062770/905183891541856297/1301611053595234415"
+    name: "Ionut-Cristian Florescu",
+    text: "Fantastic work! I'd say this is one of the most valuable Mantine-related projects that have appeared in the community lately.",
+    handle: "@icflorescu",
+    imageSrc: "https://picsum.photos/100/100.webp?random=6",
+    platform: "github",
+    url: "https://github.com/orgs/mantinedev/discussions/7056#discussioncomment-11146579"
   },
   {
     name: "Orion",
@@ -23,6 +23,14 @@ export const testimonialItems = [
     imageSrc: "https://picsum.photos/100/100.webp?random=6",
     platform: "github",
     url: "https://github.com/orgs/mantinedev/discussions/7056#discussioncomment-11329081"
+  },
+  {
+    name: "Andrej",
+    text: "Thank you for creating such an incredible theme builder for Mantine – it’s a game-changer for my workflow!",
+    handle: "@AndrejNemec",
+    imageSrc: "https://picsum.photos/100/100.webp?random=6",
+    platform: "github",
+    url: "https://github.com/orgs/mantinedev/discussions/7056#discussioncomment-11116272"
   },
   {
     name: "Vintage",
@@ -42,14 +50,6 @@ export const testimonialItems = [
     url: "https://discord.com/channels/854810300876062770/887408088800448553/1305432194080051231"
   },
   {
-    name: "Andrej",
-    text: "Thank you for creating such an incredible theme builder for Mantine – it’s a game-changer for my workflow!",
-    handle: "@AndrejNemec",
-    imageSrc: "https://picsum.photos/100/100.webp?random=6",
-    platform: "github",
-    url: "https://github.com/orgs/mantinedev/discussions/7056#discussioncomment-11116272"
-  },
-  {
     name: "Mordechai Dror",
     text: "Daaamn)))) I'm more and more in love with mantine.",
     handle: "@vorant94",
@@ -66,12 +66,12 @@ export const testimonialItems = [
     url: "https://github.com/orgs/mantinedev/discussions/7056#discussioncomment-11118334"
   },
   {
-    name: "Ionut-Cristian Florescu",
-    text: "Fantastic work! I'd say this is one of the most valuable Mantine-related projects that have appeared in the community lately.",
-    handle: "@icflorescu",
-    imageSrc: "https://picsum.photos/100/100.webp?random=6",
-    platform: "github",
-    url: "https://github.com/orgs/mantinedev/discussions/7056#discussioncomment-11146579"
+    name: "Federico Cappelletti",
+    text: "I literally love you.",
+    handle: "@federicocappelletti",
+    imageSrc: "https://picsum.photos/100/100.webp?random=2",
+    platform: "discord",
+    url: "https://discord.com/channels/854810300876062770/905183891541856297/1301611053595234415"
   },
   {
     name: "Pedro Santos",
