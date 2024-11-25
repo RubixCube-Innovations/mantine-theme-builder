@@ -18,10 +18,10 @@ import * as React from "react";
 import { Tooltip } from "@mantine/core";
 import { } from "@radix-ui/react-icons";
 import { useTheme } from "../../../theme-context";
+import { mantineTheme } from "../../../themes/mantine/mantine-theme";
+import { shadcnTheme } from "../../../themes/shadcn/shadcn-theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "../../../utils/colors";
 import { getSecondaryPalette } from "../../../utils/functions";
-import { shadcnTheme } from "../../../themes/shadcn/shadcn-theme";
-import { mantineTheme } from "../../../themes/mantine/mantine-theme";
 
 export interface IThemeConfig {
   style: string;

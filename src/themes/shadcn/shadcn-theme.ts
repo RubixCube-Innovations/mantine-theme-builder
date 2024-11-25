@@ -22,7 +22,7 @@ import {
 
 import { Spotlight } from "@mantine/spotlight";
 // prettier-ignore
-import { amberColors, blueColors, grayColors, greenColors, neutralColors, orangeColors, redColors, roseColors, slateColors, stoneColors, violetColors, yellowColors, zincColors } from "../../utils/colors";
+import { amberColors, blueColors, cyanColors, emeraldColors, fuchsiaColors, grayColors, greenColors, indigoColors, limeColors, neutralColors, orangeColors, pinkColors, purpleColors, redColors, roseColors, skyColors, slateColors, stoneColors, tealColors, violetColors, yellowColors, zincColors } from "../../utils/colors";
 import { getShadcnCardClassname, getShadcnInputBg } from "../../utils/theme-functions";
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -36,26 +36,36 @@ const CONTAINER_SIZES: Record<string, string> = {
 
 export const shadcnTheme = createTheme({
   colors: {
-    zinc: zincColors,
     slate: slateColors,
-    stone: stoneColors,
     gray: grayColors,
+    zinc: zincColors,
     neutral: neutralColors,
+    stone: stoneColors,
+
     red: redColors,
     rose: roseColors,
     orange: orangeColors,
-    green: greenColors,
-    blue: blueColors,
+    amber: amberColors,
     yellow: yellowColors,
+
+    lime: limeColors,
+    green: greenColors,
+    emerald: emeraldColors,
+
+    teal: tealColors,
+    cyan: cyanColors,
+    sky: skyColors,
+    blue: blueColors,
+
+    indigo: indigoColors,
     violet: violetColors,
+    purple: purpleColors,
+    fuchsia: fuchsiaColors,
+    pink: pinkColors,
 
     primary: zincColors,
     secondary: zincColors, // secondary will be dynamically changed baesd on the primary color
     dark: zincColors, // dark will always be secondary color
-
-    error: redColors,
-    warning: amberColors,
-    success: greenColors,
   },
   focusRing: "never",
   scale: 1,

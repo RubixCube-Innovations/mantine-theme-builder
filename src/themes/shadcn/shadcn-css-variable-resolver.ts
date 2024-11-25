@@ -1,6 +1,6 @@
 import { alpha, CSSVariablesResolver } from "@mantine/core";
-import { generateCSSFilledColorVariables, getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getPrimaryLightColorDay, getPrimaryLightColorNight } from "../../utils/theme-functions";
 import { SHADCN_DEFAULT_COLORS } from "../../utils/colors";
+import { generateCSSFilledColorVariables, getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getPrimaryLightColorDay, getPrimaryLightColorNight } from "../../utils/theme-functions";
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     variables: {

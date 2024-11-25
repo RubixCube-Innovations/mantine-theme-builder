@@ -46,10 +46,10 @@ export function ConfiguratorColorControl({
 
   const theme = useMantineTheme();
 
-  
   const colors = getDefaultColors(theme.other.style)
     .filter((color) => color.id !== 'dark' && color.id !== 'secondary')
     .map((color) => {
+      console.log(color.id);
       return  <ColorSwatch
       color={`var(--mantine-color-${color.id}-filled)`}
       component="button"

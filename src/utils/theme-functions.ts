@@ -35,7 +35,7 @@ export const getPrimaryContrastColorDay = (color: string) => {
       color === "rose"
     ) {
       return `var(--mantine-primary-color-0)`;
-    } else if (color === "orange" || color === "blue" || color === "violet") {
+    } else if (color === "orange" || color === "blue" || color === "violet" ) {
       return `var(--mantine-color-secondary-0)`;
     } else if (color === "green") {
       return `var(--mantine-color-rose-0)`;
@@ -69,7 +69,7 @@ export const getPrimaryContrastColorDay = (color: string) => {
       return "var(--mantine-color-secondary-8)";
     } else if (color === "red" || color === "rose") {
       return "var(--mantine-primary-color-0)";
-    } else if (color === "orange" || color === "violet") {
+    } else if (color === "orange" || color === "violet" || color === "emerald" || color === "purple" || color === "indigo" || color === "pink" || color === "fuchsia") {
       return "var(--mantine-color-secondary-0)";
     } else if (color === "green") {
       return "var(--mantine-primary-color-9)";
