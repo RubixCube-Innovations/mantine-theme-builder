@@ -34,7 +34,7 @@ export const AboutPage = () => {
           <br />
           For now, we're checking whether this project is useful for the community. If you find value in it, please star
           the repository and share your feedback{" "}
-          <Anchor href="#tally-open=mex2Dx&tally-emoji-text=👋&tally-emoji-animation=wave">via this form.</Anchor> This
+          <Anchor href="https://github.com/orgs/mantinedev/discussions/7056">in this thread.</Anchor> This
           will help us understand its impact. If there's enough interest, we'll make sure to bring comprehensive support
           for all components, making it easier for anyone looking to adopt modern theming for Mantine projects and get
           started instantly.
