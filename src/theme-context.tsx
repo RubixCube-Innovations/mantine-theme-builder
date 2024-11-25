@@ -2,11 +2,11 @@
 import { MantineColorShade, MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mantine/core";
 import { readLocalStorageValue } from "@mantine/hooks";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { IThemeConfig } from "./components/change-theme-section/change-theme-button";
 import { mantineCssVariableResolver } from "./themes/mantine/mantine-css-variable-resolver";
 import { shadcnCssVariableResolver } from "./themes/shadcn/shadcn-css-variable-resolver";
 import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette } from "./utils/functions";
 import { ShikiProvider } from "@mantinex/shiki";
+import { IThemeConfig } from "./components/custom/change-theme-section/change-theme-button";
 
 // Define the shape of the context
 interface ThemeContextType {

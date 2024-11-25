@@ -1,3 +1,18 @@
+import { ColorPalette } from "./colors";
+
+type ColorEntry = {
+  id: string;
+  name: string;
+  color: string;
+  primaryPalette: ColorPalette;
+  primaryShade: {
+    light: number;
+    dark: number;
+  };
+  secondary?: string;
+  secondaryPalette?: ColorPalette;
+};
+
 /**
  * Retrieves the text color for a given color identifier based on predefined palettes.
  *
@@ -111,4 +126,19 @@ export const getPrimaryContrastColorDay = (color: string) => {
     } else {
       return "var(--mantine-color-default)";
     }
+  }
+
+  export function generateCSSFilledColorVariables(colors: ColorEntry[], mode: string) {
+    const lightMode: Record<string, string> = {};
+    const darkMode: Record<string, string> = {};
+  
+    colors.forEach(({ id, primaryShade }) => {
+      lightMode[`--mantine-color-${id}-filled`] = `var(--mantine-color-${id}-${primaryShade.light})`;
+      darkMode[`--mantine-color-${id}-filled`] = `var(--mantine-color-${id}-${primaryShade.dark})`;
+    });
+  
+    if(mode === "light") {
+      return lightMode;
+    }
+    return darkMode;
   }

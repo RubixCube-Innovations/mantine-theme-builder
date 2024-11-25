@@ -1,21 +1,22 @@
-import { useState } from 'react';
 import {
   BoxProps,
   CheckIcon,
   ColorPicker,
   ColorSwatch,
-  DEFAULT_THEME,
   ElementProps,
   Group,
   Input,
   Popover,
   TextInput,
   UnstyledButton,
+  useMantineTheme
 } from '@mantine/core';
+import { useState } from 'react';
+import { getDefaultColors } from '../../../../../utils/functions';
 import { ColorWheelIcon } from './ColorWheelIcon';
+import classes from './ConfiguratorColor.control.module.css';
 import { getControlLabel } from './get-control-label';
 import { ConfiguratorControl } from './types';
-import classes from './ConfiguratorColor.control.module.css';
 
 export type ConfiguratorColorControlOptions = ConfiguratorControl<
   'color',
@@ -43,22 +44,28 @@ export function ConfiguratorColorControl({
     onChange(color);
   };
 
-  const colors = Object.keys(DEFAULT_THEME.colors)
-    .filter((color) => color !== 'dark')
-    .map((color) => (
-      <ColorSwatch
-        color={`var(--mantine-color-${color}-filled)`}
-        component="button"
-        key={color}
-        onClick={() => onChange(color)}
-        radius="sm"
-        className={classes.swatch}
-        aria-label={color}
-      >
-        {value === color && <CheckIcon className={classes.check} />}
-      </ColorSwatch>
-    ));
+  const theme = useMantineTheme();
 
+  
+  const colors = getDefaultColors(theme.other.style)
+    .filter((color) => color.id !== 'dark' && color.id !== 'secondary')
+    .map((color) => {
+      return  <ColorSwatch
+      color={`var(--mantine-color-${color.id}-filled)`}
+      component="button"
+      key={color.id}
+      onClick={() => onChange(color.id)}
+      radius="sm"
+      className={classes.swatch}
+      aria-label={color.id}
+    >
+      {value === color.id && <CheckIcon className={classes.check} />}
+    </ColorSwatch>
+    }
+     
+    );
+
+    console.log(colors);
   return (
     <Input.Wrapper labelElement="div" label={getControlLabel(prop)} {...others}>
       <Group gap={2} mt={2} wrap="wrap">

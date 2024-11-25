@@ -149,3 +149,38 @@ export const convertThemeToObj = (obj: any) => {
 
   return ret;
 };
+
+export const getDefaultColors = (style: string | undefined) => {
+  if (style === "shadcn") {
+    // Merge SHADCN and MANTINE colors
+    const combinedColors = MANTINE_DEFAULT_COLORS.map((mantineColor) => {
+      const shadcnColor = SHADCN_DEFAULT_COLORS.find(
+        (shadcnColor) => shadcnColor.id === mantineColor.id
+      );
+      
+      // Use the SHADCN color if the IDs match
+      return shadcnColor || mantineColor;
+    });
+
+    // Add colors from SHADCN that are not already in the combined list
+    SHADCN_DEFAULT_COLORS.forEach((shadcnColor) => {
+      if (!combinedColors.find((color) => color.id === shadcnColor.id)) {
+        combinedColors.push(shadcnColor);
+      }
+    });
+
+    // Include neutral colors
+    const neutralColor = SHADCN_DEFAULT_COLORS.find(
+      (color) => color.id === "neutral"
+    );
+
+    if (neutralColor) {
+      combinedColors.push(neutralColor);
+    }
+
+    return combinedColors;
+  }
+
+  return MANTINE_DEFAULT_COLORS;
+};
+

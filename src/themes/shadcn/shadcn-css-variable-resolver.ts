@@ -1,5 +1,6 @@
 import { alpha, CSSVariablesResolver } from "@mantine/core";
-import { getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getPrimaryLightColorDay, getPrimaryLightColorNight } from "../../utils/theme-functions";
+import { generateCSSFilledColorVariables, getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getPrimaryLightColorDay, getPrimaryLightColorNight } from "../../utils/theme-functions";
+import { SHADCN_DEFAULT_COLORS } from "../../utils/colors";
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     variables: {
@@ -38,6 +39,8 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   
       "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
       "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+
+      ...(generateCSSFilledColorVariables(SHADCN_DEFAULT_COLORS, "light")),
     },
     dark: {
       // all variables that depend on dark color scheme
@@ -66,5 +69,8 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   
       "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
       "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+
+      ...(generateCSSFilledColorVariables(SHADCN_DEFAULT_COLORS, "dark")),
+        
     },
   });
