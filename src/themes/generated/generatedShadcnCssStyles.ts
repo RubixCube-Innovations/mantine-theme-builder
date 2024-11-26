@@ -181,7 +181,7 @@ export const generatedShadcnCssStyles = `.globalMantineInput {
 }
 
 /* Title */
-.mantine-Title-root {
+.mantine-Title-root, .mantine-Modal-title, .mantine-Drawer-title {
   letter-spacing: -0.025em;
 }
 
