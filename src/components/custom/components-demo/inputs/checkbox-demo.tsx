@@ -1,5 +1,6 @@
 import { Checkbox, CheckboxProps } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
+import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { Checkbox } from '@mantine/core';
@@ -34,7 +35,7 @@ export const checkboxDemo: MantineDemo = {
     { prop: 'label', type: 'string', initialValue: 'I agree to sell my privacy', libraryValue: '' },
     { prop: 'description', type: 'string', initialValue: '', libraryValue: '' },
     { prop: 'error', type: 'string', initialValue: '', libraryValue: '' },
-    { prop: 'color', type: 'color', initialValue: 'blue', libraryValue: 'blue' },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     {
       prop: 'variant',
       type: 'segmented',

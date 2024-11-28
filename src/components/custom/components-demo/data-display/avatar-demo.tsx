@@ -1,6 +1,7 @@
 import { Avatar } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
 import { staticVariantsControl } from '../../../../utils/variants-data';
+import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { Avatar } from '@mantine/core';
@@ -19,7 +20,7 @@ export const avatarDemo: MantineDemo = {
     staticVariantsControl,
     { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: '100%' },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
-    { prop: 'color', type: 'color', initialValue: 'gray', libraryValue: 'gray' },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     {
       prop: 'src',
       type: 'string',

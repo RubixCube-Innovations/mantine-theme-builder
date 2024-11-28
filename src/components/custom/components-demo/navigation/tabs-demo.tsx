@@ -1,6 +1,7 @@
 import { IconMessageCircle, IconPhoto, IconSettings } from '@tabler/icons-react';
 import { rem, Tabs, TabsProps, useDirection } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
+import { localStorageTheme } from '../../../../utils/functions';
 
 function Wrapper(props: TabsProps) {
   const { dir } = useDirection();
@@ -80,7 +81,7 @@ export const tabsDemo: MantineDemo = {
   centered: true,
   maxWidth: '100%',
   controls: [
-    { prop: 'color', type: 'color', initialValue: 'blue', libraryValue: 'blue' },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     {
       prop: 'variant',
       type: 'segmented',

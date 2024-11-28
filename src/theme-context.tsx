@@ -1,12 +1,10 @@
 // ThemeContext.tsx
 import { MantineColorShade, MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mantine/core";
-import { readLocalStorageValue } from "@mantine/hooks";
+import { ShikiProvider } from "@mantinex/shiki";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { mantineCssVariableResolver } from "./themes/mantine/mantine-css-variable-resolver";
 import { shadcnCssVariableResolver } from "./themes/shadcn/shadcn-css-variable-resolver";
-import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette } from "./utils/functions";
-import { ShikiProvider } from "@mantinex/shiki";
-import { IThemeConfig } from "./components/custom/change-theme-section/change-theme-button";
+import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette, localStorageTheme } from "./utils/functions";
 
 // Define the shape of the context
 interface ThemeContextType {
@@ -25,12 +23,8 @@ export const useTheme = () => {
   }
   return context;
 };
-
 // Theme provider component
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const localStorageTheme = readLocalStorageValue<IThemeConfig>({
-    key: "mantine-theme",
-  });
 
   const baseTheme = getBaseTheme(localStorageTheme?.style);
   const [theme, setTheme] = useState<MantineThemeOverride>(() => {

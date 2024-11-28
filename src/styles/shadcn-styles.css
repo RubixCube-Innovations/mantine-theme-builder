@@ -18,15 +18,6 @@
   }
 }
 
-.globalMantineCheckbox {
-  /* background-color: var(--mantine-color-default); */
-  background-color: transparent;
-  border-color: var(--mantine-primary-color-filled);
-
-  &:checked {
-    border-color: var(--mantine-primary-color-filled);
-  }
-}
 
 .globalMantineCardRoot {
   background-color: var(--mantine-color-default);
@@ -185,8 +176,42 @@
   letter-spacing: -0.025em;
 }
 
+/* Checkbox */
+/* .globalMantineCheckbox {
+  background-color: transparent;
+  border-color: var(--mantine-primary-color-filled);
 
+  &:checked {
+    border-color: var(--mantine-primary-color-filled);
+  }
+} */
 
+.mantine-Checkbox-root {
+  --checkbox-color: var(--mantine-primary-color-filled);
+  --checkbox-icon-color: var(--mantine-primary-color-contrast);
+  
+  .mantine-Checkbox-input {
+    background-color: transparent;
+
+    @mixin where-light {
+      border-color: var(--checkbox-color);
+    }
+
+    @mixin where-dark {
+      border-color: var(--checkbox-color);
+    }
+
+    &[data-indeterminate],
+    &:checked {
+      background-color: var(--checkbox-color);
+    }
+  }
+  &[data-variant="outline"] {
+    .mantine-Checkbox-input {
+      background-color: transparent;
+    }
+  }
+}
 
 
 

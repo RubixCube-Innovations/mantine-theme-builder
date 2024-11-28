@@ -1,6 +1,7 @@
 import { Box, Text, Timeline, TimelineProps } from '@mantine/core';
 import { IconGitBranch, IconGitCommit, IconGitPullRequest, IconMessageDots } from '@tabler/icons-react';
 import { MantineDemo } from '../../../mantine/demo';
+import { localStorageTheme } from '../../../../utils/functions';
 
 function TimelineBase({ noIcon, ...props }: Partial<TimelineProps> & { noIcon?: boolean }) {
     const displayIcon = !noIcon;
@@ -95,7 +96,7 @@ export const timelineDemo: MantineDemo = {
   component: Wrapper,
   code,
   controls: [
-    { prop: 'color', type: 'color', initialValue: 'blue', libraryValue: 'blue' },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     { prop: 'radius', type: 'size', initialValue: 'xl', libraryValue: 'xl' },
     { prop: 'active', type: 'number', initialValue: 1, libraryValue: null, min: -1, max: 3 },
     { prop: 'reverseActive', type: 'boolean', initialValue: false, libraryValue: false },

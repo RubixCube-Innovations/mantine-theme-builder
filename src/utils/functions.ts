@@ -5,6 +5,8 @@ import { shadcnCssVariableResolver } from "../themes/shadcn/shadcn-css-variable-
 import { shadcnTheme } from "../themes/shadcn/shadcn-theme";
 import { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } from "./colors";
 import { generateThemeTemplate } from "./themeTemplate";
+import { readLocalStorageValue } from "@mantine/hooks";
+import { IThemeConfig } from "../components/custom/change-theme-section/change-theme-button";
 
 /**
  * Get the base theme based on the style.
@@ -158,3 +160,6 @@ export const getDefaultColors = (style: string | undefined) => {
   return MANTINE_DEFAULT_COLORS;
 };
 
+export const localStorageTheme = readLocalStorageValue<IThemeConfig>({
+  key: "mantine-theme",
+});

@@ -49,7 +49,6 @@ export function ConfiguratorColorControl({
   const colors = getDefaultColors(theme.other.style)
     .filter((color) => color.id !== 'dark' && color.id !== 'secondary')
     .map((color) => {
-      console.log(color.id);
       return  <ColorSwatch
       color={`var(--mantine-color-${color.id}-filled)`}
       component="button"
@@ -59,13 +58,12 @@ export function ConfiguratorColorControl({
       className={classes.swatch}
       aria-label={color.id}
     >
-      {value === color.id && <CheckIcon className={classes.check} />}
+      {value === color.id && <CheckIcon className={classes.check} style={{color:`var(--mantine-color-${color.id}-contrast)`}} />}
     </ColorSwatch>
     }
      
     );
 
-    console.log(colors);
   return (
     <Input.Wrapper labelElement="div" label={getControlLabel(prop)} {...others}>
       <Group gap={2} mt={2} wrap="wrap">

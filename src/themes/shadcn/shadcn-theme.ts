@@ -8,6 +8,7 @@ import {
   createTheme,
   defaultVariantColorsResolver,
   Divider,
+  getContrastColor,
   HoverCard,
   Input,
   Modal,
@@ -17,7 +18,7 @@ import {
   Select,
   Switch,
   Table,
-  Tooltip
+  Tooltip,
 } from "@mantine/core";
 
 import { Spotlight } from "@mantine/spotlight";
@@ -66,6 +67,11 @@ export const shadcnTheme = createTheme({
     primary: zincColors,
     secondary: zincColors, // secondary will be dynamically changed baesd on the primary color
     dark: zincColors, // dark will always be secondary color
+
+    error: redColors,
+    success: greenColors,
+    info: blueColors,
+    warning: amberColors,
   },
   focusRing: "never",
   scale: 1,
@@ -214,6 +220,14 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
+    Checkbox: Checkbox.extend({
+      vars: (theme, props) => ({
+        root: {
+          "--checkbox-color": props.color ? `var(--mantine-color-${props.color}-filled)` : "var(--mantine-primary-color-filled)",
+          "--checkbox-icon-color": props.color ? `var(--mantine-color-${props.color}-contrast)`: "var(--mantine-primary-color-contrast)",
+        },
+      }),
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
@@ -285,19 +299,6 @@ export const shadcnTheme = createTheme({
       }),
       classNames: () => ({
         tr: "globalMantineTableRow",
-      }),
-    }),
-    Checkbox: Checkbox.extend({
-      classNames: () => {
-        return {
-          input: "globalMantineCheckbox",
-        };
-      },
-      vars: () => ({
-        root: {
-          "--checkbox-color": "var(--mantine-primary-color-filled)",
-          "--checkbox-icon-color": "var(--mantine-primary-color-contrast)",
-        },
       }),
     }),
 

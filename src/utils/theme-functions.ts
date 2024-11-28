@@ -1,4 +1,4 @@
-import { ColorPalette } from "./colors";
+import { ColorPalette, SHADCN_DEFAULT_COLORS } from "./colors";
 
 type ColorEntry = {
   id: string;
@@ -25,6 +25,7 @@ type ColorEntry = {
  *          Otherwise, the primary or secondary palette color for the given color is returned.
  */
 export const getPrimaryContrastColorDay = (color: string) => {
+  const colorObj = SHADCN_DEFAULT_COLORS.find((c) => c.id === color);
     if (
       color === "zinc" ||
       color === "slate" ||
@@ -34,15 +35,15 @@ export const getPrimaryContrastColorDay = (color: string) => {
       color === "red" ||
       color === "rose"
     ) {
-      return `var(--mantine-primary-color-0)`;
+      return `var(--mantine-color-${colorObj?.id}-0)`;
     } else if (color === "orange" || color === "blue" || color === "violet" ) {
-      return `var(--mantine-color-secondary-0)`;
+      return `var(--mantine-color-${colorObj?.secondary}-0)`;
     } else if (color === "green") {
       return `var(--mantine-color-rose-0)`;
     } else if (color === "yellow") {
       return "#422006";
     } else {
-      return `var(--mantine-primary-color-0)`;
+      return `var(--mantine-color-${colorObj?.id}-0)`;
     }
   };
   
@@ -58,6 +59,7 @@ export const getPrimaryContrastColorDay = (color: string) => {
    *          Otherwise, the primary or secondary palette color for the given color is returned.
    */
   export const getPrimaryContrastColorNight = (color: string) => {
+    const colorObj = SHADCN_DEFAULT_COLORS.find((c) => c.id === color);
     if (
       color === "zinc" ||
       color === " slate" ||
@@ -66,19 +68,20 @@ export const getPrimaryContrastColorDay = (color: string) => {
       color === "neutral" ||
       color === "blue"
     ) {
-      return "var(--mantine-color-secondary-8)";
+      return `var(--mantine-color-${colorObj?.secondary}-8)`;
     } else if (color === "red" || color === "rose") {
-      return "var(--mantine-primary-color-0)";
+      return `var(--mantine-color-${colorObj?.id}-0)`;
     } else if (color === "orange" || color === "violet" || color === "emerald" || color === "purple" || color === "indigo" || color === "pink" || color === "fuchsia") {
-      return "var(--mantine-color-secondary-0)";
+      return `var(--mantine-color-${colorObj?.secondary}-0)`;
     } else if (color === "green") {
-      return "var(--mantine-primary-color-9)";
+      return `var(--mantine-color-${colorObj?.id}-9)`;
     } else if (color === "yellow") {
       return "#422006";
     } else {
-      return "var(--mantine-color-secondary-8)";
+      return `var(--mantine-color-${colorObj?.secondary}-8)`;
     }
   };
+  
   
   export const getPrimaryLightColorDay = (color: string) => {
     if (color === "rose" || color === "green" ) {
@@ -136,9 +139,30 @@ export const getPrimaryContrastColorDay = (color: string) => {
       lightMode[`--mantine-color-${id}-filled`] = `var(--mantine-color-${id}-${primaryShade.light})`;
       darkMode[`--mantine-color-${id}-filled`] = `var(--mantine-color-${id}-${primaryShade.dark})`;
     });
-  
+   
     if(mode === "light") {
       return lightMode;
     }
     return darkMode;
   }
+
+  export function generateCSSContrastColorVariables(colors: ColorEntry[], mode: string) {
+    const lightMode: Record<string, string> = {};
+    const darkMode: Record<string, string> = {};
+  
+    colors.forEach(({ id }) => {
+      lightMode[`--mantine-color-${id}-contrast`] = getPrimaryContrastColorDay(id);
+      darkMode[`--mantine-color-${id}-contrast`] = getPrimaryContrastColorNight(id);
+    });
+
+    console.log(lightMode);
+    console.log(darkMode);
+  
+    if(mode === "light") {
+      console.log(lightMode);
+      return lightMode;
+    }
+    return darkMode;
+  }
+
+

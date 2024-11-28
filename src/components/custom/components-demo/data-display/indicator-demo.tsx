@@ -1,5 +1,6 @@
 import { Avatar, Indicator, IndicatorProps } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
+import { localStorageTheme } from '../../../../utils/functions';
 
 function Demo(props: IndicatorProps) {
   return (
@@ -35,7 +36,7 @@ export const indicatorDemo: MantineDemo = {
   code,
   centered: true,
   controls: [
-    { prop: 'color', type: 'color', initialValue: 'blue', libraryValue: 'blue' },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     {
       prop: 'position',
       type: 'select',
