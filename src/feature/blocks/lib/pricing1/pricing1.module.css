@@ -1,0 +1,71 @@
+.pricingWrapper {
+  background-color: var(--mantine-body-color);
+  padding: 4rem 0;
+}
+
+.mainTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mainSubtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.billingSwitch {
+  transform: scale(1.2);
+  margin: 0 1rem;
+}
+
+.pricingCard {
+  background-color: var(--mantine-body-color);
+  border: 2px solid var(--mantine-color-gray-2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  padding: 2rem;
+  position: relative;
+  height: 100%;
+}
+
+.pricingCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+.recommendedCard {
+  border-color: var(--mantine-color-default-border);
+}
+
+.recommendedBadge {
+  position: absolute;
+  top: -12px;
+  right: 4px;
+  background-color: var(--mantine-primary-color-light);
+  color: var(--mantine-color-text);
+  padding: 0rem 0.6rem;
+  border-radius: 99px;
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 10;
+  letter-spacing: 2px;
+  line-height: rem(24px);
+
+  background: linear-gradient(45deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.planTitle {
+  color: var(--mantine-primary-color-4);
+}
+
+.price {
+  background: linear-gradient(45deg, var(--mantine-primary-color-8), var(--mantine-primary-color-4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

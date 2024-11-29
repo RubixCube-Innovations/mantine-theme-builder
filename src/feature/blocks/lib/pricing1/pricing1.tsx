@@ -1,121 +1,139 @@
 import { useState } from "react";
-import { ArrowRightIcon, CheckCircledIcon } from "@radix-ui/react-icons";
-import { Box, Button } from "@mantine/core";
-import { Card, CardSection, Text, Title, Divider, Switch, Grid } from "@mantine/core";
+import { Box, Card, Grid, Title, Text, Button, Switch, Divider, Group, Stack, Container } from "@mantine/core";
+import { CheckCircledIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import classes from "./pricing1.module.css";
 
 export const Pricing1 = () => {
   const [isYearly, setIsYearly] = useState(false);
 
+  const plans = [
+    {
+      name: "Plus",
+      subtitle: "For personal use",
+      monthlyPrice: 19,
+      yearlyPrice: 15,
+      annualBilling: {
+        monthly: 228,
+        yearly: 180,
+      },
+      badgeColor: "blue",
+      features: [
+        "Unlimited basic features",
+        "Standard support",
+        "Basic analytics",
+        "Single user account",
+        "Lorem Epsum lorem Espum",
+        "Lorem Epsum lorem Espum",
+      ],
+    },
+    {
+      name: "Pro",
+      subtitle: "For professionals",
+      monthlyPrice: 49,
+      yearlyPrice: 35,
+      annualBilling: {
+        monthly: 588,
+        yearly: 420,
+      },
+      badgeColor: "grape",
+      features: [
+        "Everything in Plus",
+        "Priority support",
+        "Advanced analytics",
+        "Team collaboration",
+        "Custom integrations",
+        "Lorem Epsum lorem",
+        "Lorem Epsum lorem Epsum",
+        "Lorem Epsum lorem",
+      ],
+      recommended: true,
+    },
+  ];
+
   return (
-    <Box py={96}>
-      <Box className="container mx-auto flex flex-col items-center gap-24 text-center">
-        <Box>
-          <Title order={2} mb={8} fz={{ base: 24, lg: 40 }} fw={700}>
-            Pricing
-          </Title>
-          <Text color="dimmed" fz={{ base: 16, lg: 20 }}>
-            Check out our affordable pricing plans
-          </Text>
-        </Box>
-        <Box className="flex items-center gap-3 text-lg">
-          Monthly
-          <Switch checked={isYearly} onChange={() => setIsYearly(!isYearly)} />
-          Yearly
-        </Box>
-        <Grid gutter={24} justify="center">
-          <Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
-            <Card shadow="sm" radius="md" withBorder>
-              <CardSection>
-                <Box p="lg">
-                  <Title order={3} mb={4}>
-                    Plus
-                  </Title>
-                  <Text color="dimmed" fz="sm">
-                    For personal use
-                  </Text>
-                  <Text fz={32} fw={700} mt={8}>
-                    {isYearly ? "$15" : "$19"}
-                  </Text>
-                  <Text color="dimmed">Billed {isYearly ? "$180" : "$228"} annually</Text>
-                </Box>
-              </CardSection>
-              <CardSection p="lg">
-                <Divider mb={24} />
-                <ul className="space-y-16">
-                  <li className="flex items-center gap-8">
-                    <CheckCircledIcon />
-                    <Text>Lorem ipsum dolor sit.</Text>
-                  </li>
-                  <li className="flex items-center gap-8">
-                    <CheckCircledIcon />
-                    <Text>Lorem ipsum dolor sit.</Text>
-                  </li>
-                  <li className="flex items-center gap-8">
-                    <CheckCircledIcon />
-                    <Text>Lorem ipsum dolor sit.</Text>
-                  </li>
-                  <li className="flex items-center gap-8">
-                    <CheckCircledIcon />
-                    <Text>Lorem ipsum dolor sit.</Text>
-                  </li>
-                </ul>
-              </CardSection>
-              <CardSection p="lg" mt="auto">
-                <Button fullWidth leftSection={<ArrowRightIcon />}>
-                  Get Started
-                </Button>
-              </CardSection>
-            </Card>
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
-            <Card shadow="sm" radius="md" withBorder>
-              <CardSection>
-                <Box p="lg">
-                  <Title order={3} mb={4}>
-                    Pro
-                  </Title>
-                  <Text color="dimmed" fz="sm">
-                    For professionals
-                  </Text>
-                  <Text fz={32} fw={700} mt={8}>
-                    {isYearly ? "$35" : "$49"}
-                  </Text>
-                  <Text color="dimmed">Billed {isYearly ? "$420" : "$588"} annually</Text>
-                </Box>
-              </CardSection>
-              <CardSection p="lg">
-                <Divider mb={24} />
-                <Text mb={12} fz="lg" fw={600}>
-                  Everything in Plus, and:
-                </Text>
-                <ul className="space-y-16">
-                  <li className="flex items-center gap-8">
-                    <CheckCircledIcon />
-                    <Text>Lorem ipsum dolor sit.</Text>
-                  </li>
-                  <li className="flex items-center gap-8">
-                    <CheckCircledIcon />
-                    <Text>Lorem ipsum dolor sit.</Text>
-                  </li>
-                  <li className="flex items-center gap-8">
-                    <CheckCircledIcon />
-                    <Text>Lorem ipsum dolor sit.</Text>
-                  </li>
-                  <li className="flex items-center gap-8">
-                    <CheckCircledIcon />
-                    <Text>Lorem ipsum dolor sit.</Text>
-                  </li>
-                </ul>
-              </CardSection>
-              <CardSection p="lg" mt="auto">
-                <Button fullWidth leftSection={<ArrowRightIcon />}>
-                  Get Started
-                </Button>
-              </CardSection>
-            </Card>
-          </Grid.Col>
-        </Grid>
-      </Box>
+    <Box className={classes.pricingWrapper}>
+      <Container size="xl">
+        <Stack align="center" gap="xl">
+          <Stack align="center" gap="xs">
+            <Title order={1} fz={"2.6rem"} className={classes.mainTitle}>
+              Pricing Plans
+            </Title>
+            <Text className={classes.mainSubtitle} c="dimmed">
+              Choose the perfect plan for your needs
+            </Text>
+          </Stack>
+
+          <Group align="center" gap="md">
+            <Text>Monthly</Text>
+            <Switch
+              size="lg"
+              color="var(--mantine-primary-color-filled)"
+              checked={isYearly}
+              onChange={() => setIsYearly(!isYearly)}
+              className={classes.billingSwitch}
+            />
+            <Text>Yearly</Text>
+          </Group>
+
+          <Grid gutter="xl" w="90%">
+            {plans.map((plan) => (
+              <Grid.Col key={plan.name} span={{ base: 12, lg: 6 }}>
+                <Card
+                  withBorder
+                  radius="lg"
+                  className={`${classes.pricingCard} ${plan.recommended ? classes.recommendedCard : ""}`}
+                  style={{ overflow: "visible" }}
+                >
+                  <Stack gap="xl" h={"100%"}>
+                    <Group justify="space-between" align="start">
+                      <Stack gap="xs">
+                        <Title order={1} fw={600} className={classes.planTitle}>
+                          {plan.name}
+
+                          {plan.recommended && <Box className={classes.recommendedBadge}>Most Popular</Box>}
+                        </Title>
+                        <Text c="dimmed" size="md">
+                          {plan.subtitle}
+                        </Text>
+                      </Stack>
+                      <Stack align="end" gap={4}>
+                        <Text fz={"h1"} fw={600} className={classes.price} lh={"lg"}>
+                          ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                        </Text>
+                        <Text c="dimmed" size="sm">
+                          Billed {isYearly ? "yearly" : "monthly"}
+                        </Text>
+                      </Stack>
+                    </Group>
+
+                    <Divider />
+
+                    <Stack gap="md" mb={"xs"}>
+                      {plan.features.map((feature) => (
+                        <Group key={feature} gap="md" align="center">
+                          <CheckCircledIcon color="var(--mantine-primary-color-6)" />
+                          <Text>{feature}</Text>
+                        </Group>
+                      ))}
+                    </Stack>
+
+                    <Button
+                      className="mt-auto"
+                      size="lg"
+                      variant="filled"
+                      color={plan.badgeColor}
+                      rightSection={<ArrowRightIcon />}
+                      fullWidth
+                    >
+                      Get Started
+                    </Button>
+                  </Stack>
+                </Card>
+              </Grid.Col>
+            ))}
+          </Grid>
+        </Stack>
+      </Container>
     </Box>
   );
 };
