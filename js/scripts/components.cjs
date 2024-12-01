@@ -80,9 +80,11 @@ function getAllComponents() {
     })
     .filter((c) => c);
 
-  if (components) {
+  const sortedComponents = [...components].sort((a, b) => a.attributes.order - b.attributes.order);
+
+  if (sortedComponents) {
     const outputDir = path.join(__dirname, `../../src/feature/blocks/data/components.ts`);
-    const content = `export const components = ${JSON.stringify(components, null, 2)};`;
+    const content = `export const components = ${JSON.stringify(sortedComponents, null, 2)};`;
     fs.writeFileSync(outputDir, content, "utf-8");
     console.log("Components generate successfully");
   }
