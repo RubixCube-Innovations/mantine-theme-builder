@@ -1,0 +1,9 @@
+{
+  "title": "meet-our-team-1",
+  "category": "team",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  },
+  "order": 4
+}

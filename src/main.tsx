@@ -14,9 +14,9 @@ import "@mantine/spotlight/styles.css";
 import "@mantinex/shiki/styles.css";
 import "@mantine/code-highlight/styles.css";
 
-import "./styles/index.scss";
 import "./styles/shadcn-styles.css";
 import "./styles/fonts.css";
+import "./styles/index.scss";
 
 // Create a new router instance
 const router = createRouter({ routeTree });

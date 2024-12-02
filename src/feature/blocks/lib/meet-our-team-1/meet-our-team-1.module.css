@@ -1,0 +1,53 @@
+.teamMemberCard {
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, var(--mantine-body-color), var(--mantine-color-gray-2));
+  border: 1px solid var(--mantine-color-default-border);
+}
+
+.teamMemberCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.memberAvatar {
+  border: 4px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.memberName {
+  color: var(--mantine-primary-color-5);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.memberRole {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.memberBio {
+  font-style: italic;
+  text-align: center;
+}
+
+.socialIcons svg {
+  color: light-dark(var(--mantine-primary-color-7), var(--mantine-primary-color-5));
+  opacity: 0.7;
+}
+
+.socialIcons a {
+  transition: color 0.3s ease;
+}
+
+.socialIcons a:hover svg {
+  opacity: 1;
+}
+
+.sectionTitle {
+  background: linear-gradient(45deg, var(--mantine-primary-color-filled), #2c3e50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  text-align: center;
+}

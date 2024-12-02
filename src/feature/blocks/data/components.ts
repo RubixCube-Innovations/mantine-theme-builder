@@ -75,6 +75,31 @@ export const components = [
     }
   },
   {
+    "component": "MeetOurTeam1",
+    "slug": "meet-our-team1",
+    "code": [
+      {
+        "fileName": "meet-our-team-1.tsx",
+        "language": "tsx",
+        "code": "import { Card, Avatar, Text, Group, Stack, Container, Title, SimpleGrid } from \"@mantine/core\";\r\nimport { LinkedInLogoIcon, TwitterLogoIcon, GitHubLogoIcon } from \"@radix-ui/react-icons\";\r\nimport classes from \"./meet-our-team-1.module.css\";\r\n\r\nconst teamMembers = [\r\n  {\r\n    name: \"Elena Rodriguez\",\r\n    role: \"Chief Executive Officer\",\r\n    bio: \"Visionary leader with 15 years of tech innovation experience.\",\r\n    image: \"https://www.shadcnblocks.com/images/block/avatar-1.webp\",\r\n    socials: {\r\n      linkedin: \"#\",\r\n      twitter: \"#\",\r\n      github: \"#\",\r\n    },\r\n  },\r\n  {\r\n    name: \"Marcus Chen\",\r\n    role: \"Chief Technology Officer\",\r\n    bio: \"Engineering maestro driving cutting-edge technological solutions.\",\r\n    image: \"https://www.shadcnblocks.com/images/block/avatar-2.webp\",\r\n    socials: {\r\n      linkedin: \"#\",\r\n      twitter: \"#\",\r\n      github: \"#\",\r\n    },\r\n  },\r\n  {\r\n    name: \"Aria Patel\",\r\n    role: \"Design Director\",\r\n    bio: \"Creative genius transforming complex ideas into elegant designs.\",\r\n    image: \"https://www.shadcnblocks.com/images/block/avatar-3.webp\",\r\n    socials: {\r\n      linkedin: \"#\",\r\n      twitter: \"#\",\r\n      github: \"#\",\r\n    },\r\n  },\r\n  {\r\n    name: \"Jackson Wright\",\r\n    role: \"Product Strategy Lead\",\r\n    bio: \"Strategic mastermind connecting user needs with business goals.\",\r\n    image: \"https://www.shadcnblocks.com/images/block/avatar-4.webp\",\r\n    socials: {\r\n      linkedin: \"#\",\r\n      twitter: \"#\",\r\n      github: \"#\",\r\n    },\r\n  },\r\n];\r\n\r\ninterface IMember {\r\n  name: string;\r\n  role: string;\r\n  bio: string;\r\n  image: string;\r\n  socials: {\r\n    linkedin: string;\r\n    twitter: string;\r\n    github: string;\r\n  };\r\n}\r\n\r\nconst TeamMemberCard = ({ member }: { member: IMember }) => {\r\n  return (\r\n    <Card shadow=\"lg\" radius=\"md\" className={classes.teamMemberCard} padding=\"xl\">\r\n      <Stack align=\"center\" gap=\"md\">\r\n        <Avatar src={member.image} size={120} radius=\"50%\" className={classes.memberAvatar} />\r\n\r\n        <Stack align=\"center\" gap=\"xs\">\r\n          <Title order={3} className={classes.memberName}>\r\n            {member.name}\r\n          </Title>\r\n          <Text c=\"dimmed\" ta={\"center\"} className={classes.memberRole}>\r\n            {member.role}\r\n          </Text>\r\n        </Stack>\r\n\r\n        <Text\r\n          ta=\"center\"\r\n          c={\"light-dark(var(--mantine-color-dark-6), var(--mantine-color-dark-4)\"}\r\n          className={classes.memberBio}\r\n        >\r\n          {member.bio}\r\n        </Text>\r\n\r\n        <Group gap=\"md\" className={classes.socialIcons}>\r\n          <a href={member.socials.linkedin} target=\"_blank\" rel=\"noopener noreferrer\">\r\n            <LinkedInLogoIcon width={24} height={24} />\r\n          </a>\r\n          <a href={member.socials.twitter} target=\"_blank\" rel=\"noopener noreferrer\">\r\n            <TwitterLogoIcon width={24} height={24} />\r\n          </a>\r\n          <a href={member.socials.github} target=\"_blank\" rel=\"noopener noreferrer\">\r\n            <GitHubLogoIcon width={24} height={24} />\r\n          </a>\r\n        </Group>\r\n      </Stack>\r\n    </Card>\r\n  );\r\n};\r\n\r\nexport const MeetOurTeam1 = () => {\r\n  return (\r\n    <Container size=\"xl\" py=\"xl\">\r\n      <Stack align=\"center\" mb=\"xl\">\r\n        <Title order={1} className={classes.sectionTitle}>\r\n          Meet Our Extraordinary Team\r\n        </Title>\r\n        <Text c=\"dimmed\" ta=\"center\" maw={600}>\r\n          Behind every breakthrough is a passionate team of innovators, dedicated to pushing the boundaries of what's\r\n          possible.\r\n        </Text>\r\n      </Stack>\r\n\r\n      <SimpleGrid cols={{ base: 1, md: 2, lg: 4 }} spacing=\"xl\">\r\n        {teamMembers.map((member, index) => (\r\n          <TeamMemberCard key={index} member={member} />\r\n        ))}\r\n      </SimpleGrid>\r\n    </Container>\r\n  );\r\n};\r\n"
+      },
+      {
+        "fileName": "meet-our-team-1.module.css",
+        "language": "scss",
+        "code": ".teamMemberCard {\r\n  transition: all 0.3s ease;\r\n  background: linear-gradient(145deg, var(--mantine-body-color), var(--mantine-color-gray-2));\r\n  border: 1px solid var(--mantine-color-default-border);\r\n}\r\n\r\n.teamMemberCard:hover {\r\n  transform: translateY(-10px);\r\n  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.memberAvatar {\r\n  border: 4px solid #fff;\r\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.memberName {\r\n  color: var(--mantine-primary-color-5);\r\n  font-weight: 700;\r\n  letter-spacing: -0.5px;\r\n}\r\n\r\n.memberRole {\r\n  text-transform: uppercase;\r\n  font-size: 0.8rem;\r\n  letter-spacing: 1px;\r\n}\r\n\r\n.memberBio {\r\n  font-style: italic;\r\n  text-align: center;\r\n}\r\n\r\n.socialIcons svg {\r\n  color: light-dark(var(--mantine-primary-color-7), var(--mantine-primary-color-5));\r\n  opacity: 0.7;\r\n}\r\n\r\n.socialIcons a {\r\n  transition: color 0.3s ease;\r\n}\r\n\r\n.socialIcons a:hover svg {\r\n  opacity: 1;\r\n}\r\n\r\n.sectionTitle {\r\n  background: linear-gradient(45deg, var(--mantine-primary-color-filled), #2c3e50);\r\n  -webkit-background-clip: text;\r\n  -webkit-text-fill-color: transparent;\r\n  font-weight: 900;\r\n  text-align: center;\r\n}\r\n"
+      }
+    ],
+    "attributes": {
+      "title": "meet-our-team-1",
+      "category": "team",
+      "canvas": {
+        "center": true,
+        "maxWidth": 1200
+      },
+      "order": 4
+    }
+  },
+  {
     "component": "ComingSoon",
     "slug": "coming-soon",
     "code": [
@@ -96,7 +121,7 @@ export const components = [
         "center": true,
         "maxWidth": 1200
       },
-      "order": 4
+      "order": 5
     }
   }
 ];
