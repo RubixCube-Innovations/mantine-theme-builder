@@ -22,7 +22,7 @@ export const switchDemo: MantineDemo = {
   code,
   centered: true,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
     {
       prop: 'labelPosition',
       type: 'segmented',

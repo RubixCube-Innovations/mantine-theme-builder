@@ -20,7 +20,7 @@ export const ratingDemo: MantineDemo = {
   code,
   centered: true,
   controls: [
-    { prop: 'color', type: 'color', initialValue: 'yellow', libraryValue: localStorageTheme.color },
+    { prop: 'color', type: 'color', initialValue: 'yellow', libraryValue: localStorageTheme?.color },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
     { prop: 'count', type: 'number', initialValue: 5, libraryValue: 5, min: 1, max: 8 },
     { prop: 'highlightSelectedOnly', type: 'boolean', initialValue: false, libraryValue: false },

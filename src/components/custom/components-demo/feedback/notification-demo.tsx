@@ -32,7 +32,7 @@ export const notificationDemo: MantineDemo = {
     { prop: 'loading', type: 'boolean', initialValue: false, libraryValue: false },
     { prop: 'withCloseButton', type: 'boolean', initialValue: true, libraryValue: true },
     { prop: 'withBorder', type: 'boolean', initialValue: false, libraryValue: false },
-    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
     { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: 'sm' },
     {
       prop: 'title',
