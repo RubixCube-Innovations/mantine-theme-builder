@@ -1,20 +1,22 @@
 import {
+  ActionIcon,
   Anchor,
   Button,
   Card,
   Checkbox,
+  Chip,
   Code,
   Container,
   createTheme,
   defaultVariantColorsResolver,
   Divider,
-  getContrastColor,
   HoverCard,
-  Input,
   Modal,
   Paper,
   Popover,
+  Radio,
   rem,
+  SegmentedControl,
   Select,
   Switch,
   Table,
@@ -24,7 +26,7 @@ import {
 import { Spotlight } from "@mantine/spotlight";
 // prettier-ignore
 import { amberColors, blueColors, cyanColors, emeraldColors, fuchsiaColors, grayColors, greenColors, indigoColors, limeColors, neutralColors, orangeColors, pinkColors, purpleColors, redColors, roseColors, skyColors, slateColors, stoneColors, tealColors, violetColors, yellowColors, zincColors } from "../../utils/colors";
-import { getShadcnCardClassname, getShadcnInputBg } from "../../utils/theme-functions";
+import { getShadcnCardClassname } from "../../utils/theme-functions";
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -157,57 +159,57 @@ export const shadcnTheme = createTheme({
   other: {
     style: "shadcn",
   },
-  variantColorResolver: (component) => {
-    const defaultResolvedColors = defaultVariantColorsResolver(component);
+  // variantColorResolver: (component) => {
+  //   const defaultResolvedColors = defaultVariantColorsResolver(component);
 
-    if (component.variant === "default") {
-      return {
-        ...defaultResolvedColors,
-        background: "var(--mantine-color-default)",
-        border: "1px solid var(--mantine-color-default-border)",
-        hover: "var(--mantine-color-default-hover)",
-      };
-    }
+  //   if (component.variant === "default") {
+  //     return {
+  //       ...defaultResolvedColors,
+  //       background: "var(--mantine-color-default)",
+  //       border: "1px solid var(--mantine-color-default-border)",
+  //       hover: "var(--mantine-color-default-hover)",
+  //     };
+  //   }
 
-    if (component.variant === "filled") {
-      return {
-        ...defaultResolvedColors,
-        background: "var(--mantine-primary-color-filled)",
-        hover: "var(--mantine-primary-color-filled-hover)",
-        color: "var(--mantine-primary-color-contrast)",
-      };
-    }
+  //   if (component.variant === "filled") {
+  //     return {
+  //       ...defaultResolvedColors,
+  //       background: "var(--mantine-primary-color-filled)",
+  //       hover: "var(--mantine-primary-color-filled-hover)",
+  //       color: "var(--mantine-primary-color-contrast)",
+  //     };
+  //   }
 
-    if (component.variant === "light") {
-      return {
-        ...defaultResolvedColors,
-        background: "var(--mantine-primary-color-light)",
-        hover: "var(--mantine-primary-color-light-hover)",
-        color: "var(--mantine-primary-color-light-color)",
-      };
-    }
+  //   if (component.variant === "light") {
+  //     return {
+  //       ...defaultResolvedColors,
+  //       background: "var(--mantine-primary-color-light)",
+  //       hover: "var(--mantine-primary-color-light-hover)",
+  //       color: "var(--mantine-primary-color-light-color)",
+  //     };
+  //   }
 
-    if (component.variant === "outline") {
-      return {
-        ...defaultResolvedColors,
-        background: "var(--mantine-color-default)",
-        border: "1px solid var(--mantine-color-default-border)",
-        hover: "var(--mantine-color-default-hover)",
-        color: "var(--mantine-color-default-color)",
-      };
-    }
+  //   if (component.variant === "outline") {
+  //     return {
+  //       ...defaultResolvedColors,
+  //       background: "var(--mantine-color-default)",
+  //       border: "1px solid var(--mantine-color-default-border)",
+  //       hover: "var(--mantine-color-default-hover)",
+  //       color: "var(--mantine-color-default-color)",
+  //     };
+  //   }
 
-    if (component.variant === "subtle") {
-      return {
-        ...defaultResolvedColors,
-        background: "transparent",
-        hover: "var(--mantine-color-default-hover)",
-        color: "var(--mantine-color-default-color)",
-      };
-    }
+  //   if (component.variant === "subtle") {
+  //     return {
+  //       ...defaultResolvedColors,
+  //       background: "transparent",
+  //       hover: "var(--mantine-color-default-hover)",
+  //       color: "var(--mantine-color-default-color)",
+  //     };
+  //   }
 
-    return defaultResolvedColors;
-  },
+  //   return defaultResolvedColors;
+  // },
   components: {
     Container: Container.extend({
       vars: (_, { size, fluid }) => ({
@@ -223,11 +225,116 @@ export const shadcnTheme = createTheme({
     Checkbox: Checkbox.extend({
       vars: (theme, props) => ({
         root: {
-          "--checkbox-color": props.color ? `var(--mantine-color-${props.color}-filled)` : "var(--mantine-primary-color-filled)",
-          "--checkbox-icon-color": props.color ? `var(--mantine-color-${props.color}-contrast)`: "var(--mantine-primary-color-contrast)",
+          "--checkbox-color": props.color
+            ? Object.keys(theme.colors).includes(props.color)
+              ? `var(--mantine-color-${props.color}-filled)`
+              : props.color
+            : "var(--mantine-primary-color-filled)",
+
+          "--checkbox-icon-color": props.color
+            ? `var(--mantine-color-${props.color}-contrast)`
+            : "var(--mantine-primary-color-contrast)",
         },
       }),
     }),
+    Chip: Chip.extend({
+      vars: (theme, props) => ({
+        root: {
+          "--chip-bg": props.color
+            ? Object.keys(theme.colors).includes(props.color)
+              ? props.variant === "light"
+                ? `var(--mantine-color-${props.color}-light)`
+                : `var(--mantine-color-${props.color}-filled)`
+              : props.color
+            : "var(--mantine-primary-color-filled",
+
+          "--chip-hover": props.color
+            ? Object.keys(theme.colors).includes(props.color)
+              ? props.variant === "light"
+                ? `var(--mantine-color-${props.color}-light-hover)`
+                : props.variant === "outline"
+                  ? `var(--mantine-color-${props.color}-outline-hover)`
+                  : `var(--mantine-color-${props.color}-filled-hover)`
+              : props.color
+            : "var(--mantine-primary-color-filled-hover)",
+          "--chip-color": props.color
+            ? Object.keys(theme.colors).includes(props.color)
+              ? props.variant === "light" || props.variant === "outline"
+                ? `var(--mantine-color-${props.color}-light-color)`
+                : `var(--mantine-color-${props.color}-contrast)`
+              : props.color
+            : "var(--mantine-primary-color-contrast)",
+        },
+      }),
+    }),
+    //  Styles of Input, Fieldset component addded in styles.css
+    Radio: Radio.extend({
+      vars: (theme, props) => ({
+        root: {
+          "--radio-color": props.color
+            ? Object.keys(theme.colors).includes(props.color)
+              ? `var(--mantine-color-${props.color}-filled)`
+              : props.color
+            : "var(--mantine-primary-color-filled)",
+
+          "--radio-icon-color": props.color
+            ? Object.keys(theme.colors).includes(props.color)
+              ? `var(--mantine-color-${props.color}-contrast)`
+              : props.color
+            : "var(--mantine-primary-color-contrast)",
+        },
+      }),
+    }),
+    SegmentedControl: SegmentedControl.extend({
+      vars: (theme, props) => ({
+        root: {
+          "--sc-color": props.color
+            ? Object.keys(theme.colors).includes(props.color)
+              ? ["zinc", "slate", "gray", "neutral", "stone"].includes(props.color)
+                ? "var(--mantine-color-bright)"
+                : `var(--mantine-color-${props.color}-filled)`
+              : props.color
+            : "var(--mantine-color-default)",
+        },
+      }),
+    }),
+    ActionIcon: ActionIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--ai-color":
+              props.variant === undefined && props.color === undefined
+                ? "var(--mantine-primary-color-contrast)"
+                : colorKey && props.variant === "filled"
+                  ? `var(--mantine-color-${colorKey}-contrast)`
+                  : props.variant === "white" && isNeutralColor
+                    ? "var(--mantine-color-bright)"
+                    : undefined,
+          },
+        };
+      },
+    }),
+    Button: Button.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--button-color":
+              props.variant === undefined && props.color === undefined
+                ? "var(--mantine-primary-color-contrast)"
+                : colorKey && props.variant === "filled"
+                  ? `var(--mantine-color-${colorKey}-contrast)`
+                  : props.variant === "white" && isNeutralColor
+                    ? "var(--mantine-color-bright)"
+                    : undefined,
+          },
+        };
+      },
+    }),
+
     Card: Card.extend({
       defaultProps: {
         p: "xl",
@@ -255,26 +362,7 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    Input: Input.extend({
-      classNames: (_theme, props) => {
-        if (props.variant !== "unstyled")
-          return {
-            input: "globalMantineInput",
-          };
 
-        return {};
-      },
-      vars: (theme) => {
-        return {
-          input: {
-            "--input-bd": "var(--mantine-color-default-border)",
-            "--input-bd-focus": "var(--mantine-primary-color-filled)",
-            "--input-bg": getShadcnInputBg(theme.primaryColor),
-          },
-          wrapper: {},
-        };
-      },
-    }),
     Divider: Divider.extend({
       styles: () => ({
         root: {
@@ -357,16 +445,6 @@ export const shadcnTheme = createTheme({
           border: "1px solid var(--mantine-color-default-border)",
         },
       }),
-    }),
-    Button: Button.extend({
-      classNames: (_theme, props) => {
-        if (props.variant !== "unstyled")
-          return {
-            root: "globalMantineButton",
-          };
-
-        return {};
-      },
     }),
     Anchor: Anchor.extend({
       defaultProps: {

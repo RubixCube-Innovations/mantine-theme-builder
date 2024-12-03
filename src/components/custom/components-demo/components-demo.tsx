@@ -20,7 +20,7 @@ const ComponentsDemo = () => {
                 <Divider />
                 {item.links.map((link) => {
                   return (
-                    <Stack gap={"lg"} id={link.value} pt="xl">
+                    <Stack gap={"lg"} id={link.value} pt="xl" key={link.value}>
                       <Title order={3} key={link.label}>
                         {link.label}
                       </Title>
