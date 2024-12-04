@@ -8,7 +8,7 @@ import {
   Code,
   Container,
   createTheme,
-  // defaultVariantColorsResolver,
+  defaultVariantColorsResolver,
   Divider,
   HoverCard,
   Modal,
