@@ -1,4 +1,3 @@
-import { alpha } from "@mantine/core";
 import { ColorPalette, SHADCN_DEFAULT_COLORS } from "./colors";
 
 type ColorEntry = {
@@ -14,7 +13,17 @@ type ColorEntry = {
   secondaryPalette?: ColorPalette;
 };
 
-
+/**
+ * Retrieves the text color for a given color identifier based on predefined palettes.
+ *
+ * @param color - The color identifier to retrieve the text color for.
+ *                Accepted values are "zinc", "slate", "stone", "gray", "neutral",
+ *                "red", "rose", "orange", "blue", "violet", "green", and "yellow".
+ * @returns The corresponding text color from the predefined palettes.
+ *          If the color is "yellow", a specific hex color code is returned.
+ *          If the color is "green", the primary palette color for "rose" is returned.
+ *          Otherwise, the primary or secondary palette color for the given color is returned.
+ */
 export const getPrimaryContrastColorDay = (color: string) => {
   const colorObj = SHADCN_DEFAULT_COLORS.find((c) => c.id === color);
     if (
@@ -38,7 +47,17 @@ export const getPrimaryContrastColorDay = (color: string) => {
     }
   };
   
-
+  /**
+   * Retrieves the text color for a given color identifier based on predefined palettes.
+   *
+   * @param color - The color identifier to retrieve the text color for.
+   *                Accepted values are "zinc", "slate", "stone", "gray", "neutral",
+   *                "red", "rose", "orange", "blue", "violet", "green", and "yellow".
+   * @returns The corresponding text color from the predefined palettes.
+   *          If the color is "yellow", a specific hex color code is returned.
+   *          If the color is "green", the primary palette color for "rose" is returned.
+   *          Otherwise, the primary or secondary palette color for the given color is returned.
+   */
   export const getPrimaryContrastColorNight = (color: string) => {
     const colorObj = SHADCN_DEFAULT_COLORS.find((c) => c.id === color);
     if (
@@ -64,7 +83,7 @@ export const getPrimaryContrastColorDay = (color: string) => {
   };
   
   
-  export const getSecondaryLightColorDay = (color: string) => {
+  export const getPrimaryLightColorDay = (color: string) => {
     if (color === "rose" || color === "green" ) {
       return "var(--mantine-color-zinc-1)";
     } else {
@@ -72,7 +91,7 @@ export const getPrimaryContrastColorDay = (color: string) => {
     }
   }
   
-  export const getSecondaryLightColorNight = (color: string) => {
+  export const getPrimaryLightColorNight = (color: string) => {
     if (color === "rose" || color === "green") {
       return "var(--mantine-color-secondary-7)";
     } else {
@@ -112,56 +131,15 @@ export const getPrimaryContrastColorDay = (color: string) => {
     }
   }
 
-
-
   export function generateCSSFilledColorVariables(colors: ColorEntry[], mode: string) {
     const lightMode: Record<string, string> = {};
     const darkMode: Record<string, string> = {};
   
     colors.forEach(({ id, primaryShade }) => {
       lightMode[`--mantine-color-${id}-filled`] = `var(--mantine-color-${id}-${primaryShade.light})`;
-      lightMode[`--mantine-color-${id}-filled-hover`] = alpha(`var(--mantine-color-${id}-${primaryShade.light})`, 0.9);
       darkMode[`--mantine-color-${id}-filled`] = `var(--mantine-color-${id}-${primaryShade.dark})`;
-      darkMode[`--mantine-color-${id}-filled-hover`] = alpha(`var(--mantine-color-${id}-${primaryShade.dark})`, 0.9);
     });
    
-    if(mode === "light") {
-      return lightMode;
-    }
-    return darkMode;
-  }
-
-  export function generateCSSLightColorVariables(colors: ColorEntry[], mode: string) {
-    const lightMode: Record<string, string> = {};
-    const darkMode: Record<string, string> = {};
-  
-    colors.forEach(({ id }) => {
-      lightMode[`--mantine-color-${id}-light`] = alpha(`var(--mantine-color-${id}-4)`, 0.1);
-      lightMode[`--mantine-color-${id}-light-hover`] = alpha(`var(--mantine-color-${id}-light)`, 0.8);
-      lightMode[`--mantine-color-${id}-light-color`] = `var(--mantine-color-${id}-6)`;
-      darkMode[`--mantine-color-${id}-light`] = alpha(`var(--mantine-color-${id}-4)`, 0.15);
-      darkMode[`--mantine-color-${id}-light-hover`] = alpha(`var(--mantine-color-${id}-light)`, 0.8);
-      darkMode[`--mantine-color-${id}-light-color`] = `var(--mantine-color-${id}-3)`;
-    });
-  
-    if(mode === "light") {
-      return lightMode;
-    }
-    return darkMode;
-  }
-
-  export function generateCSSOutlineColorVariables(colors: ColorEntry[], mode: string) {
-    const lightMode: Record<string, string> = {};
-    const darkMode: Record<string, string> = {};
-  
-    colors.forEach(({ id, primaryShade }) => {
-      lightMode[`--mantine-color-${id}-outline`] = `var(--mantine-color-${id}-${primaryShade.light})`;
-      lightMode[`--mantine-color-${id}-outline-hover`] = alpha(`var(--mantine-color-${id}-4)`, 0.1);
-      darkMode[`--mantine-color-${id}-outline`] = `var(--mantine-color-${id}-${primaryShade.dark})`;
-      darkMode[`--mantine-color-${id}-outline-hover`] = alpha(`var(--mantine-color-${id}-4)`, 0.15);
-
-    });
-  
     if(mode === "light") {
       return lightMode;
     }

@@ -1,6 +1,6 @@
 import { alpha, CSSVariablesResolver } from "@mantine/core";
 import { SHADCN_DEFAULT_COLORS } from "../../utils/colors";
-import { generateCSSContrastColorVariables, generateCSSFilledColorVariables, generateCSSLightColorVariables, generateCSSOutlineColorVariables, getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getSecondaryLightColorDay, getSecondaryLightColorNight } from "../../utils/theme-functions";
+import { generateCSSContrastColorVariables, generateCSSFilledColorVariables, getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getPrimaryLightColorDay, getPrimaryLightColorNight } from "../../utils/theme-functions";
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   variables: {
@@ -14,15 +14,15 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   light: {
     // all variables that depend on lighth color scheme
     "--mantine-primary-color-contrast": getPrimaryContrastColorDay(theme.primaryColor), // used as primary color contrast
-    "--mantine-color-bright": "var(--mantine-color-white)", // used as theme's bright color
+    "--mantine-color-bright": "var(--mantine-color-secondary-0)", // used as theme's bright color
     "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
     "--mantine-color-body": "var(--mantine-color-white)", // used as body color
     "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
     "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
     "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": getSecondaryLightColorDay(theme.primaryColor), // used as default hover color
+    "--mantine-color-default": "var(--mantine-color-bright)", // used as default surface color
+    "--mantine-color-default-hover": getPrimaryLightColorDay(theme.primaryColor), // used as default hover color
     "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
     "--mantine-color-default-border": getDefaultBorderColorDay(theme.primaryColor), // used as default border color
     "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
@@ -30,7 +30,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-secondary-filled": "var(--mantine-color-bright)", // used as secondary surface color
     "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
 
-    "--mantine-color-secondary-light": getSecondaryLightColorDay(theme.primaryColor), // used as primary light color
+    "--mantine-color-secondary-light": getPrimaryLightColorDay(theme.primaryColor), // used as primary light color
     "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
 
     "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
@@ -41,12 +41,6 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
 
     // all filled colors
     ...generateCSSFilledColorVariables(SHADCN_DEFAULT_COLORS, "light"),
-
-    // all light colors
-    ...generateCSSLightColorVariables(SHADCN_DEFAULT_COLORS, "light"),
-
-    // all outline colors
-    ...generateCSSOutlineColorVariables(SHADCN_DEFAULT_COLORS, "light"),
 
     // all contrast colors
     ...generateCSSContrastColorVariables(SHADCN_DEFAULT_COLORS, "light"),
@@ -62,7 +56,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
 
     "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": getSecondaryLightColorNight(theme.primaryColor), // used as default hover color
+    "--mantine-color-default-hover": getPrimaryLightColorNight(theme.primaryColor), // used as default hover color
     "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
     "--mantine-color-default-border": getDefaultBorderColorNight(theme.primaryColor), // used as default border color
     "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
@@ -70,7 +64,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
     "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": getSecondaryLightColorNight(theme.primaryColor), // used as primary light color
+    "--mantine-color-secondary-light": getPrimaryLightColorNight(theme.primaryColor), // used as primary light color
     "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
 
     "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
@@ -81,12 +75,6 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
 
     // all filled colors
     ...generateCSSFilledColorVariables(SHADCN_DEFAULT_COLORS, "dark"),
-
-    // all light colors
-    ...generateCSSLightColorVariables(SHADCN_DEFAULT_COLORS, "dark"),
-
-    // all outline colors
-    ...generateCSSOutlineColorVariables(SHADCN_DEFAULT_COLORS, "dark"),
 
     // all contrast colors
     ...generateCSSContrastColorVariables(SHADCN_DEFAULT_COLORS, "dark"),
