@@ -31,7 +31,7 @@ export const stepperDemo: MantineDemo = {
   centered: true,
   maxWidth: '100%',
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     { prop: 'radius', type: 'size', initialValue: 'xl', libraryValue: 'xl' },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
   ],

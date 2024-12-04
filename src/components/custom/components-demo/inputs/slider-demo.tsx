@@ -42,7 +42,7 @@ export const sliderDemo: MantineDemo = {
   centered: true,
   maxWidth: 400,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: '__none__' },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: '__none__' },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
     { prop: 'radius', type: 'size', initialValue: 'xl', libraryValue: 'xl' },
     { prop: 'showLabelOnHover', type: 'boolean', initialValue: true, libraryValue: true },

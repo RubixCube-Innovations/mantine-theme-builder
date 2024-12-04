@@ -79,7 +79,7 @@ export const navLinkDemo: MantineDemo = {
   component: Demo,
   code,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     {
       prop: 'variant',
       type: 'segmented',

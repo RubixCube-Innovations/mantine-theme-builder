@@ -20,7 +20,7 @@ export const avatarDemo: MantineDemo = {
     staticVariantsControl,
     { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: '100%' },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     {
       prop: 'src',
       type: 'string',

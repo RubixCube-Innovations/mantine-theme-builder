@@ -81,7 +81,7 @@ export const tabsDemo: MantineDemo = {
   centered: true,
   maxWidth: '100%',
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     {
       prop: 'variant',
       type: 'segmented',

@@ -36,7 +36,7 @@ export const indicatorDemo: MantineDemo = {
   code,
   centered: true,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
     {
       prop: 'position',
       type: 'select',

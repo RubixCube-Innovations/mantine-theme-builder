@@ -47,6 +47,6 @@ export const themeIconDemo: MantineDemo = {
     },
     { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: 'sm' },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
   ],
 };
