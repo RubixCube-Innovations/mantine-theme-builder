@@ -219,7 +219,7 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
+      vars: (_, props) => ({
         root: {
           "--checkbox-color": props.color ? `var(--mantine-color-${props.color}-filled)` : "var(--mantine-primary-color-filled)",
           "--checkbox-icon-color": props.color ? `var(--mantine-color-${props.color}-contrast)`: "var(--mantine-primary-color-contrast)",
