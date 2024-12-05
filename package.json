@@ -38,7 +38,7 @@
     "sass": "^1.80.6",
     "sass-loader": "^16.0.3",
     "shiki": "^1.23.0",
-    "shikiji": "^0.10.2",
+    "shikiji": "^0.7.6",
     "vite-plugin-node": "^4.0.0"
   },
   "devDependencies": {
