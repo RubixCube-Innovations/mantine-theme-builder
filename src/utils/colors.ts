@@ -352,16 +352,16 @@ export const SHADCN_DEFAULT_COLORS = [
   { id: "red", name: "Red", color: "#EF4444", primaryPalette: redColors, primaryShade: { light: 5, dark: 5 }, secondary: "neutral", secondaryPalette: neutralColors },
   { id: "rose", name: "Rose", color: "#F43F5E", primaryPalette: roseColors, primaryShade: { light: 5, dark: 5 }, secondary: "stone", secondaryPalette: stoneColors },
   { id: "orange", name: "Orange", color: "#F97316", primaryPalette: orangeColors, primaryShade: { light: 5, dark: 6 }, secondary: "stone", secondaryPalette: stoneColors },
-  { id: "amber", name: "Amber", color: "#F59E0B", primaryPalette: amberColors, primaryShade: { light: 5, dark: 5 }, secondary: "stone", secondaryPalette: stoneColors },
+  // { id: "amber", name: "Amber", color: "#F59E0B", primaryPalette: amberColors, primaryShade: { light: 5, dark: 5 }, secondary: "stone", secondaryPalette: stoneColors },
   { id: "yellow", name: "Yellow", color: "#EAB308", primaryPalette: yellowColors, primaryShade: { light: 4, dark: 4 }, secondary: "stone", secondaryPalette: stoneColors },
   
-  { id: "lime", name: "Lime", color: "#84CC16", primaryPalette: limeColors, primaryShade: { light: 5, dark: 4 }, secondary: "stone", secondaryPalette: stoneColors },
+  // { id: "lime", name: "Lime", color: "#84CC16", primaryPalette: limeColors, primaryShade: { light: 5, dark: 4 }, secondary: "stone", secondaryPalette: stoneColors },
   { id: "green", name: "Green", color: "#22C55E", primaryPalette: greenColors, primaryShade: { light: 6, dark: 5 }, secondary: "stone", secondaryPalette: stoneColors },
-  { id: "emerald", name: "Emerald", color: "#10B981", primaryPalette: emeraldColors, primaryShade: { light: 5, dark: 5 }, secondary: "stone", secondaryPalette: stoneColors },
+  // { id: "emerald", name: "Emerald", color: "#10B981", primaryPalette: emeraldColors, primaryShade: { light: 5, dark: 5 }, secondary: "stone", secondaryPalette: stoneColors },
   
-  { id: "teal", name: "Teal", color: "#14B8A6", primaryPalette: tealColors, primaryShade: { light: 5, dark: 4 }, secondary: "slate", secondaryPalette: slateColors },
-  { id: "cyan", name: "Cyan", color: "#06B6D4", primaryPalette: cyanColors, primaryShade: { light: 5, dark: 4 }, secondary: "slate", secondaryPalette: slateColors },
-  { id: "sky", name: "Sky", color: "#0EA5E9", primaryPalette: skyColors, primaryShade: { light: 5, dark: 4 }, secondary: "slate", secondaryPalette: slateColors },
+  // { id: "teal", name: "Teal", color: "#14B8A6", primaryPalette: tealColors, primaryShade: { light: 5, dark: 4 }, secondary: "slate", secondaryPalette: slateColors },
+  // { id: "cyan", name: "Cyan", color: "#06B6D4", primaryPalette: cyanColors, primaryShade: { light: 5, dark: 4 }, secondary: "slate", secondaryPalette: slateColors },
+  // { id: "sky", name: "Sky", color: "#0EA5E9", primaryPalette: skyColors, primaryShade: { light: 5, dark: 4 }, secondary: "slate", secondaryPalette: slateColors },
   { id: "blue", name: "Blue", color: "#3B82F6", primaryPalette: blueColors, primaryShade: { light: 6, dark: 5 }, secondary: "slate", secondaryPalette: slateColors },
   
   // { id: "indigo", name: "Indigo", color: "#6366F1", primaryPalette: indigoColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },

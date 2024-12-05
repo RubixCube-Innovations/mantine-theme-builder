@@ -1,12 +1,309 @@
-.globalMantineInput {
-  &:focus-within {
-    outline: rem(1px) solid var(--mantine-primary-color-filled);
+/* Checkbox */
+.mantine-Checkbox-root {
+  --checkbox-color: var(--mantine-primary-color-filled);
+  --checkbox-icon-color: var(--mantine-primary-color-contrast);
+
+  .mantine-Checkbox-input {
+    background-color: transparent;
+    border-color: var(--checkbox-color);
+
+    &[data-indeterminate],
+    &:checked {
+      background-color: var(--checkbox-color);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+
+      &+.mantine-Checkbox-icon {
+        opacity: 0.5;
+        color: var(--checkbox-icon-color);
+      }
+    }
+  }
+
+  .mantine-Checkbox-label {
+    &[data-disabled] {
+      color: inherit;
+      opacity: 0.7;
+    }
+  }
+
+  &[data-variant="outline"] {
+    .mantine-Checkbox-input {
+      background-color: transparent;
+
+      &+.mantine-Checkbox-icon {
+        color: var(--checkbox-color);
+      }
+    }
   }
 }
 
-.globalMantineTableRow {
-  &:hover {
-    background-color: rgb(from var(--mantine-color-default-hover) r g b / 0.5);
+/* Checkbox Group */
+.mantine-CheckboxGroup-root {
+  .mantine-CheckboxGroup-error {
+    margin-top: 8px;
+  }
+}
+
+/* Chip */
+.mantine-Chip-root {
+
+  &[data-variant="filled"]:not([data-disabled]),
+  &[data-variant="light"]:not([data-disabled]) {
+    .mantine-Chip-label {
+      background-color: var(--mantine-primary-color-light);
+
+      &:hover {
+        background-color: var(--mantine-primary-color-light-hover);
+      }
+
+      &:where([data-checked]) {
+        --chip-icon-color: var(--chip-color);
+        color: var(--chip-color);
+        background-color: var(--chip-bg);
+
+        &:hover {
+          background-color: var(--chip-hover);
+        }
+      }
+
+      &:where([data-disabled]) {
+        --chip-icon-color: var(--mantine-color-text);
+        background-color: var(--mantine-color-default-hover);
+        color: var(--mantine-color-text);
+        opacity: 0.5;
+
+        &:hover {
+          background-color: var(--mantine-color-default-hover);
+        }
+      }
+    }
+  }
+
+  &[data-variant="outline"]:not([data-disabled]) {
+    .mantine-Chip-label {
+      background-color: transparent;
+      --chip-bd: 1px solid var(--mantine-color-default-border);
+
+      &:hover {
+        background-color: var(--mantine-color-default-hover);
+      }
+
+      &:where([data-checked]) {
+        --chip-icon-color: var(--chip-bg);
+        --chip-bd: 1px solid var(--chip-bg);
+
+
+        &:hover {
+          background-color: var(--chip-hover);
+          color: var(--chip-color);
+          --chip-bd: 1px solid var(--chip-bg);
+          --chip-icon-color: var(--chip-color);
+        }
+      }
+
+      &:where([data-disabled]) {
+        --chip-icon-color: var(--mantine-color-text);
+        border-color: var(--mantine-color-default-border);
+        color: var(--mantine-color-text);
+        opacity: 0.5;
+
+        &:hover {
+          background-color: transparent;
+          color: var(--mantine-color-text);
+          --chip-bd: 1px solid var(--mantine-color-default-border);
+          --chip-icon-color: var(--mantine-color-text);
+        }
+      }
+    }
+  }
+}
+
+/* Input */
+.mantine-Input-wrapper {
+  @mixin light {
+    --input-disabled-bg: alpha(var(--mantine-color-default-hover), 0.5);
+    --input-disabled-color: alpha(var(--mantine-color-text), 0.5);
+
+    &[data-variant='default'] {
+      --input-bd: var(--mantine-color-default-border);
+      --input-bg: transparent;
+      --input-bd-focus: var(--mantine-primary-color-filled);
+    }
+
+    &[data-variant='filled'] {
+      --input-bd: transparent;
+      --input-bg: var(--mantine-color-default-hover);
+      --input-bd-focus: var(--mantine-primary-color-filled);
+    }
+
+    &[data-variant='unstyled'] {
+      --input-bd: transparent;
+      --input-bg: transparent;
+      --input-bd-focus: transparent;
+    }
+  }
+
+  @mixin dark {
+    --input-disabled-bg: alpha(var(--mantine-color-default-hover), 0.5);
+    --input-disabled-color: alpha(var(--mantine-color-text), 0.5);
+
+    &[data-variant='default'] {
+      --input-bd: var(--mantine-color-default-border);
+      --input-bg: transparent;
+      --input-bd-focus: var(--mantine-primary-color-filled);
+    }
+
+    &[data-variant='filled'] {
+      --input-bd: transparent;
+      --input-bg: var(--mantine-color-default-hover);
+      --input-bd-focus: var(--mantine-primary-color-filled);
+    }
+
+    &[data-variant='unstyled'] {
+      --input-bd: transparent;
+      --input-bg: transparent;
+      --input-bd-focus: transparent;
+    }
+  }
+}
+
+/* Fieldset */
+.mantine-Fieldset-root {
+
+  border-color: var(--mantine-color-default-border);
+  background-color: transparent;
+
+  &[data-variant='filled'] {
+    border-color: var(--mantine-color-default-border);
+    background-color: alpha(var(--mantine-color-default-hover), 0.4);
+  }
+
+  &[data-variant='unstyled'] {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+}
+
+/* Radio */
+.mantine-Radio-root {
+
+  .mantine-Radio-radio {
+    background-color: transparent;
+    border-color: var(--radio-color);
+
+    &:checked {
+      background-color: var(--radio-color);
+      border-color: var(--radio-color);
+    }
+
+    &+.mantine-Radio-icon {
+      color: var(--radio-icon-color);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &[data-variant='outline'] {
+    .mantine-Radio-radio {
+      background-color: transparent;
+      border-color: var(--radio-color);
+
+      &:checked:not(:disabled) {
+        background-color: transparent;
+        border-color: var(--radio-color);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+
+        &+.mantine-Radio-icon {
+          color: var(--radio-color);
+          --radio-icon-opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+/* Segmented Control */
+.mantine-SegmentedControl-root {
+  background-color: var(--mantine-color-secondary-outline-hover);
+
+  .mantine-SegmentedControl-label {
+    color: var(--mantine-color-dimmed);
+    &[data-active] {
+      color: var(--mantine-color-text);
+    }
+  }
+}
+
+/* Slider */
+.mantine-Slider-root {
+  @mixin light {
+  --slider-track-bg: var(--mantine-color-secondary-outline-hover); 
+  }
+  @mixin dark {
+  --slider-track-bg: var(--mantine-color-secondary-outline-hover); 
+  }
+  .mantine-Slider-trackContainer{
+    &[data-disabled] {
+      opacity: 0.5;
+    }
+  }
+
+  .mantine-Slider-label {
+    background-color: var(--mantine-color-default) !important;
+    color: var(--mantine-color-text);
+    border: 1px solid var(--mantine-color-default-border) !important;
+    top: -45px;
+  }
+}
+
+/* ActionIcon */
+.mantine-ActionIcon-root {
+  
+  &:where(:disabled:not([data-loading]), [data-disabled]:not([data-loading])) {
+    border: var(--ai-bd);
+    opacity: 0.5;
+
+    @mixin where-light {
+      background-color: var(--ai-bg);
+      color: var(--ai-color);
+    }
+
+    @mixin where-dark {
+      background-color: var(--ai-bg);
+      color: var(--ai-color);
+    }
+
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+/* Button */
+.mantine-Button-root {
+
+  &:where(:disabled:not([data-loading]), [data-disabled]:not([data-loading])) {
+    border: var(--button-bd);
+    opacity: 0.5;
+
+    @mixin where-light {
+      color: var(--button-color);
+      background-color: var(--button-bg);
+    }
+
+    @mixin where-dark {
+      color: var(--button-color);
+      background-color: var(--button-bg);
+    }
   }
 }
 
@@ -555,6 +852,12 @@
   }
 }
 
+.globalMantineTableRow {
+  &:hover {
+    background-color: rgb(from var(--mantine-color-default-hover) r g b / 0.5);
+  }
+}
+
 .globalMantineCardRoot {
   background-color: var(--mantine-color-default);
   border-color: var(--mantine-color-default-border);
@@ -579,100 +882,102 @@
     --dch-control-size-md: calc(2.25rem* var(--mantine-scale));
     --dch-control-size-lg: calc(2.5rem* var(--mantine-scale));
     --dch-control-size-xl: calc(2.75rem* var(--mantine-scale));
-  
+
     max-width: none;
     gap: var(--mantine-spacing-xs);
-  
+
     .mantine-DatePicker-calendarHeaderControl {
       border: 1px solid var(--mantine-color-default-border);
       border-radius: var(--mantine-radius-default);
-    
+
       &:hover {
         background-color: var(--mantine-color-default-hover) !important;
       }
     }
-  
+
     .mantine-DatePicker-calendarHeaderLevel {
       &:hover {
         background-color: var(--mantine-color-default-hover) !important;
       }
-    
+
       font-size: var(--mantine-font-size-sm);
     }
   }
-  
+
   .mantine-DatePicker-month {
     border-collapse: separate;
     border-spacing: 0 5px;
-  
-    .mantine-DatePicker-weekdaysRow{
+
+    .mantine-DatePicker-weekdaysRow {
       .mantine-DatePicker-weekday {
         font-size: var(--mantine-font-size-xs);
       }
     }
-  
+
     .mantine-DatePicker-monthRow {
       margin-top: var(--mantine-spacing-xs);
       margin-bottom: var(--mantine-spacing-xs);
-  
+
       .mantine-DatePicker-day {
-        
+
         --day-size-xs: calc(1.5rem* var(--mantine-scale));
         --day-size-sm: calc(2rem* var(--mantine-scale));
         --day-size-md: calc(2.5rem* var(--mantine-scale));
         --day-size-lg: calc(3rem* var(--mantine-scale));
         --day-size-xl: calc(3.5rem* var(--mantine-scale));
-        
+
         font-size: calc(var(--day-size)/2.28);
+
         &:hover:where(:not([data-static], [data-disabled], [data-selected], [data-in-range])) {
           background-color: var(--mantine-color-default-hover) !important;
           border-radius: var(--mantine-radius-default);
-      
+
           &[data-in-range] {
             border-radius: 0;
           }
         }
-      
-        &:where([data-selected]):hover:where(:not([data-disabled], [data-static])){
+
+        &:where([data-selected]):hover:where(:not([data-disabled], [data-static])) {
           background-color: var(--mantine-primary-color-filled-hover);
           border-radius: var(--mantine-radius-default);
         }
-      
+
         &[data-weekend] {
           color: var(--mantine-color-text);
         }
-      
+
         &[data-last-in-range],
         &[data-first-in-range] {
           border-radius: var(--mantine-radius-default);
         }
-      
+
       }
     }
   }
-  
-  .mantine-DatePicker-monthsList{
-    .mantine-DatePicker-monthsListControl{
+
+  .mantine-DatePicker-monthsList {
+    .mantine-DatePicker-monthsListControl {
       --dpc-size-xs: calc(1.5rem* var(--mantine-scale));
       --dpc-size-sm: calc(1.96rem* var(--mantine-scale));
       --dpc-size-md: calc(2.5rem* var(--mantine-scale));
       --dpc-size-lg: calc(3rem* var(--mantine-scale));
       --dpc-size-xl: calc(3.5rem* var(--mantine-scale));
-  
-      &:hover:where(:not([data-disabled], :disabled)){
+
+      &:hover:where(:not([data-disabled], :disabled)) {
         background-color: var(--mantine-color-default-hover) !important;
       }
     }
   }
-  
-  .mantine-DatePicker-yearsList{
-    .mantine-DatePicker-yearsListControl{
+
+  .mantine-DatePicker-yearsList {
+    .mantine-DatePicker-yearsListControl {
       --dpc-size-xs: calc(1.5rem* var(--mantine-scale));
       --dpc-size-sm: calc(1.96rem* var(--mantine-scale));
       --dpc-size-md: calc(2.5rem* var(--mantine-scale));
       --dpc-size-lg: calc(3rem* var(--mantine-scale));
       --dpc-size-xl: calc(3.5rem* var(--mantine-scale));
-      &:hover:where(:not([data-disabled], :disabled)){
+
+      &:hover:where(:not([data-disabled], :disabled)) {
         background-color: var(--mantine-color-default-hover) !important;
       }
     }
@@ -680,7 +985,9 @@
 }
 
 /* Title */
-.mantine-Title-root, .mantine-Modal-title, .mantine-Drawer-title {
+.mantine-Title-root,
+.mantine-Modal-title,
+.mantine-Drawer-title {
   letter-spacing: -0.025em;
 }
 
@@ -694,3 +1001,4 @@
     --divider-color: var(--mantine-color-default-border);
   }
 }
+

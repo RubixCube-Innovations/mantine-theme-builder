@@ -35,5 +35,7 @@ export const actionIconDemo: MantineDemo = {
     { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
     { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: 'sm' },
+    { prop: 'disabled', type: 'boolean', initialValue: false, libraryValue: false },
+
   ],
 };
