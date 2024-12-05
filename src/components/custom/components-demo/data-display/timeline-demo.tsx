@@ -96,7 +96,7 @@ export const timelineDemo: MantineDemo = {
   component: Wrapper,
   code,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme.color, libraryValue: localStorageTheme.color },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
     { prop: 'radius', type: 'size', initialValue: 'xl', libraryValue: 'xl' },
     { prop: 'active', type: 'number', initialValue: 1, libraryValue: null, min: -1, max: 3 },
     { prop: 'reverseActive', type: 'boolean', initialValue: false, libraryValue: false },
