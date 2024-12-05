@@ -1,5 +1,6 @@
 import { Divider, Text } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
+import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { Text, Divider } from '@mantine/core';
@@ -71,6 +72,7 @@ export const dividerDemo: MantineDemo = {
   controls: [
       { prop: 'size', type: 'size', initialValue: 'xs', libraryValue: 'xs' },
       { prop: 'variant', type: 'segmented', data: ['solid', 'dotted', 'dashed'], initialValue: 'solid', libraryValue: 'solid' },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: null },
     { prop: 'label', type: 'string', initialValue: 'Divider label', libraryValue: '' },
     { prop: 'labelPosition', type: 'segmented', data: ['left', 'center', 'right'], initialValue: 'center', libraryValue: 'center' },
   ],

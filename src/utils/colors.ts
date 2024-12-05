@@ -364,9 +364,9 @@ export const SHADCN_DEFAULT_COLORS = [
   { id: "sky", name: "Sky", color: "#0EA5E9", primaryPalette: skyColors, primaryShade: { light: 5, dark: 4 }, secondary: "slate", secondaryPalette: slateColors },
   { id: "blue", name: "Blue", color: "#3B82F6", primaryPalette: blueColors, primaryShade: { light: 6, dark: 5 }, secondary: "slate", secondaryPalette: slateColors },
   
-  { id: "indigo", name: "Indigo", color: "#6366F1", primaryPalette: indigoColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },
+  // { id: "indigo", name: "Indigo", color: "#6366F1", primaryPalette: indigoColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },
   { id: "violet", name: "Violet", color: "#8B5CF6", primaryPalette: violetColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },
-  { id: "purple", name: "Purple", color: "#A855F7", primaryPalette: purpleColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },
-  { id: "fuchsia", name: "Fuchsia", color: "#D946EF", primaryPalette: fuchsiaColors, primaryShade: { light: 5, dark: 7 }, secondary: "gray", secondaryPalette: grayColors },
-  { id: "pink", name: "Pink", color: "#EC4899", primaryPalette: pinkColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },
+  // { id: "purple", name: "Purple", color: "#A855F7", primaryPalette: purpleColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },
+  // { id: "fuchsia", name: "Fuchsia", color: "#D946EF", primaryPalette: fuchsiaColors, primaryShade: { light: 5, dark: 7 }, secondary: "gray", secondaryPalette: grayColors },
+  // { id: "pink", name: "Pink", color: "#EC4899", primaryPalette: pinkColors, primaryShade: { light: 5, dark: 6 }, secondary: "gray", secondaryPalette: grayColors },
 ];
