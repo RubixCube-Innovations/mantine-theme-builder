@@ -5,25 +5,21 @@ import {
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
-  // defaultVariantColorsResolver,
-  Divider,
-  HoverCard,
+  Dialog,
   Modal,
+  NavLink,
+  Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
-  Switch,
-  Table,
-  Tooltip,
+  Stepper,
+  Switch
 } from "@mantine/core";
 
-import { Spotlight } from "@mantine/spotlight";
 // prettier-ignore
 import { amberColors, blueColors, cyanColors, emeraldColors, fuchsiaColors, grayColors, greenColors, indigoColors, limeColors, neutralColors, orangeColors, pinkColors, purpleColors, redColors, roseColors, skyColors, slateColors, stoneColors, tealColors, violetColors, yellowColors, zincColors } from "../../utils/colors";
 import { getShadcnCardClassname } from "../../utils/theme-functions";
@@ -298,6 +294,11 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
+    Select: Select.extend({
+      defaultProps: {
+        checkIconPosition: "right",
+      },
+    }),
     ActionIcon: ActionIcon.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
@@ -305,7 +306,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--ai-color":
-              props.variant === undefined && props.color === undefined
+              (props.variant === undefined || props.variant === "filled") && props.color === undefined
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? `var(--mantine-color-${colorKey}-contrast)`
@@ -323,7 +324,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              props.variant === undefined && props.color === undefined
+              (props.variant === undefined || props.variant === "filled") && props.color === undefined
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? `var(--mantine-color-${colorKey}-contrast)`
@@ -334,6 +335,69 @@ export const shadcnTheme = createTheme({
         };
       },
     }),
+    Anchor: Anchor.extend({
+      defaultProps: {
+        underline: "always",
+      },
+    }),
+    NavLink: NavLink.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--nl-color": colorKey && props.variant === "filled" ? `var(--mantine-color-${colorKey}-contrast)` : undefined,
+          },
+          children: {
+          }
+        }
+      }
+    }),
+    Pagination: Pagination.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--pagination-active-color": colorKey ? `var(--mantine-color-${colorKey}-contrast)` : undefined,
+          }
+        }
+      }
+    }),
+    Stepper: Stepper.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--stepper-icon-color": colorKey ? `var(--mantine-color-${colorKey}-contrast)` : undefined,
+          }
+        }
+      }
+    }),
+    Dialog: Dialog.extend({
+      defaultProps: {
+        withBorder: true
+      }
+    }),
+    Modal: Modal.extend({
+      defaultProps: {
+        p: "md",
+      },
+    }),
+    // Tooltip: Tooltip.extend({
+    //   styles: () => ({
+    //     tooltip: {
+    //       fontSize: "var(--mantine-font-size-xs)",
+    //       paddingTop: "0px",
+    //       paddingBottom: "0px",
+    //     },
+    //   }),
+    //   vars: () => ({
+    //     tooltip: {
+    //       "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
+    //       "--tooltip-color": "var(--mantine-color-primary-color-contrast)",
+    //     },
+    //   }),
+    // }),
+
 
     Card: Card.extend({
       defaultProps: {
@@ -348,48 +412,36 @@ export const shadcnTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        // p: "md",
         shadow: "xl",
-        radius: "md",
-        withBorder: true,
       },
     }),
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
 
-    Divider: Divider.extend({
-      styles: () => ({
-        root: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
-    }),
-
+    // Divider: Divider.extend({
+    //   styles: () => ({
+    //     root: {
+    //       borderColor: "var(--mantine-color-default-border)",
+    //     },
+    //   }),
+    // }),
+    // Table: Table.extend({
+    //   styles: () => ({
+    //     table: {
+    //       borderColor: "var(--mantine-color-default-border)",
+    //     },
+    //     tr: {
+    //       borderColor: "var(--mantine-color-default-border)",
+    //     },
+    //     th: {
+    //       borderColor: "var(--mantine-color-default-border)",
+    //     },
+    //     td: {
+    //       borderColor: "var(--mantine-color-default-border)",
+    //     },
+    //   }),
+    //   classNames: () => ({
+    //     tr: "globalMantineTableRow",
+    //   }),
+    // }),
     Switch: Switch.extend({
       styles: () => ({
         thumb: {
@@ -401,67 +453,28 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
-      vars: () => ({
-        tooltip: {
-          "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
-          "--tooltip-color": "var(--mantine-color-primary-color-contrast)",
-        },
-      }),
-    }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
-    }),
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    Anchor: Anchor.extend({
-      defaultProps: {
-        underline: "always",
-      },
-    }),
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    Select: Select.extend({
-      defaultProps: {
-        checkIconPosition: "right",
-      },
-    }),
-    // Title: used static class (.mantine-Title-root) to style the title
-    // DatePicker: used static classes to style the date picker
+    
+    // Code: Code.extend({
+    //   vars: () => ({
+    //     root: {
+    //       "--code-bg": "var(--mantine-color-dark-filled)",
+    //     },
+    //   }),
+    //   styles: () => ({
+    //     root: {
+    //       border: "1px solid var(--mantine-color-default-border)",
+    //       color: "var(--mantine-color-text)",
+    //     },
+    //   }),
+    // }),
+    // Spotlight: Spotlight.extend({
+    //   styles: () => ({
+    //     content: {
+    //       border: "1px solid var(--mantine-color-default-border)",
+    //     },
+    //   }),
+    // }),
+
+
   },
 });
