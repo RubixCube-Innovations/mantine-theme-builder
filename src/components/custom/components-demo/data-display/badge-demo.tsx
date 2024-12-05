@@ -1,5 +1,6 @@
 import { Badge } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
+import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { Badge } from '@mantine/core';
@@ -26,7 +27,7 @@ export const badgeDemo: MantineDemo = {
       libraryValue: 'filled',
       data: ['filled', 'light', 'outline', 'dot', 'transparent', 'default', 'white'],
     },
-    { type: 'color', prop: 'color', initialValue: 'blue', libraryValue: null },
+    { type: 'color', prop: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
     { type: 'size', prop: 'size', initialValue: 'md', libraryValue: 'md' },
     { type: 'size', prop: 'radius', initialValue: 'xl', libraryValue: 'xl' },
   ],

@@ -1,6 +1,7 @@
 import { IconInfoCircle } from '@tabler/icons-react';
 import { Blockquote } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
+import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { Blockquote } from '@mantine/core';
@@ -32,7 +33,7 @@ export const blockquoteDemo: MantineDemo = {
   centered: true,
   maxWidth: 380,
   controls: [
-    { type: 'color', prop: 'color', initialValue: 'blue', libraryValue: null },
+    { type: 'color', prop: 'color', initialValue: localStorageTheme?.color, libraryValue: null },
     { type: 'size', prop: 'radius', initialValue: 'sm', libraryValue: 'sm' },
     {
       type: 'number',

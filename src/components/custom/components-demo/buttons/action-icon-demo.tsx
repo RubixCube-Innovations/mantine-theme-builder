@@ -32,7 +32,7 @@ export const actionIconDemo: MantineDemo = {
   centered: true,
   controls: [
     interactiveVariantsControl,
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color ?? "zinc", libraryValue: localStorageTheme?.color ?? "zinc" },
+    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
     { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: 'sm' },
     { prop: 'disabled', type: 'boolean', initialValue: false, libraryValue: false },

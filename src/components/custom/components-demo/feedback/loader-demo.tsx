@@ -1,5 +1,6 @@
 import { Loader } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
+import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { Loader } from '@mantine/core';
@@ -15,7 +16,7 @@ export const loaderDemo: MantineDemo = {
   code,
   centered: true,
   controls: [
-    { type: 'color', prop: 'color', initialValue: 'blue', libraryValue: null },
+    { type: 'color', prop: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
     { type: 'size', prop: 'size', initialValue: 'md', libraryValue: 'md' },
     {
       type: 'segmented',
