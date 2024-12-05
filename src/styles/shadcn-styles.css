@@ -852,6 +852,12 @@
   }
 }
 
+.globalMantineTableRow {
+  &:hover {
+    background-color: rgb(from var(--mantine-color-default-hover) r g b / 0.5);
+  }
+}
+
 .globalMantineCardRoot {
   background-color: var(--mantine-color-default);
   border-color: var(--mantine-color-default-border);
@@ -995,3 +1001,4 @@
     --divider-color: var(--mantine-color-default-border);
   }
 }
+

@@ -7,7 +7,7 @@ const teamMembers = [
     name: "Elena Rodriguez",
     role: "Chief Executive Officer",
     bio: "Visionary leader with 15 years of tech innovation experience.",
-    image: "https://www.shadcnblocks.com/images/block/avatar-1.webp",
+    image: "https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_22.png",
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -18,7 +18,7 @@ const teamMembers = [
     name: "Marcus Chen",
     role: "Chief Technology Officer",
     bio: "Engineering maestro driving cutting-edge technological solutions.",
-    image: "https://www.shadcnblocks.com/images/block/avatar-2.webp",
+    image: "https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_17.png",
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -29,7 +29,7 @@ const teamMembers = [
     name: "Aria Patel",
     role: "Design Director",
     bio: "Creative genius transforming complex ideas into elegant designs.",
-    image: "https://www.shadcnblocks.com/images/block/avatar-3.webp",
+    image: "https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_14.png",
     socials: {
       linkedin: "#",
       twitter: "#",
@@ -40,7 +40,7 @@ const teamMembers = [
     name: "Jackson Wright",
     role: "Product Strategy Lead",
     bio: "Strategic mastermind connecting user needs with business goals.",
-    image: "https://www.shadcnblocks.com/images/block/avatar-4.webp",
+    image: "https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_16.png",
     socials: {
       linkedin: "#",
       twitter: "#",

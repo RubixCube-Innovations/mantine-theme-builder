@@ -5,22 +5,28 @@ import {
   Card,
   Checkbox,
   Chip,
+  Code,
   Container,
   createTheme,
   Dialog,
+  HoverCard,
   Modal,
   NavLink,
   Pagination,
   Paper,
+  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
-  Switch
+  Switch,
+  Table,
+  Tooltip
 } from "@mantine/core";
 
 // prettier-ignore
+import { Spotlight } from "@mantine/spotlight";
 import { amberColors, blueColors, cyanColors, emeraldColors, fuchsiaColors, grayColors, greenColors, indigoColors, limeColors, neutralColors, orangeColors, pinkColors, purpleColors, redColors, roseColors, skyColors, slateColors, stoneColors, tealColors, violetColors, yellowColors, zincColors } from "../../utils/colors";
 import { getShadcnCardClassname } from "../../utils/theme-functions";
 const CONTAINER_SIZES: Record<string, string> = {
@@ -294,6 +300,18 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
+    // Add styles for Switch component
+    Switch: Switch.extend({
+      styles: () => ({
+        thumb: {
+          backgroundColor: "var(--mantine-color-default)",
+          borderColor: "var(--mantine-color-default-border)",
+        },
+        track: {
+          borderColor: "var(--mantine-color-default-border)",
+        },
+      }),
+    }),
     Select: Select.extend({
       defaultProps: {
         checkIconPosition: "right",
@@ -345,12 +363,12 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--nl-color": colorKey && props.variant === "filled" ? `var(--mantine-color-${colorKey}-contrast)` : undefined,
+            "--nl-color":
+              colorKey && props.variant === "filled" ? `var(--mantine-color-${colorKey}-contrast)` : undefined,
           },
-          children: {
-          }
-        }
-      }
+          children: {},
+        };
+      },
     }),
     Pagination: Pagination.extend({
       vars: (theme, props) => {
@@ -358,9 +376,9 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--pagination-active-color": colorKey ? `var(--mantine-color-${colorKey}-contrast)` : undefined,
-          }
-        }
-      }
+          },
+        };
+      },
     }),
     Stepper: Stepper.extend({
       vars: (theme, props) => {
@@ -368,37 +386,58 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--stepper-icon-color": colorKey ? `var(--mantine-color-${colorKey}-contrast)` : undefined,
-          }
-        }
-      }
+          },
+        };
+      },
     }),
     Dialog: Dialog.extend({
       defaultProps: {
-        withBorder: true
-      }
+        withBorder: true,
+      },
     }),
+    // Todo: Add styles for HoverCard
+    HoverCard: HoverCard.extend({
+      classNames: () => ({
+        dropdown: "globalMantineHoverCard",
+      }),
+    }),
+    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
+      styles: () => ({
+        content: {
+          border: "1px solid var(--mantine-color-default-border)",
+        },
+      }),
     }),
-    // Tooltip: Tooltip.extend({
-    //   styles: () => ({
-    //     tooltip: {
-    //       fontSize: "var(--mantine-font-size-xs)",
-    //       paddingTop: "0px",
-    //       paddingBottom: "0px",
-    //     },
-    //   }),
-    //   vars: () => ({
-    //     tooltip: {
-    //       "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
-    //       "--tooltip-color": "var(--mantine-color-primary-color-contrast)",
-    //     },
-    //   }),
-    // }),
-
-
+    // Todo: Add styles for Popover
+    Popover: Popover.extend({
+      styles: () => ({
+        dropdown: {
+          backgroundColor: "var(--mantine-color-default)",
+          borderColor: "var(--mantine-color-default-border)",
+        },
+      }),
+    }),
+    // Todo: Add styles for Tooltip
+    Tooltip: Tooltip.extend({
+      styles: () => ({
+        tooltip: {
+          fontSize: "var(--mantine-font-size-xs)",
+          paddingTop: "0px",
+          paddingBottom: "0px",
+        },
+      }),
+      vars: () => ({
+        tooltip: {
+          "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
+          "--tooltip-color": "var(--mantine-color-primary-color-contrast)",
+        },
+      }),
+    }),
+    // Todo: Add styles for Card
     Card: Card.extend({
       defaultProps: {
         p: "xl",
@@ -410,71 +449,53 @@ export const shadcnTheme = createTheme({
         root: getShadcnCardClassname(theme.primaryColor),
       }),
     }),
+    // Todo: Add styles for Code
+    Code: Code.extend({
+      vars: () => ({
+        root: {
+          "--code-bg": "var(--mantine-color-dark-filled)",
+        },
+      }),
+      styles: () => ({
+        root: {
+          border: "1px solid var(--mantine-color-default-border)",
+          color: "var(--mantine-color-text)",
+        },
+      }),
+    }),
+    // Todo: Add styles for Table
+    Table: Table.extend({
+      styles: () => ({
+        table: {
+          borderColor: "var(--mantine-color-default-border)",
+        },
+        tr: {
+          borderColor: "var(--mantine-color-default-border)",
+        },
+        th: {
+          borderColor: "var(--mantine-color-default-border)",
+        },
+        td: {
+          borderColor: "var(--mantine-color-default-border)",
+        },
+      }),
+      classNames: () => ({
+        tr: "globalMantineTableRow",
+      }),
+    }),
+
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
     }),
-
-    // Divider: Divider.extend({
-    //   styles: () => ({
-    //     root: {
-    //       borderColor: "var(--mantine-color-default-border)",
-    //     },
-    //   }),
-    // }),
-    // Table: Table.extend({
-    //   styles: () => ({
-    //     table: {
-    //       borderColor: "var(--mantine-color-default-border)",
-    //     },
-    //     tr: {
-    //       borderColor: "var(--mantine-color-default-border)",
-    //     },
-    //     th: {
-    //       borderColor: "var(--mantine-color-default-border)",
-    //     },
-    //     td: {
-    //       borderColor: "var(--mantine-color-default-border)",
-    //     },
-    //   }),
-    //   classNames: () => ({
-    //     tr: "globalMantineTableRow",
-    //   }),
-    // }),
-    Switch: Switch.extend({
+    // Todo: Add styles for Divider
+    Spotlight: Spotlight.extend({
       styles: () => ({
-        thumb: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        track: {
-          borderColor: "var(--mantine-color-default-border)",
+        content: {
+          border: "1px solid var(--mantine-color-default-border)",
         },
       }),
     }),
-    
-    // Code: Code.extend({
-    //   vars: () => ({
-    //     root: {
-    //       "--code-bg": "var(--mantine-color-dark-filled)",
-    //     },
-    //   }),
-    //   styles: () => ({
-    //     root: {
-    //       border: "1px solid var(--mantine-color-default-border)",
-    //       color: "var(--mantine-color-text)",
-    //     },
-    //   }),
-    // }),
-    // Spotlight: Spotlight.extend({
-    //   styles: () => ({
-    //     content: {
-    //       border: "1px solid var(--mantine-color-default-border)",
-    //     },
-    //   }),
-    // }),
-
-
   },
 });
