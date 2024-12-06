@@ -25,6 +25,7 @@ import { generatedMantineCssVariableResolver } from "../../../themes/generated/g
 import { generatedShadcnCssVariableResolver } from "../../../themes/generated/generatedShadcnCssVariableResolver";
 import { generatedMantineCssStyles } from "../../../themes/generated/generatedMantineCssStyles";
 import { generatedShadcnCssStyles } from "../../../themes/generated/generatedShadcnCssStyles";
+import { removeStringPlaceholders } from "../../../utils/functions";
 
 const CopyThemeCodeButton = () => {
   const { theme } = useTheme();
@@ -53,7 +54,7 @@ const CopyThemeCodeButton = () => {
 
     if (theme.other?.style === "shadcn") {
       const color = theme.primaryColor as keyof typeof generatedShadcnTheme;
-      return generatedShadcnCssVariableResolver[color];
+      return removeStringPlaceholders(generatedShadcnCssVariableResolver[color]);
     }
   };
 

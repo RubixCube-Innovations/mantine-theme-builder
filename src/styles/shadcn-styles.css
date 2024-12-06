@@ -243,6 +243,9 @@
   }
 }
 
+/* Switch */
+
+
 /* Slider */
 .mantine-Slider-root {
   @mixin light {
@@ -528,6 +531,7 @@
 }
 
 /* Hover Card */
+
 
 /* Menu Dropdown */
 .mantine-Menu-dropdown {

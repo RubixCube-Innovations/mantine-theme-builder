@@ -34,7 +34,7 @@ export function CardsPaymentMethod() {
                 borderColor:
                   paymentMethod === "card"
                     ? "var(--mantine-primary-color-filled)"
-                    : "",
+                    : "var(--mantine-color-default-border)",
               }}
               py={"xs"}
             >
@@ -68,7 +68,7 @@ export function CardsPaymentMethod() {
                 borderColor:
                   paymentMethod === "paypal"
                     ? "var(--mantine-primary-color-filled)"
-                    : "",
+                    : "var(--mantine-color-default-border)",
               }}
               py={"xs"}
             >
@@ -99,7 +99,7 @@ export function CardsPaymentMethod() {
                 borderColor:
                   paymentMethod === "apple"
                     ? "var(--mantine-primary-color-filled)"
-                    : "",
+                    : "var(--mantine-color-default-border)",
               }}
               py={"xs"}
             >

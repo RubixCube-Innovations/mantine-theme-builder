@@ -20,6 +20,14 @@ function convertTsToJs(tsFilePath) {
       if (fs.existsSync(jsFilePath)) {
         fs.renameSync(jsFilePath, cjsFilePath);
         console.log(`Successfully converted and saved as: ${cjsFilePath}`);
+
+        // Fix imports in the .cjs file
+        let fileContent = fs.readFileSync(cjsFilePath, "utf8");
+        fileContent = fileContent.replace(/require\("\.\/(.*?)"\)/g, 'require("./$1.cjs")');
+        fs.writeFileSync(cjsFilePath, fileContent, "utf8");
+        console.log(`Fixed import paths in: ${cjsFilePath}`);
+      } else {
+        console.error(`Expected .js file not found at: ${jsFilePath}`);
       }
     }
   });
@@ -28,5 +36,3 @@ function convertTsToJs(tsFilePath) {
 // Convert specific TypeScript files
 convertTsToJs(path.join(__dirname, "../../src/utils/colors.ts"));
 convertTsToJs(path.join(__dirname, "../../src/utils/theme-functions.ts"));
-
-

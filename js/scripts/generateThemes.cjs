@@ -44,8 +44,10 @@ function generateThemes(style, colors, inputFilePath, outputFileName) {
   }
 
   function replacePlaceholders(template, color) {
+    let updatedTemplate = template;
+  
     if (style === "shadcn") {
-      return template
+      updatedTemplate = updatedTemplate
         .replace("primary: zincColors", `primary: ${color.id}Colors`)
         .replace("secondary: zincColors", `secondary: ${color.secondary || color.id}Colors`)
         .replace("dark: zincColors", `dark: ${color.secondary || color.id}Colors`)
@@ -53,9 +55,17 @@ function generateThemes(style, colors, inputFilePath, outputFileName) {
         .replaceAll("getShadcnCardClassname(theme.primaryColor)", `"${getShadcnCardClassname(color.id)}"`)
         .replaceAll("getShadcnInputBg(theme.primaryColor)", `"${getShadcnInputBg(color.id)}"`);
     } else {
-      return template.replace(`primaryColor: "blue"`, `primaryColor: "${color.id}"`);
+      updatedTemplate = updatedTemplate.replace(`primaryColor: "blue"`, `primaryColor: "${color.id}"`);
     }
+  
+    // Escape backticks and `${}`
+    updatedTemplate = updatedTemplate
+      .replace(/`/g, "\\`") // Escape backticks
+      .replace(/\$\{/g, "\\${") // Escape `${`
+  
+    return updatedTemplate;
   }
+  
 
   let generatedColors = {};
 
