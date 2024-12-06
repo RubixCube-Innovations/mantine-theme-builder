@@ -16,7 +16,7 @@ export const Pricing1 = () => {
         monthly: 228,
         yearly: 180,
       },
-      badgeColor: "var(--mantine-primary-color-6)",
+      badgeVariant: "outline",
       features: [
         "Unlimited basic features",
         "Standard support",
@@ -34,7 +34,7 @@ export const Pricing1 = () => {
         monthly: 588,
         yearly: 420,
       },
-      badgeColor: "var(--mantine-primary-color-filled)",
+      badgeVariant: "filled",
       features: [
         "Everything in Plus",
         "Priority support",
@@ -117,11 +117,11 @@ export const Pricing1 = () => {
                     <Button
                       className="mt-auto"
                       size="lg"
-                      variant="filled"
-                      color={plan.badgeColor}
-                      c={"var(--mantine-primary-color-contrast)"}
+                      variant={plan.badgeVariant}
+                      color={"var(--mantine-primary-color-filled)"}
                       rightSection={<ArrowRightIcon />}
                       fullWidth
+                      {...(plan.badgeVariant === "filled" ? { c: "var(--mantine-primary-color-contrast)" } : {})}
                     >
                       Get Started
                     </Button>
