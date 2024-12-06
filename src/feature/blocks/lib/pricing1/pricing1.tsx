@@ -16,7 +16,7 @@ export const Pricing1 = () => {
         monthly: 228,
         yearly: 180,
       },
-      badgeColor: "blue",
+      badgeColor: "var(--mantine-primary-color-6)",
       features: [
         "Unlimited basic features",
         "Standard support",
@@ -34,7 +34,7 @@ export const Pricing1 = () => {
         monthly: 588,
         yearly: 420,
       },
-      badgeColor: "grape",
+      badgeColor: "var(--mantine-primary-color-filled)",
       features: [
         "Everything in Plus",
         "Priority support",
@@ -119,6 +119,7 @@ export const Pricing1 = () => {
                       size="lg"
                       variant="filled"
                       color={plan.badgeColor}
+                      c={"var(--mantine-primary-color-contrast)"}
                       rightSection={<ArrowRightIcon />}
                       fullWidth
                     >
