@@ -69,8 +69,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: zincColors,
-    secondary: zincColors, // secondary will be dynamically changed baesd on the primary color
-    dark: zincColors, // dark will always be secondary color
+    secondary: zincColors, 
+    dark: zincColors, 
 
     error: redColors,
     success: greenColors,
@@ -161,57 +161,6 @@ export const shadcnTheme = createTheme({
   other: {
     style: "shadcn",
   },
-  // variantColorResolver: (component) => {
-  //   const defaultResolvedColors = defaultVariantColorsResolver(component);
-
-  //   if (component.variant === "default") {
-  //     return {
-  //       ...defaultResolvedColors,
-  //       background: "var(--mantine-color-default)",
-  //       border: "1px solid var(--mantine-color-default-border)",
-  //       hover: "var(--mantine-color-default-hover)",
-  //     };
-  //   }
-
-  //   if (component.variant === "filled") {
-  //     return {
-  //       ...defaultResolvedColors,
-  //       background: "var(--mantine-primary-color-filled)",
-  //       hover: "var(--mantine-primary-color-filled-hover)",
-  //       color: "var(--mantine-primary-color-contrast)",
-  //     };
-  //   }
-
-  //   if (component.variant === "light") {
-  //     return {
-  //       ...defaultResolvedColors,
-  //       background: "var(--mantine-primary-color-light)",
-  //       hover: "var(--mantine-primary-color-light-hover)",
-  //       color: "var(--mantine-primary-color-light-color)",
-  //     };
-  //   }
-
-  //   if (component.variant === "outline") {
-  //     return {
-  //       ...defaultResolvedColors,
-  //       background: "var(--mantine-color-default)",
-  //       border: "1px solid var(--mantine-color-default-border)",
-  //       hover: "var(--mantine-color-default-hover)",
-  //       color: "var(--mantine-color-default-color)",
-  //     };
-  //   }
-
-  //   if (component.variant === "subtle") {
-  //     return {
-  //       ...defaultResolvedColors,
-  //       background: "transparent",
-  //       hover: "var(--mantine-color-default-hover)",
-  //       color: "var(--mantine-color-default-color)",
-  //     };
-  //   }
-
-  //   return defaultResolvedColors;
-  // },
   components: {
     Container: Container.extend({
       vars: (_, { size, fluid }) => ({
@@ -300,7 +249,6 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Add styles for Switch component
     Switch: Switch.extend({
       styles: () => ({
         thumb: {

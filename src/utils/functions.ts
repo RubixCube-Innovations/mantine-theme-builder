@@ -163,3 +163,7 @@ export const getDefaultColors = (style: string | undefined) => {
 export const localStorageTheme = readLocalStorageValue<IThemeConfig>({
   key: "mantine-theme",
 });
+
+export const removeStringPlaceholders = (css: string) => {
+  return css?.replace(/"{/g, "")?.replace(/}"/g, "");
+}
