@@ -50,6 +50,7 @@ export default createStyles((theme) => ({
 .header {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: rem(8px); 
@@ -59,10 +60,10 @@ export default createStyles((theme) => ({
   border-top-left-radius: var(--mantine-radius-md);
   border-bottom: rem(1px) solid var(--mantine-color-default-border);
 
-  @media (max-width: $mantine-breakpoint-sm) {
+  /* @media (max-width: $mantine-breakpoint-sm) {
     flex-direction: column;
     align-items: flex-start;
-  }
+  } */
 }
 
 .controls {
