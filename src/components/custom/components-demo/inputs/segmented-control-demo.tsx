@@ -1,6 +1,5 @@
 import { SegmentedControl } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { SegmentedControl } from '@mantine/core';
@@ -31,7 +30,7 @@ export const segmentedControlDemo: MantineDemo = {
     },
     { prop: 'fullWidth', type: 'boolean', initialValue: false, libraryValue: false },
     { prop: 'withItemsBorders', type: 'boolean', initialValue: true, libraryValue: true },
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: '', libraryValue: '' },
     { type: 'size', prop: 'size', initialValue: 'sm', libraryValue: 'sm' },
     { type: 'size', prop: 'radius', initialValue: 'sm', libraryValue: 'sm' },
     { prop: 'transitionDuration', type: 'string', initialValue: '150', libraryValue: '150' },

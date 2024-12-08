@@ -1,6 +1,5 @@
 import { Chip, ChipProps } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
 function Wrapper(props: ChipProps) {
   return (
@@ -24,7 +23,7 @@ export const chipDemo: MantineDemo = {
   code,
   centered: true,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: '', libraryValue: '' },
     {
       prop: 'variant',
       type: 'segmented',

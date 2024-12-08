@@ -1,10 +1,9 @@
 import { Box, Text, Timeline, TimelineProps } from '@mantine/core';
 import { IconGitBranch, IconGitCommit, IconGitPullRequest, IconMessageDots } from '@tabler/icons-react';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
-function TimelineBase({ noIcon, ...props }: Partial<TimelineProps> & { noIcon?: boolean }) {
-    const displayIcon = !noIcon;
+function TimelineBase({ ...props }: Partial<TimelineProps>) {
+    const displayIcon = true;
     return (
       <Timeline active={1} bulletSize={24} lineWidth={2} {...props}>
         <Timeline.Item
@@ -74,7 +73,7 @@ function TimelineBase({ noIcon, ...props }: Partial<TimelineProps> & { noIcon?: 
 function Wrapper(props: TimelineProps) {
   return (
     <Box maw={320} mx="auto">
-      <TimelineBase noIcon {...props} />
+      <TimelineBase {...props} />
     </Box>
   );
 }
@@ -96,11 +95,11 @@ export const timelineDemo: MantineDemo = {
   component: Wrapper,
   code,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: '', libraryValue: '' },
     { prop: 'radius', type: 'size', initialValue: 'xl', libraryValue: 'xl' },
     { prop: 'active', type: 'number', initialValue: 1, libraryValue: null, min: -1, max: 3 },
     { prop: 'reverseActive', type: 'boolean', initialValue: false, libraryValue: false },
-    { prop: 'lineWidth', type: 'number', initialValue: 4, libraryValue: 4, min: 1, max: 6 },
+    { prop: 'lineWidth', type: 'number', initialValue: 2, libraryValue: 2, min: 1, max: 6 },
     {
       prop: 'bulletSize',
       type: 'number',

@@ -20,7 +20,7 @@ function RouteComponent() {
             Contact us
           </Button>
           <Button variant="subtle" size="sm" component="a" href="https://www.buymeacoffee.com/abhishekslal01" target="_blank">
-            Sponsor us
+            Buy me a coffee
           </Button>
         </Group>
         <Space mb="xs" />

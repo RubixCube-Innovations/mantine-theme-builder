@@ -42,7 +42,7 @@ export const sparklineDemo: MantineDemo = {
         { value: 'stepAfter', label: 'stepAfter' },
       ],
     },
-    { type: 'color', prop: 'color', initialValue: 'blue', libraryValue: null },
+    { type: 'color', prop: 'color', initialValue: '', libraryValue: '' },
     {
       type: 'number',
       prop: 'fillOpacity',

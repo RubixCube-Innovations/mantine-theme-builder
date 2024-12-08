@@ -1,10 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-import PageLayout from "../components/layouts/page-layout";
-import ComponentsDemo from "../components/custom/components-demo/components-demo";
+import { createFileRoute } from '@tanstack/react-router'
+import PageLayout from '../components/layouts/page-layout'
+import ComponentsDemo from '../components/custom/components-demo/components-demo'
 
-export const Route = createFileRoute("/components")({
+export const Route = createFileRoute('/playground')({
   component: RouteComponent,
-});
+})
 
 function RouteComponent() {
   return (
@@ -14,5 +14,5 @@ function RouteComponent() {
     >
       <ComponentsDemo />
     </PageLayout>
-  );
+  )
 }

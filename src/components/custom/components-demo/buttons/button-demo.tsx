@@ -1,7 +1,6 @@
 import { Button } from '@mantine/core';
-import { MantineDemo } from '../../../mantine/demo';
 import { interactiveVariantsControl } from '../../../../utils/variants-data';
-import { localStorageTheme } from '../../../../utils/functions';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Button } from '@mantine/core';
@@ -22,7 +21,7 @@ export const buttonDemo: MantineDemo = {
   centered: true,
   controls: [
     interactiveVariantsControl,
-    { type: 'color', prop: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { type: 'color', prop: 'color', initialValue: "", libraryValue: "" },
     { type: 'size', prop: 'size', initialValue: 'sm', libraryValue: 'sm' },
     { type: 'size', prop: 'radius', initialValue: 'sm', libraryValue: 'sm' },
     { prop: 'disabled', type: 'boolean', initialValue: false, libraryValue: false },

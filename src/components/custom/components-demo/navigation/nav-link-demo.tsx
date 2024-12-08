@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import { IconActivity, IconChevronRight, IconFingerprint, IconGauge } from '@tabler/icons-react';
 import { Box, Group, NavLink } from '@mantine/core';
+import { IconActivity, IconChevronRight, IconFingerprint, IconGauge } from '@tabler/icons-react';
+import { useState } from 'react';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { useState } from 'react';
@@ -79,7 +78,7 @@ export const navLinkDemo: MantineDemo = {
   component: Demo,
   code,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: '', libraryValue: '' },
     {
       prop: 'variant',
       type: 'segmented',

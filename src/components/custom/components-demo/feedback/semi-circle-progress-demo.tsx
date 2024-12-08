@@ -1,6 +1,5 @@
 import { SemiCircleProgress } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { SemiCircleProgress } from '@mantine/core';
@@ -46,7 +45,7 @@ export const semiCircleProgressDemo: MantineDemo = {
       ],
       libraryValue: null,
     },
-    { type: 'color', prop: 'filledSegmentColor', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { type: 'color', prop: 'filledSegmentColor', initialValue: '', libraryValue: '' },
     { type: 'number', prop: 'size', min: 120, max: 450, initialValue: 200, libraryValue: null },
     { type: 'number', prop: 'thickness', min: 1, max: 20, initialValue: 12, libraryValue: null },
     { type: 'number', prop: 'value', min: 0, max: 100, initialValue: 40, libraryValue: null },

@@ -1,7 +1,6 @@
-import { IconPhoto } from '@tabler/icons-react';
 import { ThemeIcon, ThemeIconProps } from '@mantine/core';
+import { IconPhoto } from '@tabler/icons-react';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
 function Wrapper(props: ThemeIconProps) {
   return (
@@ -47,6 +46,6 @@ export const themeIconDemo: MantineDemo = {
     },
     { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: 'sm' },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: '', libraryValue: '' },
   ],
 };

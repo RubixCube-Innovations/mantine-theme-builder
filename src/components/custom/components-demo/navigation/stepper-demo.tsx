@@ -1,6 +1,5 @@
 import { Stepper, StepperProps } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
 function Wrapper(props: Partial<StepperProps>) {
   return (
@@ -31,7 +30,7 @@ export const stepperDemo: MantineDemo = {
   centered: true,
   maxWidth: '100%',
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: '', libraryValue: '' },
     { prop: 'radius', type: 'size', initialValue: 'xl', libraryValue: 'xl' },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
   ],

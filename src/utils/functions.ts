@@ -162,6 +162,11 @@ export const getDefaultColors = (style: string | undefined) => {
 
 export const localStorageTheme = readLocalStorageValue<IThemeConfig>({
   key: "mantine-theme",
+  defaultValue: {
+    style: "shadcn",
+    color: SHADCN_DEFAULT_COLORS[0].id,
+    radius: "sm",
+  },
 });
 
 export const removeStringPlaceholders = (css: string) => {

@@ -24,7 +24,6 @@ export const donutChartDemo: MantineDemo = {
   ],
   centered: true,
   controls: [
-      { type: 'color', prop: 'color', initialValue: 'blue', libraryValue: '__' },
     {
       type: 'number',
       prop: 'size',

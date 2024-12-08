@@ -15,7 +15,7 @@ export function Header() {
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes" },
-    { id: "components", href: "/components", label: "Components" },
+    { id: "components", href: "/playground", label: "Playground" },
     { id: "blocks", href: "/blocks", label: "Blocks" },
     // { id: "starter-kit", href: "/starter-kit", label: "Starter Kit" },
     // { id: "templates", href: "/templates", label: "Templates" },

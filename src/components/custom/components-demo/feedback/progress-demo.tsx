@@ -1,6 +1,5 @@
 import { Progress } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { Progress } from '@mantine/core';
@@ -21,7 +20,7 @@ export const progressDemo: MantineDemo = {
   centered: true,
   maxWidth: 400,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: '', libraryValue: '' },
     { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: 'sm' },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
     {

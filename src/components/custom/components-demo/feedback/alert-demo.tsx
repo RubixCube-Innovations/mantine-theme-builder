@@ -1,8 +1,7 @@
-import { IconInfoCircle } from '@tabler/icons-react';
 import { Alert } from '@mantine/core';
-import { MantineDemo } from '../../../mantine/demo';
+import { IconInfoCircle } from '@tabler/icons-react';
 import { staticVariantsControl } from '../../../../utils/variants-data';
-import { localStorageTheme } from '../../../../utils/functions';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { Alert } from '@mantine/core';
@@ -30,7 +29,7 @@ export const alertDemo: MantineDemo = {
   maxWidth: 400,
   controls: [
     { ...(staticVariantsControl as any), initialValue: 'light' },
-    { type: 'color', prop: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { type: 'color', prop: 'color', initialValue: '', libraryValue: '' },
     { type: 'size', prop: 'radius', initialValue: 'sm', libraryValue: 'sm' },
     { type: 'boolean', prop: 'withCloseButton', initialValue: false, libraryValue: false },
     { type: 'string', prop: 'title', initialValue: 'Alert title', libraryValue: null },

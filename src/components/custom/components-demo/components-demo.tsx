@@ -1,8 +1,8 @@
 import { Box, Divider, Group, ScrollArea, Stack, Title } from "@mantine/core";
-import classes from "./components-demo.module.scss";
 import { demoComponentsNavbarData } from "../../../utils/data";
-import Navbar from "../../ui/navbar/navbar";
 import { Demo } from "../../mantine/demo";
+import Navbar from "../../ui/navbar/navbar";
+import classes from "./components-demo.module.scss";
 
 const ComponentsDemo = () => {
   return (
@@ -13,6 +13,7 @@ const ComponentsDemo = () => {
 
       <ScrollArea className={classes.content}>
         <Stack gap={"3xl"}>
+       
           {demoComponentsNavbarData?.map((item) => {
             return (
               <Stack gap={"xs"} key={item.label} mb={"3xl"}>
@@ -24,7 +25,7 @@ const ComponentsDemo = () => {
                       <Title order={3} key={link.label}>
                         {link.label}
                       </Title>
-                      {link.demo && <Demo key={link.label} data={link.demo} />}
+                      {link.demo && <Demo key={link.value} data={link.demo} />}
                     </Stack>
                   );
                 })}

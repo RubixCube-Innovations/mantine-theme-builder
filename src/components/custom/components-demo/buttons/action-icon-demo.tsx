@@ -1,8 +1,7 @@
-import { IconAdjustments } from '@tabler/icons-react';
 import { ActionIcon } from '@mantine/core';
-import { MantineDemo } from '../../../mantine/demo';
+import { IconAdjustments } from '@tabler/icons-react';
 import { interactiveVariantsControl } from '../../../../utils/variants-data';
-import { localStorageTheme } from '../../../../utils/functions';
+import { MantineDemo } from '../../../mantine/demo';
 
 const code = `
 import { ActionIcon } from '@mantine/core';
@@ -32,7 +31,7 @@ export const actionIconDemo: MantineDemo = {
   centered: true,
   controls: [
     interactiveVariantsControl,
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: "", libraryValue: "" },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
     { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: 'sm' },
     { prop: 'disabled', type: 'boolean', initialValue: false, libraryValue: false },

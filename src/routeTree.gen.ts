@@ -11,23 +11,23 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as FeedbackImport } from './routes/feedback'
-import { Route as ComponentsImport } from './routes/components'
+import { Route as PlaygroundImport } from './routes/playground'
+import { Route as FeedbackImport } from '././routes/feedback'
 import { Route as BlocksImport } from './routes/blocks'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
-const FeedbackRoute = FeedbackImport.update({
-  id: '/feedback',
-  path: '/feedback',
+const PlaygroundRoute = PlaygroundImport.update({
+  id: '/playground',
+  path: '/playground',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ComponentsRoute = ComponentsImport.update({
-  id: '/components',
-  path: '/components',
+const FeedbackRoute = FeedbackImport.update({
+  id: '/feedback',
+  path: '/feedback',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -74,18 +74,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlocksImport
       parentRoute: typeof rootRoute
     }
-    '/components': {
-      id: '/components'
-      path: '/components'
-      fullPath: '/components'
-      preLoaderRoute: typeof ComponentsImport
-      parentRoute: typeof rootRoute
-    }
     '/feedback': {
       id: '/feedback'
       path: '/feedback'
       fullPath: '/feedback'
       preLoaderRoute: typeof FeedbackImport
+      parentRoute: typeof rootRoute
+    }
+    '/playground': {
+      id: '/playground'
+      path: '/playground'
+      fullPath: '/playground'
+      preLoaderRoute: typeof PlaygroundImport
       parentRoute: typeof rootRoute
     }
   }
@@ -97,16 +97,16 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blocks': typeof BlocksRoute
-  '/components': typeof ComponentsRoute
   '/feedback': typeof FeedbackRoute
+  '/playground': typeof PlaygroundRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blocks': typeof BlocksRoute
-  '/components': typeof ComponentsRoute
   '/feedback': typeof FeedbackRoute
+  '/playground': typeof PlaygroundRoute
 }
 
 export interface FileRoutesById {
@@ -114,16 +114,16 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blocks': typeof BlocksRoute
-  '/components': typeof ComponentsRoute
   '/feedback': typeof FeedbackRoute
+  '/playground': typeof PlaygroundRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/blocks' | '/components' | '/feedback'
+  fullPaths: '/' | '/about' | '/blocks' | '/feedback' | '/playground'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/blocks' | '/components' | '/feedback'
-  id: '__root__' | '/' | '/about' | '/blocks' | '/components' | '/feedback'
+  to: '/' | '/about' | '/blocks' | '/feedback' | '/playground'
+  id: '__root__' | '/' | '/about' | '/blocks' | '/feedback' | '/playground'
   fileRoutesById: FileRoutesById
 }
 
@@ -131,16 +131,16 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BlocksRoute: typeof BlocksRoute
-  ComponentsRoute: typeof ComponentsRoute
   FeedbackRoute: typeof FeedbackRoute
+  PlaygroundRoute: typeof PlaygroundRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BlocksRoute: BlocksRoute,
-  ComponentsRoute: ComponentsRoute,
   FeedbackRoute: FeedbackRoute,
+  PlaygroundRoute: PlaygroundRoute,
 }
 
 export const routeTree = rootRoute
@@ -156,8 +156,8 @@ export const routeTree = rootRoute
         "/",
         "/about",
         "/blocks",
-        "/components",
-        "/feedback"
+        "/feedback",
+        "/playground"
       ]
     },
     "/": {
@@ -169,11 +169,11 @@ export const routeTree = rootRoute
     "/blocks": {
       "filePath": "blocks.tsx"
     },
-    "/components": {
-      "filePath": "components.tsx"
-    },
     "/feedback": {
       "filePath": "feedback.tsx"
+    },
+    "/playground": {
+      "filePath": "playground.tsx"
     }
   }
 }

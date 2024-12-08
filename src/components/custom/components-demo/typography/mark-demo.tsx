@@ -27,5 +27,5 @@ export const markDemo: MantineDemo = {
   code,
   centered: true,
   maxWidth: '100%',
-  controls: [{ prop: 'color', type: 'color', initialValue: 'yellow', libraryValue: 'yellow' }],
+  controls: [{ prop: 'color', type: 'color', initialValue: '', libraryValue: '' }],
 };

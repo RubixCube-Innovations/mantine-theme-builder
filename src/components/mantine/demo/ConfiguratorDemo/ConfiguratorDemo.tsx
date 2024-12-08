@@ -70,7 +70,7 @@ export function ConfiguratorDemo({
 
   const items = controls.map((control) => {
     const ControlComponent = ControlComponents[control.type] as any;
-    const { initialValue, libraryValue, ...rest } = control;
+    const { ...rest } = control;
     return (
       <ControlComponent
         key={control.prop}

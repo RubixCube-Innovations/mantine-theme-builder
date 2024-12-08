@@ -21,6 +21,7 @@ import { avatarDemo } from "../components/custom/components-demo/data-display/av
 import { backgroundImageDemo } from "../components/custom/components-demo/data-display/background-image-demo";
 import { badgeDemo } from "../components/custom/components-demo/data-display/badge-demo";
 import { cardDemo } from "../components/custom/components-demo/data-display/card-demo";
+import { colorSwatchDemo } from "../components/custom/components-demo/data-display/color-swatch-demo";
 import { imageDemo } from "../components/custom/components-demo/data-display/image-demo";
 import { indicatorDemo } from "../components/custom/components-demo/data-display/indicator-demo";
 import { spoilerDemo } from "../components/custom/components-demo/data-display/spoiler-demo";
@@ -238,7 +239,7 @@ export const demoComponentsNavbarData = [
       { label: 'BackgroundImage', value: 'background-image', demo: backgroundImageDemo },
       { label: 'Badge', value: 'badge', demo: badgeDemo },
       { label: 'Card', value: 'card', demo: cardDemo },
-      { label: 'ColorSwatch', value: 'color-swatch', demo: colorInputDemo },
+      { label: 'ColorSwatch', value: 'color-swatch', demo: colorSwatchDemo },
       { label: 'Image', value: 'image', demo: imageDemo },
       { label: 'Indicator', value: 'indicator', demo: indicatorDemo },
       { label: 'Spoiler', value: 'spoiler', demo: spoilerDemo },

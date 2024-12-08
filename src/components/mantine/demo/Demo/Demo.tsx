@@ -16,7 +16,7 @@ interface DemoProps {
 }
 
 export function Demo({ data }: DemoProps) {
-  switch (data.type) {
+ switch (data.type) {
     case 'code':
       return (
         <CodeDemo {...data}>

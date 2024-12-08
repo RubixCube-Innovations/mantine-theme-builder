@@ -1,6 +1,5 @@
 import { Radio, RadioProps } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { Radio } from '@mantine/core';
@@ -43,7 +42,7 @@ export const radioDemo: MantineDemo = {
     { prop: 'description', type: 'string', initialValue: '', libraryValue: '' },
     { prop: 'error', type: 'string', initialValue: '', libraryValue: '' },
     { prop: 'size', type: 'size', initialValue: 'sm', libraryValue: 'sm' },
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: '', libraryValue: '' },
     {
       prop: 'variant',
       type: 'segmented',

@@ -141,7 +141,7 @@ export function AuthenticationForm({
                 : "Don't have an account? Register"}
             </Anchor>
 
-            <Button color="blue" type="submit">
+            <Button type="submit">
               {formType === 'register' ? 'Register' : 'Login'}
             </Button>
           </Group>

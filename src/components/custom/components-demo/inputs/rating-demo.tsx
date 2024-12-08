@@ -1,6 +1,5 @@
 import { Rating, RatingProps } from '@mantine/core';
 import { MantineDemo } from '../../../mantine/demo';
-import { localStorageTheme } from '../../../../utils/functions';
 
 const code = `
 import { Rating } from '@mantine/core';
@@ -20,7 +19,7 @@ export const ratingDemo: MantineDemo = {
   code,
   centered: true,
   controls: [
-    { prop: 'color', type: 'color', initialValue: localStorageTheme?.color, libraryValue: localStorageTheme?.color },
+    { prop: 'color', type: 'color', initialValue: "yellow", libraryValue: "yellow" },
     { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
     { prop: 'count', type: 'number', initialValue: 5, libraryValue: 5, min: 1, max: 8 },
     { prop: 'highlightSelectedOnly', type: 'boolean', initialValue: false, libraryValue: false },

@@ -56,7 +56,7 @@ function Customizer() {
   const [config, setConfig] = React.useState<IThemeConfig>({
     style: "shadcn",
     color: SHADCN_DEFAULT_COLORS[0].id,
-    radius: "md",
+    radius: "sm",
   });
 
   React.useEffect(() => {
@@ -73,11 +73,7 @@ function Customizer() {
 
   const mantineColorButtons = baseColors.map((color: any) => (
     <Button
-      variant={"outline"}
-      style={{
-        borderColor:
-          config.color === color.id ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-default-border)",
-      }}
+      variant={config.color === color.id ? "outline" : "default"}
       leftSection={<ColorSwatch size={20} color={color.color} />}
       key={color.id}
       onClick={() => {
@@ -142,13 +138,7 @@ function Customizer() {
 
           <SimpleGrid cols={3}>
             <Button
-              variant={"outline"}
-              style={{
-                borderColor:
-                  config.style === "mantine"
-                    ? "var(--mantine-primary-color-filled)"
-                    : "var(--mantine-color-default-border)",
-              }}
+              variant={config.style === "mantine" ? "outline" : "default"}
               size="xs"
               onClick={() => {
                 //TODO: Refactoring needed
@@ -168,13 +158,7 @@ function Customizer() {
               Mantine
             </Button>
             <Button
-              variant={"outline"}
-              style={{
-                borderColor:
-                  config.style === "shadcn"
-                    ? "var(--mantine-primary-color-filled)"
-                    : "var(--mantine-color-default-border)",
-              }}
+              variant={config.style === "shadcn" ? "outline" : "default"}
               size="xs"
               onClick={() => {
                 const updatedConfig = {
@@ -194,13 +178,7 @@ function Customizer() {
             </Button>
 
             <Button
-              variant={"outline"}
-              style={{
-                borderColor:
-                  config.style === "radixui"
-                    ? "var(--mantine-primary-color-filled)"
-                    : "var(--mantine-color-default-border)",
-              }}
+              variant={config.style === "radixui" ? "outline" : "default"}
               size="xs"
               disabled
             >

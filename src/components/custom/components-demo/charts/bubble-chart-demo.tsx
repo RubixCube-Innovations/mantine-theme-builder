@@ -39,5 +39,5 @@ export const bubbleChartDemo: MantineDemo = {
     { code, language: 'tsx', fileName: 'Demo.tsx' },
     { code: dataCode, language: 'tsx', fileName: 'data.ts' },
   ],
-  controls: [{ type: 'color', prop: 'color', initialValue: 'blue', libraryValue: null }],
+  controls: [{ type: 'color', prop: 'color', initialValue: '', libraryValue: '' }],
 };
