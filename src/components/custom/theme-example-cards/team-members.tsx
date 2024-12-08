@@ -21,7 +21,7 @@ export function CardsTeamMembers() {
           <Stack gap="lg">
             <Group justify="space-between">
               <Group>
-                <Avatar src="/avatars/01.png" alt="Image" radius="xl" />
+                <Avatar src="https://ui.shadcn.com/avatars/01.png" alt="Image" radius="xl" />
                 <div>
                   <Text size="sm" fw={500}>
                     Sofia Davis
@@ -47,7 +47,7 @@ export function CardsTeamMembers() {
                   />
                   <Divider />
                   <Stack gap={0}>
-                    {options?.map(()=><Button
+                    {options?.map((option)=><Button
                       variant="subtle"
                       size="lg"
                       ta={"left"}
@@ -56,9 +56,9 @@ export function CardsTeamMembers() {
                       radius={0}
                     >
                       <Box>
-                        <Text size="sm">Viewer</Text>
+                        <Text size="sm">{option.label}</Text>
                         <Text size="xs" c="dimmed">
-                          Can view and comment.
+                          {option.description}
                         </Text>
                       </Box>
                     </Button>)}
@@ -68,7 +68,7 @@ export function CardsTeamMembers() {
             </Group>
             <Group justify="space-between">
               <Group>
-                <Avatar src="/avatars/02.png" alt="Image" radius="xl" />
+                <Avatar src="https://ui.shadcn.com/avatars/02.png" alt="Image" radius="xl" />
                 <div>
                   <Text size="sm" fw={500}>
                     Jackson Lee
@@ -84,33 +84,37 @@ export function CardsTeamMembers() {
                     Member
                   </Button>
                 </Popover.Target>
-                <Popover.Dropdown>
-                  <TextInput placeholder="Select new role..." />
-                  <Divider my="sm" />
-                  <Stack gap="xs">
-                    <Text size="sm">Viewer</Text>
-                    <Text size="xs" c="dimmed">
-                      Can view and comment.
-                    </Text>
-                    <Text size="sm">Developer</Text>
-                    <Text size="xs" c="dimmed">
-                      Can view, comment and edit.
-                    </Text>
-                    <Text size="sm">Billing</Text>
-                    <Text size="xs" c="dimmed">
-                      Can view, comment and manage billing.
-                    </Text>
-                    <Text size="sm">Owner</Text>
-                    <Text size="xs" c="dimmed">
-                      Admin-level access to all resources.
-                    </Text>
+                <Popover.Dropdown p={0}>
+                  <TextInput
+                    pt={0}
+                    variant="transparant"
+                    placeholder="Select new role..."
+                    leftSection={<IconSearch size={"16px"} />}
+                  />
+                  <Divider />
+                  <Stack gap={0}>
+                    {options?.map((option)=><Button
+                      variant="subtle"
+                      size="lg"
+                      ta={"left"}
+                      px={"xs"}
+                      styles={{ inner: { justifyContent: "flex-start" } }}
+                      radius={0}
+                    >
+                      <Box>
+                        <Text size="sm">{option.label}</Text>
+                        <Text size="xs" c="dimmed">
+                          {option.description}
+                        </Text>
+                      </Box>
+                    </Button>)}
                   </Stack>
                 </Popover.Dropdown>
               </Popover>
             </Group>
             <Group justify="space-between">
               <Group>
-                <Avatar src="/avatars/03.png" alt="Image" radius="xl" />
+                <Avatar src="https://ui.shadcn.com/avatars/03.png" alt="Image" radius="xl" />
                 <div>
                   <Text size="sm" fw={500}>
                     Isabella Nguyen
@@ -126,26 +130,30 @@ export function CardsTeamMembers() {
                     Member
                   </Button>
                 </Popover.Target>
-                <Popover.Dropdown>
-                  <TextInput placeholder="Select new role..." />
-                  <Divider my="sm" />
-                  <Stack gap="xs">
-                    <Text size="sm">Viewer</Text>
-                    <Text size="xs" c="dimmed">
-                      Can view and comment.
-                    </Text>
-                    <Text size="sm">Developer</Text>
-                    <Text size="xs" c="dimmed">
-                      Can view, comment and edit.
-                    </Text>
-                    <Text size="sm">Billing</Text>
-                    <Text size="xs" c="dimmed">
-                      Can view, comment and manage billing.
-                    </Text>
-                    <Text size="sm">Owner</Text>
-                    <Text size="xs" c="dimmed">
-                      Admin-level access to all resources.
-                    </Text>
+                <Popover.Dropdown p={0}>
+                  <TextInput
+                    pt={0}
+                    variant="transparant"
+                    placeholder="Select new role..."
+                    leftSection={<IconSearch size={"16px"} />}
+                  />
+                  <Divider />
+                  <Stack gap={0}>
+                    {options?.map((option)=><Button
+                      variant="subtle"
+                      size="lg"
+                      ta={"left"}
+                      px={"xs"}
+                      styles={{ inner: { justifyContent: "flex-start" } }}
+                      radius={0}
+                    >
+                      <Box>
+                        <Text size="sm">{option.label}</Text>
+                        <Text size="xs" c="dimmed">
+                          {option.description}
+                        </Text>
+                      </Box>
+                    </Button>)}
                   </Stack>
                 </Popover.Dropdown>
               </Popover>

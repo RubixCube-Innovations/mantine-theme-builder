@@ -26,7 +26,7 @@ const PageLayout = ({ children, title, description, isBlockPage, showActionButto
           {children}
         </Stack>
 
-        <Box mt="auto" w="100%" p={"lg"}>
+        <Box mt="auto" w="100%" p={"lg"} pb="70px">
           <Divider mb="sm" />
           <Group justify="space-between" align="center">
             <Text size="sm">

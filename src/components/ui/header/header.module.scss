@@ -32,3 +32,14 @@
       color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
     }
   }
+
+  .tab {
+    position: relative;
+    border-top: 1px solid var(--mantine-color-default-border);
+    background-color: var(--mantine-color-body);
+
+  
+    @mixin hover {
+      background-color: var(--mantine-color-default-hover);
+    }
+  }
