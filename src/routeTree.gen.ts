@@ -12,7 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as PlaygroundImport } from './routes/playground'
-import { Route as FeedbackImport } from '././routes/feedback'
+import { Route as FeedbackImport } from './routes/feedback'
 import { Route as BlocksImport } from './routes/blocks'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
