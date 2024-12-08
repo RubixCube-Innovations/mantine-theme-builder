@@ -11,7 +11,7 @@ export const ComingSoon = () => {
               Coming Soon..
             </Text>
             <Text c={"dimmed"} maw={"380"}>
-              We're working hard to bring you more awesome block. Stay tuned for updates!
+              We're working hard to bring you more awesome blocks. Stay tuned for updates!
             </Text>
           </Group>
         </Stack>

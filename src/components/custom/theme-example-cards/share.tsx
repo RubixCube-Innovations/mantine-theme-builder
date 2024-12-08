@@ -25,9 +25,9 @@ export function CardsShare() {
                 <Text fw={"500"}>People with access</Text>
                 <Box style={{ display: 'grid', gap: '16px', marginTop: '16px' }}>
                     {[
-                        { name: 'Olivia Martin', email: 'm@example.com', avatar: '/avatars/03.png', fallback: 'OM', access: 'edit' },
-                        { name: 'Isabella Nguyen', email: 'b@example.com', avatar: '/avatars/05.png', fallback: 'IN', access: 'view' },
-                        { name: 'Sofia Davis', email: 'p@example.com', avatar: '/avatars/01.png', fallback: 'SD', access: 'view' },
+                        { name: 'Olivia Martin', email: 'm@example.com', avatar: 'https://ui.shadcn.com/avatars/03.png', fallback: 'OM', access: 'edit' },
+                        { name: 'Isabella Nguyen', email: 'b@example.com', avatar: 'https://ui.shadcn.com/avatars/05.png', fallback: 'IN', access: 'view' },
+                        { name: 'Sofia Davis', email: 'p@example.com', avatar: 'https://ui.shadcn.com/avatars/01.png', fallback: 'SD', access: 'view' },
                     ].map((person) => (
                         <Group key={person.email} justify='space-between'>
                             <Group>
