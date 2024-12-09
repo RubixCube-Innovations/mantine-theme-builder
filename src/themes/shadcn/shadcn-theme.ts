@@ -412,7 +412,6 @@ export const shadcnTheme = createTheme({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
       styles: (theme) => {
