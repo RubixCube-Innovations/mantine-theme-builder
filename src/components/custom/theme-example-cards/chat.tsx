@@ -92,7 +92,7 @@ export function CardsChat() {
       <Card>
         <Group align="center" justify="space-between">
           <Group>
-            <Avatar src="/avatars/01.png" alt="Sofia Davis" radius="xl" />
+            <Avatar src="https://ui.shadcn.com/avatars/01.png" alt="Sofia Davis" radius="xl" />
             <div>
               <Text fw={500} size="sm">
                 Sofia Davis
