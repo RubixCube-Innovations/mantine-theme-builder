@@ -1101,4 +1101,18 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     border-color: var(--mantine-color-default-border);
   }
 }
+
+/* Code Highlight */
+.mantine-CodeHighlightTabs-root {
+  .mantine-CodeHighlightTabs-file {
+    color: var(--mantine-color-text);
+    border-color: var(--mantine-color-default-border);
+    
+    &:where([data-active]) {
+        background-color: var(--mantine-color-default-hover);
+        color: var(--mantine-color-text);
+    }
+
+  }
+}
 `;
