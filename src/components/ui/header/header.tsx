@@ -97,9 +97,10 @@ export function Header() {
           <Text size="md" fw={"bolder"}>
             {APP_NAME}
           </Text>
-          <Group gap={5} visibleFrom="sm">
+          <Group gap={5} visibleFrom="md">
             {getItems("header")}
           </Group>
+
           <Group>
             <iframe
               src="https://ghbtns.com/github-btn.html?user=RubixCube-Innovations&repo=mantine-theme-builder&type=star&count=true&size=large"
@@ -109,8 +110,8 @@ export function Header() {
               title="GitHub"
             ></iframe>
             <ColorSchemeSwitch />
+          <Burger opened={drawerOpened} onClick={toggleDrawer} size="sm" hiddenFrom="md" />
           </Group>
-          <Burger opened={drawerOpened} onClick={toggleDrawer} size="sm" hiddenFrom="sm" />
         </div>
         <Divider />
       </header>
@@ -123,7 +124,6 @@ export function Header() {
             {APP_NAME}
           </Text>
         }
-        hiddenFrom="sm"
         p={0}
       >
         <Divider pb={"md"} />
