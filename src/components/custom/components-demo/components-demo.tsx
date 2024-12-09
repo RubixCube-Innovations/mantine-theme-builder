@@ -1,4 +1,4 @@
-import { Box, Divider, Group, Stack, Title } from "@mantine/core";
+import { Box, Container, Divider, Group, Stack, Title } from "@mantine/core";
 import { demoComponentsNavbarData } from "../../../utils/data";
 import { Demo } from "../../mantine/demo";
 import Navbar from "../../ui/navbar/navbar";
@@ -6,7 +6,7 @@ import classes from "./components-demo.module.css";
 
 const ComponentsDemo = () => {
   return (
-    <Group gap={"2rem"} pt={"xl"} align="flex-start" justify="center">
+    <Group gap={"2rem"} pt={"xl"} align="flex-start" justify="center" wrap="nowrap">
       <Box className={classes.navbarWrapper} visibleFrom="md">
         <Navbar menu={demoComponentsNavbarData} />
       </Box>
