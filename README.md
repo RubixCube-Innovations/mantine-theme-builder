@@ -1,7 +1,9 @@
 
-# Mantine Theme Builder
+# Mantine Hub - Modern Themes, UI Blocks, Templates and much more
 
-**Mantine Theme Builder** is an open-source project that lets developers easily create and customize modern themes for Mantine components. Inspired by the shadcn themes, this tool is perfect for developers who want a fast and intuitive way to style their Mantine-based UI.
+**Mantine Hub(previously Theme Builder)** is a complimentary tool for developers to make UI development with Mantine much more faster and easier. Initially created as an experimental project to simplify the process of modernizing Mantine's styling, MantineHub offers pre-configured themes inspired by Shadcn. With MantineHub, developers can quickly integrate modern styling into their projects by copying and pasting the theme configuration.
+
+Due to the overwhelming positive feedback and community endorsment we’ve received, MantineHub has evolved into a comprehensive toolkit. It now supports all Mantine components and introduces exciting new features like Blocks—pre-built UI components designed to seamlessly work with the generated themes.
 
 ![image](https://github.com/user-attachments/assets/0b673eec-ed49-4928-a021-5bee7d0ec8e3)
 
