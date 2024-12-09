@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Group, Stack, Title } from "@mantine/core";
+import { Box, Divider, Group, Stack, Title } from "@mantine/core";
 import { demoComponentsNavbarData } from "../../../utils/data";
 import { Demo } from "../../mantine/demo";
 import Navbar from "../../ui/navbar/navbar";
