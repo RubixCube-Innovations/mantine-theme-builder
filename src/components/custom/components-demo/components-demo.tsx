@@ -2,7 +2,7 @@ import { Box, Divider, Group, Stack, Title } from "@mantine/core";
 import { demoComponentsNavbarData } from "../../../utils/data";
 import { Demo } from "../../mantine/demo";
 import Navbar from "../../ui/navbar/navbar";
-import classes from "./components-demo.module.scss";
+import classes from "./components-demo.module.css";
 
 const ComponentsDemo = () => {
   return (
