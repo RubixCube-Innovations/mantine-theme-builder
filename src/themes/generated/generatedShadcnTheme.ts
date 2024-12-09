@@ -1,33 +1,37 @@
 export const generatedShadcnTheme = {
   zinc: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -82,8 +86,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: zincColors,
-    secondary: zincColors, 
-    dark: zincColors, 
+    secondary: zincColors,
+    dark: zincColors,
 
     error: redColors,
     success: greenColors,
@@ -187,51 +191,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -282,16 +274,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -303,7 +298,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -322,10 +317,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -336,7 +332,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -346,51 +344,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -398,98 +380,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   slate: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -544,8 +600,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: slateColors,
-    secondary: slateColors, 
-    dark: slateColors, 
+    secondary: slateColors,
+    dark: slateColors,
 
     error: redColors,
     success: greenColors,
@@ -649,51 +705,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -744,16 +788,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -765,7 +812,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -784,10 +831,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -798,7 +846,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -808,51 +858,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -860,98 +894,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   gray: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -1006,8 +1114,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: grayColors,
-    secondary: grayColors, 
-    dark: grayColors, 
+    secondary: grayColors,
+    dark: grayColors,
 
     error: redColors,
     success: greenColors,
@@ -1111,51 +1219,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -1206,16 +1302,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -1227,7 +1326,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -1246,10 +1345,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -1260,7 +1360,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -1270,51 +1372,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -1322,98 +1408,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   neutral: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -1468,8 +1628,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: neutralColors,
-    secondary: neutralColors, 
-    dark: neutralColors, 
+    secondary: neutralColors,
+    dark: neutralColors,
 
     error: redColors,
     success: greenColors,
@@ -1573,51 +1733,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -1668,16 +1816,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -1689,7 +1840,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -1708,10 +1859,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -1722,7 +1874,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -1732,51 +1886,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -1784,98 +1922,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   stone: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -1930,8 +2142,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: stoneColors,
-    secondary: stoneColors, 
-    dark: stoneColors, 
+    secondary: stoneColors,
+    dark: stoneColors,
 
     error: redColors,
     success: greenColors,
@@ -2035,51 +2247,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -2130,16 +2330,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -2151,7 +2354,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -2170,10 +2373,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -2184,7 +2388,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -2194,51 +2400,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -2246,98 +2436,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   red: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -2392,8 +2656,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: redColors,
-    secondary: neutralColors, 
-    dark: neutralColors, 
+    secondary: neutralColors,
+    dark: neutralColors,
 
     error: redColors,
     success: greenColors,
@@ -2497,51 +2761,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -2592,16 +2844,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -2613,7 +2868,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -2632,10 +2887,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -2646,7 +2902,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -2656,51 +2914,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -2708,98 +2950,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   rose: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -2854,8 +3170,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: roseColors,
-    secondary: stoneColors, 
-    dark: stoneColors, 
+    secondary: stoneColors,
+    dark: stoneColors,
 
     error: redColors,
     success: greenColors,
@@ -2959,51 +3275,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -3054,16 +3358,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -3075,7 +3382,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -3094,10 +3401,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -3108,7 +3416,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -3118,51 +3428,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -3170,98 +3464,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot__roseGreen",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   orange: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -3316,8 +3684,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: orangeColors,
-    secondary: stoneColors, 
-    dark: stoneColors, 
+    secondary: stoneColors,
+    dark: stoneColors,
 
     error: redColors,
     success: greenColors,
@@ -3421,51 +3789,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -3516,16 +3872,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -3537,7 +3896,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -3556,10 +3915,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -3570,7 +3930,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -3580,51 +3942,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -3632,98 +3978,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   yellow: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -3778,8 +4198,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: yellowColors,
-    secondary: stoneColors, 
-    dark: stoneColors, 
+    secondary: stoneColors,
+    dark: stoneColors,
 
     error: redColors,
     success: greenColors,
@@ -3883,51 +4303,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -3978,16 +4386,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -3999,7 +4410,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -4018,10 +4429,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -4032,7 +4444,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -4042,51 +4456,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -4094,98 +4492,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   green: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -4240,8 +4712,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: greenColors,
-    secondary: stoneColors, 
-    dark: stoneColors, 
+    secondary: stoneColors,
+    dark: stoneColors,
 
     error: redColors,
     success: greenColors,
@@ -4345,51 +4817,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -4440,16 +4900,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -4461,7 +4924,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -4480,10 +4943,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -4494,7 +4958,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -4504,51 +4970,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -4556,98 +5006,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot__roseGreen",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   blue: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -4702,8 +5226,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: blueColors,
-    secondary: slateColors, 
-    dark: slateColors, 
+    secondary: slateColors,
+    dark: slateColors,
 
     error: redColors,
     success: greenColors,
@@ -4807,51 +5331,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -4902,16 +5414,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -4923,7 +5438,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -4942,10 +5457,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -4956,7 +5472,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -4966,51 +5484,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -5018,98 +5520,172 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
 `,
   violet: `import {
   ActionIcon,
+  Alert,
   Anchor,
+  Avatar,
+  Badge,
+  Blockquote,
   Button,
   Card,
   Checkbox,
   Chip,
-  Code,
   Container,
   createTheme,
   Dialog,
-  HoverCard,
+  Indicator,
+  Mark,
   Modal,
   NavLink,
   Pagination,
   Paper,
-  Popover,
   Radio,
   rem,
   SegmentedControl,
   Select,
   Stepper,
   Switch,
-  Table,
+  ThemeIcon,
+  Timeline,
   Tooltip
 } from "@mantine/core";
 
 
-import { Spotlight } from "@mantine/spotlight";
+
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
   xs: rem("300px"),
@@ -5164,8 +5740,8 @@ export const shadcnTheme = createTheme({
     pink: pinkColors,
 
     primary: violetColors,
-    secondary: grayColors, 
-    dark: grayColors, 
+    secondary: grayColors,
+    dark: grayColors,
 
     error: redColors,
     success: greenColors,
@@ -5269,51 +5845,39 @@ export const shadcnTheme = createTheme({
       }),
     }),
     Checkbox: Checkbox.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--checkbox-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled)",
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--checkbox-color": colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
 
-          "--checkbox-icon-color": props.color
-            ? \`var(--mantine-color-\${props.color}-contrast)\`
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+            "--checkbox-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+          },
+        };
+      },
     }),
     Chip: Chip.extend({
-      vars: (theme, props) => ({
-        root: {
-          "--chip-bg": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light)\`
-                : \`var(--mantine-color-\${props.color}-filled)\`
-              : props.color
-            : "var(--mantine-primary-color-filled",
-
-          "--chip-hover": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light"
-                ? \`var(--mantine-color-\${props.color}-light-hover)\`
-                : props.variant === "outline"
-                  ? \`var(--mantine-color-\${props.color}-outline-hover)\`
-                  : \`var(--mantine-color-\${props.color}-filled-hover)\`
-              : props.color
-            : "var(--mantine-primary-color-filled-hover)",
-          "--chip-color": props.color
-            ? Object.keys(theme.colors).includes(props.color)
-              ? props.variant === "light" || props.variant === "outline"
-                ? \`var(--mantine-color-\${props.color}-light-color)\`
-                : \`var(--mantine-color-\${props.color}-contrast)\`
-              : props.color
-            : "var(--mantine-primary-color-contrast)",
-        },
-      }),
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--chip-bg":
+              variant !== "light"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-filled)\`
+                  : "var(--mantine-primary-color-filled)"
+                : undefined,
+            "--chip-color":
+              variant === "filled"
+                ? colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)"
+                : undefined,
+          },
+        };
+      },
     }),
-    //  Styles of Input, Fieldset component addded in styles.css
     Radio: Radio.extend({
       vars: (theme, props) => ({
         root: {
@@ -5364,16 +5928,19 @@ export const shadcnTheme = createTheme({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
         return {
           root: {
             "--ai-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
-                ? "var(--mantine-primary-color-contrast)"
-                : colorKey && props.variant === "filled"
-                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
-                  : props.variant === "white" && isNeutralColor
-                    ? "var(--mantine-color-bright)"
-                    : undefined,
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white" && (isNeutralColor || !props.color)
+                  ? "var(--mantine-color-bright)"
+                  : undefined,
           },
         };
       },
@@ -5385,7 +5952,7 @@ export const shadcnTheme = createTheme({
         return {
           root: {
             "--button-color":
-              (props.variant === undefined || props.variant === "filled") && props.color === undefined
+              props.variant === undefined || props.variant === "filled"
                 ? "var(--mantine-primary-color-contrast)"
                 : colorKey && props.variant === "filled"
                   ? \`var(--mantine-color-\${colorKey}-contrast)\`
@@ -5404,10 +5971,11 @@ export const shadcnTheme = createTheme({
     NavLink: NavLink.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "light";
         return {
           root: {
             "--nl-color":
-              colorKey && props.variant === "filled" ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+              variant === "filled" ? colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)' : undefined,
           },
           children: {},
         };
@@ -5418,7 +5986,9 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--pagination-active-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--pagination-active-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
@@ -5428,51 +5998,35 @@ export const shadcnTheme = createTheme({
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         return {
           root: {
-            "--stepper-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : undefined,
+            "--stepper-icon-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
           },
         };
       },
+    }),
+    Alert: Alert.extend({ 
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--alert-color": (variant === 'filled' || variant === 'white') ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)') : undefined,
+          },
+        };
+      }
     }),
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
       },
     }),
-    // Todo: Add styles for HoverCard
-    HoverCard: HoverCard.extend({
-      classNames: () => ({
-        dropdown: "globalMantineHoverCard",
-      }),
-    }),
-    // Todo: Add styles for Modal
     Modal: Modal.extend({
       defaultProps: {
         p: "md",
       },
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
-    // Todo: Add styles for Popover
-    Popover: Popover.extend({
-      styles: () => ({
-        dropdown: {
-          backgroundColor: "var(--mantine-color-default)",
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-    }),
-    // Todo: Add styles for Tooltip
     Tooltip: Tooltip.extend({
-      styles: () => ({
-        tooltip: {
-          fontSize: "var(--mantine-font-size-xs)",
-          paddingTop: "0px",
-          paddingBottom: "0px",
-        },
-      }),
       vars: () => ({
         tooltip: {
           "--tooltip-bg": "var(--mantine-color-primary-color-filled)",
@@ -5480,65 +6034,135 @@ export const shadcnTheme = createTheme({
         },
       }),
     }),
-    // Todo: Add styles for Card
+    Avatar: Avatar.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--avatar-bg": variant === "filled" ? (colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : 'var(--mantine-primary-color-filled)') : undefined,
+            "--avatar-color":
+              variant === "filled"
+                ? !props.color
+                  ? "var(--mantine-primary-color-contrast)"
+                  : colorKey
+                    ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                    : undefined
+                : variant === "white"
+                  ? colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)"
+                  : undefined,
+          },
+        };
+      },
+    }),
+    Badge: Badge.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--badge-bg": variant === "filled" && colorKey ? \`var(--mantine-color-\${colorKey}-filled)\` : undefined,
+            "--badge-color":
+              variant === "filled"
+                ? (colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)')
+                : variant === "white"
+                  ? (colorKey ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\` : 'var(--mantine-primary-color-contrast)')
+                  : undefined,
+          },
+        };
+      },
+    }),
     Card: Card.extend({
       defaultProps: {
         p: "xl",
         shadow: "xl",
-        radius: "md",
         withBorder: true,
       },
-      classNames: (theme) => ({
-        root: "globalMantineCardRoot",
-      }),
+      styles: (theme) => {
+        return {
+          root: {
+            backgroundColor:
+              theme.primaryColor === "rose" || theme.primaryColor === "green"
+                ? "var(--mantine-color-secondary-filled)"
+                : undefined,
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Code
-    Code: Code.extend({
-      vars: () => ({
-        root: {
-          "--code-bg": "var(--mantine-color-dark-filled)",
-        },
-      }),
-      styles: () => ({
-        root: {
-          border: "1px solid var(--mantine-color-default-border)",
-          color: "var(--mantine-color-text)",
-        },
-      }),
+    Indicator: Indicator.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--indicator-text-color": colorKey
+              ? \`var(--mantine-color-\${colorKey}-contrast)\`
+              : "var(--mantine-primary-color-contrast)",
+          },
+        };
+      },
     }),
-    // Todo: Add styles for Table
-    Table: Table.extend({
-      styles: () => ({
-        table: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        tr: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        th: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-        td: {
-          borderColor: "var(--mantine-color-default-border)",
-        },
-      }),
-      classNames: () => ({
-        tr: "globalMantineTableRow",
-      }),
+    ThemeIcon: ThemeIcon.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        const variant = props.variant ?? "filled";
+        return {
+          root: {
+            "--ti-color":
+              variant === "filled"
+                ? (colorKey
+                  ? \`var(--mantine-color-\${colorKey}-contrast)\`
+                  : "var(--mantine-primary-color-contrast)")
+                : variant === "white"
+                  ? (colorKey
+                    ? \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? "contrast" : "filled"})\`
+                    : "var(--mantine-primary-color-contrast)")
+                  : undefined,
+          },
+        };
+      },
     }),
-
+    Timeline: Timeline.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--tl-icon-color": colorKey ? \`var(--mantine-color-\${colorKey}-contrast)\` : 'var(--mantine-primary-color-contrast)',
+          },
+        };
+      },
+    }),
+    Blockquote: Blockquote.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        return {
+          root: {
+            "--bq-bg-dark": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+            "--bq-bg-light": colorKey ? \`var(--mantine-color-\${colorKey}-light)\` : 'var(--mantine-primary-color-light)',
+          },
+        };
+      },
+    }),
+    Mark: Mark.extend({
+      vars: (theme, props) => {
+        const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : 'yellow';
+        const isNeutralColor = colorKey && ["zinc", "slate", "gray", "neutral", "stone"].includes(colorKey);
+        return {
+          root: {
+            "--mark-bg-light": \`var(--mantine-color-\${colorKey}-\${isNeutralColor ? '3' : 'filled-hover'})\`,
+            "--mark-bg-dark": \`var(--mantine-color-\${colorKey}-filled)\`
+          },
+        };
+      },
+    }),
     Paper: Paper.extend({
       defaultProps: {
         shadow: "xl",
       },
-    }),
-    // Todo: Add styles for Divider
-    Spotlight: Spotlight.extend({
-      styles: () => ({
-        content: {
-          border: "1px solid var(--mantine-color-default-border)",
-        },
-      }),
     }),
   },
 });
