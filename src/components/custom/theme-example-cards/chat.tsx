@@ -118,15 +118,14 @@ export function CardsChat() {
               key={index}
               style={{
                 alignSelf: message.role === "user" ? "flex-end" : "flex-start",
+                backgroundColor:  message.role === "user"
+                ? "var(--mantine-primary-color-filled)"
+                : theme.other?.style === "shadcn"
+                  ? "light-dark(var(--mantine-color-dark-2), var(--mantine-color-dark-7))"
+                  : "light-dark(var(--mantine-color-dark-1), var(--mantine-color-dark-5))"
               }}
               c={message.role === "user" ? "var(--mantine-primary-color-contrast)" : "var(--mantine-color-text)"}
-              bg={
-                message.role === "user"
-                  ? "var(--mantine-primary-color-filled)"
-                  : theme.other?.style === "shadcn"
-                    ? "light-dark(var(--mantine-color-dark-2), var(--mantine-color-dark-7))"
-                    : "light-dark(var(--mantine-color-dark-1), var(--mantine-color-dark-5))"
-              }
+            
               withBorder={false}
               shadow="none"
             >

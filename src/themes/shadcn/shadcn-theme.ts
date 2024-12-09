@@ -179,11 +179,12 @@ export const shadcnTheme = createTheme({
     Checkbox: Checkbox.extend({
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
+        console.log(colorKey)
         return {
           root: {
-            "--checkbox-color": colorKey ? `var(--mantine-color-${colorKey}-filled)` : undefined,
+            "--checkbox-color": colorKey ? `var(--mantine-color-${colorKey}-filled)` : 'var(--mantine-primary-color-filled)',
 
-            "--checkbox-icon-color": colorKey ? `var(--mantine-color-${colorKey}-contrast)` : undefined,
+            "--checkbox-icon-color": colorKey ? `var(--mantine-color-${colorKey}-contrast)` : 'var(--mantine-primary-color-contrast)',
           },
         };
       },

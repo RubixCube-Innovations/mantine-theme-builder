@@ -1,7 +1,7 @@
 export const generatedShadcnCssStyles = `/* Checkbox */
 .mantine-Checkbox-root {
   --checkbox-color: var(--mantine-primary-color-filled);
-  --checkbox-icon-color: var(--mantine-primary-color-contrast) !important;
+  --checkbox-icon-color: var(--mantine-primary-color-contrast);
 
   .mantine-Checkbox-input {
     background-color: transparent;
@@ -327,7 +327,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
   .mantine-Pagination-control {
     @mixin where-light {
       border-color: var(--mantine-color-default-border);
-      background-color: var(--mantine-color-bright);
+      background-color: var(--mantine-color-body);
   
       @mixin hover {
         &:where(:not(:disabled, [data-disabled])) {
@@ -338,7 +338,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
   
     @mixin where-dark {
       border-color: var(--mantine-color-default-border);
-      background-color: var(--mantine-color-bright);
+      background-color: var(--mantine-color-body);
   
       @mixin hover {
         &:where(:not(:disabled, [data-disabled])) {
@@ -362,13 +362,13 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 .mantine-Stepper-root {
   .mantine-Stepper-stepIcon {
     @mixin where-light {
-      background-color: var(--mantine-color-bright);
+      background-color: var(--mantine-color-body);
       border-color: var(--mantine-color-default-border);
       color: var(--mantine-color-text);
     }
   
     @mixin where-dark {
-      background-color: var(--mantine-color-bright);
+      background-color: var(--mantine-color-body);
       border-color: var(--mantine-color-default-border);
       color: var(--mantine-color-text);
     }
@@ -408,7 +408,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
   &[data-variant='pills'] {
     --tabs-list-gap: calc(var(--mantine-spacing-sm) / 2);
-    --tabs-text-color: var(--mantine-color-bright) !important;
+    --tabs-text-color: var(--mantine-color-body) !important;
 
     @mixin light {
       --tab-hover-color: var(--mantine-color-default-hover);
@@ -537,12 +537,12 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 .mantine-Popover-dropdown {
   @mixin where-light {
     --popover-border-color: var(--mantine-color-default-border);
-    background-color: var(--mantine-color-bright);
+    background-color: var(--mantine-color-body);
   }
 
   @mixin where-dark {
     --popover-border-color: var(--mantine-color-default-border);
-    background-color: var(--mantine-color-bright);
+    background-color: var(--mantine-color-body);
   }
 }
 .mantine-Popover-arrow {
