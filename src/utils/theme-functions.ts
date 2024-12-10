@@ -1,18 +1,5 @@
 import { alpha } from "@mantine/core";
-import { ColorPalette, SHADCN_DEFAULT_COLORS } from "./colors";
-
-type ColorEntry = {
-  id: string;
-  name: string;
-  color: string;
-  primaryPalette: ColorPalette;
-  primaryShade: {
-    light: number;
-    dark: number;
-  };
-  secondary?: string;
-  secondaryPalette?: ColorPalette;
-};
+import { SHADCN_DEFAULT_COLORS } from "./colors";
 
 export const getPrimaryContrastColorDay = (color: string) => {
   const colorObj = SHADCN_DEFAULT_COLORS.find((c) => c.id === color);
@@ -117,18 +104,18 @@ export const getShadcnInputBg = (color: string) => {
   }
 };
 
-export function generateCSSFilledColorVariables(colors: ColorEntry[], mode: string, isGeneration = false) {
+export function generateShadcnCSSFilledColorVariables(mode: string, isGeneration = false) {
   const lightMode: Record<string, string> = {};
   const darkMode: Record<string, string> = {};
 
-  colors.forEach(({ id, primaryShade }) => {
+  SHADCN_DEFAULT_COLORS.forEach(({ id, primaryShade }) => {
     lightMode[`--mantine-color-${id}-filled`] = `var(--mantine-color-${id}-${primaryShade.light})`;
     lightMode[`--mantine-color-${id}-filled-hover`] = isGeneration
-      ? `{alpha("var(--mantine-color-${id}-${primaryShade.light}"), 0.9)}`
+      ? `{alpha("var(--mantine-color-${id}-${primaryShade.light})", 0.9)}`
       : alpha(`var(--mantine-color-${id}-${primaryShade.light})`, 0.9);
     darkMode[`--mantine-color-${id}-filled`] = `var(--mantine-color-${id}-${primaryShade.dark})`;
     darkMode[`--mantine-color-${id}-filled-hover`] = isGeneration
-      ? `{alpha("var(--mantine-color-${id}-${primaryShade.dark}"), 0.9)}`
+      ? `{alpha("var(--mantine-color-${id}-${primaryShade.dark})", 0.9)}`
       : alpha(`var(--mantine-color-${id}-${primaryShade.dark})`, 0.9);
   });
 
@@ -138,11 +125,11 @@ export function generateCSSFilledColorVariables(colors: ColorEntry[], mode: stri
   return darkMode;
 }
 
-export function generateCSSLightColorVariables(colors: ColorEntry[], mode: string, isGeneration = false) {
+export function generateShadcnCSSLightColorVariables(mode: string, isGeneration = false) {
   const lightMode: Record<string, string> = {};
   const darkMode: Record<string, string> = {};
 
-  colors.forEach(({ id }) => {
+  SHADCN_DEFAULT_COLORS.forEach(({ id }) => {
     lightMode[`--mantine-color-${id}-light`] = isGeneration
       ? `{alpha("var(--mantine-color-${id}-4)", 0.1)}`
       : alpha(`var(--mantine-color-${id}-4)`, 0.1);
@@ -165,11 +152,11 @@ export function generateCSSLightColorVariables(colors: ColorEntry[], mode: strin
   return darkMode;
 }
 
-export function generateCSSOutlineColorVariables(colors: ColorEntry[], mode: string, isGeneration = false) {
+export function generateShadcnCSSOutlineColorVariables(mode: string, isGeneration = false) {
   const lightMode: Record<string, string> = {};
   const darkMode: Record<string, string> = {};
 
-  colors.forEach(({ id, primaryShade }) => {
+  SHADCN_DEFAULT_COLORS.forEach(({ id, primaryShade }) => {
     lightMode[`--mantine-color-${id}-outline`] = `var(--mantine-color-${id}-${primaryShade.light})`;
     lightMode[`--mantine-color-${id}-outline-hover`] = isGeneration
       ? `{alpha("var(--mantine-color-${id}-4)", 0.1)}`
@@ -186,11 +173,11 @@ export function generateCSSOutlineColorVariables(colors: ColorEntry[], mode: str
   return darkMode;
 }
 
-export function generateCSSContrastColorVariables(colors: ColorEntry[], mode: string) {
+export function generateShadcnCSSContrastColorVariables(mode: string) {
   const lightMode: Record<string, string> = {};
   const darkMode: Record<string, string> = {};
 
-  colors.forEach(({ id }) => {
+  SHADCN_DEFAULT_COLORS.forEach(({ id }) => {
     lightMode[`--mantine-color-${id}-contrast`] = getPrimaryContrastColorDay(id);
     darkMode[`--mantine-color-${id}-contrast`] = getPrimaryContrastColorNight(id);
   });

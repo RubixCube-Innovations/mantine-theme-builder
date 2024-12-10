@@ -1,6 +1,5 @@
 import { alpha, CSSVariablesResolver } from "@mantine/core";
-import { SHADCN_DEFAULT_COLORS } from "../../utils/colors";
-import { generateCSSContrastColorVariables, generateCSSFilledColorVariables, generateCSSLightColorVariables, generateCSSOutlineColorVariables, getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getSecondaryLightColorDay, getSecondaryLightColorNight } from "../../utils/theme-functions";
+import { generateShadcnCSSContrastColorVariables, generateShadcnCSSFilledColorVariables, generateShadcnCSSLightColorVariables, generateShadcnCSSOutlineColorVariables, getDefaultBorderColorDay, getDefaultBorderColorNight, getPrimaryContrastColorDay, getPrimaryContrastColorNight, getSecondaryLightColorDay, getSecondaryLightColorNight } from "../../utils/theme-functions";
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
   variables: {
@@ -40,16 +39,16 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
 
     // all filled colors
-    ...generateCSSFilledColorVariables(SHADCN_DEFAULT_COLORS, "light"),
+    ...generateShadcnCSSFilledColorVariables("light"),
 
     // all light colors
-    ...generateCSSLightColorVariables(SHADCN_DEFAULT_COLORS, "light"),
+    ...generateShadcnCSSLightColorVariables("light"),
 
     // all outline colors
-    ...generateCSSOutlineColorVariables(SHADCN_DEFAULT_COLORS, "light"),
+    ...generateShadcnCSSOutlineColorVariables("light"),
 
     // all contrast colors
-    ...generateCSSContrastColorVariables(SHADCN_DEFAULT_COLORS, "light"),
+    ...generateShadcnCSSContrastColorVariables("light"),
   },
   dark: {
     // all variables that depend on dark color scheme
@@ -80,15 +79,15 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = (theme) => ({
     "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
 
     // all filled colors
-    ...generateCSSFilledColorVariables(SHADCN_DEFAULT_COLORS, "dark"),
+    ...generateShadcnCSSFilledColorVariables("dark"),
 
     // all light colors
-    ...generateCSSLightColorVariables(SHADCN_DEFAULT_COLORS, "dark"),
+    ...generateShadcnCSSLightColorVariables("dark"),
 
     // all outline colors
-    ...generateCSSOutlineColorVariables(SHADCN_DEFAULT_COLORS, "dark"),
+    ...generateShadcnCSSOutlineColorVariables("dark"),
 
     // all contrast colors
-    ...generateCSSContrastColorVariables(SHADCN_DEFAULT_COLORS, "dark"),
+    ...generateShadcnCSSContrastColorVariables("dark"),
   },
 });

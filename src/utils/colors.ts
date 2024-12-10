@@ -1,9 +1,9 @@
-export type ColorPalette = [string, string, string, string, string, string, string, string, string, string, string];
+import { MantineColorsTuple } from "@mantine/core";
 
 // Note: 500 shade in tailwind color is not included in the color palette except for orange, green and blue
 // Color shades in tailwind are 50, 100, 200, 300, 400, 600, 700, 800, 900, 950
 
-export const zincColors: ColorPalette = [
+export const zincColors: MantineColorsTuple = [
   "#fafafa", // [0] -> shade 50
   "#f4f4f5", // [1] -> shade 100
   "#e4e4e7", // [2] -> shade 200
@@ -17,7 +17,7 @@ export const zincColors: ColorPalette = [
   "#71717A"  // [10] -> zinc base
 ];
 
-export const slateColors: ColorPalette = [
+export const slateColors: MantineColorsTuple = [
   "#f8fafc", // [0] -> shade 50
   "#f1f5f9", // [1] -> shade 100
   "#e2e8f0", // [2] -> shade 200
@@ -31,7 +31,7 @@ export const slateColors: ColorPalette = [
   "#64748B"  // [10] -> slate base
 ];
 
-export const stoneColors: ColorPalette = [
+export const stoneColors: MantineColorsTuple = [
   "#fafaf9", // [0] -> shade 50
   "#f5f5f4", // [1] -> shade 100
   "#e7e5e4", // [2] -> shade 200
@@ -45,7 +45,7 @@ export const stoneColors: ColorPalette = [
   "#78716C"  // [10] -> stone base
 ];
 
-export const grayColors: ColorPalette = [
+export const grayColors: MantineColorsTuple = [
   "#f9fafb", // [0] -> shade 50
   "#f3f4f6", // [1] -> shade 100
   "#e5e7eb", // [2] -> shade 200
@@ -59,7 +59,7 @@ export const grayColors: ColorPalette = [
   "#6B7280"  // [10] -> gray base
 ];
 
-export const neutralColors: ColorPalette = [
+export const neutralColors: MantineColorsTuple = [
   "#fafafa", // [0] -> shade 50
   "#f5f5f5", // [1] -> shade 100
   "#e5e5e5", // [2] -> shade 200
@@ -73,7 +73,7 @@ export const neutralColors: ColorPalette = [
   "#737373"  // [10] -> neutral base
 ];
 
-export const redColors: ColorPalette = [
+export const redColors: MantineColorsTuple = [
   "#FEF2F2", // [0] -> shade 50
   "#FEE2E2", // [1] -> shade 100
   "#FECACA", // [2] -> shade 200
@@ -87,7 +87,7 @@ export const redColors: ColorPalette = [
   "#EF4444"  // [10] -> red base
 ];
 
-export const roseColors: ColorPalette = [
+export const roseColors: MantineColorsTuple = [
   "#fff1f2", // [0] -> shade 50
   "#ffe4e6", // [1] -> shade 100
   "#fecdd3", // [2] -> shade 200
@@ -101,7 +101,7 @@ export const roseColors: ColorPalette = [
   "#F43F5E"  // [10] -> base color as rose[10]
 ];
 
-export const orangeColors: ColorPalette = [
+export const orangeColors: MantineColorsTuple = [
   "#fff7ed", // [0] -> shade 50
   "#ffedd5", // [1] -> shade 100
   "#fed7aa", // [2] -> shade 200
@@ -115,7 +115,7 @@ export const orangeColors: ColorPalette = [
   "#F97316", // [10] -> orange base
 ];
 
-export const greenColors: ColorPalette = [
+export const greenColors: MantineColorsTuple = [
   "#F0FDF4", // [0] -> shade 50
   "#DCFCE7", // [1] -> shade 100
   "#BBF7D0", // [2] -> shade 200
@@ -129,7 +129,7 @@ export const greenColors: ColorPalette = [
   "#10B981", // [10] -> green base
 ];
 
-export const blueColors: ColorPalette = [
+export const blueColors: MantineColorsTuple = [
   "#eff6ff", // [0] -> shade 50
   "#dbeafe", // [1] -> shade 100
   "#bfdbfe", // [2] -> shade 200
@@ -143,7 +143,7 @@ export const blueColors: ColorPalette = [
   "#3B82F6", // [10] -> blue base
 ];
 
-export const yellowColors: ColorPalette = [
+export const yellowColors: MantineColorsTuple = [
   "#fefce8", // [0] -> shade 50
   "#fef9c3", // [1] -> shade 100
   "#fef08a", // [2] -> shade 200
@@ -157,7 +157,7 @@ export const yellowColors: ColorPalette = [
   "#F59E0B", // [10] -> yellow base
 ];
 
-export const violetColors: ColorPalette = [
+export const violetColors: MantineColorsTuple = [
   "#f5f3ff", // [0] -> shade 50
   "#ede9fe", // [1] -> shade 100
   "#ddd6fe", // [2] -> shade 200
@@ -171,7 +171,7 @@ export const violetColors: ColorPalette = [
   "#8B5CF6", // [10] -> violet base
 ];
 
-export const amberColors: ColorPalette = [
+export const amberColors: MantineColorsTuple = [
   "#FFFBEB", // [0] -> shade 50
   "#FEF3C7", // [1] -> shade 100
   "#FDE68A", // [2] -> shade 200
@@ -185,7 +185,7 @@ export const amberColors: ColorPalette = [
   "#F59E0B", // [10] -> amber base
 ];
 
-export const limeColors: ColorPalette = [
+export const limeColors: MantineColorsTuple = [
   "#f7fee7", // [0] -> shade 50
   "#ecfccb", // [1] -> shade 100
   "#d9f99d", // [2] -> shade 200
@@ -199,7 +199,7 @@ export const limeColors: ColorPalette = [
   "#84CC16"  // [10] -> lime base
 ];
 
-export const emeraldColors: ColorPalette = [
+export const emeraldColors: MantineColorsTuple = [
   "#ecfdf5", // [0] -> shade 50
   "#d1fae5", // [1] -> shade 100
   "#a7f3d0", // [2] -> shade 200
@@ -213,7 +213,7 @@ export const emeraldColors: ColorPalette = [
   "#10B981"  // [10] -> emerald base
 ];
 
-export const tealColors: ColorPalette = [
+export const tealColors: MantineColorsTuple = [
   "#f0fdfa", // [0] -> shade 50
   "#ccfbf1", // [1] -> shade 100
   "#99f6e4", // [2] -> shade 200
@@ -227,7 +227,7 @@ export const tealColors: ColorPalette = [
   "#14B8A6"  // [10] -> teal base
 ];
 
-export const cyanColors: ColorPalette = [
+export const cyanColors: MantineColorsTuple = [
   "#ecfeff", // [0] -> shade 50
   "#cffafe", // [1] -> shade 100
   "#a5f3fc", // [2] -> shade 200
@@ -241,7 +241,7 @@ export const cyanColors: ColorPalette = [
   "#06B6D4"  // [10] -> cyan base
 ];
 
-export const skyColors: ColorPalette = [
+export const skyColors: MantineColorsTuple = [
   "#f0f9ff", // [0] -> shade 50
   "#e0f2fe", // [1] -> shade 100
   "#bae6fd", // [2] -> shade 200
@@ -255,7 +255,7 @@ export const skyColors: ColorPalette = [
   "#0EA5E9"  // [10] -> sky base
 ];
 
-export const indigoColors: ColorPalette = [
+export const indigoColors: MantineColorsTuple = [
   "#eef2ff", // [0] -> shade 50
   "#e0e7ff", // [1] -> shade 100
   "#c7d2fe", // [2] -> shade 200
@@ -269,7 +269,7 @@ export const indigoColors: ColorPalette = [
   "#6366F1"  // [10] -> indigo base
 ];
 
-export const purpleColors: ColorPalette = [
+export const purpleColors: MantineColorsTuple = [
   "#faf5ff", // [0] -> shade 50
   "#f3e8ff", // [1] -> shade 100
   "#e9d5ff", // [2] -> shade 200
@@ -283,7 +283,7 @@ export const purpleColors: ColorPalette = [
   "#A855F7"  // [10] -> purple base
 ];
 
-export const fuchsiaColors: ColorPalette = [
+export const fuchsiaColors: MantineColorsTuple = [
   "#fdf4ff", // [0] -> shade 50
   "#fae8ff", // [1] -> shade 100
   "#f5d0fe", // [2] -> shade 200
@@ -297,7 +297,7 @@ export const fuchsiaColors: ColorPalette = [
   "#D946EF"  // [10] -> fuchsia base
 ];
 
-export const pinkColors: ColorPalette = [
+export const pinkColors: MantineColorsTuple = [
   "#fdf2f8", // [0] -> shade 50
   "#fce7f3", // [1] -> shade 100
   "#fbcfe8", // [2] -> shade 200

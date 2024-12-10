@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getShadcnInputBg = exports.getShadcnCardClassname = exports.getDefaultBorderColorNight = exports.getDefaultBorderColorDay = exports.getSecondaryLightColorNight = exports.getSecondaryLightColorDay = exports.getPrimaryContrastColorNight = exports.getPrimaryContrastColorDay = void 0;
-exports.generateCSSFilledColorVariables = generateCSSFilledColorVariables;
-exports.generateCSSLightColorVariables = generateCSSLightColorVariables;
-exports.generateCSSOutlineColorVariables = generateCSSOutlineColorVariables;
-exports.generateCSSContrastColorVariables = generateCSSContrastColorVariables;
+exports.generateShadcnCSSFilledColorVariables = generateShadcnCSSFilledColorVariables;
+exports.generateShadcnCSSLightColorVariables = generateShadcnCSSLightColorVariables;
+exports.generateShadcnCSSOutlineColorVariables = generateShadcnCSSOutlineColorVariables;
+exports.generateShadcnCSSContrastColorVariables = generateShadcnCSSContrastColorVariables;
 var core_1 = require("@mantine/core");
 var colors_1 = require("./colors.cjs");
 var getPrimaryContrastColorDay = function (color) {
@@ -119,19 +119,19 @@ var getShadcnInputBg = function (color) {
     }
 };
 exports.getShadcnInputBg = getShadcnInputBg;
-function generateCSSFilledColorVariables(colors, mode, isGeneration) {
+function generateShadcnCSSFilledColorVariables(mode, isGeneration) {
     if (isGeneration === void 0) { isGeneration = false; }
     var lightMode = {};
     var darkMode = {};
-    colors.forEach(function (_a) {
+    colors_1.SHADCN_DEFAULT_COLORS.forEach(function (_a) {
         var id = _a.id, primaryShade = _a.primaryShade;
         lightMode["--mantine-color-".concat(id, "-filled")] = "var(--mantine-color-".concat(id, "-").concat(primaryShade.light, ")");
         lightMode["--mantine-color-".concat(id, "-filled-hover")] = isGeneration
-            ? "{alpha(\"var(--mantine-color-".concat(id, "-").concat(primaryShade.light, "\"), 0.9)}")
+            ? "{alpha(\"var(--mantine-color-".concat(id, "-").concat(primaryShade.light, ")\", 0.9)}")
             : (0, core_1.alpha)("var(--mantine-color-".concat(id, "-").concat(primaryShade.light, ")"), 0.9);
         darkMode["--mantine-color-".concat(id, "-filled")] = "var(--mantine-color-".concat(id, "-").concat(primaryShade.dark, ")");
         darkMode["--mantine-color-".concat(id, "-filled-hover")] = isGeneration
-            ? "{alpha(\"var(--mantine-color-".concat(id, "-").concat(primaryShade.dark, "\"), 0.9)}")
+            ? "{alpha(\"var(--mantine-color-".concat(id, "-").concat(primaryShade.dark, ")\", 0.9)}")
             : (0, core_1.alpha)("var(--mantine-color-".concat(id, "-").concat(primaryShade.dark, ")"), 0.9);
     });
     if (mode === "light") {
@@ -139,11 +139,11 @@ function generateCSSFilledColorVariables(colors, mode, isGeneration) {
     }
     return darkMode;
 }
-function generateCSSLightColorVariables(colors, mode, isGeneration) {
+function generateShadcnCSSLightColorVariables(mode, isGeneration) {
     if (isGeneration === void 0) { isGeneration = false; }
     var lightMode = {};
     var darkMode = {};
-    colors.forEach(function (_a) {
+    colors_1.SHADCN_DEFAULT_COLORS.forEach(function (_a) {
         var id = _a.id;
         lightMode["--mantine-color-".concat(id, "-light")] = isGeneration
             ? "{alpha(\"var(--mantine-color-".concat(id, "-4)\", 0.1)}")
@@ -165,11 +165,11 @@ function generateCSSLightColorVariables(colors, mode, isGeneration) {
     }
     return darkMode;
 }
-function generateCSSOutlineColorVariables(colors, mode, isGeneration) {
+function generateShadcnCSSOutlineColorVariables(mode, isGeneration) {
     if (isGeneration === void 0) { isGeneration = false; }
     var lightMode = {};
     var darkMode = {};
-    colors.forEach(function (_a) {
+    colors_1.SHADCN_DEFAULT_COLORS.forEach(function (_a) {
         var id = _a.id, primaryShade = _a.primaryShade;
         lightMode["--mantine-color-".concat(id, "-outline")] = "var(--mantine-color-".concat(id, "-").concat(primaryShade.light, ")");
         lightMode["--mantine-color-".concat(id, "-outline-hover")] = isGeneration
@@ -185,10 +185,10 @@ function generateCSSOutlineColorVariables(colors, mode, isGeneration) {
     }
     return darkMode;
 }
-function generateCSSContrastColorVariables(colors, mode) {
+function generateShadcnCSSContrastColorVariables(mode) {
     var lightMode = {};
     var darkMode = {};
-    colors.forEach(function (_a) {
+    colors_1.SHADCN_DEFAULT_COLORS.forEach(function (_a) {
         var id = _a.id;
         lightMode["--mantine-color-".concat(id, "-contrast")] = (0, exports.getPrimaryContrastColorDay)(id);
         darkMode["--mantine-color-".concat(id, "-contrast")] = (0, exports.getPrimaryContrastColorNight)(id);

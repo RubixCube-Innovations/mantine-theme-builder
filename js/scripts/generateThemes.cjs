@@ -27,17 +27,12 @@ function generateThemes(style, colors, inputFilePath, outputFileName) {
 
     // Add the colors declaration before the export line
     if (style === "shadcn") {
-      const amberColorDeclaration = `const amberColors = ${JSON.stringify(amberColors)};`;
-
       const colorDeclarations = SHADCN_DEFAULT_COLORS.map((color) => {
-        return `const ${color.id}Colors = ${JSON.stringify(color.primaryPalette)};`;
+        return `const ${color.id}Colors: MantineColorsTuple = ${JSON.stringify(color.primaryPalette)};`;
       }).join("\n");
 
-      // Add amberColorDeclaration as the last line
-      const allDeclarations = `${colorDeclarations}\n${amberColorDeclaration}`;
-
       const exportLine = "export const shadcnTheme = createTheme({";
-      updatedContent = updatedContent.replace(exportLine, `${allDeclarations}\n\n${exportLine}`);
+      updatedContent = updatedContent.replace(exportLine, `${colorDeclarations}\n\n${exportLine}`);
     }
 
     return updatedContent;
