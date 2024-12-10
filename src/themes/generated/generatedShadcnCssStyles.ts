@@ -946,7 +946,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
   }
 
   &:where([data-with-table-border]) {
-    border: rem(1px) solid var(var(--table-border-color), var(--mantine-color-default-border));
+    border: rem(1px) solid var(--table-border-color);
   }
 }
 
