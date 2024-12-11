@@ -59,6 +59,10 @@ We welcome contributions from the community! Feel free to submit issues or pull 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=rubixcube-innovations/mantine-theme-builder&type=Date)](https://star-history.com/#rubixcube-innovations/mantine-theme-builder&Date)
+
 ## Keywords
 
 - Mantine Theme Builder
