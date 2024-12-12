@@ -38,8 +38,7 @@ var getPrimaryContrastColorNight = function (color) {
         color === " slate" ||
         color === "stone" ||
         color === "gray" ||
-        color === "neutral" ||
-        color === "blue") {
+        color === "neutral") {
         return "var(--mantine-color-".concat(colorObj === null || colorObj === void 0 ? void 0 : colorObj.secondary, "-8)");
     }
     else if (color === "red" || color === "rose") {
@@ -51,7 +50,8 @@ var getPrimaryContrastColorNight = function (color) {
         color === "purple" ||
         color === "indigo" ||
         color === "pink" ||
-        color === "fuchsia") {
+        color === "fuchsia" ||
+        color === "blue") {
         return "var(--mantine-color-".concat(colorObj === null || colorObj === void 0 ? void 0 : colorObj.secondary, "-0)");
     }
     else if (color === "green") {
