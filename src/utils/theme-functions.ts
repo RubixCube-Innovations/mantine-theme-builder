@@ -31,8 +31,7 @@ export const getPrimaryContrastColorNight = (color: string) => {
     color === " slate" ||
     color === "stone" ||
     color === "gray" ||
-    color === "neutral" ||
-    color === "blue" 
+    color === "neutral"
   ) {
     return `var(--mantine-color-${colorObj?.secondary}-8)`;
   } else if (color === "red" || color === "rose") {
@@ -44,7 +43,8 @@ export const getPrimaryContrastColorNight = (color: string) => {
     color === "purple" ||
     color === "indigo" ||
     color === "pink" ||
-    color === "fuchsia"
+    color === "fuchsia" ||
+    color === "blue" 
   ) {
     return `var(--mantine-color-${colorObj?.secondary}-0)`;
   } else if (color === "green") {

@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS, amberColors } = require("../generated/colors.cjs");
-const { getShadcnInputBg, getShadcnCardClassname } = require("../generated/theme-functions.cjs");
+const { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } = require("../generated/colors.cjs");
 
 function generateThemes(style, colors, inputFilePath, outputFileName) {
   const fileContent = fs.readFileSync(inputFilePath, "utf-8");
@@ -46,9 +45,7 @@ function generateThemes(style, colors, inputFilePath, outputFileName) {
         .replace("primary: zincColors", `primary: ${color.id}Colors`)
         .replace("secondary: zincColors", `secondary: ${color.secondary || color.id}Colors`)
         .replace("dark: zincColors", `dark: ${color.secondary || color.id}Colors`)
-        .replace("{ light: 9, dark: 0 }", JSON.stringify(color.primaryShade))
-        .replaceAll("getShadcnCardClassname(theme.primaryColor)", `"${getShadcnCardClassname(color.id)}"`)
-        .replaceAll("getShadcnInputBg(theme.primaryColor)", `"${getShadcnInputBg(color.id)}"`);
+        .replace("{ light: 9, dark: 0 }", JSON.stringify(color.primaryShade));
     } else {
       updatedTemplate = updatedTemplate.replace(`primaryColor: "blue"`, `primaryColor: "${color.id}"`);
     }
