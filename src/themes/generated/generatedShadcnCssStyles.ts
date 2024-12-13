@@ -871,12 +871,13 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
     @mixin where-light {
       color: var(--button-color);
-      background-color: var(--button-bg);
+      background: var(--button-bg);
+
     }
 
     @mixin where-dark {
       color: var(--button-color);
-      background-color: var(--button-bg);
+      background: var(--button-bg);
     }
   }
 }
