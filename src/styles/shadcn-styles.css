@@ -140,6 +140,12 @@
   }
 }
 
+/* Color Input */
+.mantine-ColorInput-dropdown {
+  background-color: var(--mantine-color-default);
+  border-color: var(--mantine-color-default-border);
+}
+
 /* Fieldset */
 .mantine-Fieldset-root {
 
@@ -270,12 +276,12 @@
 
     @mixin where-light {
       color: var(--button-color);
-      background-color: var(--button-bg);
+      background: var(--button-bg);
     }
 
     @mixin where-dark {
       color: var(--button-color);
-      background-color: var(--button-bg);
+      background: var(--button-bg);
     }
   }
 }
@@ -596,292 +602,6 @@
     }
 }
 
-/* Paper */
-.mantine-Paper-root {
-  &:where([data-with-border]) {
-    @mixin where-light {
-      border: rem(1px) solid var(--mantine-color-default-border);
-    }
-
-    @mixin where-dark {
-      border: rem(1px) solid var(--mantine-color-default-border);
-    }
-  }
-}
-
-/* Checkbox Group */
-.mantine-CheckboxGroup-root {
-  .mantine-CheckboxGroup-error {
-    margin-top: 8px;
-  }
-}
-
-/* Chip */
-.mantine-Chip-root {
-
-  &[data-variant="filled"]:not([data-disabled]),
-  &[data-variant="light"]:not([data-disabled]) {
-    .mantine-Chip-label {
-      background-color: var(--mantine-primary-color-light);
-
-      &:hover {
-        background-color: var(--mantine-primary-color-light-hover);
-      }
-
-      &:where([data-checked]) {
-        --chip-icon-color: var(--chip-color);
-        color: var(--chip-color);
-        background-color: var(--chip-bg);
-
-        &:hover {
-          background-color: var(--chip-hover);
-        }
-      }
-
-      &:where([data-disabled]) {
-        --chip-icon-color: var(--mantine-color-text);
-        background-color: var(--mantine-color-default-hover);
-        color: var(--mantine-color-text);
-        opacity: 0.5;
-
-        &:hover {
-          background-color: var(--mantine-color-default-hover);
-        }
-      }
-    }
-  }
-
-  &[data-variant="outline"]:not([data-disabled]) {
-    .mantine-Chip-label {
-      background-color: transparent;
-      --chip-bd: 1px solid var(--mantine-color-default-border);
-
-      &:hover {
-        background-color: var(--mantine-color-default-hover);
-      }
-
-      &:where([data-checked]) {
-        --chip-icon-color: var(--chip-bg);
-        --chip-bd: 1px solid var(--chip-bg);
-
-
-        &:hover {
-          background-color: var(--chip-hover);
-          color: var(--chip-color);
-          --chip-bd: 1px solid var(--chip-bg);
-          --chip-icon-color: var(--chip-color);
-        }
-      }
-
-      &:where([data-disabled]) {
-        --chip-icon-color: var(--mantine-color-text);
-        border-color: var(--mantine-color-default-border);
-        color: var(--mantine-color-text);
-        opacity: 0.5;
-
-        &:hover {
-          background-color: transparent;
-          color: var(--mantine-color-text);
-          --chip-bd: 1px solid var(--mantine-color-default-border);
-          --chip-icon-color: var(--mantine-color-text);
-        }
-      }
-    }
-  }
-}
-
-/* Color Input */
-.mantine-ColorInput-dropdown {
-  background-color: var(--mantine-color-default);
-  border-color: var(--mantine-color-default-border);
-}
-
-/* Input */
-.mantine-Input-wrapper {
-  @mixin light {
-    --input-disabled-bg: alpha(var(--mantine-color-default-hover), 0.5);
-    --input-disabled-color: alpha(var(--mantine-color-text), 0.5);
-
-    &[data-variant='default'] {
-      --input-bd: var(--mantine-color-default-border);
-      --input-bg: transparent;
-      --input-bd-focus: var(--mantine-primary-color-filled);
-    }
-
-    &[data-variant='filled'] {
-      --input-bd: transparent;
-      --input-bg: var(--mantine-color-default-hover);
-      --input-bd-focus: var(--mantine-primary-color-filled);
-    }
-
-    &[data-variant='unstyled'] {
-      --input-bd: transparent;
-      --input-bg: transparent;
-      --input-bd-focus: transparent;
-    }
-  }
-
-  @mixin dark {
-    --input-disabled-bg: alpha(var(--mantine-color-default-hover), 0.5);
-    --input-disabled-color: alpha(var(--mantine-color-text), 0.5);
-
-    &[data-variant='default'] {
-      --input-bd: var(--mantine-color-default-border);
-      --input-bg: transparent;
-      --input-bd-focus: var(--mantine-primary-color-filled);
-    }
-
-    &[data-variant='filled'] {
-      --input-bd: transparent;
-      --input-bg: var(--mantine-color-default-hover);
-      --input-bd-focus: var(--mantine-primary-color-filled);
-    }
-
-    &[data-variant='unstyled'] {
-      --input-bd: transparent;
-      --input-bg: transparent;
-      --input-bd-focus: transparent;
-    }
-  }
-}
-
-/* Fieldset */
-.mantine-Fieldset-root {
-
-  border-color: var(--mantine-color-default-border);
-  background-color: transparent;
-
-  &[data-variant='filled'] {
-    border-color: var(--mantine-color-default-border);
-    background-color: alpha(var(--mantine-color-default-hover), 0.4);
-  }
-
-  &[data-variant='unstyled'] {
-    border-color: transparent;
-    background-color: transparent;
-  }
-
-}
-
-/* Radio */
-.mantine-Radio-root {
-
-  .mantine-Radio-radio {
-    background-color: transparent;
-    border-color: var(--radio-color);
-
-    &:checked {
-      background-color: var(--radio-color);
-      border-color: var(--radio-color);
-    }
-
-    &+.mantine-Radio-icon {
-      color: var(--radio-icon-color);
-    }
-
-    &:disabled {
-      opacity: 0.5;
-    }
-  }
-
-  &[data-variant='outline'] {
-    .mantine-Radio-radio {
-      background-color: transparent;
-      border-color: var(--radio-color);
-
-      &:checked:not(:disabled) {
-        background-color: transparent;
-        border-color: var(--radio-color);
-      }
-
-      &:disabled {
-        opacity: 0.5;
-
-        &+.mantine-Radio-icon {
-          color: var(--radio-color);
-          --radio-icon-opacity: 0.5;
-        }
-      }
-    }
-  }
-}
-
-/* Segmented Control */
-.mantine-SegmentedControl-root {
-  background-color: var(--mantine-color-secondary-outline-hover);
-
-  .mantine-SegmentedControl-label {
-    color: var(--mantine-color-dimmed);
-    &[data-active] {
-      color: var(--mantine-color-text);
-    }
-  }
-}
-
-/* Slider */
-.mantine-Slider-root {
-  @mixin light {
-  --slider-track-bg: var(--mantine-color-secondary-outline-hover); 
-  }
-  @mixin dark {
-  --slider-track-bg: var(--mantine-color-secondary-outline-hover); 
-  }
-  .mantine-Slider-trackContainer{
-    &[data-disabled] {
-      opacity: 0.5;
-    }
-  }
-
-  .mantine-Slider-label {
-    background-color: var(--mantine-color-default) !important;
-    color: var(--mantine-color-text);
-    border: 1px solid var(--mantine-color-default-border) !important;
-    top: -45px;
-  }
-}
-
-/* ActionIcon */
-.mantine-ActionIcon-root {
-  &:where(:disabled:not([data-loading]), [data-disabled]:not([data-loading])) {
-    border: var(--ai-bd);
-    opacity: 0.5;
-
-    @mixin where-light {
-      background-color: var(--ai-bg);
-      color: var(--ai-color);
-    }
-
-    @mixin where-dark {
-      background-color: var(--ai-bg);
-      color: var(--ai-color);
-    }
-
-    &:active {
-      transform: none;
-    }
-  }
-}
-
-/* Button */
-.mantine-Button-root {
-
-  &:where(:disabled:not([data-loading]), [data-disabled]:not([data-loading])) {
-    border: var(--button-bd);
-    opacity: 0.5;
-
-    @mixin where-light {
-      color: var(--button-color);
-      background: var(--button-bg);
-
-    }
-
-    @mixin where-dark {
-      color: var(--button-color);
-      background: var(--button-bg);
-    }
-  }
-}
-
 /* Badge */
 .mantine-Badge-root {
   --badge-color: var(--mantine-primary-color-contrast);
@@ -956,6 +676,30 @@
 .mantine-Modal-title,
 .mantine-Drawer-title {
   letter-spacing: -0.025em;
+}
+
+/* Divider */
+.mantine-Divider-root {
+  @mixin where-light {
+    --divider-color: var(--mantine-color-default-border);
+  }
+
+  @mixin where-dark {
+    --divider-color: var(--mantine-color-default-border);
+  }
+}
+
+/* Paper */
+.mantine-Paper-root {
+  &:where([data-with-border]) {
+    @mixin where-light {
+      border: rem(1px) solid var(--mantine-color-default-border);
+    }
+
+    @mixin where-dark {
+      border: rem(1px) solid var(--mantine-color-default-border);
+    }
+  }
 }
 
 /* Date Picker */
@@ -1065,17 +809,6 @@
         background-color: var(--mantine-color-default-hover) !important;
       }
     }
-  }
-}
-
-/* Divider */
-.mantine-Divider-root {
-  @mixin where-light {
-    --divider-color: var(--mantine-color-default-border);
-  }
-
-  @mixin where-dark {
-    --divider-color: var(--mantine-color-default-border);
   }
 }
 
