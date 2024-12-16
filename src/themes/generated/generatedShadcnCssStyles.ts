@@ -849,4 +849,8 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
   }
 }
-`;
+
+/* Chart Tooltip */
+.mantine-ChartTooltip-tooltip {
+  border: 1px solid var(--mantine-color-default-border);
+}`;
