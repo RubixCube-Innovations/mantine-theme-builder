@@ -232,7 +232,7 @@ export const shadcnTheme = createTheme({
           "--sc-color": props.color
             ? Object.keys(theme.colors).includes(props.color)
               ? ["zinc", "slate", "gray", "neutral", "stone"].includes(props.color)
-                ? "var(--mantine-color-bright)"
+                ? "var(--mantine-color-body)"
                 : `var(--mantine-color-${props.color}-filled)`
               : props.color
             : "var(--mantine-color-default)",
