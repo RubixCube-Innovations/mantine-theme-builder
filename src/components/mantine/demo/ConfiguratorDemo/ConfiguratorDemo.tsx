@@ -59,7 +59,8 @@ export function ConfiguratorDemo({
   striped,
 }: ConfiguratorDemoProps) {
   const initialState = controls.reduce<Record<string, any>>((acc, control) => {
-    acc[control.prop] = control.initialValue;
+    if(control.initialValue)
+      acc[control.prop] = control.initialValue;
     return acc;
   }, {});
 

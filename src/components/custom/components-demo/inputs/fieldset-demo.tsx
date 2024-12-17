@@ -33,8 +33,8 @@ export const fieldsetDemo: MantineDemo = {
     {
       type: 'segmented',
       prop: 'variant',
-      initialValue: 'default',
-      libraryValue: 'default',
+      initialValue: '',
+      libraryValue: '',
       data: ['default', 'filled', 'unstyled'],
     },
 
