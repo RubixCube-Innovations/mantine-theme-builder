@@ -24,7 +24,7 @@ export type IMenuItem = {
 };
 export function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes", icon: IconPalette },
@@ -45,7 +45,7 @@ export function Header() {
     if (clickedItem.onClick) {
       clickedItem.onClick();
     } else if (clickedItem.href) {
-      navigate({ to: clickedItem.href });
+      // navigate({ to: clickedItem.href });
     }
   };
 

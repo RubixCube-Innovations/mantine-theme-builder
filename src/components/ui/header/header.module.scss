@@ -1,17 +1,17 @@
 .header {
-    height: rem(56px);
+    height: mantine.rem(56px);
     background-color: var(--mantine-color-body);
     padding-right: var(--mantine-spacing-3xl);
     padding-left: var(--mantine-spacing-3xl);
 
-    @include mobile {
+    mantine.mobile {
       padding-right: var(--mantine-spacing-md);
       padding-left: var(--mantine-spacing-md);
     }
   }
   
   .inner {
-    height: rem(56px);
+    height: mantine.rem(56px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +20,7 @@
   .link {
     display: block;
     line-height: 1;
-    padding: rem(8px) rem(12px);
+    padding: mantine.rem(8px) mantine.rem(12px);
     border-radius: var(--mantine-radius-sm);
     text-decoration: none;
     color: rgb(from var(--mantine-color-text) r g b/0.6);

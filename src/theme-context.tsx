@@ -1,4 +1,3 @@
-// ThemeContext.tsx
 import { MantineColorShade, MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mantine/core";
 import { ShikiProvider } from "@mantinex/shiki";
 import React, { createContext, useContext, useEffect, useState } from "react";
