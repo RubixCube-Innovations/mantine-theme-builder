@@ -1,3 +1,5 @@
+"use client";
+
 import { MantineColorShade, MantineColorsTuple, MantineProvider, MantineThemeOverride } from "@mantine/core";
 import { ShikiProvider } from "@mantinex/shiki";
 import React, { createContext, useContext, useEffect, useState } from "react";
@@ -24,7 +26,6 @@ export const useTheme = () => {
 };
 // Theme provider component
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-
   const baseTheme = getBaseTheme(localStorageTheme?.style);
   const [theme, setTheme] = useState<MantineThemeOverride>(() => {
     const initPrimeColor = localStorageTheme?.color || baseTheme?.primaryColor;

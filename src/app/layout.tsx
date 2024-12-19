@@ -8,7 +8,8 @@ import "@mantinex/shiki/styles.css";
 import "@mantine/code-highlight/styles.css";
 import "@mantine/core/styles.css";
 
-import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from "@mantine/core";
+import { ColorSchemeScript } from "@mantine/core";
+import { ThemeProvider } from "@/theme-context";
 
 export const metadata: Metadata = {
   title: "MantineHub - Modern preconfigured themes, blocks, templates and more.",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" {...mantineHtmlProps}>
+    <html lang="en">
       <head>
         <ColorSchemeScript />
 
@@ -58,7 +59,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body>
         <div id="root">
-          <MantineProvider>{children}</MantineProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+          {/* <MantineProvider>{children}</MantineProvider> */}
         </div>
       </body>
     </html>

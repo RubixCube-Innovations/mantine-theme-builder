@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "tsc -b && ext build",
+    "build": "tsc -b && next build",
     "start": "next start",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "next preview",
     "compileTs": "node ./js/scripts/compileTs.cjs",
     "generateThemes": "node ./js/scripts/generateThemes.cjs",
     "generateCssVariableResolver": "node ./js/scripts/generateCssVariableResolver.cjs",
@@ -62,6 +62,7 @@
     "sass-embedded": "^1.81.0",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^8.7.0"
+    "typescript-eslint": "^8.7.0",
+    "vite-plugin-node-polyfills": "^0.22.0"
   }
 }
