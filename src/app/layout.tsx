@@ -8,6 +8,10 @@ import "@mantinex/shiki/styles.css";
 import "@mantine/code-highlight/styles.css";
 import "@mantine/core/styles.css";
 
+import "../styles/shadcn-styles.css";
+import "../styles/fonts.css";
+import "../styles/index.scss";
+
 import { ColorSchemeScript } from "@mantine/core";
 import { ThemeProvider } from "@/theme-context";
 
@@ -24,6 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <ColorSchemeScript />
+
+        <link rel="icon" href="/favicon.svg" sizes="any" />
 
         {/* TODO: Move metadata into exported metadata object */}
         <meta property="og:title" content="MantineHub" />
