@@ -7,11 +7,11 @@ import {
   IconHeartFilled,
   IconInfoCircleFilled,
   IconMenu2,
-  IconPalette
+  IconPalette,
 } from "@tabler/icons-react";
-import { useNavigate } from "@tanstack/react-router";
 import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import classes from "./header.module.scss";
+import { useRouter } from "next/navigation";
 
 const APP_NAME = "MantineHub";
 export type IMenuItem = {
@@ -24,7 +24,7 @@ export type IMenuItem = {
 };
 export function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-  // const navigate = useNavigate();
+  const router = useRouter();
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes", icon: IconPalette },
@@ -45,7 +45,7 @@ export function Header() {
     if (clickedItem.onClick) {
       clickedItem.onClick();
     } else if (clickedItem.href) {
-      // navigate({ to: clickedItem.href });
+      router.push(clickedItem.href);
     }
   };
 
@@ -59,16 +59,17 @@ export function Header() {
 
       if (view === "footer")
         return (
-          <Tabs.Tab
-            key={link.id}
-            value={link.id}
-            w={"25%"}
-            onClick={() => handleClick(link)}
-            h={"63px"}
-          >
+          <Tabs.Tab key={link.id} value={link.id} w={"25%"} onClick={() => handleClick(link)} h={"63px"}>
             <Stack gap={"4px"} align="center">
-              <link.icon stroke={1.5} color={isActive ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-dimmed)"} />
-              <Text fz={rem("12px")} truncate c={isActive ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-dimmed)"}>
+              <link.icon
+                stroke={1.5}
+                color={isActive ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-dimmed)"}
+              />
+              <Text
+                fz={rem("12px")}
+                truncate
+                c={isActive ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-dimmed)"}
+              >
                 {link.label}
               </Text>
             </Stack>
@@ -110,7 +111,7 @@ export function Header() {
               title="GitHub"
             ></iframe>
             <ColorSchemeSwitch />
-          <Burger opened={drawerOpened} onClick={toggleDrawer} size="sm" hiddenFrom="md" />
+            <Burger opened={drawerOpened} onClick={toggleDrawer} size="sm" hiddenFrom="md" />
           </Group>
         </div>
         <Divider />
@@ -131,20 +132,20 @@ export function Header() {
           <Stack gap="sm">{getItems("drawer")}</Stack>
         </ScrollArea>
       </Drawer>
-      <Box >
+      <Box>
         <Tabs
           variant="unstyled"
           defaultValue="home"
           className={classes.tab}
           w={"100%"}
-          hiddenFrom="md" 
-          style={{ position: "fixed", bottom: 0, zIndex: 100 }} 
+          hiddenFrom="md"
+          style={{ position: "fixed", bottom: 0, zIndex: 100 }}
         >
           <Tabs.List grow>
             {getItems("footer", links?.slice(0, 3))}
             <Tabs.Tab key={"Menu"} value={"menu"} w={"25%"} onClick={toggleDrawer} h={"63px"}>
-              <Stack gap={"4px"} align="center"> 
-                <IconMenu2 color="var(--mantine-color-dimmed)"/>
+              <Stack gap={"4px"} align="center">
+                <IconMenu2 color="var(--mantine-color-dimmed)" />
                 <Text fz={rem("12px")} truncate c="var(--mantine-color-dimmed)">
                   Menu
                 </Text>
