@@ -1,14 +1,11 @@
+"use client";
+
+import { TestimonialGrid } from "@/components/custom/testimonial/testimonial-grid";
+import PageLayout from "@/components/layouts/page-layout";
+import { testimonialItems } from "@/utils/testimonials";
 import { Button, Group, Space, Stack } from "@mantine/core";
-import { createFileRoute } from "@tanstack/react-router";
-import { TestimonialGrid } from "../components/custom/testimonial/testimonial-grid";
-import PageLayout from "../components/layouts/page-layout";
-import { testimonialItems } from "../utils/testimonials";
 
-export const Route = createFileRoute("/feedback")({
-  component: RouteComponent,
-});
-
-function RouteComponent() {
+export default function Page() {
   return (
     <PageLayout
       title="Feedbacks Received 🤗"

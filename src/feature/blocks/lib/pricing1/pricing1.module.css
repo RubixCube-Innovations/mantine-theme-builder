@@ -23,7 +23,6 @@
 
 .pricingCard {
   background-color: var(--mantine-body-color);
-  border: 2px solid var(--mantine-color-gray-2);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   padding: 2rem;

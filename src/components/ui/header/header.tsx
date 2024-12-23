@@ -11,7 +11,7 @@ import {
 } from "@tabler/icons-react";
 import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import classes from "./header.module.scss";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const APP_NAME = "MantineHub";
 export type IMenuItem = {
@@ -25,6 +25,7 @@ export type IMenuItem = {
 export function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes", icon: IconPalette },
@@ -53,8 +54,8 @@ export function Header() {
     items?.map((link) => {
       const isActive = link.href
         ? link.id === "home"
-          ? window.location.pathname === link.href
-          : window.location.pathname.startsWith(link.href)
+          ? pathname === link.href
+          : pathname.startsWith(link.href)
         : false;
 
       if (view === "footer")

@@ -1,14 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
 
+import MantineCards from "@/components/custom/theme-example-cards/mantine-cards";
+import PageLayout from "@/components/layouts/page-layout";
 import { Anchor } from "@mantine/core";
-import MantineCards from "../components/custom/theme-example-cards/mantine-cards";
-import PageLayout from "../components/layouts/page-layout";
 
-export const Route = createFileRoute("/")({
-  component: RouteComponent,
-});
-
-function RouteComponent() {
+export default function Page() {
   return (
     <PageLayout
       title="Mantine Modern Themes 🎨"
