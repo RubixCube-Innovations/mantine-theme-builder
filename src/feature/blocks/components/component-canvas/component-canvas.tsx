@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import cx from "clsx";
 import { useState } from "react";
@@ -12,7 +12,7 @@ import { CanvasHeader } from "./canvas-header";
 
 import classes from "./component-canvas.module.css";
 
-export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
+export function ComponentCanvas(props: UiComponent & { zindex: number }) {
   const [state, setState] = useState("preview");
   const [primaryColor, setPrimaryColor] = useState("blue");
   const Component: any = UiComponents[props.component as keyof typeof UiComponents];
@@ -37,7 +37,7 @@ export function ComponentCanvas(props: UiComponent & { zIndex: number }) {
           <Box
             mod={{ dimmed: props.attributes.dimmed }}
             className={classes.preview}
-            style={{ zIndex: props.zIndex }}
+            style={{ zIndex: props.zindex }}
             bg={"var(--mantine-color-body)"}
           >
             <ComponentPreview canvas={props.attributes.canvas}>
