@@ -316,6 +316,9 @@ export const shadcnTheme = createTheme({
       },
     }),
     NavLink: NavLink.extend({
+      defaultProps: {
+        variant: "light",
+      },
       vars: (theme, props) => {
         const colorKey = props.color && Object.keys(theme.colors).includes(props.color) ? props.color : undefined;
         const variant = props.variant ?? "light";
