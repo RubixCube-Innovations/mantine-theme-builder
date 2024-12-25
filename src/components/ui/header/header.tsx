@@ -79,11 +79,11 @@ export function Header() {
 
       return (
         <Button
-          variant="subtle"
-          size={view === "drawer" ? "md" : "xs"}
+          variant="transparent"
+          size={view === "drawer" ? "md" : "sm"}
           key={link.label}
           className={classes.link}
-          bg={isActive ? "var(--mantine-color-default-hover)" : undefined}
+          c={isActive ? "var(--mantine-primary-color-filled)" : undefined}
           onClick={() => handleClick(link)}
           justify={view === "drawer" ? "start" : "center"}
         >

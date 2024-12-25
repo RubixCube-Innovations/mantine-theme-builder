@@ -34,7 +34,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       ...baseTheme,
       primaryColor: initPrimeColor,
       primaryShade: primaryShade,
-      defaultRadius: localStorageTheme?.radius,
+      defaultRadius: localStorageTheme?.radius || baseTheme?.defaultRadius,
       colors: {
         ...baseTheme?.colors,
         secondary: getSecondaryPalette(localStorageTheme?.style, initPrimeColor) as unknown as MantineColorsTuple,
