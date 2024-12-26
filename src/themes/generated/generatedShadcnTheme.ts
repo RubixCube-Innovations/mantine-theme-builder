@@ -17,7 +17,6 @@ export const generatedShadcnTheme = {
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -380,11 +379,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -573,7 +567,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -936,11 +929,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -1129,7 +1117,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -1492,11 +1479,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -1685,7 +1667,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -2048,11 +2029,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -2241,7 +2217,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -2604,11 +2579,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -2797,7 +2767,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -3160,11 +3129,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -3353,7 +3317,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -3716,11 +3679,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -3909,7 +3867,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -4272,11 +4229,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -4465,7 +4417,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -4828,11 +4779,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -5021,7 +4967,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -5384,11 +5329,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -5577,7 +5517,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -5940,11 +5879,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -6133,7 +6067,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -6496,11 +6429,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -6689,7 +6617,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -7052,11 +6979,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -7245,7 +7167,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -7608,11 +7529,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -7801,7 +7717,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -8164,11 +8079,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -8357,7 +8267,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -8720,11 +8629,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -8913,7 +8817,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -9276,11 +9179,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -9469,7 +9367,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -9832,11 +9729,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -10025,7 +9917,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -10388,11 +10279,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -10581,7 +10467,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -10944,11 +10829,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -11137,7 +11017,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -11500,11 +11379,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -11693,7 +11567,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   MantineColorsTuple,
   MantineThemeOverride,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -12054,11 +11927,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
-      },
-    }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
       },
     }),
     Tooltip: Tooltip.extend({
