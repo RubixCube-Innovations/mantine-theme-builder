@@ -209,6 +209,28 @@
   }
 }
 
+/* Pills Input */
+.mantine-PillsInput-wrapper {
+  .mantine-PillsInput-input {
+    &[data-variant='filled'] {
+        .mantine-Pill-root {
+          background-color: var(--mantine-color-body);
+        }
+    }
+  }
+}
+
+/* Tags Input */
+.mantine-TagsInput-wrapper {
+  .mantine-TagsInput-input {
+    &[data-variant='filled'] {
+        .mantine-Pill-root {
+          background-color: var(--mantine-color-body);
+        }
+    }
+  }
+}
+
 /* ActionIcon */
 .mantine-ActionIcon-root {
   &:where(:disabled:not([data-loading]), [data-disabled]:not([data-loading])) {
