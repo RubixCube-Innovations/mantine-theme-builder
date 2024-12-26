@@ -28,7 +28,7 @@ export const alertDemo: MantineDemo = {
   centered: true,
   maxWidth: 400,
   controls: [
-    { ...(staticVariantsControl as any), initialValue: 'light' },
+    { ...(staticVariantsControl as any), initialValue: 'light', libraryValue: 'light' },
     { type: 'color', prop: 'color', initialValue: '', libraryValue: '' },
     { type: 'size', prop: 'radius', initialValue: 'sm', libraryValue: 'sm' },
     { type: 'boolean', prop: 'withCloseButton', initialValue: false, libraryValue: false },

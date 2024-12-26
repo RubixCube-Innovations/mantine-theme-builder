@@ -17,13 +17,13 @@ export const interactiveVariantsControl: ConfiguratorControlOptions = {
   prop: 'variant',
   data: INTERACTIVE_VARIANTS,
   initialValue: 'filled',
-  libraryValue: '__none__',
+  libraryValue: 'filled',
 };
 
 export const staticVariantsControl: ConfiguratorControlOptions = {
   type: 'select',
   prop: 'variant',
   data: STATIC_VARIANTS,
-  initialValue: 'filled',
-  libraryValue: '__none__',
+  initialValue: '',
+  libraryValue: '',
 };

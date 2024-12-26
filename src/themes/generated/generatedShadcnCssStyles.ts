@@ -508,14 +508,14 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
 /* Hover Card */
 .mantine-HoverCard-dropdown {
-  background-color: var(--mantine-color-default);
+  background-color: var(--mantine-color-body);
   border-color: var(--mantine-color-default-border);
   border-radius: var(--mantine-radius-default);
 }
 
 /* Menu Dropdown */
 .mantine-Menu-dropdown {
-  background-color: var(--mantine-color-default);
+  background-color: var(--mantine-color-body);
   border-color: var(--mantine-color-default-border);
 
   .mantine-Menu-item {
@@ -600,6 +600,13 @@ export const generatedShadcnCssStyles = `/* Checkbox */
         }
       }
     }
+}
+
+/* Avatar */
+.mantine-Avatar-root {
+  --avatar-bg: var(--mantine-primary-color-light);
+  --avatar-bd: 1px solid transparent;
+  --avatar-color: var(--mantine-primary-color-light-color);
 }
 
 /* Badge */

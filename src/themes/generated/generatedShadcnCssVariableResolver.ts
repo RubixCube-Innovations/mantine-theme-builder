@@ -1,41 +1,41 @@
 export const generatedShadcnCssVariableResolver = {
-  zinc: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  zinc: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-zinc-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-zinc-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-zinc-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-zinc-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-zinc-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -223,30 +223,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-zinc-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-zinc-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -434,43 +434,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  slate: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  slate: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-slate-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-slate-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-slate-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-slate-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-slate-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -658,30 +658,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-slate-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-slate-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -869,43 +869,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  gray: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  gray: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-gray-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-gray-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-gray-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-gray-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-gray-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -1093,30 +1093,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-gray-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-gray-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -1304,43 +1304,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  neutral: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  neutral: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-neutral-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-neutral-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-neutral-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-neutral-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-neutral-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -1528,30 +1528,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-neutral-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-neutral-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -1739,43 +1739,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  stone: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  stone: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-stone-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-stone-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-stone-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-stone-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-stone-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -1963,30 +1963,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-stone-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-stone-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -2174,43 +2174,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  red: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  red: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-red-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-red-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-red-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-red-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-red-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -2398,30 +2398,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-red-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-red-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -2609,43 +2609,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  rose: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  rose: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-rose-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-rose-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-rose-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-rose-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-rose-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-zinc-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-zinc-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-zinc-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-zinc-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-zinc-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-zinc-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -2833,30 +2833,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-rose-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-rose-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-zinc-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-zinc-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -3044,43 +3044,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  orange: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  orange: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-orange-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-orange-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-orange-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-stone-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-stone-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -3268,30 +3268,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-stone-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-stone-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -3479,43 +3479,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  amber: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  amber: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-amber-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-amber-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-amber-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-amber-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-amber-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -3703,30 +3703,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-stone-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-stone-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -3914,43 +3914,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  yellow: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  yellow: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-yellow-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-yellow-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-yellow-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "#422006", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': '#422006', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -4138,30 +4138,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "#422006", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': '#422006', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -4349,43 +4349,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  lime: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  lime: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-lime-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-lime-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-lime-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-lime-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-lime-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -4573,30 +4573,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-stone-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-stone-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -4784,43 +4784,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  green: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  green: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-green-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-green-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-green-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-rose-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-rose-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-zinc-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-zinc-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-zinc-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-zinc-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-zinc-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-zinc-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -5008,30 +5008,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-green-9)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-green-9)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-zinc-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-zinc-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -5219,43 +5219,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  emerald: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  emerald: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-emerald-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-emerald-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-emerald-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-emerald-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-emerald-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -5443,30 +5443,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-stone-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-stone-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -5654,43 +5654,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  teal: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  teal: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-teal-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-teal-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-teal-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-teal-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-teal-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -5878,30 +5878,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-slate-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-slate-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -6089,43 +6089,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  cyan: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  cyan: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-cyan-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-cyan-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-cyan-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-cyan-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-cyan-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -6313,30 +6313,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-slate-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-slate-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -6524,43 +6524,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  sky: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  sky: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-sky-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-sky-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-sky-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-sky-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-sky-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -6748,30 +6748,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-slate-8)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-slate-8)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -6959,43 +6959,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  blue: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  blue: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-blue-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-blue-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-blue-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-slate-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-slate-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -7183,30 +7183,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-slate-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-slate-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -7394,43 +7394,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  indigo: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  indigo: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-indigo-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-indigo-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-indigo-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-indigo-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-indigo-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -7618,30 +7618,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-gray-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-gray-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -7829,43 +7829,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  violet: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  violet: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-violet-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-violet-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-violet-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-gray-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-gray-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -8053,30 +8053,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-gray-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-gray-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -8264,43 +8264,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  purple: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  purple: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-purple-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-purple-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-purple-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-purple-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-purple-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -8488,30 +8488,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-gray-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-gray-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -8699,43 +8699,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  fuchsia: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  fuchsia: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-fuchsia-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-fuchsia-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-fuchsia-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-fuchsia-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-fuchsia-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -8923,30 +8923,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-gray-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-gray-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",
@@ -9134,43 +9134,43 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
 });
 `,
-  pink: `import { alpha, CSSVariablesResolver } from "@mantine/core";
+  pink: `import { alpha, CSSVariablesResolver } from '@mantine/core';
 
 export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   variables: {
     // variables that do not depend on color scheme
-    "--mantine-heading-font-weight": "600",
-    "--mantine-primary-color-filled-hover": alpha("var(--mantine-primary-color-filled)", 0.9),
-    "--mantine-primary-color-light": "var(--mantine-color-secondary-light)",
-    "--mantine-primary-color-light-hover": alpha("var(--mantine-primary-color-light)", 0.8),
-    "--mantine-primary-color-light-color": "var(--mantine-color-secondary-light-color)",
+    '--mantine-heading-font-weight': '600',
+    '--mantine-primary-color-filled-hover': alpha('var(--mantine-primary-color-filled)', 0.9),
+    '--mantine-primary-color-light': 'var(--mantine-color-pink-light)',
+    '--mantine-primary-color-light-hover': 'var(--mantine-color-pink-light-hover)',
+    '--mantine-primary-color-light-color': 'var(--mantine-color-pink-light-color)',
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-pink-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-white)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-10)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-10)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-pink-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-9)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-white)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-10)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-10)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-0)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-1)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-9)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-0)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-1)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-9)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-2)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-10)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-white)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': 'var(--mantine-color-secondary-1)', // used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-1)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-8)", // used as primary light variant's text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-8)', // used as primary light variant's text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-2)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-1)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-2)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-1)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-8)",
@@ -9358,30 +9358,30 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-gray-0)", // used as primary color contrast
-    "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
-    "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
-    "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
-    "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
+    '--mantine-primary-color-contrast': 'var(--mantine-color-gray-0)', // used as primary color contrast
+    '--mantine-color-text': 'var(--mantine-color-secondary-0)', // used as text color
+    '--mantine-color-body': 'var(--mantine-color-secondary-9)', // used as body color
+    '--mantine-color-error': 'var(--mantine-color-error-10)', // used as error color
+    '--mantine-color-placeholder': 'var(--mantine-color-secondary-4)', // used as placeholder color
+    '--mantine-color-anchor': 'var(--mantine-color-secondary-4)', // used as anchor color
 
-    "--mantine-color-default": "var(--mantine-color-secondary-9)", // used as default surface color
-    "--mantine-color-default-hover": "var(--mantine-color-secondary-7)", // used as default hover color
-    "--mantine-color-default-color": "var(--mantine-color-secondary-1)", // used as default text color
-    "--mantine-color-default-border": "var(--mantine-color-secondary-7)", // used as default border color
-    "--mantine-color-dimmed": "var(--mantine-color-secondary-4)", // used as dimmed text color
+    '--mantine-color-default': 'var(--mantine-color-secondary-9)', // used as default surface color
+    '--mantine-color-default-hover': 'var(--mantine-color-secondary-7)', // used as default hover color
+    '--mantine-color-default-color': 'var(--mantine-color-secondary-1)', // used as default text color
+    '--mantine-color-default-border': 'var(--mantine-color-secondary-7)', // used as default border color
+    '--mantine-color-dimmed': 'var(--mantine-color-secondary-4)', // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-secondary-8)", // used as secondary surface color
-    "--mantine-color-secondary-filled-hover": alpha("var(--mantine-color-secondary-filled)", 0.9), //used as secondary hover color
+    '--mantine-color-secondary-filled': 'var(--mantine-color-secondary-8)', // used as secondary surface color
+    '--mantine-color-secondary-filled-hover': alpha('var(--mantine-color-secondary-filled)', 0.9), //used as secondary hover color
 
-    "--mantine-color-secondary-light": "var(--mantine-color-secondary-7)", // used as primary light color
-    "--mantine-color-secondary-light-hover": alpha("var(--mantine-color-secondary-light)", 0.8), // used as primary light hover color
+    '--mantine-color-secondary-light': 'var(--mantine-color-secondary-7)', // used as primary light color
+    '--mantine-color-secondary-light-hover': alpha('var(--mantine-color-secondary-light)', 0.8), // used as primary light hover color
 
-    "--mantine-color-secondary-text": "var(--mantine-primary-color-contrast)", // can be used as secondary text color
-    "--mantine-color-secondary-light-color": "var(--mantine-color-secondary-0)", // used as primary light text color
+    '--mantine-color-secondary-text': 'var(--mantine-primary-color-contrast)', // can be used as secondary text color
+    '--mantine-color-secondary-light-color': 'var(--mantine-color-secondary-0)', // used as primary light text color
 
-    "--mantine-color-secondary-outline": "var(--mantine-color-secondary-7)",
-    "--mantine-color-secondary-outline-hover": "var(--mantine-color-secondary-7)",
+    '--mantine-color-secondary-outline': 'var(--mantine-color-secondary-7)',
+    '--mantine-color-secondary-outline-hover': 'var(--mantine-color-secondary-7)',
 
     // all filled colors
     "--mantine-color-zinc-filled": "var(--mantine-color-zinc-0)",

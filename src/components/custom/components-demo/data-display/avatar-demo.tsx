@@ -11,14 +11,14 @@ function Demo() {
 `;
 
 export const avatarDemo: MantineDemo = {
-  type: 'configurator',
+  type: "configurator",
   component: Avatar,
   centered: true,
   code,
   controls: [
-    staticVariantsControl,
-    { prop: 'radius', type: 'size', initialValue: 'sm', libraryValue: '100%' },
-    { prop: 'size', type: 'size', initialValue: 'md', libraryValue: 'md' },
-    { prop: 'color', type: 'color', initialValue: "", libraryValue: "" },
+    { ...(staticVariantsControl as any), initialValue: 'light', libraryValue: 'light' },
+    { prop: "radius", type: "size", initialValue: "sm", libraryValue: "100%" },
+    { prop: "size", type: "size", initialValue: "md", libraryValue: "md" },
+    { prop: "color", type: "color", initialValue: "", libraryValue: "" },
   ],
 };

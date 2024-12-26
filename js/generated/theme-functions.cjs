@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getShadcnInputBg = exports.getShadcnCardClassname = exports.getDefaultBorderColorNight = exports.getDefaultBorderColorDay = exports.getSecondaryLightColorNight = exports.getSecondaryLightColorDay = exports.getPrimaryContrastColorNight = exports.getPrimaryContrastColorDay = void 0;
 exports.generateShadcnCSSFilledColorVariables = generateShadcnCSSFilledColorVariables;
+exports.getPrimaryColorLight = getPrimaryColorLight;
+exports.getPrimaryColorLightHover = getPrimaryColorLightHover;
+exports.getPrimaryColorLightColor = getPrimaryColorLightColor;
 exports.generateShadcnCSSLightColorVariables = generateShadcnCSSLightColorVariables;
 exports.generateShadcnCSSOutlineColorVariables = generateShadcnCSSOutlineColorVariables;
 exports.generateShadcnCSSContrastColorVariables = generateShadcnCSSContrastColorVariables;
@@ -138,6 +141,16 @@ function generateShadcnCSSFilledColorVariables(mode, isGeneration) {
         return lightMode;
     }
     return darkMode;
+}
+function getPrimaryColorLight(color) {
+    return "var(--mantine-color-".concat(color, "-light)");
+}
+;
+function getPrimaryColorLightHover(color) {
+    return "var(--mantine-color-".concat(color, "-light-hover)");
+}
+function getPrimaryColorLightColor(color) {
+    return "var(--mantine-color-".concat(color, "-light-color)");
 }
 function generateShadcnCSSLightColorVariables(mode, isGeneration) {
     if (isGeneration === void 0) { isGeneration = false; }

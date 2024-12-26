@@ -3,6 +3,9 @@
     background-color: var(--mantine-color-body);
     padding-right: var(--mantine-spacing-3xl);
     padding-left: var(--mantine-spacing-3xl);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
 
     mantine.mobile {
       padding-right: var(--mantine-spacing-md);

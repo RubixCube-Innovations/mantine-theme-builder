@@ -125,6 +125,18 @@ export function generateShadcnCSSFilledColorVariables(mode: string, isGeneration
   return darkMode;
 }
 
+export function getPrimaryColorLight(color: string) {
+  return `var(--mantine-color-${color}-light)`;
+};
+
+export function getPrimaryColorLightHover(color: string) {
+  return `var(--mantine-color-${color}-light-hover)`;
+}
+
+export function getPrimaryColorLightColor(color: string) {
+  return `var(--mantine-color-${color}-light-color)`;
+}
+
 export function generateShadcnCSSLightColorVariables(mode: string, isGeneration = false) {
   const lightMode: Record<string, string> = {};
   const darkMode: Record<string, string> = {};

@@ -5,13 +5,15 @@ import Navbar from "../../ui/navbar/navbar";
 import classes from "./components-demo.module.css";
 
 const ComponentsDemo = () => {
+  
   return (
     <Group gap={"2rem"} pt={"xl"} align="flex-start" justify="center" wrap="nowrap">
       <Box className={classes.navbarWrapper} visibleFrom="md">
         <Navbar menu={demoComponentsNavbarData} />
       </Box>
-
+    
       <Stack gap={"3xl"} px={0} className={classes.content}>
+     
         {demoComponentsNavbarData?.map((item) => {
           return (
             <Stack gap={"xs"} key={item.label} mb={"3xl"}>
