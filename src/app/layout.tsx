@@ -6,13 +6,12 @@ import "@mantine/dates/styles.css";
 import "@mantine/spotlight/styles.css";
 import "@mantinex/shiki/styles.css";
 import "@mantine/code-highlight/styles.css";
-import "@mantine/core/styles.css";
 
 import "../styles/shadcn-styles.css";
 import "../styles/fonts.css";
 import "../styles/index.scss";
 
-import { ColorSchemeScript } from "@mantine/core";
+import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
 import { ThemeProvider } from "@/theme-context";
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript />
 

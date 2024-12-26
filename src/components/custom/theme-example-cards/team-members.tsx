@@ -48,6 +48,7 @@ export function CardsTeamMembers() {
                   <Divider />
                   <Stack gap={0}>
                     {options?.map((option)=><Button
+                      key={option.value}
                       variant="subtle"
                       size="lg"
                       ta={"left"}
@@ -94,6 +95,7 @@ export function CardsTeamMembers() {
                   <Divider />
                   <Stack gap={0}>
                     {options?.map((option)=><Button
+                      key={option.value}
                       variant="subtle"
                       size="lg"
                       ta={"left"}
@@ -140,6 +142,7 @@ export function CardsTeamMembers() {
                   <Divider />
                   <Stack gap={0}>
                     {options?.map((option)=><Button
+                      key={option.value}
                       variant="subtle"
                       size="lg"
                       ta={"left"}

@@ -20,6 +20,13 @@ body {
 
   -webkit-font-smoothing: var(--mantine-webkit-font-smoothing);
   -moz-osx-font-smoothing: var(--mantine-moz-font-smoothing);
+
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+body.rendered {
+  opacity: 1;
 }
 
 *,

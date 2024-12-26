@@ -6,6 +6,8 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { mantineCssVariableResolver } from "./themes/mantine/mantine-css-variable-resolver";
 import { shadcnCssVariableResolver } from "./themes/shadcn/shadcn-css-variable-resolver";
 import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette, localStorageTheme } from "./utils/functions";
+import { shadcnTheme } from "./themes/shadcn/shadcn-theme";
+import { HighlighterGeneric } from "shiki";
 
 // Define the shape of the context
 interface ThemeContextType {
@@ -26,24 +28,48 @@ export const useTheme = () => {
 };
 // Theme provider component
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setIsHydrated(true);
+    document.body.classList.add("rendered");
+  }, []);
+
   const baseTheme = getBaseTheme(localStorageTheme?.style);
   const [theme, setTheme] = useState<MantineThemeOverride>(() => {
-    const initPrimeColor = localStorageTheme?.color || baseTheme?.primaryColor;
-    const primaryShade = getBasePrimaryShade(localStorageTheme?.style, initPrimeColor);
+    // Use default values for server-side render
     return {
-      ...baseTheme,
-      primaryColor: initPrimeColor,
-      primaryShade: primaryShade,
-      defaultRadius: localStorageTheme?.radius || baseTheme?.defaultRadius,
+      ...shadcnTheme,
+      primaryColor: shadcnTheme?.primaryColor,
+      primaryShade: getBasePrimaryShade("shadcn", "zinc"),
+      defaultRadius: baseTheme?.defaultRadius,
       colors: {
         ...baseTheme?.colors,
-        secondary: getSecondaryPalette(localStorageTheme?.style, initPrimeColor) as unknown as MantineColorsTuple,
-        dark: getSecondaryPalette(localStorageTheme?.style, initPrimeColor) as unknown as MantineColorsTuple,
+        secondary: getSecondaryPalette("shadcn", "zinc") as unknown as MantineColorsTuple,
+        dark: getSecondaryPalette("shadcn", "zinc") as unknown as MantineColorsTuple,
       },
     };
   });
 
   useEffect(() => {
+    if (isHydrated && localStorageTheme) {
+      const baseTheme = getBaseTheme(localStorageTheme.style);
+      const initPrimeColor = localStorageTheme.color || baseTheme.primaryColor;
+      const primaryShade = getBasePrimaryShade(localStorageTheme.style, initPrimeColor);
+
+      setTheme({
+        ...baseTheme,
+        primaryColor: initPrimeColor,
+        primaryShade: primaryShade,
+        defaultRadius: localStorageTheme.radius || baseTheme.defaultRadius,
+        colors: {
+          ...baseTheme.colors,
+          secondary: getSecondaryPalette(localStorageTheme.style, initPrimeColor) as unknown as MantineColorsTuple,
+          dark: getSecondaryPalette(localStorageTheme.style, initPrimeColor) as unknown as MantineColorsTuple,
+        },
+      });
+    }
+
     if (!localStorageTheme?.color) {
       setTheme(() => ({
         ...baseTheme,
@@ -56,15 +82,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         },
       }));
     }
-  }, [localStorageTheme?.color]);
+  }, [isHydrated, localStorageTheme]);
 
-  async function loadShiki() {
+  async function loadShiki(): Promise<HighlighterGeneric<any, any>> {
     const { getHighlighter } = await import("shikiji");
     const shiki = await getHighlighter({
       langs: ["tsx", "scss", "html", "bash", "json"],
     });
 
-    return shiki;
+    return shiki as unknown as HighlighterGeneric<any, any>;
   }
 
   return (
