@@ -1,5 +1,6 @@
 export const generatedMantineTheme = {
   blue: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -11,7 +12,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -78,6 +79,7 @@ export const mantineTheme = createTheme({
 });
 `,
   gray: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -89,7 +91,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -156,6 +158,7 @@ export const mantineTheme = createTheme({
 });
 `,
   red: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -167,7 +170,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -234,6 +237,7 @@ export const mantineTheme = createTheme({
 });
 `,
   pink: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -245,7 +249,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -312,6 +316,7 @@ export const mantineTheme = createTheme({
 });
 `,
   grape: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -323,7 +328,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -390,6 +395,7 @@ export const mantineTheme = createTheme({
 });
 `,
   violet: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -401,7 +407,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -468,6 +474,7 @@ export const mantineTheme = createTheme({
 });
 `,
   indigo: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -479,7 +486,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -546,6 +553,7 @@ export const mantineTheme = createTheme({
 });
 `,
   cyan: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -557,7 +565,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -624,6 +632,7 @@ export const mantineTheme = createTheme({
 });
 `,
   teal: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -635,7 +644,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -702,6 +711,7 @@ export const mantineTheme = createTheme({
 });
 `,
   green: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -713,7 +723,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -780,6 +790,7 @@ export const mantineTheme = createTheme({
 });
 `,
   lime: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -791,7 +802,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -858,6 +869,7 @@ export const mantineTheme = createTheme({
 });
 `,
   yellow: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -869,7 +881,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
@@ -936,6 +948,7 @@ export const mantineTheme = createTheme({
 });
 `,
   orange: `import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -947,7 +960,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),
