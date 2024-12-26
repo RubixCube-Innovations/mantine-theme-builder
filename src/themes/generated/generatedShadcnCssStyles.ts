@@ -49,8 +49,8 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
 /* Chip */
 .mantine-Chip-root {
-
   --chip-color: var(--mantine-primary-color-contrast);
+
   &[data-variant="outline"]:not([data-disabled]) {
     .mantine-Chip-label {
       background-color: transparent;
@@ -58,20 +58,6 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
       &:hover {
         background-color: var(--mantine-color-default-hover);
-      }
-
-      &:where([data-checked]) {
-        --chip-icon-color: var(--chip-bg);
-        --chip-bd: 1px solid var(--chip-bg);
-        border: var(--chip-bd);
-
-
-        &:hover {
-          background-color: var(--chip-hover);
-          color: var(--chip-color);
-          --chip-bd: 1px solid var(--chip-bg);
-          --chip-icon-color: var(--chip-color);
-        }
       }
 
       &:where([data-disabled]) {
@@ -92,8 +78,9 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 }
 
 /* Input */
-.mantine-Input-wrapper {
-  @mixin light {
+[data-mantine-color-scheme='light'],
+[data-mantine-color-scheme='dark'] {
+  .mantine-Input-wrapper {
     --input-disabled-bg: alpha(var(--mantine-color-default-hover), 0.5);
     --input-disabled-color: alpha(var(--mantine-color-text), 0.5);
 
@@ -114,29 +101,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
       --input-bg: transparent;
       --input-bd-focus: transparent;
     }
-  }
 
-  @mixin dark {
-    --input-disabled-bg: alpha(var(--mantine-color-default-hover), 0.5);
-    --input-disabled-color: alpha(var(--mantine-color-text), 0.5);
-
-    &[data-variant='default'] {
-      --input-bd: var(--mantine-color-default-border);
-      --input-bg: transparent;
-      --input-bd-focus: var(--mantine-primary-color-filled);
-    }
-
-    &[data-variant='filled'] {
-      --input-bd: transparent;
-      --input-bg: var(--mantine-color-default-hover);
-      --input-bd-focus: var(--mantine-primary-color-filled);
-    }
-
-    &[data-variant='unstyled'] {
-      --input-bd: transparent;
-      --input-bg: transparent;
-      --input-bd-focus: transparent;
-    }
   }
 }
 
@@ -223,13 +188,13 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
 
 /* Slider */
+[data-mantine-color-scheme='light'],
+[data-mantine-color-scheme='dark'] {
+  .mantine-Slider-root {
+    --slider-track-bg: var(--mantine-color-secondary-outline-hover); 
+  }
+}
 .mantine-Slider-root {
-  @mixin light {
-  --slider-track-bg: var(--mantine-color-secondary-outline-hover); 
-  }
-  @mixin dark {
-  --slider-track-bg: var(--mantine-color-secondary-outline-hover); 
-  }
   .mantine-Slider-trackContainer{
     &[data-disabled] {
       opacity: 0.5;
@@ -246,20 +211,9 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
 /* ActionIcon */
 .mantine-ActionIcon-root {
-  
   &:where(:disabled:not([data-loading]), [data-disabled]:not([data-loading])) {
     border: var(--ai-bd);
     opacity: 0.5;
-
-    @mixin where-light {
-      background-color: var(--ai-bg);
-      color: var(--ai-color);
-    }
-
-    @mixin where-dark {
-      background-color: var(--ai-bg);
-      color: var(--ai-color);
-    }
 
     &:active {
       transform: none;
@@ -269,20 +223,9 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
 /* Button */
 .mantine-Button-root {
-
   &:where(:disabled:not([data-loading]), [data-disabled]:not([data-loading])) {
     border: var(--button-bd);
     opacity: 0.5;
-
-    @mixin where-light {
-      color: var(--button-color);
-      background: var(--button-bg);
-    }
-
-    @mixin where-dark {
-      color: var(--button-color);
-      background: var(--button-bg);
-    }
   }
 }
 
