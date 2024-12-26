@@ -1,4 +1,4 @@
-import { Box, Burger, Button, Divider, Drawer, Group, rem, ScrollArea, Stack, Tabs, Text } from "@mantine/core";
+import { Box, Button, Divider, Drawer, Group, rem, ScrollArea, Stack, Tabs, Text } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
   IconCube,
@@ -130,7 +130,7 @@ export function Header() {
               title="GitHub"
             ></iframe>
             <ColorSchemeSwitch />
-          <Burger opened={drawerOpened} onClick={toggleDrawer} size="sm" hiddenFrom="md" />
+          
           </Group>
         </div>
         <Divider />
