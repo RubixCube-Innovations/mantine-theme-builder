@@ -16,7 +16,6 @@ export const generatedShadcnTheme = {
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -402,11 +401,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -594,7 +588,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -980,11 +973,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -1172,7 +1160,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -1558,11 +1545,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -1750,7 +1732,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -2136,11 +2117,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -2328,7 +2304,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -2714,11 +2689,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -2906,7 +2876,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -3292,11 +3261,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -3484,7 +3448,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -3870,11 +3833,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -4062,7 +4020,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -4448,11 +4405,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -4640,7 +4592,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -5026,11 +4977,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -5218,7 +5164,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -5604,11 +5549,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -5796,7 +5736,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -6182,11 +6121,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -6374,7 +6308,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -6760,11 +6693,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -6952,7 +6880,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -7338,11 +7265,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -7530,7 +7452,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -7916,11 +7837,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -8108,7 +8024,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -8494,11 +8409,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -8686,7 +8596,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -9072,11 +8981,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -9264,7 +9168,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -9650,11 +9553,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -9842,7 +9740,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -10228,11 +10125,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -10420,7 +10312,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -10806,11 +10697,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -10998,7 +10884,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -11384,11 +11269,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -11576,7 +11456,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -11962,11 +11841,6 @@ export const shadcnTheme = createTheme({
         withBorder: true,
       },
     }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
-      },
-    }),
     Tooltip: Tooltip.extend({
       vars: () => ({
         tooltip: {
@@ -12154,7 +12028,6 @@ export const shadcnTheme = createTheme({
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -12538,11 +12411,6 @@ export const shadcnTheme = createTheme({
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
-      },
-    }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
       },
     }),
     Tooltip: Tooltip.extend({

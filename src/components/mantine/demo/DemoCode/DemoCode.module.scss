@@ -3,4 +3,8 @@
   border-bottom-left-radius: var(--mantine-radius-md);
   overflow: hidden;
   border-top: 1px solid var(--demo-border);
+
+  @include mobile {
+    max-width: calc(100vw - 32px);
+  }
 }

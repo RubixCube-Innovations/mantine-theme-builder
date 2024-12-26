@@ -1,5 +1,5 @@
 import { Box, Burger, Button, Divider, Drawer, Group, rem, ScrollArea, Stack, Tabs, Text } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
   IconCube,
   IconGoGame,
@@ -27,6 +27,8 @@ export type IMenuItem = {
 export function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const navigate = useNavigate();
+  const isMobile = useMediaQuery  ('(max-width: 430px)');
+  const [scrollHeight, setScrollHeight] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -35,6 +37,11 @@ export function Header() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setScrollHeight(isMobile ? 220 : 150);
+  }
+  , [isMobile]);
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes", icon: IconPalette },
@@ -100,12 +107,13 @@ export function Header() {
       );
     });
 
+    console.log(scrollPosition, scrollHeight);
   return (
     <>
       <header className={classes.header}>
         <div className={classes.inner}>
             <Box miw={rem(140)}>
-            {scrollPosition > 150 
+            {scrollPosition > scrollHeight 
             ? <ChangeThemeButton /> 
             : <Text size="md" fw={"bolder"}>{APP_NAME}</Text>}
             </Box>
@@ -139,7 +147,7 @@ export function Header() {
         p={0}
       >
         <Divider pb={"md"} />
-        <ScrollArea h="calc(100vh - 80px">
+        <ScrollArea h="calc(100vh - 80px)">
           <Stack gap="sm">{getItems("drawer")}</Stack>
         </ScrollArea>
       </Drawer>

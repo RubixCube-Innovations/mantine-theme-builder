@@ -1,5 +1,5 @@
 import { getCodeFileIcon } from '@mantinex/dev-icons';
-import classes from './DemoCode.module.css';
+import classes from './DemoCode.module.scss';
 import { CodeHighlightTabs, CodeHighlightTabsCode } from '@mantine/code-highlight';
 
 

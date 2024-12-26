@@ -5,7 +5,7 @@
     padding-left: var(--mantine-spacing-3xl);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
 
     @include mobile {
       padding-right: var(--mantine-spacing-md);

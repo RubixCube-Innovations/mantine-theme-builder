@@ -15,7 +15,6 @@ import {
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -377,11 +376,6 @@ export const shadcnTheme = createTheme({
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true,
-      },
-    }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: "md",
       },
     }),
     Tooltip: Tooltip.extend({
