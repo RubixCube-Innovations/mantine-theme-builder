@@ -24,6 +24,6 @@ export const staticVariantsControl: ConfiguratorControlOptions = {
   type: 'select',
   prop: 'variant',
   data: STATIC_VARIANTS,
-  initialValue: 'filled',
-  libraryValue: '__none__',
+  initialValue: '',
+  libraryValue: '',
 };

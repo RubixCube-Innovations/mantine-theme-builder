@@ -12,6 +12,8 @@ import {
 import { useNavigate } from "@tanstack/react-router";
 import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import classes from "./header.module.scss";
+import { useEffect, useState } from "react";
+import ChangeThemeButton from "../../custom/change-theme-section/change-theme-button";
 
 const APP_NAME = "MantineHub";
 export type IMenuItem = {
@@ -25,6 +27,14 @@ export type IMenuItem = {
 export function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const navigate = useNavigate();
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollPosition(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes", icon: IconPalette },
@@ -94,9 +104,11 @@ export function Header() {
     <>
       <header className={classes.header}>
         <div className={classes.inner}>
-          <Text size="md" fw={"bolder"}>
-            {APP_NAME}
-          </Text>
+            <Box miw={rem(140)}>
+            {scrollPosition > 150 
+            ? <ChangeThemeButton /> 
+            : <Text size="md" fw={"bolder"}>{APP_NAME}</Text>}
+            </Box>
           <Group gap={5} visibleFrom="md">
             {getItems("header")}
           </Group>

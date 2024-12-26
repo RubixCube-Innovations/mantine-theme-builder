@@ -1,6 +1,6 @@
 .navbarWrapper{
     position: sticky;
-    top: var(--mantine-spacing-xl);
+    top: 80px;
     z-index: 1;
 }
 

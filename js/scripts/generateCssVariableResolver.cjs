@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { MANTINE_DEFAULT_COLORS, SHADCN_DEFAULT_COLORS } = require("../generated/colors.cjs");
-const { getPrimaryContrastColorDay, getSecondaryLightColorDay, getDefaultBorderColorNight, getPrimaryContrastColorNight, getSecondaryLightColorNight, getDefaultBorderColorDay, generateShadcnCSSFilledColorVariables, generateShadcnCSSLightColorVariables, generateShadcnCSSOutlineColorVariables, generateShadcnCSSContrastColorVariables } = require("../generated/theme-functions.cjs");
+const { getPrimaryColorLight, getPrimaryContrastColorDay, getSecondaryLightColorDay, getDefaultBorderColorNight, getPrimaryContrastColorNight, getSecondaryLightColorNight, getDefaultBorderColorDay, generateShadcnCSSFilledColorVariables, generateShadcnCSSLightColorVariables, generateShadcnCSSOutlineColorVariables, generateShadcnCSSContrastColorVariables, getPrimaryColorLightHover, getPrimaryColorLightColor } = require("../generated/theme-functions.cjs");
 
 
 function generateCSSVariableResolvers(style, colors, inputFilePath, outputFileName) {
@@ -29,20 +29,23 @@ function generateCSSVariableResolvers(style, colors, inputFilePath, outputFileNa
     if (style === "shadcn") {
       return template
         .replace("(theme)", "()")
-        .replaceAll("getPrimaryContrastColorDay(theme.primaryColor)", `"${getPrimaryContrastColorDay(color.id)}"`)
-        .replaceAll("getPrimaryContrastColorNight(theme.primaryColor)", `"${getPrimaryContrastColorNight(color.id)}"`)
-        .replaceAll("getSecondaryLightColorDay(theme.primaryColor)", `"${getSecondaryLightColorDay(color.id)}"`)
-        .replaceAll("getSecondaryLightColorNight(theme.primaryColor)", `"${getSecondaryLightColorNight(color.id)}"`)
-        .replaceAll("getDefaultBorderColorDay(theme.primaryColor)", `"${getDefaultBorderColorDay(color.id)}"`)
-        .replaceAll("getDefaultBorderColorNight(theme.primaryColor)", `"${getDefaultBorderColorNight(color.id)}"`)
-        .replaceAll(`...generateShadcnCSSFilledColorVariables("light")`, cssStringify(generateShadcnCSSFilledColorVariables("light", true)))
-        .replaceAll(`...generateShadcnCSSFilledColorVariables("dark")`, cssStringify(generateShadcnCSSFilledColorVariables("dark", true)))
-        .replaceAll(`...generateShadcnCSSLightColorVariables("light")`, cssStringify(generateShadcnCSSLightColorVariables("light", true)))
-        .replaceAll(`...generateShadcnCSSLightColorVariables("dark")`, cssStringify(generateShadcnCSSLightColorVariables("dark", true)))
-        .replaceAll(`...generateShadcnCSSOutlineColorVariables("light")`, cssStringify(generateShadcnCSSOutlineColorVariables("light", true)))
-        .replaceAll(`...generateShadcnCSSOutlineColorVariables("dark")`, cssStringify(generateShadcnCSSOutlineColorVariables("dark", true)))
-        .replaceAll(`...generateShadcnCSSContrastColorVariables("light")`, cssStringify(generateShadcnCSSContrastColorVariables("light")))
-        .replaceAll(`...generateShadcnCSSContrastColorVariables("dark")`, cssStringify(generateShadcnCSSContrastColorVariables("dark")));
+        .replaceAll("getPrimaryColorLight(theme.primaryColor)", `'${getPrimaryColorLight(color.id)}'`)
+        .replaceAll("getPrimaryColorLightHover(theme.primaryColor)", `'${getPrimaryColorLightHover(color.id)}'`)
+        .replaceAll("getPrimaryColorLightColor(theme.primaryColor)", `'${getPrimaryColorLightColor(color.id)}'`)
+        .replaceAll("getPrimaryContrastColorDay(theme.primaryColor)", `'${getPrimaryContrastColorDay(color.id)}'`)
+        .replaceAll("getPrimaryContrastColorNight(theme.primaryColor)", `'${getPrimaryContrastColorNight(color.id)}'`)
+        .replaceAll("getSecondaryLightColorDay(theme.primaryColor)", `'${getSecondaryLightColorDay(color.id)}'`)
+        .replaceAll("getSecondaryLightColorNight(theme.primaryColor)", `'${getSecondaryLightColorNight(color.id)}'`)
+        .replaceAll("getDefaultBorderColorDay(theme.primaryColor)", `'${getDefaultBorderColorDay(color.id)}'`)
+        .replaceAll("getDefaultBorderColorNight(theme.primaryColor)", `'${getDefaultBorderColorNight(color.id)}'`)
+        .replaceAll(`...generateShadcnCSSFilledColorVariables('light')`, cssStringify(generateShadcnCSSFilledColorVariables('light', true)))
+        .replaceAll(`...generateShadcnCSSFilledColorVariables('dark')`, cssStringify(generateShadcnCSSFilledColorVariables('dark', true)))
+        .replaceAll(`...generateShadcnCSSLightColorVariables('light')`, cssStringify(generateShadcnCSSLightColorVariables('light', true)))
+        .replaceAll(`...generateShadcnCSSLightColorVariables('dark')`, cssStringify(generateShadcnCSSLightColorVariables('dark', true)))
+        .replaceAll(`...generateShadcnCSSOutlineColorVariables('light')`, cssStringify(generateShadcnCSSOutlineColorVariables('light', true)))
+        .replaceAll(`...generateShadcnCSSOutlineColorVariables('dark')`, cssStringify(generateShadcnCSSOutlineColorVariables('dark', true)))
+        .replaceAll(`...generateShadcnCSSContrastColorVariables('light')`, cssStringify(generateShadcnCSSContrastColorVariables('light')))
+        .replaceAll(`...generateShadcnCSSContrastColorVariables('dark')`, cssStringify(generateShadcnCSSContrastColorVariables('dark')));
     } else {
       return template;
     }
