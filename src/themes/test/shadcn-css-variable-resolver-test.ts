@@ -11,8 +11,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   light: {
     // all variables that depend on light color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-red-0)", // used as primary color contrast
-    "--mantine-color-bright": "var(--mantine-color-white)", // used as theme's bright color
+    "--mantine-primary-color-contrast": "var(--mantine-color-zinc-0)", // used as primary color contrast
     "--mantine-color-text": "var(--mantine-color-secondary-9)", // used as text color
     "--mantine-color-body": "var(--mantine-color-white)", // used as body color
     "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
@@ -25,7 +24,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
     "--mantine-color-default-border": "var(--mantine-color-secondary-2)", // used as default border color
     "--mantine-color-dimmed": "var(--mantine-color-secondary-10)", // used as dimmed text color
 
-    "--mantine-color-secondary-filled": "var(--mantine-color-bright)", // used as secondary surface color
+    "--mantine-color-secondary-filled": "var(--mantine-color-white)", // used as secondary surface color
     "--mantine-color-secondary-filled-hover": "var(--mantine-color-secondary-1)", // used as secondary hover color
 
     "--mantine-color-secondary-light": "var(--mantine-color-secondary-1)", // used as primary light color
@@ -223,10 +222,9 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
   },
   dark: {
     // all variables that depend on dark color scheme
-    "--mantine-primary-color-contrast": "var(--mantine-color-red-0)", // used as primary color contrast
-    "--mantine-color-bright": "var(--mantine-color-secondary-9)", // used as theme's bright color
+    "--mantine-primary-color-contrast": "var(--mantine-color-zinc-8)", // used as primary color contrast
     "--mantine-color-text": "var(--mantine-color-secondary-0)", // used as text color
-    "--mantine-color-body": "var(--mantine-color-bright)", // used as body color
+    "--mantine-color-body": "var(--mantine-color-secondary-9)", // used as body color
     "--mantine-color-error": "var(--mantine-color-error-10)", // used as error color
     "--mantine-color-placeholder": "var(--mantine-color-secondary-4)", // used as placeholder color
     "--mantine-color-anchor": "var(--mantine-color-secondary-4)", // used as anchor color
@@ -426,7 +424,7 @@ export const shadcnCssVariableResolver: CSSVariablesResolver = () => ({
     "--mantine-color-teal-contrast": "var(--mantine-color-slate-8)",
     "--mantine-color-cyan-contrast": "var(--mantine-color-slate-8)",
     "--mantine-color-sky-contrast": "var(--mantine-color-slate-8)",
-    "--mantine-color-blue-contrast": "var(--mantine-color-slate-8)",
+    "--mantine-color-blue-contrast": "var(--mantine-color-slate-0)",
     "--mantine-color-indigo-contrast": "var(--mantine-color-gray-0)",
     "--mantine-color-violet-contrast": "var(--mantine-color-gray-0)",
     "--mantine-color-purple-contrast": "var(--mantine-color-gray-0)",
