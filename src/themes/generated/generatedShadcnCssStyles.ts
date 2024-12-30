@@ -179,23 +179,23 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     }
   }
 }
-[data-mantine-color-scheme='light']{
+[data-mantine-color-scheme="light"] {
   .mantine-SegmentedControl-root {
     .mantine-SegmentedControl-label {
       &:where(:not([data-disabled], [data-active], [data-read-only])) {
         &:hover {
-            color: var(--mantine-color-black);
+          color: var(--mantine-color-black);
         }
       }
     }
   }
 }
-[data-mantine-color-scheme='dark']{
+[data-mantine-color-scheme="dark"] {
   .mantine-SegmentedControl-root {
     .mantine-SegmentedControl-label {
       &:where(:not([data-disabled], [data-active], [data-read-only])) {
         &:hover {
-            color: var(--mantine-color-white);
+          color: var(--mantine-color-white);
         }
       }
     }
@@ -832,14 +832,14 @@ export const generatedShadcnCssStyles = `/* Checkbox */
       color: var(--mantine-color-text);
     }
   }
+
+  .mantine-CodeHighlightTabs-control {
+    color: var(--mantine-primary-color-contrast);
+  }
 }
 
 /* Chart Tooltip */
 .mantine-ChartTooltip-tooltip {
   border: 1px solid var(--mantine-color-default-border);
-}
-
-.mantine-CodeHighlightTabs-control {
-  color: var(--mantine-primary-color-contrast);
 }
 `;
