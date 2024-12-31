@@ -826,6 +826,8 @@
   .mantine-CodeHighlightTabs-file {
     color: var(--mantine-color-text);
     border-color: var(--mantine-color-default-border);
+    padding: 7px 12px;
+    font-size: 12px;
 
     &:where([data-active]) {
       background-color: var(--mantine-color-default-hover);

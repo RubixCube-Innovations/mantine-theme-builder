@@ -129,9 +129,6 @@ const CopyThemeCodeButton = () => {
                 top: 0,
                 background: "var(--mantine-color-secondary-filled)",
               },
-              file: {
-                padding: "var(--mantine-spacing-2xs)",
-              },
             }}
             code={[
               {
