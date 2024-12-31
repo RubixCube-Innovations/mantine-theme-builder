@@ -7,11 +7,11 @@ import {
   IconHeartFilled,
   IconInfoCircleFilled,
   IconMenu2,
-  IconPalette
+  IconPalette,
 } from "@tabler/icons-react";
-import { useNavigate } from "@tanstack/react-router";
 import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
 import classes from "./header.module.scss";
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ChangeThemeButton from "../../custom/change-theme-section/change-theme-button";
 
@@ -26,7 +26,9 @@ export type IMenuItem = {
 };
 export function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-  const navigate = useNavigate();
+  const router = useRouter();
+  const pathname = usePathname();
+  
   const isMobile = useMediaQuery  ('(max-width: 430px)');
   const [scrollHeight, setScrollHeight] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -62,7 +64,7 @@ export function Header() {
     if (clickedItem.onClick) {
       clickedItem.onClick();
     } else if (clickedItem.href) {
-      navigate({ to: clickedItem.href });
+      router.push(clickedItem.href);
     }
   };
 
@@ -70,22 +72,23 @@ export function Header() {
     items?.map((link) => {
       const isActive = link.href
         ? link.id === "home"
-          ? window.location.pathname === link.href
-          : window.location.pathname.startsWith(link.href)
+          ? pathname === link.href
+          : pathname.startsWith(link.href)
         : false;
 
       if (view === "footer")
         return (
-          <Tabs.Tab
-            key={link.id}
-            value={link.id}
-            w={"25%"}
-            onClick={() => handleClick(link)}
-            h={"63px"}
-          >
+          <Tabs.Tab key={link.id} value={link.id} w={"25%"} onClick={() => handleClick(link)} h={"63px"}>
             <Stack gap={"4px"} align="center">
-              <link.icon stroke={1.5} color={isActive ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-dimmed)"} />
-              <Text fz={rem("12px")} truncate c={isActive ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-dimmed)"}>
+              <link.icon
+                stroke={1.5}
+                color={isActive ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-dimmed)"}
+              />
+              <Text
+                fz={rem("12px")}
+                truncate
+                c={isActive ? "var(--mantine-primary-color-filled)" : "var(--mantine-color-dimmed)"}
+              >
                 {link.label}
               </Text>
             </Stack>
@@ -94,11 +97,11 @@ export function Header() {
 
       return (
         <Button
-          variant="subtle"
-          size={view === "drawer" ? "md" : "xs"}
+          variant="transparent"
+          size={view === "drawer" ? "md" : "sm"}
           key={link.label}
           className={classes.link}
-          bg={isActive ? "var(--mantine-color-default-hover)" : undefined}
+          c={isActive ? "var(--mantine-primary-color-filled)" : undefined}
           onClick={() => handleClick(link)}
           justify={view === "drawer" ? "start" : "center"}
         >
@@ -151,20 +154,20 @@ export function Header() {
           <Stack gap="sm">{getItems("drawer")}</Stack>
         </ScrollArea>
       </Drawer>
-      <Box >
+      <Box>
         <Tabs
           variant="unstyled"
           defaultValue="home"
           className={classes.tab}
           w={"100%"}
-          hiddenFrom="md" 
-          style={{ position: "fixed", bottom: 0, zIndex: 100 }} 
+          hiddenFrom="md"
+          style={{ position: "fixed", bottom: 0, zIndex: 100 }}
         >
           <Tabs.List grow>
             {getItems("footer", links?.slice(0, 3))}
             <Tabs.Tab key={"Menu"} value={"menu"} w={"25%"} onClick={toggleDrawer} h={"63px"}>
-              <Stack gap={"4px"} align="center"> 
-                <IconMenu2 color="var(--mantine-color-dimmed)"/>
+              <Stack gap={"4px"} align="center">
+                <IconMenu2 color="var(--mantine-color-dimmed)" />
                 <Text fz={rem("12px")} truncate c="var(--mantine-color-dimmed)">
                   Menu
                 </Text>

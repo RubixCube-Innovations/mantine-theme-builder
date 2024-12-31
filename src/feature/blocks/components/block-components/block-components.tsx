@@ -4,7 +4,7 @@ import { components } from "../../data/components";
 
 const BlockComponents = () => {
   const canvases = components.map((component, index) => (
-    <ComponentCanvas {...component} key={component.slug} zIndex={components.length - index} />
+    <ComponentCanvas {...component} key={component.slug} zindex={components.length - index} />
   ));
 
   return (

@@ -14,6 +14,7 @@ import {
   Dialog,
   Indicator,
   MantineColorsTuple,
+  MantineThemeOverride,
   Mark,
   NavLink,
   Pagination,
@@ -40,7 +41,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const shadcnTheme = createTheme({
+export const shadcnTheme: MantineThemeOverride = createTheme({
   colors: {
     slate: slateColors,
     gray: grayColors,

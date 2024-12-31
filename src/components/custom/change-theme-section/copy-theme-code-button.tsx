@@ -121,15 +121,14 @@ const CopyThemeCodeButton = () => {
         </Box>
         <ScrollArea h={"750"} style={{ borderRadius: "var(--mantine-radius-default)" }}>
           <CodeHighlightTabs
-            style={{ maxWidth: "46.625rem" }}
-            styles={{ 
-              header: 
-              { 
+            style={{ maxWidth: "45.625rem" }}
+            styles={{
+              header: {
                 position: "sticky",
                 zIndex: 150,
                 top: 0,
-                background: "var(--mantine-color-secondary-filled)",      
-              }
+                background: "var(--mantine-color-secondary-filled)",
+              },
             }}
             code={[
               {

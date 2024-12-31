@@ -4,7 +4,7 @@
   overflow: hidden;
   border-top: 1px solid var(--demo-border);
 
-  @include mobile {
+  @mixin mobile {
     max-width: calc(100vw - 32px);
   }
 }

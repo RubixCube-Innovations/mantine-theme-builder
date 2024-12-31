@@ -1,4 +1,5 @@
 import { Card, Container, createTheme, Paper, rem, Select } from "@mantine/core";
+import type { MantineThemeOverride } from "@mantine/core";
 
 const CONTAINER_SIZES: Record<string, string> = {
   xxs: rem("200px"),
@@ -10,7 +11,7 @@ const CONTAINER_SIZES: Record<string, string> = {
   xxl: rem("1600px"),
 };
 
-export const mantineTheme = createTheme({
+export const mantineTheme: MantineThemeOverride = createTheme({
   /** Put your mantine theme override here */
   fontSizes: {
     xs: rem("12px"),

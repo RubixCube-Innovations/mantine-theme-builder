@@ -15,7 +15,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     &:disabled {
       opacity: 0.5;
 
-      &+.mantine-Checkbox-icon {
+      & + .mantine-Checkbox-icon {
         opacity: 0.5;
         color: var(--checkbox-icon-color);
       }
@@ -33,7 +33,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     .mantine-Checkbox-input {
       background-color: transparent;
 
-      &+.mantine-Checkbox-icon {
+      & + .mantine-Checkbox-icon {
         color: var(--checkbox-color);
       }
     }
@@ -78,30 +78,29 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 }
 
 /* Input */
-[data-mantine-color-scheme='light'],
-[data-mantine-color-scheme='dark'] {
+[data-mantine-color-scheme="light"],
+[data-mantine-color-scheme="dark"] {
   .mantine-Input-wrapper {
     --input-disabled-bg: alpha(var(--mantine-color-default-hover), 0.5);
     --input-disabled-color: alpha(var(--mantine-color-text), 0.5);
 
-    &[data-variant='default'] {
+    &[data-variant="default"] {
       --input-bd: var(--mantine-color-default-border);
       --input-bg: transparent;
       --input-bd-focus: var(--mantine-primary-color-filled);
     }
 
-    &[data-variant='filled'] {
+    &[data-variant="filled"] {
       --input-bd: transparent;
       --input-bg: var(--mantine-color-default-hover);
       --input-bd-focus: var(--mantine-primary-color-filled);
     }
 
-    &[data-variant='unstyled'] {
+    &[data-variant="unstyled"] {
       --input-bd: transparent;
       --input-bg: transparent;
       --input-bd-focus: transparent;
     }
-
   }
 }
 
@@ -113,25 +112,22 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
 /* Fieldset */
 .mantine-Fieldset-root {
-
   border-color: var(--mantine-color-default-border);
   background-color: transparent;
 
-  &[data-variant='filled'] {
+  &[data-variant="filled"] {
     border-color: var(--mantine-color-default-border);
     background-color: alpha(var(--mantine-color-default-hover), 0.4);
   }
 
-  &[data-variant='unstyled'] {
+  &[data-variant="unstyled"] {
     border-color: transparent;
     background-color: transparent;
   }
-
 }
 
 /* Radio */
 .mantine-Radio-root {
-
   .mantine-Radio-radio {
     background-color: transparent;
     border-color: var(--radio-color);
@@ -141,7 +137,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
       border-color: var(--radio-color);
     }
 
-    &+.mantine-Radio-icon {
+    & + .mantine-Radio-icon {
       color: var(--radio-icon-color);
     }
 
@@ -150,7 +146,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     }
   }
 
-  &[data-variant='outline'] {
+  &[data-variant="outline"] {
     .mantine-Radio-radio {
       background-color: transparent;
       border-color: var(--radio-color);
@@ -163,7 +159,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
       &:disabled {
         opacity: 0.5;
 
-        &+.mantine-Radio-icon {
+        & + .mantine-Radio-icon {
           color: var(--radio-color);
           --radio-icon-opacity: 0.5;
         }
@@ -180,6 +176,28 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     color: var(--mantine-color-dimmed);
     &[data-active] {
       color: var(--mantine-color-text);
+    }
+  }
+}
+[data-mantine-color-scheme="light"] {
+  .mantine-SegmentedControl-root {
+    .mantine-SegmentedControl-label {
+      &:where(:not([data-disabled], [data-active], [data-read-only])) {
+        &:hover {
+          color: var(--mantine-color-black);
+        }
+      }
+    }
+  }
+}
+[data-mantine-color-scheme="dark"] {
+  .mantine-SegmentedControl-root {
+    .mantine-SegmentedControl-label {
+      &:where(:not([data-disabled], [data-active], [data-read-only])) {
+        &:hover {
+          color: var(--mantine-color-white);
+        }
+      }
     }
   }
 }
@@ -209,16 +227,15 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
 /* Switch */
 
-
 /* Slider */
-[data-mantine-color-scheme='light'],
-[data-mantine-color-scheme='dark'] {
+[data-mantine-color-scheme="light"],
+[data-mantine-color-scheme="dark"] {
   .mantine-Slider-root {
-    --slider-track-bg: var(--mantine-color-secondary-outline-hover); 
+    --slider-track-bg: var(--mantine-color-secondary-outline-hover);
   }
 }
 .mantine-Slider-root {
-  .mantine-Slider-trackContainer{
+  .mantine-Slider-trackContainer {
     &[data-disabled] {
       opacity: 0.5;
     }
@@ -235,10 +252,10 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 /* Pills Input */
 .mantine-PillsInput-wrapper {
   .mantine-PillsInput-input {
-    &[data-variant='filled'] {
-        .mantine-Pill-root {
-          background-color: var(--mantine-color-body);
-        }
+    &[data-variant="filled"] {
+      .mantine-Pill-root {
+        background-color: var(--mantine-color-body);
+      }
     }
   }
 }
@@ -246,10 +263,10 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 /* Tags Input */
 .mantine-TagsInput-wrapper {
   .mantine-TagsInput-input {
-    &[data-variant='filled'] {
-        .mantine-Pill-root {
-          background-color: var(--mantine-color-body);
-        }
+    &[data-variant="filled"] {
+      .mantine-Pill-root {
+        background-color: var(--mantine-color-body);
+      }
     }
   }
 }
@@ -276,12 +293,12 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
 /* Close Button */
 .mantine-CloseButton-root {
-  &[data-variant="subtle"]:where(:not([data-disabled], :disabled)){
+  &[data-variant="subtle"]:where(:not([data-disabled], :disabled)) {
     @mixin hover {
       @mixin where-light {
         background-color: var(--mantine-color-default-hover);
       }
-  
+
       @mixin where-dark {
         background-color: var(--mantine-color-default-hover);
       }
@@ -301,7 +318,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     }
   }
 
-  &:where([data-active], [aria-current='page']) {
+  &:where([data-active], [aria-current="page"]) {
     background-color: var(--nl-bg);
     color: var(--nl-color);
 
@@ -322,18 +339,18 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     @mixin where-light {
       border-color: var(--mantine-color-default-border);
       background-color: var(--mantine-color-body);
-  
+
       @mixin hover {
         &:where(:not(:disabled, [data-disabled])) {
           background-color: var(--mantine-color-default-hover);
         }
       }
     }
-  
+
     @mixin where-dark {
       border-color: var(--mantine-color-default-border);
       background-color: var(--mantine-color-body);
-  
+
       @mixin hover {
         &:where(:not(:disabled, [data-disabled])) {
           background-color: var(--mantine-color-default-hover);
@@ -344,7 +361,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
       background-color: var(--pagination-active-bg);
       border-color: var(--pagination-active-bg);
       color: var(--pagination-active-color, var(--mantine-primary-color-contrast));
-  
+
       @mixin hover {
         background-color: rgba(from var(--pagination-active-bg) r g b / 0.9);
       }
@@ -360,7 +377,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
       border-color: var(--mantine-color-default-border);
       color: var(--mantine-color-text);
     }
-  
+
     @mixin where-dark {
       background-color: var(--mantine-color-body);
       border-color: var(--mantine-color-default-border);
@@ -369,7 +386,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     &:where([data-progress]) {
       border-color: var(--step-color);
     }
-  
+
     &:where([data-completed]) {
       color: var(--stepper-icon-color, var(--mantine-color-white));
       background-color: var(--step-color);
@@ -388,7 +405,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     --tab-border-color: var(--mantine-color-default-border);
   }
 
-  &[data-variant='default'] {
+  &[data-variant="default"] {
     --tabs-list-border-width: 2px;
 
     @mixin light {
@@ -400,7 +417,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     }
   }
 
-  &[data-variant='pills'] {
+  &[data-variant="pills"] {
     --tabs-list-gap: calc(var(--mantine-spacing-sm) / 2);
     --tabs-text-color: var(--mantine-color-body) !important;
 
@@ -412,7 +429,6 @@ export const generatedShadcnCssStyles = `/* Checkbox */
       --tab-hover-color: var(--mantine-color-default-hover);
     }
   }
-
 }
 
 /* Notification */
@@ -453,7 +469,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     @mixin light {
       --rp-curve-root-color: var(--mantine-color-default-hover);
     }
-  
+
     @mixin dark {
       --rp-curve-root-color: var(--mantine-color-default-hover);
     }
@@ -562,32 +578,33 @@ export const generatedShadcnCssStyles = `/* Checkbox */
     --item-filled-color: var(--mantine-color-default-hover);
   }
 
-    &[data-variant='default'] {
-      .mantine-Accordion-control {
-        &:where(:not(:disabled, [data-disabled])) {
-          &:hover {
-            background-color: transparent;
-          }
-        }
-      }
-      .mantine-Accordion-label {
-        &:where(:not(:disabled, [data-disabled])) {
-          &:hover {
-            text-decoration: underline;
-          }
+  &[data-variant="default"] {
+    .mantine-Accordion-control {
+      &:where(:not(:disabled, [data-disabled])) {
+        &:hover {
+          background-color: transparent;
         }
       }
     }
+    .mantine-Accordion-label {
+      &:where(:not(:disabled, [data-disabled])) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 
-    &[data-variant='contained'], &[data-variant='filled'] {
-      .mantine-Accordion-control {
-        &:where(:not(:disabled, [data-disabled])) {
-          &:hover {
-            background-color: var(--mantine-color-default-hover);
-          }
+  &[data-variant="contained"],
+  &[data-variant="filled"] {
+    .mantine-Accordion-control {
+      &:where(:not(:disabled, [data-disabled])) {
+        &:hover {
+          background-color: var(--mantine-color-default-hover);
         }
       }
     }
+  }
 }
 
 /* Avatar */
@@ -610,7 +627,7 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 /* Card */
 .mantine-Card-root {
   background-color: var(--mantine-color-default);
-  
+
   .mantine-Card-section {
     border-color: var(--mantine-color-default-border);
   }
@@ -631,20 +648,19 @@ export const generatedShadcnCssStyles = `/* Checkbox */
       border-color: var(--tli-color, var(--tl-color));
       background-color: var(--mantine-color-white);
       color: var(--tl-icon-color, var(--mantine-color-white));
-  
+
       &:where([data-with-child]) {
         background-color: var(--tli-color, var(--tl-color));
         color: var(--tl-icon-color, var(--mantine-color-white));
       }
     }
   }
-
 }
 
 /* Code */
-.mantine-Code-root{
+.mantine-Code-root {
   background-color: var(--code-bg, var(--mantine-color-secondary-filled));
-  color: var(--mantine-color-text)
+  color: var(--mantine-color-text);
 }
 
 /* Table */
@@ -700,11 +716,11 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 /* Date Picker */
 .mantine-DatePicker-levelsGroup {
   .mantine-DatePicker-calendarHeader {
-    --dch-control-size-xs: calc(1.25rem* var(--mantine-scale));
-    --dch-control-size-sm: calc(1.75rem* var(--mantine-scale));
-    --dch-control-size-md: calc(2.25rem* var(--mantine-scale));
-    --dch-control-size-lg: calc(2.5rem* var(--mantine-scale));
-    --dch-control-size-xl: calc(2.75rem* var(--mantine-scale));
+    --dch-control-size-xs: calc(1.25rem * var(--mantine-scale));
+    --dch-control-size-sm: calc(1.75rem * var(--mantine-scale));
+    --dch-control-size-md: calc(2.25rem * var(--mantine-scale));
+    --dch-control-size-lg: calc(2.5rem * var(--mantine-scale));
+    --dch-control-size-xl: calc(2.75rem * var(--mantine-scale));
 
     max-width: none;
     gap: var(--mantine-spacing-xs);
@@ -742,14 +758,13 @@ export const generatedShadcnCssStyles = `/* Checkbox */
       margin-bottom: var(--mantine-spacing-xs);
 
       .mantine-DatePicker-day {
+        --day-size-xs: calc(1.5rem * var(--mantine-scale));
+        --day-size-sm: calc(2rem * var(--mantine-scale));
+        --day-size-md: calc(2.5rem * var(--mantine-scale));
+        --day-size-lg: calc(3rem * var(--mantine-scale));
+        --day-size-xl: calc(3.5rem * var(--mantine-scale));
 
-        --day-size-xs: calc(1.5rem* var(--mantine-scale));
-        --day-size-sm: calc(2rem* var(--mantine-scale));
-        --day-size-md: calc(2.5rem* var(--mantine-scale));
-        --day-size-lg: calc(3rem* var(--mantine-scale));
-        --day-size-xl: calc(3.5rem* var(--mantine-scale));
-
-        font-size: calc(var(--day-size)/2.28);
+        font-size: calc(var(--day-size) / 2.28);
 
         &:hover:where(:not([data-static], [data-disabled], [data-selected], [data-in-range])) {
           background-color: var(--mantine-color-default-hover) !important;
@@ -773,18 +788,17 @@ export const generatedShadcnCssStyles = `/* Checkbox */
         &[data-first-in-range] {
           border-radius: var(--mantine-radius-default);
         }
-
       }
     }
   }
 
   .mantine-DatePicker-monthsList {
     .mantine-DatePicker-monthsListControl {
-      --dpc-size-xs: calc(1.5rem* var(--mantine-scale));
-      --dpc-size-sm: calc(1.96rem* var(--mantine-scale));
-      --dpc-size-md: calc(2.5rem* var(--mantine-scale));
-      --dpc-size-lg: calc(3rem* var(--mantine-scale));
-      --dpc-size-xl: calc(3.5rem* var(--mantine-scale));
+      --dpc-size-xs: calc(1.5rem * var(--mantine-scale));
+      --dpc-size-sm: calc(1.96rem * var(--mantine-scale));
+      --dpc-size-md: calc(2.5rem * var(--mantine-scale));
+      --dpc-size-lg: calc(3rem * var(--mantine-scale));
+      --dpc-size-xl: calc(3.5rem * var(--mantine-scale));
 
       &:hover:where(:not([data-disabled], :disabled)) {
         background-color: var(--mantine-color-default-hover) !important;
@@ -794,11 +808,11 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
   .mantine-DatePicker-yearsList {
     .mantine-DatePicker-yearsListControl {
-      --dpc-size-xs: calc(1.5rem* var(--mantine-scale));
-      --dpc-size-sm: calc(1.96rem* var(--mantine-scale));
-      --dpc-size-md: calc(2.5rem* var(--mantine-scale));
-      --dpc-size-lg: calc(3rem* var(--mantine-scale));
-      --dpc-size-xl: calc(3.5rem* var(--mantine-scale));
+      --dpc-size-xs: calc(1.5rem * var(--mantine-scale));
+      --dpc-size-sm: calc(1.96rem * var(--mantine-scale));
+      --dpc-size-md: calc(2.5rem * var(--mantine-scale));
+      --dpc-size-lg: calc(3rem * var(--mantine-scale));
+      --dpc-size-xl: calc(3.5rem * var(--mantine-scale));
 
       &:hover:where(:not([data-disabled], :disabled)) {
         background-color: var(--mantine-color-default-hover) !important;
@@ -809,7 +823,6 @@ export const generatedShadcnCssStyles = `/* Checkbox */
 
 /* Spotlight */
 .mantine-Spotlight-root {
-
   .mantine-Spotlight-content {
     border: 1px solid var(--mantine-color-default-border);
   }
@@ -836,16 +849,22 @@ export const generatedShadcnCssStyles = `/* Checkbox */
   .mantine-CodeHighlightTabs-file {
     color: var(--mantine-color-text);
     border-color: var(--mantine-color-default-border);
-    
-    &:where([data-active]) {
-        background-color: var(--mantine-color-default-hover);
-        color: var(--mantine-color-text);
-    }
+    padding: 7px 12px;
+    font-size: 12px;
 
+    &:where([data-active]) {
+      background-color: var(--mantine-color-default-hover);
+      color: var(--mantine-color-text);
+    }
+  }
+
+  .mantine-CodeHighlightTabs-control {
+    color: var(--mantine-primary-color-contrast);
   }
 }
 
 /* Chart Tooltip */
 .mantine-ChartTooltip-tooltip {
   border: 1px solid var(--mantine-color-default-border);
-}`;
+}
+`;
