@@ -128,7 +128,7 @@ export function Header() {
             <iframe
               src="https://ghbtns.com/github-btn.html?user=RubixCube-Innovations&repo=mantine-theme-builder&type=star&count=true&size=large"
               style={{ border: 0, overflow: "hidden", borderRadius: "var(--mantine-radius-default)" }}
-              width="130"
+              width="140"
               height="30"
               title="GitHub"
             ></iframe>
