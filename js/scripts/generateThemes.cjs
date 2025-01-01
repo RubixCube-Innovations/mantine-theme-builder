@@ -30,7 +30,7 @@ function generateThemes(style, colors, inputFilePath, outputFileName) {
         return `const ${color.id}Colors: MantineColorsTuple = ${JSON.stringify(color.primaryPalette)};`;
       }).join("\n");
 
-      const exportLine = "export const shadcnTheme = createTheme({";
+      const exportLine = "export const shadcnTheme: MantineThemeOverride = createTheme({";
       updatedContent = updatedContent.replace(exportLine, `${colorDeclarations}\n\n${exportLine}`);
     }
 
