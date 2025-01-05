@@ -294,35 +294,23 @@
 /* Close Button */
 .mantine-CloseButton-root {
   &[data-variant="subtle"]:where(:not([data-disabled], :disabled)) {
-    @mixin hover {
-      @mixin where-light {
-        background-color: var(--mantine-color-default-hover);
-      }
-
-      @mixin where-dark {
-        background-color: var(--mantine-color-default-hover);
-      }
+    &:hover {
+      background-color: var(--mantine-color-default-hover);
     }
   }
 }
 
 /* NavLink */
 .mantine-NavLink-root {
-  @mixin hover {
-    @mixin where-light {
-      background-color: var(--mantine-color-default-hover);
-    }
-
-    @mixin where-dark {
-      background-color: var(--mantine-color-default-hover);
-    }
+  &:hover {
+    background-color: var(--mantine-color-default-hover);
   }
 
   &:where([data-active], [aria-current="page"]) {
     background-color: var(--nl-bg);
     color: var(--nl-color);
 
-    @mixin hover {
+    &:hover {
       background-color: var(--nl-hover);
     }
 
@@ -336,33 +324,20 @@
 /* Pagination */
 .mantine-Pagination-root {
   .mantine-Pagination-control {
-    @mixin where-light {
       border-color: var(--mantine-color-default-border);
       background-color: var(--mantine-color-body);
 
-      @mixin hover {
+      &:hover {
         &:where(:not(:disabled, [data-disabled])) {
           background-color: var(--mantine-color-default-hover);
         }
       }
-    }
-
-    @mixin where-dark {
-      border-color: var(--mantine-color-default-border);
-      background-color: var(--mantine-color-body);
-
-      @mixin hover {
-        &:where(:not(:disabled, [data-disabled])) {
-          background-color: var(--mantine-color-default-hover);
-        }
-      }
-    }
     &:where([data-active]) {
       background-color: var(--pagination-active-bg);
       border-color: var(--pagination-active-bg);
       color: var(--pagination-active-color, var(--mantine-primary-color-contrast));
 
-      @mixin hover {
+      &:hover {
         background-color: rgba(from var(--pagination-active-bg) r g b / 0.9);
       }
     }
@@ -372,17 +347,10 @@
 /* Stepper */
 .mantine-Stepper-root {
   .mantine-Stepper-stepIcon {
-    @mixin where-light {
       background-color: var(--mantine-color-body);
       border-color: var(--mantine-color-default-border);
       color: var(--mantine-color-text);
-    }
-
-    @mixin where-dark {
-      background-color: var(--mantine-color-body);
-      border-color: var(--mantine-color-default-border);
-      color: var(--mantine-color-text);
-    }
+  
     &:where([data-progress]) {
       border-color: var(--step-color);
     }
@@ -396,108 +364,86 @@
 }
 
 /* Tabs */
-.mantine-Tabs-root {
-  @mixin light {
+[data-mantine-color-scheme="light"],
+[data-mantine-color-scheme="dark"] {
+  .mantine-Tabs-root {
     --tab-border-color: var(--mantine-color-default-border);
-  }
 
-  @mixin dark {
-    --tab-border-color: var(--mantine-color-default-border);
-  }
-
-  &[data-variant="default"] {
-    --tabs-list-border-width: 2px;
-
-    @mixin light {
+    &[data-variant="default"] {
+      --tabs-list-border-width: 2px;
       --tab-hover-color: var(--mantine-color-default-hover);
     }
 
-    @mixin dark {
-      --tab-hover-color: var(--mantine-color-default-hover);
-    }
-  }
-
-  &[data-variant="pills"] {
-    --tabs-list-gap: calc(var(--mantine-spacing-sm) / 2);
-    --tabs-text-color: var(--mantine-color-body) !important;
-
-    @mixin light {
+    &[data-variant="pills"] {
+      --tabs-list-gap: calc(var(--mantine-spacing-sm) / 2);
+      --tabs-text-color: var(--mantine-color-body) !important;
       --tab-hover-color: var(--mantine-color-default-hover);
     }
 
-    @mixin dark {
-      --tab-hover-color: var(--mantine-color-default-hover);
+    .mantine-Tabs-tab {
+      color: var(--mantine-color-dimmed);
+
+      &[data-variant="default"],
+      &[data-variant="outline"] {
+        &[data-active="true"] {
+          color: var(--mantine-color-text);
+        }
+
+        &:hover {
+          background-color: transparent;
+          color: var(--mantine-color-text);
+        }
+      }
+
+      &[data-variant="pills"] {
+        &[data-active="true"] {
+          color: var(--mantine-primary-color-contrast);
+
+          &:hover {
+            color: var(--mantine-primary-color-contrast);
+          }
+        }
+
+        &:hover {
+          color: var(--mantine-color-text);
+        }
+      }
     }
   }
 }
 
+
 /* Notification */
 .mantine-Notification-root {
-  @mixin where-light {
-    background-color: var(--mantine-color-secondary-filled);
-  }
-
-  @mixin where-dark {
-    background-color: var(--mantine-color-secondary-filled);
-  }
+  background-color: var(--mantine-color-secondary-filled);
 
   &:where([data-with-border]) {
-    @mixin where-light {
-      border: 1px solid var(--mantine-color-default-border);
-    }
-
-    @mixin where-dark {
-      border: 1px solid var(--mantine-color-default-border);
-    }
+    border: 1px solid var(--mantine-color-default-border);
   }
 }
 
 /* Progress */
 .mantine-Progress-root {
-  @mixin where-light {
-    background-color: var(--mantine-color-default-hover);
-  }
-
-  @mixin where-dark {
-    background-color: var(--mantine-color-default-hover);
-  }
+  background-color: var(--mantine-color-default-hover);
 }
 
 /* Ring Progress */
 .mantine-RingProgress-root {
   .mantine-RingProgress-curve {
-    @mixin light {
-      --rp-curve-root-color: var(--mantine-color-default-hover);
-    }
-
-    @mixin dark {
-      --rp-curve-root-color: var(--mantine-color-default-hover);
-    }
+    --rp-curve-root-color: var(--mantine-color-default-hover);
   }
 }
 
 /* SemiCircle Progress */
 .mantine-SemiCircleProgress-root {
-  @mixin where-light {
-    --scp-empty-segment-color: var(--mantine-color-default-hover);
-  }
-
-  @mixin where-dark {
-    --scp-empty-segment-color: var(--mantine-color-default-hover);
-  }
+  --scp-empty-segment-color: var(--mantine-color-default-hover);
 }
 
 /* Skeleton */
 .mantine-Skeleton-root {
   &:where([data-visible]) {
     &::after {
-      @mixin where-light {
-        background-color: var(--mantine-color-default-hover);
-      }
-
-      @mixin where-dark {
-        background-color: var(--mantine-color-default-hover);
-      }
+      background-color: var(--mantine-color-default-hover);
     }
   }
 }
@@ -545,15 +491,8 @@
 
 /* Popover Start*/
 .mantine-Popover-dropdown {
-  @mixin where-light {
-    --popover-border-color: var(--mantine-color-default-border);
-    background-color: var(--mantine-color-body);
-  }
-
-  @mixin where-dark {
-    --popover-border-color: var(--mantine-color-default-border);
-    background-color: var(--mantine-color-body);
-  }
+  --popover-border-color: var(--mantine-color-default-border);
+  background-color: var(--mantine-color-body);
 }
 .mantine-Popover-arrow {
   --popover-border-color: var(--mantine-color-default-border);
@@ -665,17 +604,9 @@
 
 /* Table */
 .mantine-Table-table {
-  @mixin where-light {
-    --table-hover-color: var(--mantine-color-default-hover);
-    --table-striped-color: var(--mantine-color-default-hover);
-    --table-border-color: var(--mantine-color-default-border);
-  }
-
-  @mixin where-dark {
-    --table-hover-color: var(--mantine-color-default-hover);
-    --table-striped-color: var(--mantine-color-default-hover);
-    --table-border-color: var(--mantine-color-default-border);
-  }
+  --table-hover-color: var(--mantine-color-default-hover);
+  --table-striped-color: var(--mantine-color-default-hover);
+  --table-border-color: var(--mantine-color-default-border);
 
   &:where([data-with-table-border]) {
     border: rem(1px) solid var(--table-border-color);
@@ -691,25 +622,13 @@
 
 /* Divider */
 .mantine-Divider-root {
-  @mixin where-light {
-    --divider-color: var(--mantine-color-default-border);
-  }
-
-  @mixin where-dark {
-    --divider-color: var(--mantine-color-default-border);
-  }
+  --divider-color: var(--mantine-color-default-border);
 }
 
 /* Paper */
 .mantine-Paper-root {
   &:where([data-with-border]) {
-    @mixin where-light {
-      border: rem(1px) solid var(--mantine-color-default-border);
-    }
-
-    @mixin where-dark {
-      border: rem(1px) solid var(--mantine-color-default-border);
-    }
+    border: rem(1px) solid var(--mantine-color-default-border);
   }
 }
 
@@ -833,7 +752,7 @@
 
   .mantine-Spotlight-action {
     &:where(:not([data-selected])) {
-      @mixin hover {
+      &:hover {
         background-color: var(--mantine-color-default-hover);
       }
     }

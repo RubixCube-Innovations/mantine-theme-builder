@@ -1,6 +1,7 @@
 import { CodeHighlightTabs } from "@mantine/code-highlight";
 import {
   ActionIcon,
+  Anchor,
   Box,
   Button,
   CloseIcon,
@@ -17,7 +18,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { CssIcon, TypeScriptIcon } from "@mantinex/dev-icons";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { ExternalLinkIcon, InfoCircledIcon } from "@radix-ui/react-icons";
 import { useTheme } from "../../../theme-context";
 import { generatedMantineTheme } from "../../../themes/generated/generatedMantineTheme";
 import { generatedShadcnTheme } from "../../../themes/generated/generatedShadcnTheme";
@@ -26,6 +27,7 @@ import { generatedShadcnCssVariableResolver } from "../../../themes/generated/ge
 import { generatedMantineCssStyles } from "../../../themes/generated/generatedMantineCssStyles";
 import { generatedShadcnCssStyles } from "../../../themes/generated/generatedShadcnCssStyles";
 import { removeStringPlaceholders } from "../../../utils/functions";
+import Link from "next/link";
 
 const CopyThemeCodeButton = () => {
   const { theme } = useTheme();
@@ -87,6 +89,14 @@ const CopyThemeCodeButton = () => {
           <Flex justify={"space-between"}>
             <Title order={4}>Current Theme</Title>
             <Group>
+              <Anchor href="https://vercel.com/font#get">
+              <Group gap={"3xs"}>
+                <ExternalLinkIcon color="var(--mantine-color-dimmed)" />
+                <Text c="dimmed" size="sm">
+                  Font
+                </Text>
+              </Group>
+              </Anchor>
               <HoverCard shadow="md" width={430}>
                 <HoverCard.Target>
                   <Group gap={"3xs"}>
