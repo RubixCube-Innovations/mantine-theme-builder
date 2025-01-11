@@ -6,7 +6,6 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { mantineCssVariableResolver } from "./themes/mantine/mantine-css-variable-resolver";
 import { shadcnCssVariableResolver } from "./themes/shadcn/shadcn-css-variable-resolver";
 import { getBasePrimaryShade, getBaseTheme, getSecondaryPalette, localStorageTheme } from "./utils/functions";
-import { shadcnTheme } from "./themes/shadcn/shadcn-theme";
 import { HighlighterGeneric } from "shiki";
 
 // Define the shape of the context
@@ -36,17 +35,18 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, []);
 
   const baseTheme = getBaseTheme(localStorageTheme?.style);
+
   const [theme, setTheme] = useState<MantineThemeOverride>(() => {
     // Use default values for server-side render
     return {
-      ...shadcnTheme,
-      primaryColor: shadcnTheme?.primaryColor,
-      primaryShade: getBasePrimaryShade("shadcn", "zinc"),
+      ...baseTheme,
+      primaryColor: baseTheme?.primaryColor,
+      primaryShade: getBasePrimaryShade(baseTheme?.other?.style as string, baseTheme?.primaryColor),
       defaultRadius: baseTheme?.defaultRadius,
       colors: {
         ...baseTheme?.colors,
-        secondary: getSecondaryPalette("shadcn", "zinc") as unknown as MantineColorsTuple,
-        dark: getSecondaryPalette("shadcn", "zinc") as unknown as MantineColorsTuple,
+        secondary: getSecondaryPalette(baseTheme?.other?.style as string, "zinc") as unknown as MantineColorsTuple,
+        dark: getSecondaryPalette(baseTheme?.other?.style as string, "zinc") as unknown as MantineColorsTuple,
       },
     };
   });

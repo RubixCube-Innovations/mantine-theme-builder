@@ -28,8 +28,8 @@ export function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const router = useRouter();
   const pathname = usePathname();
-  
-  const isMobile = useMediaQuery  ('(max-width: 430px)');
+
+  const isMobile = useMediaQuery("(max-width: 430px)");
   const [scrollHeight, setScrollHeight] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -42,8 +42,7 @@ export function Header() {
 
   useEffect(() => {
     setScrollHeight(isMobile ? 220 : 150);
-  }
-  , [isMobile]);
+  }, [isMobile]);
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes", icon: IconPalette },
@@ -110,16 +109,19 @@ export function Header() {
       );
     });
 
-    console.log(scrollPosition, scrollHeight);
   return (
     <>
       <header className={classes.header}>
         <div className={classes.inner}>
-            <Box miw={rem(140)}>
-            {scrollPosition > scrollHeight 
-            ? <ChangeThemeButton /> 
-            : <Text size="md" fw={"bolder"}>{APP_NAME}</Text>}
-            </Box>
+          <Box miw={rem(140)}>
+            {scrollPosition > scrollHeight ? (
+              <ChangeThemeButton />
+            ) : (
+              <Text size="md" fw={"bolder"}>
+                {APP_NAME}
+              </Text>
+            )}
+          </Box>
           <Group gap={5} visibleFrom="md">
             {getItems("header")}
           </Group>
@@ -133,7 +135,6 @@ export function Header() {
               title="GitHub"
             ></iframe>
             <ColorSchemeSwitch />
-          
           </Group>
         </div>
         <Divider />
