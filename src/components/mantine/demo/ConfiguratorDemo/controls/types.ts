@@ -1,8 +1,9 @@
 export type ConfiguratorControl<Type extends string, Params extends Record<string, any>> = {
   type: Type;
   prop: string;
-  libraryValue: any;
+  libraryValue?: any;
+  initialValue?: any;
   transformLabel?: boolean;
 } & Params;
 
-export type ShikiLanguage = 'tsx' | 'scss' | 'html' | 'bash' | 'json';
+export type ShikiLanguage = "tsx" | "scss" | "html" | "bash" | "json";

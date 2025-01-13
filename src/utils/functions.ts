@@ -36,10 +36,10 @@ export const getBasePrimaryShade = (style: string | undefined, color: string | u
     baseColor = style === "shadcn" ? "zinc" : "blue";
   }
 
-  if (style === "shadcn") {
-    return SHADCN_DEFAULT_COLORS.find((item) => item.id === baseColor)?.primaryShade as MantinePrimaryShade;
+  if (style === "mantine") {
+    return MANTINE_DEFAULT_COLORS.find((item) => item.id === baseColor)?.primaryShade as MantinePrimaryShade;
   }
-  return MANTINE_DEFAULT_COLORS.find((item) => item.id === baseColor)?.primaryShade as MantinePrimaryShade;
+  return SHADCN_DEFAULT_COLORS.find((item) => item.id === baseColor)?.primaryShade as MantinePrimaryShade;
 };
 
 // Helper function to recursively replace all matching values
@@ -171,4 +171,4 @@ export const localStorageTheme = readLocalStorageValue<IThemeConfig>({
 
 export const removeStringPlaceholders = (css: string) => {
   return css?.replace(/"{/g, "")?.replace(/}"/g, "");
-}
+};

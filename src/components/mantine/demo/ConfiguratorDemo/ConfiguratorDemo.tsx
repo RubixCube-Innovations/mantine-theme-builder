@@ -1,9 +1,9 @@
-import { cloneElement, useState } from 'react';
-import { Button, Stack } from '@mantine/core';
-import { DemoAreaProps } from '../DemoArea';
-import { DemoCode } from '../DemoCode';
-import { DemoColumns } from '../DemoColumns';
-import { DemoRoot } from '../DemoRoot';
+import { cloneElement, useState } from "react";
+import { Button, Stack } from "@mantine/core";
+import { DemoAreaProps } from "../DemoArea";
+import { DemoCode } from "../DemoCode";
+import { DemoColumns } from "../DemoColumns";
+import { DemoRoot } from "../DemoRoot";
 import {
   ConfiguratorBooleanControl,
   ConfiguratorBooleanControlOptions,
@@ -19,9 +19,9 @@ import {
   ConfiguratorSizeControlOptions,
   ConfiguratorStringControl,
   ConfiguratorStringControlOptions,
-} from './controls';
-import { Code, getCodeArray } from './get-code-array';
-import classes from './ConfiguratorDemo.module.css';
+} from "./controls";
+import { Code, getCodeArray } from "./get-code-array";
+import classes from "./ConfiguratorDemo.module.css";
 
 const ControlComponents = {
   boolean: ConfiguratorBooleanControl,
@@ -59,18 +59,17 @@ export function ConfiguratorDemo({
   striped,
 }: ConfiguratorDemoProps) {
   const initialState = controls.reduce<Record<string, any>>((acc, control) => {
-    if(control.initialValue)
-      acc[control.prop] = control.initialValue;
+    if (control.initialValue) acc[control.prop] = control.initialValue;
     return acc;
   }, {});
 
   const [state, setState] = useState(initialState);
-  const setStateField = (field: string, value: any) =>
-    setState((current) => ({ ...current, [field]: value }));
+  const setStateField = (field: string, value: any) => setState((current) => ({ ...current, [field]: value }));
   const [showCode, setShowCode] = useState(false);
 
   const items = controls.map((control) => {
     const ControlComponent = ControlComponents[control.type] as any;
+
     const { ...rest } = control;
     return (
       <ControlComponent
@@ -88,8 +87,8 @@ export function ConfiguratorDemo({
         controls={
           <Stack className={classes.controls} gap="sm">
             {items}
-            <Button variant='light' onClick={() => setShowCode((s) => !s)} fullWidth>
-              {showCode ? 'Hide code' : 'Show code'}
+            <Button variant="light" onClick={() => setShowCode((s) => !s)} fullWidth>
+              {showCode ? "Hide code" : "Show code"}
             </Button>
           </Stack>
         }
@@ -103,8 +102,7 @@ export function ConfiguratorDemo({
         {cloneElement(children as JSX.Element, state)}
       </DemoColumns>
 
-
-    {showCode && <DemoCode code={getCodeArray({ code, controls, state })} />}
+      {showCode && <DemoCode code={getCodeArray({ code, controls, state })} />}
     </DemoRoot>
   );
 }
