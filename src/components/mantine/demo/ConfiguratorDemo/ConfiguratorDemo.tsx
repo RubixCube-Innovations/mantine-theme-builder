@@ -69,8 +69,6 @@ export function ConfiguratorDemo({
 
   const items = controls.map((control) => {
     const ControlComponent = ControlComponents[control.type] as any;
-    delete control["initialValue"];
-    delete control["libraryValue"];
 
     const { ...rest } = control;
     return (
