@@ -15,6 +15,7 @@ import { Route as PlaygroundImport } from './routes/playground'
 import { Route as FeedbackImport } from './routes/feedback'
 import { Route as BlocksImport } from './routes/blocks'
 import { Route as AboutImport } from './routes/about'
+import { Route as HowToUseImport } from './routes/how-to-use'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -43,6 +44,12 @@ const AboutRoute = AboutImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const HowToUseRoute = HowToUseImport.update({
+  id: '/how-to-use',
+  path: '/how-to-use',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
@@ -65,6 +72,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutImport
+      parentRoute: typeof rootRoute
+    }
+    '/how-to-use': {
+      id: '/how-to-use'
+      path: '/how-to-use'
+      fullPath: '/how-to-use'
+      preLoaderRoute: typeof HowToUseImport
       parentRoute: typeof rootRoute
     }
     '/blocks': {
@@ -96,6 +110,7 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/how-to-use': typeof HowToUseRoute
   '/blocks': typeof BlocksRoute
   '/feedback': typeof FeedbackRoute
   '/playground': typeof PlaygroundRoute
@@ -104,6 +119,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/how-to-use': typeof HowToUseRoute
   '/blocks': typeof BlocksRoute
   '/feedback': typeof FeedbackRoute
   '/playground': typeof PlaygroundRoute
@@ -113,6 +129,7 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/how-to-use': typeof HowToUseRoute
   '/blocks': typeof BlocksRoute
   '/feedback': typeof FeedbackRoute
   '/playground': typeof PlaygroundRoute
@@ -120,10 +137,10 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/blocks' | '/feedback' | '/playground'
+  fullPaths: '/' | '/about' | '/blocks' | '/feedback' | '/playground' |'/how-to-use'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/blocks' | '/feedback' | '/playground'
-  id: '__root__' | '/' | '/about' | '/blocks' | '/feedback' | '/playground'
+  to: '/' | '/about' | '/blocks' | '/feedback' | '/playground' | '/how-to-use'
+  id: '__root__' | '/' | '/about' | '/blocks' | '/feedback' | '/playground' | '/how-to-use'
   fileRoutesById: FileRoutesById
 }
 
@@ -133,6 +150,7 @@ export interface RootRouteChildren {
   BlocksRoute: typeof BlocksRoute
   FeedbackRoute: typeof FeedbackRoute
   PlaygroundRoute: typeof PlaygroundRoute
+  HowToUserRoute: typeof HowToUseRoute 
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -141,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlocksRoute: BlocksRoute,
   FeedbackRoute: FeedbackRoute,
   PlaygroundRoute: PlaygroundRoute,
+  HowToUserRoute: typeof HowToUseRoute, 
 }
 
 export const routeTree = rootRoute
