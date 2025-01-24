@@ -1,7 +1,6 @@
 import { Box, Button, Divider, Drawer, Group, rem, ScrollArea, Stack, Tabs, Text } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
-  IconAdjustmentsStar,
   IconCube,
   IconGoGame,
   IconHeartDollar,
@@ -10,11 +9,11 @@ import {
   IconMenu2,
   IconPalette,
 } from "@tabler/icons-react";
-import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
-import classes from "./header.module.scss";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ChangeThemeButton from "../../custom/change-theme-section/change-theme-button";
+import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
+import classes from "./header.module.scss";
 
 const APP_NAME = "MantineHub";
 export type IMenuItem = {
@@ -47,7 +46,6 @@ export function Header() {
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes", icon: IconPalette },
-    { id: "how-to-use", href: "/how-to-use", label: "How to use", icon: IconAdjustmentsStar },
     { id: "components", href: "/playground", label: "Playground", icon: IconGoGame },
     { id: "blocks", href: "/blocks", label: "Blocks", icon: IconCube },
     // { id: "starter-kit", href: "/starter-kit", label: "Starter Kit" },
