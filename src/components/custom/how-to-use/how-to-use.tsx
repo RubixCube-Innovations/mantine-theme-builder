@@ -1,6 +1,6 @@
+import { CodeHighlightTabs } from "@mantine/code-highlight";
 import { Anchor, Box, Code, Divider, List, Stack, Text, Title } from "@mantine/core";
 import { CssIcon, TypeScriptIcon } from "@mantinex/dev-icons";
-import { CodeHighlightTabs } from "@mantine/code-highlight";
 
 const shadcnThemeExampleCode = `
 import '@mantine/core/styles.css';
@@ -31,27 +31,27 @@ export default function App() {
   </MantineProvider>;
 };`;
 
-const pasteThemeObjects =`
+const pasteThemeObjects = `
 
 
 //Paste the code generated theme objects from the Mantine Theme Builder website
 // Your code here 
 
-`
-const pasteCssVariableResolver =`
+`;
+const pasteCssVariableResolver = `
 
 
 //Paste the code generated cssVariableResolver objects from the Mantine Theme Builder website
 // Your code here 
 
-`
-const pasteStyles =`
+`;
+const pasteStyles = `
 
 
 //Paste the code generated styles from the Mantine Theme Builder website
 // Your code here 
 
-`
+`;
 
 export const HowToUsePage = () => {
   //   const [value, setValue] = useState<string>("shadcn");
@@ -101,7 +101,6 @@ export const HowToUsePage = () => {
         <Stack mt={"md"} gap={5}>
           <Title order={4}> For Shadcn Themes</Title>
           <CodeHighlightTabs
-        
             code={[
               {
                 fileName: "src/App.tsx",
@@ -131,12 +130,10 @@ export const HowToUsePage = () => {
             copyLabel="Copy code"
             copiedLabel="Copied!"
           />
-         
         </Stack>
         <Stack mt={"md"} gap={5}>
           <Title order={4}>For Mantine Themes</Title>
           <CodeHighlightTabs
-        
             code={[
               {
                 fileName: "src/App.tsx",
