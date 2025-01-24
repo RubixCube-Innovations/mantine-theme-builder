@@ -1,6 +1,7 @@
 import { Box, Button, Divider, Drawer, Group, rem, ScrollArea, Stack, Tabs, Text } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
+  IconAdjustmentsStar,
   IconCube,
   IconGoGame,
   IconHeartDollar,
@@ -46,6 +47,7 @@ export function Header() {
 
   const links: IMenuItem[] = [
     { id: "home", href: "/", label: "Themes", icon: IconPalette },
+    { id: "how-to-use", href: "/how-to-use", label: "How to use", icon: IconAdjustmentsStar },
     { id: "components", href: "/playground", label: "Playground", icon: IconGoGame },
     { id: "blocks", href: "/blocks", label: "Blocks", icon: IconCube },
     // { id: "starter-kit", href: "/starter-kit", label: "Starter Kit" },
