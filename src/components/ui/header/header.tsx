@@ -9,11 +9,11 @@ import {
   IconMenu2,
   IconPalette,
 } from "@tabler/icons-react";
-import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
-import classes from "./header.module.scss";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ChangeThemeButton from "../../custom/change-theme-section/change-theme-button";
+import ColorSchemeSwitch from "../color-scheme-switch/color-scheme-switch";
+import classes from "./header.module.scss";
 
 const APP_NAME = "MantineHub";
 export type IMenuItem = {

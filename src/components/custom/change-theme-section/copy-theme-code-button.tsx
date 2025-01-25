@@ -5,11 +5,8 @@ import {
   Box,
   Button,
   CloseIcon,
-  Divider,
   Flex,
   Group,
-  HoverCard,
-  List,
   MantineThemeOverride,
   Modal,
   ScrollArea,
@@ -18,7 +15,8 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { CssIcon, TypeScriptIcon } from "@mantinex/dev-icons";
-import { ExternalLinkIcon, InfoCircledIcon } from "@radix-ui/react-icons";
+import { ExternalLinkIcon } from "@radix-ui/react-icons";
+import { IconInfoCircle } from "@tabler/icons-react";
 import { useTheme } from "../../../theme-context";
 import { generatedMantineCssStyles } from "../../../themes/generated/generatedMantineCssStyles";
 import { generatedMantineCssVariableResolver } from "../../../themes/generated/generatedMantineCssVariableResolver";
@@ -89,39 +87,22 @@ const CopyThemeCodeButton = () => {
             <Title order={4}>Current Theme</Title>
             <Group>
               <Anchor href="https://vercel.com/font#get">
-              <Group gap={"3xs"}>
-                <ExternalLinkIcon color="var(--mantine-color-dimmed)" />
-                <Text c="dimmed" size="sm">
-                  Font
-                </Text>
-              </Group>
+                <Group gap={"3xs"}>
+                  <ExternalLinkIcon color="var(--mantine-color-dimmed)" />
+                  <Text c="dimmed" size="sm">
+                    Font
+                  </Text>
+                </Group>
               </Anchor>
-              <HoverCard shadow="md" width={430}>
-                <HoverCard.Target>
-                  <Group gap={"3xs"}>
-                    <InfoCircledIcon color="var(--mantine-color-dimmed)" />
-                    <Text c="dimmed" size="sm">
-                      How to use?
-                    </Text>
-                  </Group>
-                </HoverCard.Target>
-                <HoverCard.Dropdown p="md">
-                  <Box>
-                    <Title order={5}>🤔 How to Use?</Title>
-                    <Divider my="xs" />
-                    <List type="ordered" size="sm" spacing="sm" my={"lg"} me={"8px"} lh={"lg"}>
-                      <List.Item>
-                        Copy the `theme.ts` and `cssVariableResolver.ts` and paste it into your project.
-                      </List.Item>
-                      <List.Item>
-                        Import the theme object and cssVariableResolver and pass it to `MantineProvider` component.
-                      </List.Item>
-                      <List.Item>Copy the styles.css and import it in your project's main file.</List.Item>
-                      <List.Item>Woohoo! You are all set!</List.Item>
-                    </List>
-                  </Box>
-                </HoverCard.Dropdown>
-              </HoverCard>
+              <Anchor href="/how-to-use">
+                <Group gap={"3xs"}>
+                  <IconInfoCircle size={18} color="var(--mantine-color-dimmed)" />
+                  <Text c="dimmed" size="sm">
+                    How To use
+                  </Text>
+                </Group>
+              </Anchor>
+
               <ActionIcon size="md" variant="subtle" onClick={close}>
                 <CloseIcon />
               </ActionIcon>

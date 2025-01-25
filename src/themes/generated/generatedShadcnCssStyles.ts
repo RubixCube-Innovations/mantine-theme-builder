@@ -202,6 +202,29 @@ export const generatedShadcnCssStyles = `/* Checkbox */
   }
 }
 
+[data-mantine-color-scheme='light']{
+  .mantine-SegmentedControl-root {
+    .mantine-SegmentedControl-label {
+      &:where(:not([data-disabled], [data-active], [data-read-only])) {
+        &:hover {
+            color: var(--mantine-color-black);
+        }
+      }
+    }
+  }
+}
+[data-mantine-color-scheme='dark']{
+  .mantine-SegmentedControl-root {
+    .mantine-SegmentedControl-label {
+      &:where(:not([data-disabled], [data-active], [data-read-only])) {
+        &:hover {
+            color: var(--mantine-color-white);
+        }
+      }
+    }
+  }
+}
+
 /* Switch */
 
 /* Slider */
