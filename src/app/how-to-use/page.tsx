@@ -9,7 +9,7 @@ export default function Page() {
     <PageLayout
       title="How to Use 🌟"
       description="This is a guide  how to use Mantine Theme Builder in your Mantine project"
-      showActionButtons={false}
+      showActionButtons={true}
     >
       <Stack>
         <Space mb="xs" />
