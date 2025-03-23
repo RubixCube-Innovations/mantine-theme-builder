@@ -32,3 +32,7 @@ export interface ComponentInfo {
   code: { fileName: string; language: string; code: string }[];
   attributes: any;
 }
+
+export interface ComponentsMap {
+  [key: string]: any[]; // or a more specific type for your components
+}

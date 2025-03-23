@@ -1,3 +1,5 @@
+'use client'
+
 import { Anchor, Box, Container, Divider, Group, Stack, Text, Title } from "@mantine/core";
 import React from "react";
 import { Header } from "../ui/header/header";
