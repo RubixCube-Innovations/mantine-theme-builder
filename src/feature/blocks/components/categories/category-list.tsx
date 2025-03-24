@@ -1,49 +1,42 @@
-import { Container, SimpleGrid, Title } from "@mantine/core";
+"use client";
+
+import { Container, Tabs } from "@mantine/core";
+import { useRouter, usePathname } from "next/navigation";
 import classes from "./category-list.module.css";
-import { CategoryCard } from "./category-card";
 import { CategoriesGroup } from "../../data/types";
 
 interface CategoriesListProps {
   groups: CategoriesGroup[];
-  componentsCountByCategory: Record<string, number>;
 }
 
-export function CategoriesList({ groups, componentsCountByCategory }: CategoriesListProps) {
-  const items = groups.map((group) => {
-    const cards = group.categories.map((category) => (
-      <CategoryCard key={category.slug} category={category} count={componentsCountByCategory[category.slug]} />
-    ));
+export function CategoriesList({ groups }: CategoriesListProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const categories = groups[0]?.categories || [];
 
-    // const totalComponents = group.categories.reduce(
-    //   (acc, category) => acc + componentsCountByCategory[category.slug],
-    //   0
-    // );
+  // Get the current category from the pathname
+  const currentCategory = pathname.split("/").pop() || categories[0]?.slug;
 
-    return (
-      <div key={group.name} className={classes.group}>
-        {/* <div className={classes.header}>
-          <Title className={classes.title} order={2}>
-            {group.name}
-          </Title>
-
-          <Text size="sm" c="dimmed" className={classes.count}>
-            {totalComponents} components
-          </Text>
-        </div> */}
-
-        <SimpleGrid id="cards-grid" cols={{ base: 1, sm: 2, md: 3, lg: 4 }}>
-          {cards}
-        </SimpleGrid>
-      </div>
-    );
-  });
+  const handleTabChange = (value: string | null) => {
+    router.push(`/blocks/${value}`);
+  };
 
   return (
     <Container size="xl" px="0" className={classes.wrapper}>
-      <Title className={classes.mainTitle} order={2}>
-        All Components
-      </Title>
-      {items}
+      {/* <Title className={classes.mainTitle} order={2}>
+        {groups[0]?.name}
+      </Title> */}
+
+      <Tabs value={currentCategory} onChange={handleTabChange} variant="outline">
+        <Tabs.List>
+          {categories.map((category) => (
+            <Tabs.Tab key={category.slug} value={category.slug}>
+              {category.name}
+              {/* ({componentsCountByCategory[category.slug] || 0}) */}
+            </Tabs.Tab>
+          ))}
+        </Tabs.List>
+      </Tabs>
     </Container>
   );
 }

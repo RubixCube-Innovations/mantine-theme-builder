@@ -1,15 +1,13 @@
-"use client"
-import PageLayout from "@/components/layouts/page-layout";
-import BlockComponents from "@/feature/blocks/components/block-components/block-components";
+"use client";
+import { CATEGORIES } from "@/feature/blocks/data/categories";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return (
-    <PageLayout
-      title="Mantine UI Blocks 🚀"
-      description="Accelerate your development with our ever-growing library of beautifully designed UI blocks. Just copy, paste, and customize."
-      isBlockPage
-    >
-      <BlockComponents />
-    </PageLayout>
-  );
+  // Redirect to the first category by default
+  const defaultCategory = CATEGORIES[0]?.categories[0]?.slug;
+  if (defaultCategory) {
+    redirect(`/blocks/${defaultCategory}`);
+  }
+
+  return <></>;
 }

@@ -1,4 +1,3 @@
-import PageLayout from "@/components/layouts/page-layout";
 import CategoryPage from "@/feature/blocks/components/categories/category-page";
 import { CATEGORIES_SLUGS, getCategoryData } from "@/feature/blocks/data/categories";
 import { getComponentsByCategory } from "@/feature/blocks/data/fn";
@@ -18,17 +17,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const components = getComponentsByCategory()[slug];
 
   return (
-    <PageLayout
-      title="Mantine UI Blocks 🚀"
-      description="Accelerate your development with our ever-growing library of beautifully designed UI blocks. Just copy, paste, and customize."
-      isBlockPage
-    >
-      <div>
-        <Title order={2} pt="xl">
-          {category?.name} components
-        </Title>
-        <CategoryPage components={components} />
-      </div>
-    </PageLayout>
+    <div>
+      <Title order={2} pt="xl">
+        {category?.name} components
+      </Title>
+      <CategoryPage components={components} />
+    </div>
   );
 }

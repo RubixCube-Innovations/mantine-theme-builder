@@ -24,10 +24,10 @@ export const CATEGORIES: CategoriesGroup[] = [
   {
     name: "Page sections",
     categories: [
-      { slug: "hero", name: "Hero section", images: images.hero },
-      { slug: "feature", name: "Features section", images: images.features },
-      { slug: "team", name: "Team section", images: images.features },
-      { slug: "pricing", name: "Pricing section", images: images.features },
+      { slug: "hero", name: "Hero", images: images.hero },
+      { slug: "feature", name: "Features", images: images.features },
+      { slug: "team", name: "Team", images: images.features },
+      { slug: "pricing", name: "Pricing", images: images.features },
       { slug: "coming-soon", name: "Coming soon", images: images.features },
       // { slug: "authentication", name: "Authentication", images: images.authentication },
       // { slug: "faq", name: "Frequently asked questions", images: images.faq },
