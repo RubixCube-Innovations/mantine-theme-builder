@@ -1,0 +1,625 @@
+/* futuristic-hero.module.css */
+.heroContainer {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #080b13;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.gradientBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 30%, rgba(64, 85, 255, 0.2), transparent 60%),
+    radial-gradient(circle at 30% 70%, rgba(255, 65, 184, 0.2), transparent 60%);
+  z-index: 1;
+}
+
+.gridOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(64, 85, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(64, 85, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 2;
+  opacity: 0.2;
+}
+
+.particleContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(30px);
+    opacity: 0;
+  }
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.leftColumn {
+  flex: 1;
+  z-index: 20;
+}
+
+.tagLine {
+  margin-bottom: 24px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: rgba(64, 85, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(64, 85, 255, 0.3);
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #40dbff;
+  box-shadow: 0 0 8px #40dbff;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(64, 219, 255, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(64, 219, 255, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(64, 219, 255, 0);
+  }
+}
+
+.tagText {
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #40dbff, #40a7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mainTitle {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+}
+
+.titleLine {
+  display: block;
+}
+
+.highlight {
+  position: relative;
+  background: linear-gradient(90deg, #40a7ff, #ff41b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #40a7ff, #ff41b8);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+  max-width: 90%;
+  line-height: 1.6;
+}
+
+.buttonGroup {
+  margin-bottom: 48px;
+  gap: 16px;
+}
+
+.primaryButton {
+  position: relative;
+  border: none;
+  background: linear-gradient(90deg, #4055ff, #ff41b8);
+  padding: 0;
+  height: 54px;
+  border-radius: 27px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.buttonInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 24px;
+  z-index: 1;
+}
+
+.buttonGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.primaryButton:hover .buttonGlow {
+  opacity: 0.1;
+  animation: pulseGlow 1.5s infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.buttonText {
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.secondaryButton {
+  height: 54px;
+  border-radius: 27px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.secondaryButton:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.metricsContainer {
+  display: flex;
+  gap: 48px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metricValue {
+  display: flex;
+  align-items: baseline;
+}
+
+.metricNumber {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #40dbff, #6840ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.metricUnit {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #40dbff;
+  margin-left: 2px;
+}
+
+.metricLabel {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.rightColumn {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visualElement {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.hologramContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hologramCore {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coreInner {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #40dbff, #ff41b8);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(64, 219, 255, 0.8);
+  animation:
+    rotate 4s linear infinite,
+    pulse 2s ease-in-out infinite alternate;
+}
+
+.coreRing {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(64, 219, 255, 0.7);
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+}
+
+.corePulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(64, 219, 255, 0.5);
+  border-radius: 50%;
+  animation: expand 2s ease-in-out infinite;
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbitalRing1,
+.orbitalRing2 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(64, 219, 255, 0.3);
+}
+
+.orbitalRing1 {
+  width: 200px;
+  height: 200px;
+  animation: rotate 20s linear infinite;
+}
+
+.orbitalRing2 {
+  width: 300px;
+  height: 300px;
+  transform: rotateX(60deg) rotateY(30deg);
+  animation: rotate 30s linear infinite reverse;
+}
+
+.dataPoint1,
+.dataPoint2,
+.dataPoint3 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dataPoint1 {
+  top: 30%;
+  right: 15%;
+}
+
+.dataPoint2 {
+  bottom: 30%;
+  right: 20%;
+}
+
+.dataPoint3 {
+  top: 45%;
+  left: 15%;
+}
+
+.dataPointDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #40dbff;
+  box-shadow: 0 0 10px rgba(64, 219, 255, 0.8);
+}
+
+.dataPointLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 5px rgba(64, 219, 255, 0.5);
+}
+
+.scanLines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(64, 219, 255, 0.05) 0px,
+    rgba(64, 219, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.blueprint {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.blueprintLines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(64, 219, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(rgba(64, 219, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(64, 219, 255, 0.2) 1px, transparent 1px);
+  background-size:
+    20px 20px,
+    20px 20px,
+    20px 20px;
+}
+
+.blueprintCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(64, 219, 255, 0.4);
+  border-radius: 50%;
+}
+
+.blueprintGrid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(64, 219, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(64, 219, 255, 0.1) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.dataStream {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.dataLine {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(64, 219, 255, 0.8), transparent);
+  animation: dataFlow 2s ease-in-out infinite;
+}
+
+@keyframes dataFlow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.partnersSection {
+  margin-top: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 40px;
+}
+
+.partnersTitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+
+.partnersLogos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.partnerLogo {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.glowBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(64, 219, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.partnerLogo:hover .glowBorder {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .contentWrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mainTitle {
+    font-size: 3rem;
+  }
+
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .metricsContainer {
+    justify-content: center;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+  }
+
+  .visualElement {
+    width: 400px;
+    height: 400px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    padding: 80px 0;
+  }
+
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .metricsContainer {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .visualElement {
+    width: 300px;
+    height: 300px;
+  }
+
+  .partnersLogos {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
