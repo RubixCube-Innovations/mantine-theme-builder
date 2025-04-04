@@ -1,5 +1,9 @@
 import { MetadataRoute } from 'next'
 
+// Configure for static export
+export const dynamic = 'force-static'
+export const revalidate = 3600 // Revalidate every hour
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://mantinehub.com'
   
