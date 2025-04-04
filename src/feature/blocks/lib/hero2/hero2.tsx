@@ -1,6 +1,5 @@
-// HeroSection.jsx
 import React from "react";
-import { Container, Title, Text, Button, ThemeIcon, Box } from "@mantine/core";
+import { Container, Title, Text, Button, ThemeIcon, Box, Group, Paper, Code } from "@mantine/core";
 import {
   ArrowRightIcon,
   GitHubLogoIcon,
@@ -10,55 +9,57 @@ import {
   CodeIcon,
   GlobeIcon,
 } from "@radix-ui/react-icons";
-import styles from "./hero2.module.css";
+import classes from "./hero2.module.css";
 
 export const Hero2 = () => {
   return (
-    <Box className={styles.heroWrapper}>
+    <Box className={classes.heroWrapper}>
       <Container size="xl" py={80}>
         <Box>
-          <Box className={styles.contentColumn}>
-            <Title className={styles.mainTitle}>
-              <span className={styles.titleLine}>
-                Transform your <span className={styles.accent}>workflow</span>{" "}
+          {/* Content Column */}
+          <Box className={classes.contentColumn}>
+            <Title className={classes.mainTitle}>
+              <span className={classes.titleLine}>
+                Transform your <span className={classes.accent}>workflow</span>
               </span>
             </Title>
 
-            <Text size="lg" c="dimmed" className={styles.description}>
+            <Text size="lg" c="dimmed" className={classes.description}>
               Build scalable applications with a powerful toolkit that combines developer experience with
               production-grade infrastructure.
             </Text>
 
-            <div className={styles.statsContainer}>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>10x</span>
+            {/* Stats */}
+            <Box className={classes.statsContainer}>
+              <Box className={classes.statItem}>
+                <Text className={classes.statValue}>10x</Text>
                 <Text size="sm" c="dimmed">
                   Faster Deployment
                 </Text>
-              </div>
-              <div className={styles.divider}></div>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>2.5k+</span>
+              </Box>
+              <Box className={classes.divider} />
+              <Box className={classes.statItem}>
+                <Text className={classes.statValue}>2.5k+</Text>
                 <Text size="sm" c="dimmed">
                   Active Developers
                 </Text>
-              </div>
-              <div className={styles.divider}></div>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>99.9%</span>
+              </Box>
+              <Box className={classes.divider} />
+              <Box className={classes.statItem}>
+                <Text className={classes.statValue}>99.9%</Text>
                 <Text size="sm" c="dimmed">
                   Uptime Guarantee
                 </Text>
-              </div>
-            </div>
+              </Box>
+            </Box>
 
-            <div className={styles.buttonContainer}>
+            {/* Buttons */}
+            <Group className={classes.buttonContainer}>
               <Button
                 radius="xl"
                 size="lg"
-                rightSection={<ArrowRightIcon className={styles.btnIcon} />}
-                bg="var(--mantine-primary-color-filled)"
-                className={styles.primaryBtn}
+                rightSection={<ArrowRightIcon style={{ width: 16, height: 16 }} />}
+                className={classes.primaryBtn}
               >
                 Get Started Now
               </Button>
@@ -67,58 +68,83 @@ export const Hero2 = () => {
                 variant="outline"
                 radius="xl"
                 size="lg"
-                leftSection={<GitHubLogoIcon className={styles.btnIcon} />}
-                c="var(--mantine-primary-color-filled)"
-                className={styles.secondaryBtn}
+                leftSection={<GitHubLogoIcon style={{ width: 16, height: 16 }} />}
+                className={classes.secondaryBtn}
               >
                 View Source
               </Button>
-            </div>
+            </Group>
           </Box>
 
-          <Box className={styles.visualColumn}>
-            <div className={styles.featurePill} style={{ top: "15%", left: "10%" }}>
-              <ThemeIcon radius="xl" size="md" color="var(--mantine-color-violet-6)">
-                <LightningBoltIcon />
-              </ThemeIcon>
-              <Text size="sm" fw={500} c="var(--mantine-color-dark-7)">
-                High Performance
-              </Text>
-            </div>
+          {/* Visual Column */}
+          <Box className={classes.visualColumn}>
+            {/* Feature Pills */}
+            <Paper shadow="sm" p="xs" radius="xl" className={classes.featurePill} style={{ top: "15%", left: "10%" }}>
+              <Group gap="xs">
+                <ThemeIcon radius="xl" size="md" color="violet">
+                  <LightningBoltIcon />
+                </ThemeIcon>
+                <Text size="sm" fw={500}>
+                  High Performance
+                </Text>
+              </Group>
+            </Paper>
 
-            <div className={styles.featurePill} style={{ top: "35%", right: "5%" }}>
-              <ThemeIcon radius="xl" size="md" color="var(--mantine-color-green-6)">
-                <LayoutIcon />
-              </ThemeIcon>
-              <Text size="sm" fw={500} c="var(--mantine-color-dark-7)">
-                Responsive UI
-              </Text>
-            </div>
+            <Paper
+              shadow="sm"
+              p="xs"
+              radius="xl"
+              className={classes.featurePill}
+              style={{ bottom: "5%", right: "12%" }}
+            >
+              <Group gap="xs">
+                <ThemeIcon radius="xl" size="md" color="green">
+                  <LayoutIcon />
+                </ThemeIcon>
+                <Text size="sm" fw={500}>
+                  Responsive UI
+                </Text>
+              </Group>
+            </Paper>
 
-            <div className={styles.featurePill} style={{ bottom: "15%", left: "15%" }}>
-              <ThemeIcon radius="xl" size="md" color="var(--mantine-color-blue-6)">
-                <GlobeIcon />
-              </ThemeIcon>
-              <Text size="sm" fw={500} c="var(--mantine-color-dark-7)">
-                Global CDN
-              </Text>
-            </div>
+            <Paper
+              shadow="sm"
+              p="xs"
+              radius="xl"
+              className={classes.featurePill}
+              style={{ bottom: "15%", left: "15%" }}
+            >
+              <Group gap="xs">
+                <ThemeIcon radius="xl" size="md" color="blue">
+                  <GlobeIcon />
+                </ThemeIcon>
+                <Text size="sm" fw={500}>
+                  Global CDN
+                </Text>
+              </Group>
+            </Paper>
 
-            <div className={styles.mainVisual}>
-              <div className={styles.codeWindow}>
-                <div className={styles.codeHeader}>
-                  <div className={styles.codeDots}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <div className={styles.codeTabs}>
-                    <div className={styles.activeTab}>main.jsx</div>
-                    <div>config.js</div>
-                  </div>
-                </div>
-                <div className={styles.codeBody}>
-                  <pre className={styles.codeSyntax}>
+            {/* Main Visual */}
+            <Box className={classes.mainVisual}>
+              <Box className={classes.codeWindow}>
+                <Group className={classes.codeHeader}>
+                  <Group className={classes.codeDots}>
+                    <Box className={classes.dotRed} />
+                    <Box className={classes.dotYellow} />
+                    <Box className={classes.dotGreen} />
+                  </Group>
+                  <Group className={classes.codeTabs}>
+                    <Text size="sm" className={classes.activeTab}>
+                      main.jsx
+                    </Text>
+                    <Text size="sm" c="gray.5">
+                      config.js
+                    </Text>
+                  </Group>
+                </Group>
+
+                <Box className={classes.codeBody}>
+                  <Code block className={classes.codeSyntax}>
                     {`import { createApp, injectFeatures } from 'platform';
 import { analytics, router, store } from './plugins';
 
@@ -140,26 +166,39 @@ const app = createApp({
 
 // Launch your application
 app.launch('#root');`}
-                  </pre>
-                </div>
-              </div>
+                  </Code>
+                </Box>
+              </Box>
 
-              <div className={styles.floatingCard} style={{ top: "-30px", right: "-20px" }}>
-                <CodeIcon color="var(--mantine-color-gray-6)" />
-                <Text size="xs" c="var(--mantine-color-dark-7)">
-                  Auto-optimizing
-                </Text>
-              </div>
+              {/* Floating Cards */}
+              <Paper
+                shadow="md"
+                p="xs"
+                radius="md"
+                className={classes.floatingCard}
+                style={{ top: "-20px", right: "-20px" }}
+              >
+                <Group gap="xs">
+                  <CodeIcon color="var(--mantine-color-gray-6)" />
+                  <Text size="xs">Auto-optimizing</Text>
+                </Group>
+              </Paper>
 
-              <div className={styles.floatingCard} style={{ bottom: "-25px", left: "30px" }}>
-                <BellIcon color="var(--mantine-color-yellow-6)" />
-                <Text size="xs" c="var(--mantine-color-dark-7)">
-                  Real-time updates
-                </Text>
-              </div>
+              <Paper
+                shadow="md"
+                p="xs"
+                radius="md"
+                className={classes.floatingCard}
+                style={{ bottom: "-25px", left: "30px" }}
+              >
+                <Group gap="xs">
+                  <BellIcon color="var(--mantine-color-yellow-6)" />
+                  <Text size="xs">Real-time updates</Text>
+                </Group>
+              </Paper>
 
-              <div className={styles.glowEffect}></div>
-            </div>
+              <Box className={classes.glowEffect} />
+            </Box>
           </Box>
         </Box>
       </Container>
