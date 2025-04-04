@@ -1,6 +1,6 @@
 // HeroSection.jsx
 import React from "react";
-import { Container, Title, Text, Button, Grid, ThemeIcon, Box } from "@mantine/core";
+import { Container, Title, Text, Button, ThemeIcon, Box } from "@mantine/core";
 import {
   ArrowRightIcon,
   GitHubLogoIcon,
@@ -16,12 +16,11 @@ export const Hero2 = () => {
   return (
     <Box className={styles.heroWrapper}>
       <Container size="xl" py={80}>
-        <Grid gutter={60}>
-          <Grid.Col span={{ base: 12, md: 6 }} className={styles.contentColumn}>
+        <Box>
+          <Box className={styles.contentColumn}>
             <Title className={styles.mainTitle}>
-              <span className={styles.titleLine}>Transform your</span>
               <span className={styles.titleLine}>
-                development <span className={styles.accent}>workflow</span>
+                Transform your <span className={styles.accent}>workflow</span>{" "}
               </span>
             </Title>
 
@@ -29,29 +28,6 @@ export const Hero2 = () => {
               Build scalable applications with a powerful toolkit that combines developer experience with
               production-grade infrastructure.
             </Text>
-
-            <div className={styles.buttonContainer}>
-              <Button
-                radius="xl"
-                size="lg"
-                rightSection={<ArrowRightIcon className={styles.btnIcon} />}
-                bg="var(--mantine-primary-color-filled)"
-                className={styles.primaryBtn}
-              >
-                Get Started Now
-              </Button>
-
-              <Button
-                variant="outline"
-                radius="xl"
-                size="lg"
-                leftSection={<GitHubLogoIcon className={styles.btnIcon} />}
-                c="var(--mantine-primary-color-filled)"
-                className={styles.secondaryBtn}
-              >
-                View Source
-              </Button>
-            </div>
 
             <div className={styles.statsContainer}>
               <div className={styles.statItem}>
@@ -75,9 +51,32 @@ export const Hero2 = () => {
                 </Text>
               </div>
             </div>
-          </Grid.Col>
 
-          <Grid.Col span={{ base: 12, md: 6 }} className={styles.visualColumn}>
+            <div className={styles.buttonContainer}>
+              <Button
+                radius="xl"
+                size="lg"
+                rightSection={<ArrowRightIcon className={styles.btnIcon} />}
+                bg="var(--mantine-primary-color-filled)"
+                className={styles.primaryBtn}
+              >
+                Get Started Now
+              </Button>
+
+              <Button
+                variant="outline"
+                radius="xl"
+                size="lg"
+                leftSection={<GitHubLogoIcon className={styles.btnIcon} />}
+                c="var(--mantine-primary-color-filled)"
+                className={styles.secondaryBtn}
+              >
+                View Source
+              </Button>
+            </div>
+          </Box>
+
+          <Box className={styles.visualColumn}>
             <div className={styles.featurePill} style={{ top: "15%", left: "10%" }}>
               <ThemeIcon radius="xl" size="md" color="var(--mantine-color-violet-6)">
                 <LightningBoltIcon />
@@ -161,21 +160,8 @@ app.launch('#root');`}
 
               <div className={styles.glowEffect}></div>
             </div>
-          </Grid.Col>
-        </Grid>
-
-        <div className={styles.trustedSection}>
-          <Text c="dimmed" ta="center" size="sm" fw={500}>
-            TRUSTED BY LEADING COMPANIES
-          </Text>
-          <div className={styles.logosStrip}>
-            <div className={styles.logoPlaceholder}></div>
-            <div className={styles.logoPlaceholder}></div>
-            <div className={styles.logoPlaceholder}></div>
-            <div className={styles.logoPlaceholder}></div>
-            <div className={styles.logoPlaceholder}></div>
-          </div>
-        </div>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

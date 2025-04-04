@@ -75,7 +75,7 @@
 }
 
 .mainTitle {
-  font-size: 4rem;
+  font-size: 3.5rem;
   line-height: 1.1;
   font-weight: 800;
   margin-bottom: 1.5rem;
@@ -101,8 +101,8 @@
 
 .description {
   font-size: 1.25rem;
-  max-width: 540px;
-  margin-bottom: 2.5rem;
+  max-width: 640px;
+  margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
@@ -147,6 +147,7 @@
   align-items: center;
   gap: 20px;
   padding: 20px 0;
+  margin-bottom: 0.3rem;
 }
 
 .statItem {
@@ -179,7 +180,7 @@
 
 .mainVisual {
   position: relative;
-  max-width: 500px;
+  max-width: 650px;
   width: 100%;
 }
 
