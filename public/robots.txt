@@ -1,0 +1,11 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mantinehub.com/sitemap.xml
+
+# Disallow admin and private routes
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/ 
