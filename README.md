@@ -7,6 +7,10 @@ Due to the overwhelming positive feedback and community endorsment we’ve recei
 
 ![image](https://github.com/user-attachments/assets/0b673eec-ed49-4928-a021-5bee7d0ec8e3)
 
+## Deep Wiki
+
+[Visit Documentation](https://deepwiki.com/RubixCube-Innovations/mantine-theme-builder)
+
 ## Features
 
 - **Customizable Styles**: Choose from a selection of predefined styles to quickly update the look of your UI.
