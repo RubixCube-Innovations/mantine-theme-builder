@@ -7,7 +7,7 @@ const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH, // Sets the base path to `/some-base-path`.
   sassOptions: {
     implementation: "sass-embedded",
-    additionalData: `@use "${path.join(process.cwd(), "_mantine").replace(/\\/g, "/")}" as mantine;`,
+    additionalData: `@use "./_mantine" as mantine;`,
   },
 };
 

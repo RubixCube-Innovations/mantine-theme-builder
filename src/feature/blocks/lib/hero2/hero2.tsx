@@ -1,207 +1,111 @@
-import React from "react";
-import { Container, Title, Text, Button, ThemeIcon, Box, Group, Paper, Code } from "@mantine/core";
-import {
-  ArrowRightIcon,
-  GitHubLogoIcon,
-  LightningBoltIcon,
-  BellIcon,
-  LayoutIcon,
-  CodeIcon,
-  GlobeIcon,
-} from "@radix-ui/react-icons";
+import { Container, Title, Text, Button, Group, Stack, Grid, ThemeIcon, Box, Card, Badge, rem } from "@mantine/core";
+import { ArrowRightIcon, CheckIcon, PlayIcon, HeartIcon, BookmarkIcon } from "@radix-ui/react-icons";
 import classes from "./hero2.module.css";
 
 export const Hero2 = () => {
+  const stats = [
+    { value: "10K+", label: "Happy Users" },
+    { value: "99.9%", label: "Uptime" },
+    { value: "24/7", label: "Support" },
+  ];
+
+  const benefits = [
+    "No setup required",
+    "Cancel anytime",
+    "Free updates",
+    "24/7 support"
+  ];
+
   return (
-    <Box className={classes.heroWrapper}>
-      <Container size="xl" py={80}>
-        <Box>
-          {/* Content Column */}
-          <Box className={classes.contentColumn}>
-            <Title className={classes.mainTitle}>
-              <span className={classes.titleLine}>
-                Transform your <span className={classes.accent}>workflow</span>
-              </span>
-            </Title>
+    <Box className={classes.wrapper}>
+      <Container size="xl" py={100}>
+        <Grid gutter={60} align="center">
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <Card className={classes.card} radius="xl" p="xl">
+              <Stack gap="md" align="center">
+                <Badge size="lg" variant="light" className={classes.badge}>
+                  ✨ New Release
+                </Badge>
 
-            <Text size="lg" c="dimmed" className={classes.description}>
-              Build scalable applications with a powerful toolkit that combines developer experience with
-              production-grade infrastructure.
-            </Text>
+                <Title className={classes.cardTitle} ta="center" order={2}>
+                  Experience the Future
+                </Title>
 
-            {/* Stats */}
-            <Box className={classes.statsContainer}>
-              <Box className={classes.statItem}>
-                <Text className={classes.statValue}>10x</Text>
-                <Text size="sm" c="dimmed">
-                  Faster Deployment
+                <Text ta="center" className={classes.cardSubtitle} size="lg">
+                  Join thousands of satisfied customers who have transformed their workflow
                 </Text>
-              </Box>
-              <Box className={classes.divider} />
-              <Box className={classes.statItem}>
-                <Text className={classes.statValue}>2.5k+</Text>
-                <Text size="sm" c="dimmed">
-                  Active Developers
-                </Text>
-              </Box>
-              <Box className={classes.divider} />
-              <Box className={classes.statItem}>
-                <Text className={classes.statValue}>99.9%</Text>
-                <Text size="sm" c="dimmed">
-                  Uptime Guarantee
-                </Text>
-              </Box>
-            </Box>
 
-            {/* Buttons */}
-            <Group className={classes.buttonContainer}>
-              <Button
-                radius="xl"
-                size="lg"
-                rightSection={<ArrowRightIcon style={{ width: 16, height: 16 }} />}
-                className={classes.primaryBtn}
-              >
-                Get Started Now
-              </Button>
+                <Group gap="xl" mt="lg">
+                  {stats.map((stat, index) => (
+                    <Stack key={index} gap={4} align="center">
+                      <Text fw={700} size="xl" className={classes.statValue}>
+                        {stat.value}
+                      </Text>
+                      <Text size="sm" className={classes.statLabel}>
+                        {stat.label}
+                      </Text>
+                    </Stack>
+                  ))}
+                </Group>
 
-              <Button
-                variant="outline"
-                radius="xl"
-                size="lg"
-                leftSection={<GitHubLogoIcon style={{ width: 16, height: 16 }} />}
-                className={classes.secondaryBtn}
-              >
-                View Source
-              </Button>
-            </Group>
-          </Box>
+                <Group mt="xl" gap="sm">
+                  <ThemeIcon size="lg" radius="xl" className={classes.playButton}>
+                    <PlayIcon style={{ width: rem(20), height: rem(20) }} />
+                  </ThemeIcon>
+                  <Text size="sm" className={classes.demoText}>
+                    Watch Demo
+                  </Text>
+                </Group>
+              </Stack>
+            </Card>
+          </Grid.Col>
 
-          {/* Visual Column */}
-          <Box className={classes.visualColumn}>
-            {/* Feature Pills */}
-            <Paper shadow="sm" p="xs" radius="xl" className={classes.featurePill} style={{ top: "15%", left: "10%" }}>
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <Stack gap="xl">
               <Group gap="xs">
-                <ThemeIcon radius="xl" size="md" color="violet">
-                  <LightningBoltIcon />
+                <ThemeIcon size="sm" radius="xl" variant="light">
+                  <HeartIcon style={{ width: rem(14), height: rem(14) }} />
                 </ThemeIcon>
-                <Text size="sm" fw={500}>
-                  High Performance
+                <Text size="sm" fw={600} tt="uppercase" className={classes.headerBadge} style={{ letterSpacing: 0.5 }}>
+                  Trusted by Industry Leaders
                 </Text>
               </Group>
-            </Paper>
 
-            <Paper
-              shadow="sm"
-              p="xs"
-              radius="xl"
-              className={classes.featurePill}
-              style={{ bottom: "5%", right: "12%" }}
-            >
-              <Group gap="xs">
-                <ThemeIcon radius="xl" size="md" color="green">
-                  <LayoutIcon />
-                </ThemeIcon>
-                <Text size="sm" fw={500}>
-                  Responsive UI
+              <Title className={classes.title} order={1}>
+                Streamline Your Workflow with{" "}
+                <Text component="span" className={classes.highlight}>
+                  Smart Automation
                 </Text>
-              </Group>
-            </Paper>
+              </Title>
 
-            <Paper
-              shadow="sm"
-              p="xs"
-              radius="xl"
-              className={classes.featurePill}
-              style={{ bottom: "15%", left: "15%" }}
-            >
-              <Group gap="xs">
-                <ThemeIcon radius="xl" size="md" color="blue">
-                  <GlobeIcon />
-                </ThemeIcon>
-                <Text size="sm" fw={500}>
-                  Global CDN
-                </Text>
-              </Group>
-            </Paper>
+              <Text size="lg" className={classes.mainDescription} lh={1.6}>
+                Boost productivity and reduce manual work with our intelligent automation platform.
+                Built for modern teams who demand efficiency.
+              </Text>
 
-            {/* Main Visual */}
-            <Box className={classes.mainVisual}>
-              <Box className={classes.codeWindow}>
-                <Group className={classes.codeHeader}>
-                  <Group className={classes.codeDots}>
-                    <Box className={classes.dotRed} />
-                    <Box className={classes.dotYellow} />
-                    <Box className={classes.dotGreen} />
+              <Stack gap="sm" mt="md">
+                {benefits.map((benefit, index) => (
+                  <Group key={index} gap="sm">
+                    <ThemeIcon size="sm" radius="xl" className={classes.checkIcon}>
+                      <CheckIcon style={{ width: rem(12), height: rem(12) }} />
+                    </ThemeIcon>
+                    <Text size="sm" className={classes.benefitText} fw={500}>{benefit}</Text>
                   </Group>
-                  <Group className={classes.codeTabs}>
-                    <Text size="sm" className={classes.activeTab}>
-                      main.jsx
-                    </Text>
-                    <Text size="sm" c="gray.5">
-                      config.js
-                    </Text>
-                  </Group>
-                </Group>
+                ))}
+              </Stack>
 
-                <Box className={classes.codeBody}>
-                  <Code block className={classes.codeSyntax}>
-                    {`import { createApp, injectFeatures } from 'platform';
-import { analytics, router, store } from './plugins';
-
-// Initialize application
-const app = createApp({
-  features: injectFeatures([
-    analytics(),
-    router(),
-    store({ hydration: true })
-  ]),
-  render: (state) => (
-    <Dashboard 
-      data={state.data}
-      user={state.user}
-      theme="auto"
-    />
-  )
-});
-
-// Launch your application
-app.launch('#root');`}
-                  </Code>
-                </Box>
-              </Box>
-
-              {/* Floating Cards */}
-              <Paper
-                shadow="md"
-                p="xs"
-                radius="md"
-                className={classes.floatingCard}
-                style={{ top: "-20px", right: "-20px" }}
-              >
-                <Group gap="xs">
-                  <CodeIcon color="var(--mantine-color-gray-6)" />
-                  <Text size="xs">Auto-optimizing</Text>
-                </Group>
-              </Paper>
-
-              <Paper
-                shadow="md"
-                p="xs"
-                radius="md"
-                className={classes.floatingCard}
-                style={{ bottom: "-25px", left: "30px" }}
-              >
-                <Group gap="xs">
-                  <BellIcon color="var(--mantine-color-yellow-6)" />
-                  <Text size="xs">Real-time updates</Text>
-                </Group>
-              </Paper>
-
-              <Box className={classes.glowEffect} />
-            </Box>
-          </Box>
-        </Box>
+              <Group mt="xl" gap="md">
+                <Button size="lg" rightSection={<ArrowRightIcon />} className={classes.primaryButton}>
+                  Start Free Trial
+                </Button>
+                <Button size="lg" variant="subtle" leftSection={<BookmarkIcon />}>
+                  Learn More
+                </Button>
+              </Group>
+            </Stack>
+          </Grid.Col>
+        </Grid>
       </Container>
     </Box>
   );
-};
+}; 

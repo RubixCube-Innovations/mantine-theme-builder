@@ -1,279 +1,225 @@
-.heroWrapper {
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-  padding: 1rem 0;
+.wrapper {
+  background: linear-gradient(135deg,
+      rgba(var(--mantine-primary-color-0-rgb), 0.3) 0%,
+      rgba(var(--mantine-primary-color-1-rgb), 0.1) 100%);
 }
 
-.contentColumn {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.card {
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.7));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.mainTitle {
-  font-size: 3.5rem;
+[data-mantine-color-scheme="dark"] .card {
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
   line-height: 1.1;
   font-weight: 800;
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  color: var(--mantine-color-dark-8);
+  color: var(--mantine-color-text);
 }
 
-.titleLine {
-  background: linear-gradient(90deg, var(--mantine-primary-color-filled) 0%, var(--mantine-color-indigo-6) 100%);
+[data-mantine-color-scheme="dark"] .title {
+  color: #FFFFFF;
+}
+
+/* Minimalist Clean Style for Hero 2 */
+.highlight {
+  background: linear-gradient(45deg,
+      var(--mantine-primary-color-6),
+      var(--mantine-primary-color-7));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: block;
-}
-
-.accent {
-  background: linear-gradient(90deg, var(--mantine-primary-color-filled) 0%, var(--mantine-color-indigo-6) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.description {
-  font-size: 1.25rem;
-  max-width: 640px;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.statsContainer {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 0;
-  margin-bottom: 0.3rem;
-}
-
-.statItem {
-  display: flex;
-  flex-direction: column;
-}
-
-.statValue {
-  font-size: 2rem;
-  font-weight: 800;
-  background: linear-gradient(90deg, var(--mantine-primary-color-filled) 0%, var(--mantine-color-indigo-6) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.divider {
-  width: 1px;
-  height: 40px;
-  background-color: var(--mantine-color-gray-3);
-}
-
-.buttonContainer {
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-
-.primaryBtn {
-  border: none;
-  box-shadow: 0 10px 25px -5px rgba(var(--mantine-primary-color-rgb), 0.3);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
-  background-color: var(--mantine-primary-color-filled);
-}
-
-.primaryBtn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px -5px rgba(var(--mantine-primary-color-rgb), 0.4);
-}
-
-.secondaryBtn {
-  border-color: rgba(var(--mantine-primary-color-rgb), 0.3);
-  color: var(--mantine-primary-color-filled);
-  transition:
-    transform 0.2s,
-    background-color 0.2s;
-}
-
-.secondaryBtn:hover {
-  transform: translateY(-3px);
-  background-color: rgba(var(--mantine-primary-color-rgb), 0.05);
-}
-
-.visualColumn {
+  font-weight: 600;
   position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  letter-spacing: -0.5px;
 }
 
-.mainVisual {
-  position: relative;
-  max-width: 650px;
-  width: 100%;
-}
-
-.codeWindow {
-  background-color: var(--mantine-color-dark-8);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-  transition: transform 0.3s ease;
-}
-
-.codeWindow:hover {
-  transform: perspective(1000px) rotateY(-2deg) rotateX(2deg);
-}
-
-.codeHeader {
-  background-color: var(--mantine-color-dark-9);
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.codeDots {
-  gap: 8px;
-}
-
-.dotRed,
-.dotYellow,
-.dotGreen {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.dotRed {
-  background-color: var(--mantine-color-red-6);
-}
-
-.dotYellow {
-  background-color: var(--mantine-color-yellow-6);
-}
-
-.dotGreen {
-  background-color: var(--mantine-color-green-6);
-}
-
-.codeTabs {
-  gap: 16px;
-}
-
-.activeTab {
-  color: var(--mantine-color-gray-0);
-  font-weight: 500;
-  position: relative;
-}
-
-.activeTab::after {
-  content: "";
+.highlight::after {
+  content: '';
   position: absolute;
-  bottom: -12px;
+  bottom: -2px;
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--mantine-primary-color-filled);
+  background: var(--mantine-primary-color-6);
+  border-radius: 1px;
+  opacity: 0.8;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: elegantSlide 1.5s ease-out 0.5s forwards;
 }
 
-.codeBody {
-  padding: 20px;
-  overflow: auto;
-  max-height: 350px;
+[data-mantine-color-scheme="dark"] .highlight {
+  background: linear-gradient(45deg,
+      var(--mantine-primary-color-4),
+      var(--mantine-primary-color-5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.codeSyntax {
-  margin: 0;
-  color: var(--mantine-color-gray-0);
-  font-family: "Fira Code", monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  background-color: transparent;
+[data-mantine-color-scheme="dark"] .highlight::after {
+  background: var(--mantine-primary-color-4);
 }
 
-.featurePill {
-  position: absolute;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 20;
-  animation: float 5s ease-in-out infinite;
+@keyframes elegantSlide {
+  to {
+    transform: scaleX(1);
+  }
 }
 
-.floatingCard {
-  position: absolute;
+.cardTitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  background: linear-gradient(135deg,
+      var(--mantine-primary-color-7),
+      var(--mantine-primary-color-9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-mantine-color-scheme="dark"] .cardTitle {
+  color: #FFFFFF;
+  background: none;
+  -webkit-text-fill-color: #FFFFFF;
+}
+
+.badge {
+  background: linear-gradient(135deg,
+      var(--mantine-primary-color-1),
+      var(--mantine-primary-color-2));
+  border: 1px solid var(--mantine-primary-color-3);
+}
+
+.statValue {
+  background: linear-gradient(135deg,
+      var(--mantine-primary-color-6),
+      var(--mantine-primary-color-8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+[data-mantine-color-scheme="dark"] .statValue {
+  color: #FFFFFF;
+  background: none;
+  -webkit-text-fill-color: #FFFFFF;
+  font-weight: 900;
+}
+
+.playButton {
+  background: linear-gradient(135deg,
+      var(--mantine-primary-color-5),
+      var(--mantine-primary-color-7));
+  transition: transform 0.2s ease;
+}
+
+.playButton:hover {
+  transform: scale(1.05);
+}
+
+.primaryButton {
+  background: linear-gradient(135deg,
+      var(--mantine-primary-color-6),
+      var(--mantine-primary-color-8));
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(var(--mantine-primary-color-6-rgb), 0.3);
+}
+
+/* New styles for improved readability */
+.cardSubtitle {
+  color: var(--mantine-color-dimmed);
+}
+
+[data-mantine-color-scheme="dark"] .cardSubtitle {
+  color: #B3B3B3;
+  font-weight: 500;
+}
+
+.statLabel {
+  color: var(--mantine-color-dimmed);
+  font-weight: 500;
+}
+
+[data-mantine-color-scheme="dark"] .statLabel {
+  color: #CCCCCC;
+  font-weight: 600;
+}
+
+.demoText {
+  color: var(--mantine-color-dimmed);
+  font-weight: 500;
+}
+
+[data-mantine-color-scheme="dark"] .demoText {
+  color: #B3B3B3;
+  font-weight: 600;
+}
+
+.headerBadge {
+  color: var(--mantine-primary-color-7);
+}
+
+[data-mantine-color-scheme="dark"] .headerBadge {
+  color: var(--mantine-primary-color-4);
+  font-weight: 700;
+}
+
+.mainDescription {
+  color: var(--mantine-color-dimmed);
+  font-weight: 400;
+}
+
+[data-mantine-color-scheme="dark"] .mainDescription {
+  color: #B3B3B3;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.checkIcon {
+  background: var(--mantine-primary-color-light);
+  color: var(--mantine-primary-color-6);
+}
+
+[data-mantine-color-scheme="dark"] .checkIcon {
+  background: var(--mantine-primary-color-6);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(var(--mantine-primary-color-6-rgb), 0.3);
+}
+
+.benefitText {
   color: var(--mantine-color-text);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 20;
-  animation: float 6s ease-in-out infinite alternate;
 }
 
-.glowEffect {
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(
-    circle,
-    rgba(var(--mantine-primary-color-rgb), 0.3) 0%,
-    rgba(var(--mantine-primary-color-rgb), 0) 70%
-  );
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  filter: blur(30px);
+[data-mantine-color-scheme="dark"] .benefitText {
+  color: #FFFFFF;
+  font-weight: 600;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 992px) {
-  .mainTitle {
-    font-size: 3rem;
-  }
-
-  .featurePill {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .mainTitle {
-    font-size: 2.5rem;
-  }
-
-  .buttonContainer {
-    flex-direction: column;
-  }
-
-  .statsContainer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .divider {
-    width: 100%;
-    height: 1px;
-    margin: 10px 0;
-  }
-
-  .codeWindow {
-    transform: none;
-  }
+[data-mantine-color-scheme="dark"] .badge {
+  background: linear-gradient(135deg,
+      var(--mantine-primary-color-6),
+      var(--mantine-primary-color-7));
+  border: 1px solid var(--mantine-primary-color-5);
+  color: #FFFFFF;
+  font-weight: 600;
 }

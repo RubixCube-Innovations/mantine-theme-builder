@@ -1,163 +1,128 @@
-import { Container, Title, Text, Button, Group, Box } from "@mantine/core";
-import styles from "./hero3.module.css";
+import { Container, Title, Text, Button, Group, Stack, ThemeIcon, Box, SimpleGrid, Paper, Avatar, rem } from "@mantine/core";
+import { RocketIcon, LightningBoltIcon, ShuffleIcon, StarIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import classes from "./hero3.module.css";
 
 export const Hero3 = () => {
+  const features = [
+    {
+      icon: <LightningBoltIcon />,
+      title: "Lightning Fast",
+      description: "Optimized for speed and performance"
+    },
+    {
+      icon: <ShuffleIcon />,
+      title: "Secure & Reliable",
+      description: "Enterprise-grade security standards"
+    },
+    {
+      icon: <StarIcon />,
+      title: "Premium Quality",
+      description: "Built with attention to every detail"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Johnson",
+      role: "Product Manager",
+      avatar: "https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_22.png",
+      quote: "This platform transformed our workflow completely."
+    },
+    {
+      name: "Alex Chen",
+      role: "Developer",
+      avatar: "https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_18.png",
+      quote: "The best development experience I've ever had."
+    }
+  ];
+
   return (
-    <Box className={styles.heroContainer}>
-      {/* Animated background elements */}
-      <div className={styles.gradientBackground}></div>
-      <div className={styles.gridOverlay}></div>
-
-      <div className={styles.particleContainer}>
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className={styles.particle}
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${5 + Math.random() * 10}s`,
-            }}
-          ></div>
-        ))}
-      </div>
-
-      <Container size="xl" className={styles.contentContainer}>
-        <div className={styles.contentWrapper}>
-          <div className={styles.leftColumn}>
-            <div className={styles.tagLine}>
-              <div className={styles.tag}>
-                <span className={styles.pulse}></span>
-                <Text size="sm" className={styles.tagText}>
-                  NEXT GENERATION AI
-                </Text>
-              </div>
-            </div>
-
-            <Title className={styles.mainTitle}>
-              <span className={styles.titleLine}>Quantum Neural</span>
-              <span className={styles.titleLine}>
-                <span className={styles.highlight}>Intelligence</span> System
-              </span>
-            </Title>
-
-            <Text className={styles.description}>
-              Experience the convergence of quantum computing and neural networks, enabling unprecedented computational
-              power and problem-solving capabilities beyond classical limitations.
-            </Text>
-
-            <Group className={styles.buttonGroup}>
-              <Button className={styles.primaryButton}>
-                <span className={styles.buttonInner}>
-                  <span className={styles.buttonGlow}></span>
-                  <span className={styles.buttonText}>Explore Platform</span>
-                </span>
-              </Button>
-
-              <Button variant="outline" className={styles.secondaryButton}>
-                Technical Documentation
-              </Button>
+    <Box className={classes.wrapper}>
+      <Container size="xl" py={120}>
+        <Stack gap={80} w="100%">
+          {/* Hero Section */}
+          <Stack gap="xl" align="center" w="100%">
+            <Group gap="xs" className={classes.badge}>
+              <ThemeIcon size="sm" radius="xl" variant="light">
+                <RocketIcon style={{ width: rem(12), height: rem(12) }} />
+              </ThemeIcon>
+              <Text size="sm" fw={600} tt="uppercase" className={classes.badgeText}>
+                Next Generation Platform
+              </Text>
             </Group>
 
-            <div className={styles.metricsContainer}>
-              <div className={styles.metric}>
-                <div className={styles.metricValue}>
-                  <span className={styles.metricNumber}>850</span>
-                  <span className={styles.metricUnit}>+</span>
-                </div>
-                <Text size="xs" className={styles.metricLabel}>
-                  QUANTUM CORES
-                </Text>
-              </div>
+            <Title className={classes.title} order={1} ta="center" maw={900}>
+              Build Amazing Products with{" "}
+              <Text component="span" className={classes.highlight} data-text="CUTTING-EDGE TECHNOLOGY">
+                Cutting-Edge Technology
+              </Text>
+            </Title>
 
-              <div className={styles.metric}>
-                <div className={styles.metricValue}>
-                  <span className={styles.metricNumber}>10</span>
-                  <span className={styles.metricUnit}>-15s</span>
-                </div>
-                <Text size="xs" className={styles.metricLabel}>
-                  RESPONSE TIME
-                </Text>
-              </div>
+            <Text size="xl" ta="center" lh={1.7} maw={700} className={classes.subtitle}>
+              Experience unparalleled performance and reliability. Our platform empowers teams to create
+              exceptional digital experiences that users love.
+            </Text>
 
-              <div className={styles.metric}>
-                <div className={styles.metricValue}>
-                  <span className={styles.metricNumber}>99.99</span>
-                  <span className={styles.metricUnit}>%</span>
-                </div>
-                <Text size="xs" className={styles.metricLabel}>
-                  ACCURACY RATE
-                </Text>
-              </div>
-            </div>
-          </div>
+            <Group gap="md" mt="md">
+              <Button size="xl" className={classes.primaryButton} rightSection={<ArrowRightIcon />}>
+                Start Building
+              </Button>
+              <Button size="xl" variant="outline" className={classes.secondaryButton}>
+                View Documentation
+              </Button>
+            </Group>
+          </Stack>
 
-          <div className={styles.rightColumn}>
-            <div className={styles.visualElement}>
-              <div className={styles.hologramContainer}>
-                <div className={styles.hologramCore}>
-                  <div className={styles.coreInner}></div>
-                  <div className={styles.coreRing}></div>
-                  <div className={styles.corePulse}></div>
-                </div>
-
-                <div className={styles.orbitalRing1}></div>
-                <div className={styles.orbitalRing2}></div>
-
-                <div className={styles.dataPoint1}>
-                  <div className={styles.dataPointDot}></div>
-                  <div className={styles.dataPointLabel}>Neural Link</div>
-                </div>
-
-                <div className={styles.dataPoint2}>
-                  <div className={styles.dataPointDot}></div>
-                  <div className={styles.dataPointLabel}>Quantum Core</div>
-                </div>
-
-                <div className={styles.dataPoint3}>
-                  <div className={styles.dataPointDot}></div>
-                  <div className={styles.dataPointLabel}>Data Nexus</div>
-                </div>
-
-                <div className={styles.scanLines}></div>
-              </div>
-
-              <div className={styles.blueprint}>
-                <div className={styles.blueprintLines}></div>
-                <div className={styles.blueprintCircle}></div>
-                <div className={styles.blueprintGrid}></div>
-              </div>
-
-              <div className={styles.dataStream}>
-                {[...Array(20)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={styles.dataLine}
-                    style={{
-                      top: `${i * 5}%`,
-                      left: `${Math.random() * 100}%`,
-                      width: `${Math.random() * 100 + 50}px`,
-                      animationDelay: `${Math.random() * 2}s`,
-                    }}
-                  ></div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.partnersSection}>
-          <Text className={styles.partnersTitle}>TRUSTED BY LEADING ORGANIZATIONS</Text>
-          <div className={styles.partnersLogos}>
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className={styles.partnerLogo}>
-                <div className={styles.glowBorder}></div>
-              </div>
+          {/* Features Grid */}
+          <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" w="100%">
+            {features.map((feature, index) => (
+              <Paper key={index} className={classes.featureCard} radius="xl" p="xl">
+                <Stack gap="md" align="center" ta="center">
+                  <ThemeIcon size="xl" radius="xl" className={classes.featureIcon}>
+                    {feature.icon}
+                  </ThemeIcon>
+                  <Title order={3} className={classes.featureTitle}>
+                    {feature.title}
+                  </Title>
+                  <Text size="md" className={classes.featureDescription}>
+                    {feature.description}
+                  </Text>
+                </Stack>
+              </Paper>
             ))}
-          </div>
-        </div>
+          </SimpleGrid>
+
+          {/* Testimonials */}
+          <Stack gap="xl" align="center" w="100%">
+            <Title order={2} className={classes.sectionTitle} ta="center">
+              Trusted by thousands of developers
+            </Title>
+
+            <SimpleGrid cols={{ base: 1, md: 2 }} spacing="xl" w="100%" maw={900}>
+              {testimonials.map((testimonial, index) => (
+                <Paper key={index} className={classes.testimonialCard} radius="lg" p="lg">
+                  <Stack gap="md">
+                    <Text className={classes.quote} fz="md" style={{ fontStyle: 'italic' }}>
+                      "{testimonial.quote}"
+                    </Text>
+                    <Group gap="sm">
+                      <Avatar src={testimonial.avatar} size="md" radius="xl" />
+                      <Stack gap={2}>
+                        <Text fw={600} size="sm" className={classes.testimonialName}>
+                          {testimonial.name}
+                        </Text>
+                        <Text size="xs" className={classes.testimonialRole}>
+                          {testimonial.role}
+                        </Text>
+                      </Stack>
+                    </Group>
+                  </Stack>
+                </Paper>
+              ))}
+            </SimpleGrid>
+          </Stack>
+        </Stack>
       </Container>
     </Box>
   );
-};
+}; 
