@@ -1,8 +1,8 @@
 .wrapper {
   min-height: 80vh;
-  background: linear-gradient(135deg, 
-    rgba(var(--mantine-primary-color-0-rgb), 0.1) 0%, 
-    rgba(var(--mantine-primary-color-1-rgb), 0.05) 100%);
+  background: linear-gradient(135deg,
+      rgba(var(--mantine-primary-color-0-rgb), 0.1) 0%,
+      rgba(var(--mantine-primary-color-1-rgb), 0.05) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -35,7 +35,7 @@
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 2rem;
   align-items: center;
   min-height: 60vh;
@@ -65,70 +65,65 @@
   color: #FFFFFF;
 }
 
-/* Creative/Playful Style for Hero 5 */
+/* Creative Professional Style for Hero 5 */
 .highlight {
-  font-weight: 900;
+  font-weight: 800;
   position: relative;
   display: inline-block;
-  background: linear-gradient(45deg,
-    var(--mantine-primary-color-5),
-    var(--mantine-primary-color-7),
-    var(--mantine-primary-color-8),
-    var(--mantine-primary-color-5));
+  background: linear-gradient(120deg,
+      var(--mantine-primary-color-6),
+      var(--mantine-primary-color-8));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  background-size: 300% 300%;
-  animation: playfulBounce 3s ease-in-out infinite;
-  transform-origin: center;
   font-style: italic;
-  letter-spacing: 1px;
-}
-
-.highlight::before {
-  content: '✨';
-  position: absolute;
-  top: -20px;
-  left: -30px;
-  font-size: 1.5rem;
-  animation: sparkle 2s ease-in-out infinite alternate;
+  letter-spacing: 0.5px;
 }
 
 .highlight::after {
-  content: '🎨';
+  content: '';
   position: absolute;
-  top: -15px;
-  right: -35px;
-  font-size: 1.3rem;
-  animation: bounce 2.5s ease-in-out infinite;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--mantine-primary-color-6);
+  border-radius: 1px;
+  opacity: 0.7;
 }
 
 [data-mantine-color-scheme="dark"] .highlight {
-  background: linear-gradient(45deg,
-    var(--mantine-primary-color-3),
-    var(--mantine-primary-color-4),
-    var(--mantine-primary-color-5),
-    var(--mantine-primary-color-3));
+  background: linear-gradient(120deg,
+      var(--mantine-primary-color-4),
+      var(--mantine-primary-color-6));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  background-size: 300% 300%;
-  animation: playfulBounce 3s ease-in-out infinite;
+}
+
+[data-mantine-color-scheme="dark"] .highlight::after {
+  background: var(--mantine-primary-color-4);
+  opacity: 0.8;
 }
 
 @keyframes playfulBounce {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
     transform: scale(1) rotate(-1deg);
   }
+
   25% {
     background-position: 100% 25%;
     transform: scale(1.02) rotate(1deg);
   }
+
   50% {
     background-position: 100% 75%;
     transform: scale(1.01) rotate(-0.5deg);
   }
+
   75% {
     background-position: 25% 100%;
     transform: scale(1.03) rotate(0.5deg);
@@ -136,10 +131,13 @@
 }
 
 @keyframes sparkle {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1) rotate(0deg);
     opacity: 0.8;
   }
+
   50% {
     transform: scale(1.2) rotate(180deg);
     opacity: 1;
@@ -147,9 +145,12 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-5px) rotate(15deg);
   }
@@ -162,20 +163,21 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, 
-    var(--mantine-primary-color-4), 
-    var(--mantine-primary-color-6));
+  background: linear-gradient(90deg,
+      var(--mantine-primary-color-4),
+      var(--mantine-primary-color-6));
   border-radius: 2px;
   opacity: 0;
   animation: underlineGrow 1s ease-out 1.5s forwards;
 }
 
 @keyframes underlineGrow {
-  from { 
+  from {
     transform: scaleX(0);
     opacity: 0;
   }
-  to { 
+
+  to {
     transform: scaleX(1);
     opacity: 1;
   }
@@ -207,6 +209,100 @@
 [data-mantine-color-scheme="dark"] .ctaButton:hover {
   background: var(--mantine-primary-color-6);
   color: white;
+}
+
+.subtitle {
+  color: rgba(var(--mantine-color-text-rgb), 0.8);
+  font-weight: 500;
+}
+
+[data-mantine-color-scheme="dark"] .subtitle {
+  color: #B3B3B3;
+  font-weight: 500;
+}
+
+.secondaryButton {
+  background: rgba(var(--mantine-primary-color-0-rgb), 0.7);
+  color: var(--mantine-primary-color-7);
+  border: 1px solid rgba(var(--mantine-primary-color-3-rgb), 0.3);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+[data-mantine-color-scheme="dark"] .secondaryButton {
+  background: rgba(var(--mantine-primary-color-9-rgb), 0.2);
+  color: var(--mantine-primary-color-3);
+  border: 1px solid rgba(var(--mantine-primary-color-6-rgb), 0.3);
+}
+
+.secondaryButton:hover {
+  background: var(--mantine-primary-color-1);
+  transform: translateY(-1px);
+}
+
+[data-mantine-color-scheme="dark"] .secondaryButton:hover {
+  background: rgba(var(--mantine-primary-color-8-rgb), 0.3);
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--mantine-color-text);
+  margin-bottom: 1rem;
+}
+
+[data-mantine-color-scheme="dark"] .sectionTitle {
+  color: #FFFFFF;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(var(--mantine-primary-color-3-rgb), 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+[data-mantine-color-scheme="dark"] .featureCard {
+  background: rgba(var(--mantine-primary-color-9-rgb), 0.1);
+  border: 1px solid rgba(var(--mantine-primary-color-6-rgb), 0.2);
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+[data-mantine-color-scheme="dark"] .featureCard:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.featureIcon {
+  background: var(--mantine-primary-color-1);
+  color: var(--mantine-primary-color-7);
+}
+
+[data-mantine-color-scheme="dark"] .featureIcon {
+  background: rgba(var(--mantine-primary-color-9-rgb), 0.3);
+  color: var(--mantine-primary-color-4);
+}
+
+.featureTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--mantine-color-text);
+}
+
+[data-mantine-color-scheme="dark"] .featureTitle {
+  color: #FFFFFF;
+}
+
+.featureDescription {
+  color: rgba(var(--mantine-color-text-rgb), 0.7);
+  line-height: 1.6;
+}
+
+[data-mantine-color-scheme="dark"] .featureDescription {
+  color: #B3B3B3;
 }
 
 .decorativeContainer {
@@ -250,10 +346,13 @@
 }
 
 @keyframes drawCurve {
-  0%, 100% {
+
+  0%,
+  100% {
     stroke-dashoffset: 0;
     opacity: 0.3;
   }
+
   50% {
     stroke-dashoffset: 20;
     opacity: 0.6;
@@ -381,6 +480,7 @@
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -392,6 +492,7 @@
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -403,6 +504,7 @@
     opacity: 0;
     transform: scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -414,6 +516,7 @@
     opacity: 0;
     transform: translateY(20px) scale(0.8);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -421,13 +524,17 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   33% {
     transform: translateY(-10px) rotate(5deg);
   }
+
   66% {
     transform: translateY(5px) rotate(-3deg);
   }
-} 
+}

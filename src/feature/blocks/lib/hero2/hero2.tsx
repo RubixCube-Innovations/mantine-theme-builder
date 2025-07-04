@@ -72,10 +72,7 @@ export const Hero2 = () => {
               </Group>
 
               <Title className={classes.title} order={1}>
-                Streamline Your Workflow with{" "}
-                <Text component="span" className={classes.highlight}>
-                  Smart Automation
-                </Text>
+                Streamline Your Workflow with Smart Automation
               </Title>
 
               <Text size="lg" className={classes.mainDescription} lh={1.6}>

@@ -62,69 +62,6 @@
   font-weight: 500;
 }
 
-/* Professional/Corporate Style for Hero 4 */
-.highlight {
-  font-weight: 900;
-  position: relative;
-  display: inline-block;
-  color: var(--mantine-primary-color-8);
-  text-transform: none;
-  letter-spacing: -1px;
-  background: linear-gradient(135deg,
-      var(--mantine-primary-color-6),
-      var(--mantine-primary-color-8));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.highlight::before {
-  content: '';
-  position: absolute;
-  left: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 80%;
-  background: var(--mantine-primary-color-6);
-  border-radius: 2px;
-  animation: slideInLeft 0.8s ease-out 0.3s both;
-}
-
-.highlight::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg,
-      var(--mantine-primary-color-6),
-      var(--mantine-primary-color-8),
-      var(--mantine-primary-color-6));
-  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
-  animation: slideInBottom 0.8s ease-out 0.6s both;
-}
-
-[data-mantine-color-scheme="dark"] .highlight {
-  background: linear-gradient(135deg,
-      var(--mantine-primary-color-4),
-      var(--mantine-primary-color-6));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-[data-mantine-color-scheme="dark"] .highlight::before {
-  background: var(--mantine-primary-color-4);
-}
-
-[data-mantine-color-scheme="dark"] .highlight::after {
-  background: linear-gradient(90deg,
-      var(--mantine-primary-color-4),
-      var(--mantine-primary-color-6),
-      var(--mantine-primary-color-4));
-}
 
 @keyframes slideInLeft {
   from {

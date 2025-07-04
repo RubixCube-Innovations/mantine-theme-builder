@@ -32,53 +32,6 @@
   color: #FFFFFF;
 }
 
-/* Minimalist Clean Style for Hero 2 */
-.highlight {
-  background: linear-gradient(45deg,
-      var(--mantine-primary-color-6),
-      var(--mantine-primary-color-7));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 600;
-  position: relative;
-  display: inline-block;
-  letter-spacing: -0.5px;
-}
-
-.highlight::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--mantine-primary-color-6);
-  border-radius: 1px;
-  opacity: 0.8;
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: elegantSlide 1.5s ease-out 0.5s forwards;
-}
-
-[data-mantine-color-scheme="dark"] .highlight {
-  background: linear-gradient(45deg,
-      var(--mantine-primary-color-4),
-      var(--mantine-primary-color-5));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-[data-mantine-color-scheme="dark"] .highlight::after {
-  background: var(--mantine-primary-color-4);
-}
-
-@keyframes elegantSlide {
-  to {
-    transform: scaleX(1);
-  }
-}
 
 .cardTitle {
   font-size: clamp(1.5rem, 3vw, 2rem);

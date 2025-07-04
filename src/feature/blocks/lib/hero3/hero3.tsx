@@ -53,7 +53,7 @@ export const Hero3 = () => {
 
             <Title className={classes.title} order={1} ta="center" maw={900}>
               Build Amazing Products with{" "}
-              <Text component="span" className={classes.highlight} data-text="CUTTING-EDGE TECHNOLOGY">
+              <Text component="span" className={classes.highlight}>
                 Cutting-Edge Technology
               </Text>
             </Title>

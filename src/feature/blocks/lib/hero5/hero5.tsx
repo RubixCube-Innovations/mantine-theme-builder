@@ -1,5 +1,5 @@
-import { Container, Title, Text, Button, Group, Stack, Box, ThemeIcon, rem } from "@mantine/core";
-import { ArrowRightIcon, CopyIcon, StarIcon, Cross2Icon, SunIcon, RocketIcon } from "@radix-ui/react-icons";
+import { Container, Title, Text, Button, Group, Stack, Box, ThemeIcon, rem, SimpleGrid, Paper } from "@mantine/core";
+import { ArrowRightIcon, Pencil1Icon, StarIcon, Cross2Icon, SunIcon, RocketIcon, PersonIcon, ChatBubbleIcon, LightningBoltIcon } from "@radix-ui/react-icons";
 import classes from "./hero5.module.css";
 
 export const Hero5 = () => {
@@ -13,39 +13,64 @@ export const Hero5 = () => {
     { icon: <Cross2Icon />, top: "80%", right: "35%", delay: "3s", isSmall: true },
   ];
 
+  const features = [
+    {
+      icon: <PersonIcon />,
+      title: "Team Collaboration",
+      description: "Work together seamlessly with real-time collaboration tools"
+    },
+    {
+      icon: <ChatBubbleIcon />,
+      title: "Smart Communication",
+      description: "Integrated messaging and feedback systems"
+    },
+    {
+      icon: <LightningBoltIcon />,
+      title: "Rapid Iteration",
+      description: "Quickly prototype and iterate on your designs"
+    }
+  ];
+
   return (
     <Box className={classes.wrapper}>
       <Container size="xl" py={60}>
         {/* Header */}
         <Group gap="xs" mb={80} className={classes.header}>
           <ThemeIcon size="sm" radius="md" variant="light" className={classes.headerIcon}>
-            <CopyIcon style={{ width: rem(14), height: rem(14) }} />
+            <Pencil1Icon style={{ width: rem(14), height: rem(14) }} />
           </ThemeIcon>
           <Text fw={500} size="sm" className={classes.headerText}>
-            Copy Paste Blocks
+            Design & Collaboration
           </Text>
         </Group>
 
         <div className={classes.content}>
           {/* Main Content */}
           <Box className={classes.mainContent}>
-            <Stack gap="xl" maw={600}>
+            <Stack gap="xl" maw={800}>
               <Title className={classes.title} order={1}>
-                Let's Create
+                Design Better
                 <br />
-                Something{" "}
-                <Text component="span" className={classes.highlight}>
-                  Amazing!
-                </Text>
+                Products with
+                <br />
+                Creative Tools
               </Title>
 
-              <Group>
+              <Text size="lg" lh={1.6} className={classes.subtitle}>
+                Empower your team with intuitive design tools and collaboration features.
+                From concept to launch, create exceptional user experiences that drive results.
+              </Text>
+
+              <Group gap="md">
                 <Button
                   size="xl"
                   className={classes.ctaButton}
                   rightSection={<ArrowRightIcon style={{ width: rem(18), height: rem(18) }} />}
                 >
-                  Let's Talk
+                  Start Designing
+                </Button>
+                <Button size="xl" variant="outline" className={classes.secondaryButton}>
+                  View Gallery
                 </Button>
               </Group>
             </Stack>
@@ -117,6 +142,33 @@ export const Hero5 = () => {
             </Box>
           </Box>
         </div>
+
+        {/* Features Section */}
+        <Box mt={120}>
+          <Stack gap="xl" align="center" w="100%">
+            <Title order={2} className={classes.sectionTitle} ta="center">
+              Everything you need to create
+            </Title>
+
+            <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" w="100%">
+              {features.map((feature, index) => (
+                <Paper key={index} className={classes.featureCard} radius="lg" p="xl">
+                  <Stack gap="md" align="center" ta="center">
+                    <ThemeIcon size="xl" radius="xl" className={classes.featureIcon}>
+                      {feature.icon}
+                    </ThemeIcon>
+                    <Title order={3} className={classes.featureTitle}>
+                      {feature.title}
+                    </Title>
+                    <Text size="md" className={classes.featureDescription}>
+                      {feature.description}
+                    </Text>
+                  </Stack>
+                </Paper>
+              ))}
+            </SimpleGrid>
+          </Stack>
+        </Box>
       </Container>
     </Box>
   );

@@ -44,11 +44,7 @@ export const Hero4 = () => {
 
               <Stack gap="xl">
                 <Title className={classes.title} order={1}>
-                  Simplify Your
-                  <br />
-                  <Text component="span" className={classes.highlight}>
-                    Development Process
-                  </Text>
+                  Simplify Your Development Process
                 </Title>
 
                 <Text size="lg" lh={1.7} className={classes.subtitle}>

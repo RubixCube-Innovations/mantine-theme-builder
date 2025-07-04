@@ -86,115 +86,21 @@
   font-weight: 500;
 }
 
-/* Tech/Futuristic Style for Hero 3 */
+/* Modern Clean Style for Hero 3 */
 .highlight {
-  font-family: 'Courier New', monospace;
-  font-weight: 900;
-  font-size: 1.1em;
+  font-weight: 700;
+  font-size: 1.05em;
   position: relative;
   display: inline-block;
-  color: var(--mantine-primary-color-6);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow:
-    0 0 5px currentColor,
-    0 0 10px currentColor,
-    0 0 15px currentColor;
-  animation: neonFlicker 2s linear infinite alternate;
-}
-
-.highlight::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 2px;
-  color: var(--mantine-primary-color-4);
-  opacity: 0.8;
-  z-index: -1;
-  animation: glitchMove 0.3s infinite linear alternate-reverse;
-}
-
-.highlight::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(var(--mantine-primary-color-6-rgb), 0.1) 50%,
-      transparent 100%);
-  animation: scanLine 3s infinite linear;
+  color: var(--mantine-primary-color-7);
+  letter-spacing: -0.5px;
+  border-bottom: 3px solid var(--mantine-primary-color-6);
+  padding-bottom: 2px;
 }
 
 [data-mantine-color-scheme="dark"] .highlight {
   color: var(--mantine-primary-color-4);
-  text-shadow:
-    0 0 5px var(--mantine-primary-color-4),
-    0 0 10px var(--mantine-primary-color-4),
-    0 0 15px var(--mantine-primary-color-4),
-    0 0 20px var(--mantine-primary-color-4);
-}
-
-[data-mantine-color-scheme="dark"] .highlight::before {
-  color: var(--mantine-primary-color-6);
-}
-
-@keyframes neonFlicker {
-
-  0%,
-  100% {
-    text-shadow:
-      0 0 5px currentColor,
-      0 0 10px currentColor,
-      0 0 15px currentColor;
-  }
-
-  50% {
-    text-shadow:
-      0 0 2px currentColor,
-      0 0 5px currentColor,
-      0 0 8px currentColor,
-      0 0 12px currentColor,
-      0 0 15px currentColor;
-  }
-}
-
-@keyframes glitchMove {
-  0% {
-    transform: translate(0);
-  }
-
-  20% {
-    transform: translate(-2px, 2px);
-  }
-
-  40% {
-    transform: translate(-2px, -2px);
-  }
-
-  60% {
-    transform: translate(2px, 2px);
-  }
-
-  80% {
-    transform: translate(2px, -2px);
-  }
-
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes scanLine {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
+  border-bottom-color: var(--mantine-primary-color-4);
 }
 
 .primaryButton {
