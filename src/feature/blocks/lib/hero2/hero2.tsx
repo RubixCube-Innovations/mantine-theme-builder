@@ -95,7 +95,7 @@ export const Hero2 = () => {
                 <Button size="lg" rightSection={<ArrowRightIcon />} className={classes.primaryButton}>
                   Start Free Trial
                 </Button>
-                <Button size="lg" variant="subtle" leftSection={<BookmarkIcon />}>
+                <Button size="lg" variant="light" leftSection={<BookmarkIcon />}>
                   Learn More
                 </Button>
               </Group>

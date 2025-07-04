@@ -1,127 +1,216 @@
-import { Container, Title, Text, Button, Group, Stack, ThemeIcon, Box, SimpleGrid, Paper, Avatar, rem } from "@mantine/core";
-import { RocketIcon, LightningBoltIcon, ShuffleIcon, StarIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import { Container, Title, Text, Button, Group, Stack, Box, ThemeIcon, rem, SimpleGrid, Paper } from "@mantine/core";
+import { ArrowRightIcon, Pencil1Icon, StarIcon, SunIcon, RocketIcon, PersonIcon, ChatBubbleIcon, LightningBoltIcon, CursorArrowIcon, Pencil2Icon, CircleIcon, SquareIcon, TargetIcon } from "@radix-ui/react-icons";
 import classes from "./hero3.module.css";
 
 export const Hero3 = () => {
-  const features = [
-    {
-      icon: <LightningBoltIcon />,
-      title: "Lightning Fast",
-      description: "Optimized for speed and performance"
-    },
-    {
-      icon: <ShuffleIcon />,
-      title: "Secure & Reliable",
-      description: "Enterprise-grade security standards"
-    },
-    {
-      icon: <StarIcon />,
-      title: "Premium Quality",
-      description: "Built with attention to every detail"
-    }
+  const designElements = [
+    { type: 'cursor', id: 'cursor1', x: '20%', y: '25%', delay: '0s' },
+    { type: 'cursor', id: 'cursor2', x: '70%', y: '40%', delay: '1s' },
+    { type: 'cursor', id: 'cursor3', x: '40%', y: '60%', delay: '2s' },
   ];
 
-  const testimonials = [
+  const drawnElements = [
+    { icon: <CircleIcon />, x: '25%', y: '30%', delay: '0.5s', color: 'primary' },
+    { icon: <SquareIcon />, x: '75%', y: '45%', delay: '1.5s', color: 'secondary' },
+    { icon: <TargetIcon />, x: '45%', y: '65%', delay: '2.5s', color: 'accent' },
+    { icon: <StarIcon />, x: '60%', y: '25%', delay: '3s', color: 'primary' },
+    { icon: <SunIcon />, x: '30%', y: '55%', delay: '3.5s', color: 'secondary' },
+    { icon: <RocketIcon />, x: '80%', y: '70%', delay: '4s', color: 'accent' },
+  ];
+
+  const collaborationIndicators = [
+    { x: '22%', y: '22%', delay: '0.8s', user: 'A' },
+    { x: '72%', y: '37%', delay: '1.8s', user: 'B' },
+    { x: '42%', y: '57%', delay: '2.8s', user: 'C' },
+  ];
+
+  const features = [
     {
-      name: "Sarah Johnson",
-      role: "Product Manager",
-      avatar: "https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_22.png",
-      quote: "This platform transformed our workflow completely."
+      icon: <PersonIcon />,
+      title: "Team Collaboration",
+      description: "Work together seamlessly with real-time collaboration tools"
     },
     {
-      name: "Alex Chen",
-      role: "Developer",
-      avatar: "https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_18.png",
-      quote: "The best development experience I've ever had."
+      icon: <ChatBubbleIcon />,
+      title: "Smart Communication",
+      description: "Integrated messaging and feedback systems"
+    },
+    {
+      icon: <LightningBoltIcon />,
+      title: "Rapid Iteration",
+      description: "Quickly prototype and iterate on your designs"
     }
   ];
 
   return (
     <Box className={classes.wrapper}>
-      <Container size="xl" py={120}>
-        <Stack gap={80} w="100%">
-          {/* Hero Section */}
-          <Stack gap="xl" align="center" w="100%">
-            <Group gap="xs" className={classes.badge}>
-              <ThemeIcon size="sm" radius="xl" variant="light">
-                <RocketIcon style={{ width: rem(12), height: rem(12) }} />
-              </ThemeIcon>
-              <Text size="sm" fw={600} tt="uppercase" className={classes.badgeText}>
-                Next Generation Platform
+      <Container size="xl" py={60}>
+        {/* Header */}
+        <Group gap="xs" mb={60} className={classes.header}>
+          <ThemeIcon size="sm" radius="md" variant="light" className={classes.headerIcon}>
+            <Pencil1Icon style={{ width: rem(14), height: rem(14) }} />
+          </ThemeIcon>
+          <Text fw={500} size="sm" className={classes.headerText}>
+            Design & Collaboration
+          </Text>
+        </Group>
+
+        <div className={classes.content}>
+          {/* Main Content */}
+          <Box className={classes.mainContent}>
+            <Stack gap="xl" maw={800}>
+              <Title className={classes.title} order={1}>
+                Design Better
+                <br />
+                Products with
+                <br />
+                <span className={classes.highlight}>Creative Tools</span>
+              </Title>
+
+              <Text size="lg" lh={1.6} className={classes.subtitle}>
+                Empower your team with intuitive design tools and collaboration features.
+                From concept to launch, create exceptional user experiences that drive results.
               </Text>
-            </Group>
 
-            <Title className={classes.title} order={1} ta="center" maw={900}>
-              Build Amazing Products with{" "}
-              <Text component="span" className={classes.highlight}>
-                Cutting-Edge Technology
-              </Text>
-            </Title>
+              <Group gap="md">
+                <Button
+                  size="xl"
+                  className={classes.ctaButton}
+                  rightSection={<ArrowRightIcon style={{ width: rem(18), height: rem(18) }} />}
+                >
+                  Start Designing
+                </Button>
+                <Button size="xl" variant="outline" className={classes.secondaryButton}>
+                  View Gallery
+                </Button>
+              </Group>
+            </Stack>
+          </Box>
 
-            <Text size="xl" ta="center" lh={1.7} maw={700} className={classes.subtitle}>
-              Experience unparalleled performance and reliability. Our platform empowers teams to create
-              exceptional digital experiences that users love.
-            </Text>
+          {/* Design Canvas Animation */}
+          <Box className={classes.designCanvas}>
+            {/* Canvas Background */}
+            <div className={classes.canvasBackground}>
+              <div className={classes.canvasGrid}></div>
+            </div>
 
-            <Group gap="md" mt="md">
-              <Button size="xl" className={classes.primaryButton} rightSection={<ArrowRightIcon />}>
-                Start Building
-              </Button>
-              <Button size="xl" variant="outline" className={classes.secondaryButton}>
-                View Documentation
-              </Button>
-            </Group>
-          </Stack>
+            {/* Design Process Animation */}
+            <svg className={classes.designProcess} viewBox="0 0 400 400" fill="none">
+              {/* Drawing paths that appear progressively */}
+              <path
+                d="M50 100 Q150 50 250 100 Q350 150 250 200 Q150 250 50 200 Q50 150 50 100"
+                stroke="var(--mantine-primary-color-6)"
+                strokeWidth="3"
+                fill="none"
+                className={classes.drawingPath}
+                style={{ animationDelay: '0.5s' }}
+              />
+              <path
+                d="M100 150 L200 150 L200 250 L100 250 Z"
+                stroke="var(--mantine-primary-color-4)"
+                strokeWidth="2"
+                fill="none"
+                className={classes.drawingPath}
+                style={{ animationDelay: '1.5s' }}
+              />
+              <circle
+                cx="300"
+                cy="180"
+                r="40"
+                stroke="var(--mantine-primary-color-8)"
+                strokeWidth="2"
+                fill="none"
+                className={classes.drawingPath}
+                style={{ animationDelay: '2.5s' }}
+              />
+            </svg>
 
-          {/* Features Grid */}
-          <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" w="100%">
-            {features.map((feature, index) => (
-              <Paper key={index} className={classes.featureCard} radius="xl" p="xl">
-                <Stack gap="md" align="center" ta="center">
-                  <ThemeIcon size="xl" radius="xl" className={classes.featureIcon}>
-                    {feature.icon}
-                  </ThemeIcon>
-                  <Title order={3} className={classes.featureTitle}>
-                    {feature.title}
-                  </Title>
-                  <Text size="md" className={classes.featureDescription}>
-                    {feature.description}
-                  </Text>
-                </Stack>
-              </Paper>
+            {/* Design Cursors */}
+            {designElements.map((element, index) => (
+              <Box
+                key={index}
+                className={classes.designCursor}
+                style={{
+                  left: element.x,
+                  top: element.y,
+                  animationDelay: element.delay,
+                }}
+              >
+                <CursorArrowIcon className={classes.cursorIcon} />
+                <div className={classes.cursorTrail}></div>
+              </Box>
             ))}
-          </SimpleGrid>
 
-          {/* Testimonials */}
-          <Stack gap="xl" align="center" w="100%">
-            <Title order={2} className={classes.sectionTitle} ta="center">
-              Trusted by thousands of developers
-            </Title>
+            {/* Collaboration Indicators */}
+            {collaborationIndicators.map((indicator, index) => (
+              <Box
+                key={index}
+                className={classes.collaborationIndicator}
+                style={{
+                  left: indicator.x,
+                  top: indicator.y,
+                  animationDelay: indicator.delay,
+                }}
+              >
+                <div className={classes.userIndicator}>
+                  {indicator.user}
+                </div>
+                <div className={classes.presenceRing}></div>
+              </Box>
+            ))}
 
-            <SimpleGrid cols={{ base: 1, md: 2 }} spacing="xl" w="100%" maw={900}>
-              {testimonials.map((testimonial, index) => (
-                <Paper key={index} className={classes.testimonialCard} radius="lg" p="lg">
-                  <Stack gap="md">
-                    <Text className={classes.quote} fz="md" style={{ fontStyle: 'italic' }}>
-                      "{testimonial.quote}"
-                    </Text>
-                    <Group gap="sm">
-                      <Avatar src={testimonial.avatar} size="md" radius="xl" />
-                      <Stack gap={2}>
-                        <Text fw={600} size="sm" className={classes.testimonialName}>
-                          {testimonial.name}
-                        </Text>
-                        <Text size="xs" className={classes.testimonialRole}>
-                          {testimonial.role}
-                        </Text>
-                      </Stack>
-                    </Group>
-                  </Stack>
-                </Paper>
-              ))}
-            </SimpleGrid>
-          </Stack>
-        </Stack>
+            {/* Design Elements Being Created */}
+            {drawnElements.map((element, index) => (
+              <Box
+                key={index}
+                className={`${classes.designElement} ${classes[element.color]}`}
+                style={{
+                  left: element.x,
+                  top: element.y,
+                  animationDelay: element.delay,
+                }}
+              >
+                <ThemeIcon
+                  size="lg"
+                  radius="md"
+                  className={classes.elementIcon}
+                >
+                  {element.icon}
+                </ThemeIcon>
+                <div className={classes.selectionBox}></div>
+              </Box>
+            ))}
+
+            {/* Design Tools Floating */}
+            <Box className={classes.designTools}>
+              <div className={classes.toolPalette}>
+                <div className={classes.tool}>
+                  <Pencil2Icon />
+                </div>
+                <div className={classes.tool}>
+                  <CircleIcon />
+                </div>
+                <div className={classes.tool}>
+                  <SquareIcon />
+                </div>
+                <div className={classes.tool}>
+                  <TargetIcon />
+                </div>
+              </div>
+            </Box>
+
+            {/* Collaboration Chat Bubble */}
+            <Box className={classes.collaborationChat}>
+              <div className={classes.chatBubble}>
+                <Text size="xs">Great design! 👍</Text>
+              </div>
+              <div className={classes.chatBubble} style={{ animationDelay: '2s' }}>
+                <Text size="xs">Let's iterate on this</Text>
+              </div>
+            </Box>
+          </Box>
+        </div>
+
       </Container>
     </Box>
   );

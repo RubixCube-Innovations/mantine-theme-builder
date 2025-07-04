@@ -38,7 +38,6 @@ export const Hero4 = () => {
           <Grid.Col span={{ base: 12, md: 6 }}>
             <Stack gap="xl">
               <Badge className={classes.badge} size="lg" variant="dot">
-                <DotFilledIcon style={{ width: rem(8), height: rem(8) }} />
                 Available Now
               </Badge>
 

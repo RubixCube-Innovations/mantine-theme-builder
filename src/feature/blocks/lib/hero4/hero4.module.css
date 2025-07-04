@@ -88,13 +88,12 @@
 }
 
 .primaryButton {
-  background: linear-gradient(135deg,
-      var(--mantine-primary-color-6),
-      var(--mantine-primary-color-8));
+  background: var(--mantine-primary-color-filled);
   border: none;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  color: var(--mantine-primary-color-contrast);
 }
 
 .primaryButton::before {
@@ -118,6 +117,8 @@
 .primaryButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(var(--mantine-primary-color-6-rgb), 0.4);
+  background: var(--mantine-primary-color-filled-hover);
+  color: var(--mantine-primary-color-contrast);
 }
 
 .secondaryButton {

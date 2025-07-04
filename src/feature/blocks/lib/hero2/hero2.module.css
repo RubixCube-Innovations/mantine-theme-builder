@@ -86,16 +86,34 @@
 }
 
 .primaryButton {
-  background: linear-gradient(135deg,
-      var(--mantine-primary-color-6),
-      var(--mantine-primary-color-8));
+  background: var(--mantine-primary-color-filled);
   border: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--mantine-primary-color-contrast);
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%);
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .primaryButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(var(--mantine-primary-color-6-rgb), 0.3);
+  background: var(--mantine-primary-color-filled-hover);
+  color: var(--mantine-primary-color-contrast);
 }
 
 /* New styles for improved readability */
