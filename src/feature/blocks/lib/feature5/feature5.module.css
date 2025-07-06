@@ -1,0 +1,387 @@
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(60px, 10vw, 120px) 0;
+  background: linear-gradient(180deg,
+      var(--mantine-color-gray-0) 0%,
+      var(--mantine-color-gray-1) 100%);
+  overflow: hidden;
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(var(--mantine-primary-color-0-rgb), 0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(45deg, transparent 40%, rgba(0, 0, 0, 0.01) 50%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(0, 0, 0, 0.01) 50%, transparent 60%);
+  pointer-events: none;
+}
+
+.title {
+  position: relative;
+  color: var(--mantine-color-dark-8);
+  font-weight: 900;
+}
+
+.metricCard {
+  position: relative;
+  background: var(--mantine-color-white);
+  border: 1px solid var(--mantine-color-gray-2);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.metricCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--mantine-primary-color-0);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  animation: pulse 2s infinite;
+  animation-play-state: paused;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.metricCard::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: var(--mantine-primary-color-3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease;
+  opacity: 0;
+}
+
+.metricCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.12),
+    0 5px 15px rgba(0, 0, 0, 0.08),
+    0 0 0 1px var(--mantine-primary-color-2);
+  border-color: var(--mantine-primary-color-4);
+}
+
+.metricCard:hover::before {
+  animation-play-state: running;
+}
+
+.metricCard:hover::after {
+  animation: ripple 0.6s ease-out;
+}
+
+.metricIcon {
+  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.metricValue {
+  color: var(--mantine-color-dark-8);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.metricTitle {
+  color: var(--mantine-color-dark-7);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.benefitsTitle {
+  color: var(--mantine-color-dark-8);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.benefitCard {
+  position: relative;
+  background: var(--mantine-color-white);
+  border: 1px solid var(--mantine-color-gray-2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.benefitCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    var(--mantine-primary-color-0) 0%,
+    var(--mantine-primary-color-1) 50%,
+    var(--mantine-primary-color-0) 100%
+  );
+  opacity: 0;
+  transition: all 0.5s ease;
+  pointer-events: none;
+  transform: translateY(100%);
+}
+
+.benefitCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--mantine-primary-color-4), 
+    var(--mantine-primary-color-6),
+    var(--mantine-primary-color-4)
+  );
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+  transform-origin: left;
+}
+
+.benefitCard:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 var(--mantine-primary-color-2);
+  border-color: var(--mantine-primary-color-3);
+}
+
+.benefitCard:hover::before {
+  opacity: 0.4;
+  transform: translateY(0);
+}
+
+.benefitCard:hover::after {
+  transform: scaleX(1);
+}
+
+.benefitTitle {
+  color: var(--mantine-color-dark-8);
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.percentage {
+  color: var(--mantine-color-dark-6);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--mantine-primary-color-0);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--mantine-primary-color-2);
+}
+
+.ringProgress {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+.ringProgress .mantine-RingProgress-root {
+  transition: transform 0.3s ease;
+}
+
+.benefitCard:hover .ringProgress .mantine-RingProgress-root {
+  transform: scale(1.05);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+
+  25% {
+    transform: translateY(-3px) rotateZ(0.5deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotateZ(0deg);
+  }
+
+  75% {
+    transform: translateY(-3px) rotateZ(-0.5deg);
+  }
+}
+
+.metricCard:nth-child(odd) {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.metricCard:nth-child(even) {
+  animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 60px 0;
+  }
+
+  .metricCard {
+    margin-bottom: 20px;
+  }
+
+  .metricCard:hover {
+    transform: translateY(-6px);
+  }
+
+  .benefitCard:hover {
+    transform: translateY(-3px);
+  }
+
+  .metricValue {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .wrapper {
+    background: linear-gradient(180deg,
+        var(--mantine-color-dark-9) 0%,
+        var(--mantine-color-dark-8) 100%);
+  }
+  
+  .wrapper::after {
+    background: 
+      linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.01) 50%, transparent 60%),
+      linear-gradient(-45deg, transparent 40%, rgba(255, 255, 255, 0.01) 50%, transparent 60%);
+  }
+  
+  .title {
+    color: var(--mantine-color-gray-0);
+  }
+  
+  .benefitsTitle {
+    color: var(--mantine-color-gray-0);
+  }
+  
+  .metricCard {
+    background: var(--mantine-color-dark-6);
+    border-color: var(--mantine-color-dark-4);
+  }
+  
+  .metricCard::before {
+    background: var(--mantine-primary-color-9);
+  }
+  
+  .metricCard::after {
+    background: var(--mantine-primary-color-4);
+  }
+  
+  .metricCard:hover {
+    border-color: var(--mantine-primary-color-3);
+  }
+  
+  .benefitCard {
+    background: var(--mantine-color-dark-6);
+    border-color: var(--mantine-color-dark-4);
+  }
+  
+  .benefitCard::before {
+    background: linear-gradient(135deg, 
+      var(--mantine-primary-color-9) 0%,
+      var(--mantine-primary-color-8) 50%,
+      var(--mantine-primary-color-9) 100%
+    );
+  }
+  
+  .benefitCard::after {
+    background: linear-gradient(90deg, 
+      var(--mantine-primary-color-3), 
+      var(--mantine-primary-color-4),
+      var(--mantine-primary-color-3)
+    );
+  }
+  
+  .benefitCard:hover {
+    border-color: var(--mantine-primary-color-3);
+  }
+  
+  .metricValue {
+    color: var(--mantine-color-gray-0);
+  }
+  
+  .metricTitle {
+    color: var(--mantine-color-gray-3);
+  }
+  
+  .benefitTitle {
+    color: var(--mantine-color-gray-0);
+  }
+  
+  .percentage {
+    color: var(--mantine-color-gray-4);
+    background: var(--mantine-primary-color-9);
+    border-color: var(--mantine-primary-color-7);
+  }
+}

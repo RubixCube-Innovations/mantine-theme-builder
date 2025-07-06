@@ -1,0 +1,9 @@
+{
+  "title": "feature4",
+  "category": "feature",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  },
+  "order": 5
+} 
