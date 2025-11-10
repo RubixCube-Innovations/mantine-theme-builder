@@ -1,5 +1,5 @@
 
-# Mantine Hub - Modern Themes, UI Blocks, Templates and much more
+# Mantine Hub - Modern Themes, UI Blocks, Templates and much more for [Mantine UI Library](https://mantine.dev)
 
 **Mantine Hub(previously Theme Builder)** is a complimentary tool for developers to make UI development with Mantine much more faster and easier. Initially created as an experimental project to simplify the process of modernizing Mantine's styling, MantineHub offers pre-configured themes inspired by Shadcn. With MantineHub, developers can quickly integrate modern styling into their projects by copying and pasting the theme configuration.
 
