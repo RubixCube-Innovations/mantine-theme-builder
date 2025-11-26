@@ -1,0 +1,10 @@
+{
+  "title": "meet-our-team-4",
+  "category": "team", 
+  "description": "Advanced team section with tabs, stats, skills progress and achievements",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  },
+  "order": 4
+}

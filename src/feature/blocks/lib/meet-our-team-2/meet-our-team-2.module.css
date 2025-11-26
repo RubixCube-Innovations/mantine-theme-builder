@@ -1,0 +1,20 @@
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mantine-shadow-md);
+}
+
+.avatar {
+  border: 3px solid var(--mantine-color-default-border);
+}
+
+.name {
+  font-weight: 700;
+}
+
+.title {
+  font-weight: 900;
+}

@@ -1,0 +1,10 @@
+{
+  "title": "meet-our-team-3",
+  "category": "team",
+  "description": "Horizontal card layout team section with contact details",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  },
+  "order": 3
+}

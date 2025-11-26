@@ -1,0 +1,10 @@
+{
+  "title": "meet-our-team-2",
+  "category": "team",
+  "description": "Team section with hover animations and skill badges",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  },
+  "order": 2
+}

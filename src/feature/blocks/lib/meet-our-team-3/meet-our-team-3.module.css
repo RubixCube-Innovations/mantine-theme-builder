@@ -1,0 +1,31 @@
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mantine-shadow-md);
+}
+
+.imageSection {
+  background: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  min-width: 200px;
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-weight: 900;
+}
+
+@media (max-width: 768px) {
+  .card {
+    text-align: center;
+  }
+
+  .imageSection {
+    min-width: auto;
+  }
+}
