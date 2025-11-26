@@ -37,7 +37,7 @@ export const Hero4 = () => {
         <Grid gutter={100} align="center">
           <Grid.Col span={{ base: 12, md: 6 }}>
             <Stack gap="xl">
-              <Badge className={classes.badge} size="lg" variant="dot">
+              <Badge color="var(--mantine-primary-color-filled)" className={classes.badge} size="lg" variant="dot">
                 Available Now
               </Badge>
 
@@ -97,7 +97,7 @@ export const Hero4 = () => {
                   </Text>
                 </Stack>
 
-                <Timeline active={1} bulletSize={40} lineWidth={3} className={classes.timeline}>
+                <Timeline active={1} bulletSize={40} lineWidth={3} className={classes.timeline} color="var(--mantine-primary-color-filled)">
                   {timelineData.map((item, index) => (
                     <Timeline.Item
                       key={index}

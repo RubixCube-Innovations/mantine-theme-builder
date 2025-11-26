@@ -65,23 +65,23 @@ const TeamMemberCard = ({ member }: { member: IMember }) => {
 
         <Group gap={6}>
           {member.skills.map((skill, index) => (
-            <Badge key={index} size="sm" variant="light">
+            <Badge key={index} size="sm" variant="light" color="var(--mantine-primary-color-filled)">
               {skill}
             </Badge>
           ))}
         </Group>
 
         <Group gap="xs">
-          <ActionIcon variant="subtle" component="a" href={member.socials.linkedin} target="_blank" aria-label="LinkedIn">
+          <ActionIcon variant="subtle" color="var(--mantine-primary-color-filled)" component="a" href={member.socials.linkedin} target="_blank" aria-label="LinkedIn">
             <IconBrandLinkedin size={18} />
           </ActionIcon>
-          <ActionIcon variant="subtle" component="a" href={member.socials.twitter} target="_blank" aria-label="Twitter">
+          <ActionIcon variant="subtle" color="var(--mantine-primary-color-filled)" component="a" href={member.socials.twitter} target="_blank" aria-label="Twitter">
             <IconBrandTwitter size={18} />
           </ActionIcon>
-          <ActionIcon variant="subtle" component="a" href={member.socials.github} target="_blank" aria-label="GitHub">
+          <ActionIcon variant="subtle" color="var(--mantine-primary-color-filled)" component="a" href={member.socials.github} target="_blank" aria-label="GitHub">
             <IconBrandGithub size={18} />
           </ActionIcon>
-          <ActionIcon variant="subtle" component="a" href={`mailto:${member.socials.email}`} aria-label="Email">
+          <ActionIcon variant="subtle" color="var(--mantine-primary-color-filled)" component="a" href={`mailto:${member.socials.email}`} aria-label="Email">
             <IconMail size={18} />
           </ActionIcon>
         </Group>
@@ -94,7 +94,7 @@ export const MeetOurTeam2 = () => {
   return (
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light">Our Team</Badge>
+        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Our Team</Badge>
         <Title order={1} ta="center" className={classes.title}>
           The People Behind Our Success
         </Title>

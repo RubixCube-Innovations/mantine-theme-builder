@@ -63,7 +63,7 @@ export const Hero2 = () => {
           <Grid.Col span={{ base: 12, md: 6 }}>
             <Stack gap="xl">
               <Group gap="xs">
-                <ThemeIcon size="sm" radius="xl" variant="light">
+                <ThemeIcon size="sm" radius="xl" variant="light" color="var(--mantine-primary-color-filled)">
                   <HeartIcon style={{ width: rem(14), height: rem(14) }} />
                 </ThemeIcon>
                 <Text size="sm" fw={600} tt="uppercase" className={classes.headerBadge} style={{ letterSpacing: 0.5 }}>
@@ -95,7 +95,7 @@ export const Hero2 = () => {
                 <Button size="lg" rightSection={<ArrowRightIcon />} className={classes.primaryButton}>
                   Start Free Trial
                 </Button>
-                <Button size="lg" variant="light" leftSection={<BookmarkIcon />}>
+                <Button size="lg" variant="light" leftSection={<BookmarkIcon />} color="var(--mantine-primary-color-filled)">
                   Learn More
                 </Button>
               </Group>

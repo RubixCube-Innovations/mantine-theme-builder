@@ -34,7 +34,7 @@ export const Hero1 = () => {
               </Text>
 
               <Group mt="xl">
-                <Button size="lg" leftSection={<RocketIcon />}>
+                <Button size="lg" leftSection={<RocketIcon />} color="var(--mantine-primary-color-filled)">
                   Get Started
                 </Button>
                 <Button size="lg" variant="default" leftSection={<GitHubLogoIcon />}>
@@ -48,8 +48,7 @@ export const Hero1 = () => {
                     <ThemeIcon
                       size="md"
                       variant="light"
-                      color="blue"
-                      style={{ background: rgba("var(--mantine-primary-color-filled)", 0.07) }}
+                      color="var(--mantine-primary-color-filled)"
                     >
                       {feature.icon}
                     </ThemeIcon>

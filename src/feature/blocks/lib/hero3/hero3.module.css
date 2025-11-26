@@ -148,11 +148,13 @@
 
 .secondaryButton:hover {
   background: var(--mantine-primary-color-1);
+  color: var(--mantine-primary-color-7);
   transform: translateY(-1px);
 }
 
 [data-mantine-color-scheme="dark"] .secondaryButton:hover {
   background: rgba(var(--mantine-primary-color-8-rgb), 0.3);
+  color: var(--mantine-primary-color-5);
 }
 
 

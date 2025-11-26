@@ -58,7 +58,7 @@ const TeamMemberCard = ({ member }: { member: IMember }) => {
   return (
     <Card className={classes.card} radius="md" withBorder>
       <Stack align="center" gap="md">
-        <Badge size="sm" variant="light">{member.department}</Badge>
+        <Badge size="sm" variant="light" color="var(--mantine-primary-color-filled)">{member.department}</Badge>
         <Avatar src={member.avatar} size={100} radius="xl" />
         <Stack align="center" gap={4}>
           <Title order={4}>{member.name}</Title>
@@ -68,7 +68,7 @@ const TeamMemberCard = ({ member }: { member: IMember }) => {
         </Stack>
       </Stack>
 
-      <Tabs defaultValue="stats" mt="lg">
+      <Tabs defaultValue="stats" mt="lg" color="var(--mantine-primary-color-filled)">
         <Tabs.List grow>
           <Tabs.Tab value="stats">Stats</Tabs.Tab>
           <Tabs.Tab value="skills">Skills</Tabs.Tab>
@@ -100,7 +100,7 @@ const TeamMemberCard = ({ member }: { member: IMember }) => {
                   <Text size="sm">{skill.name}</Text>
                   <Text size="xs" c="dimmed">{skill.value}%</Text>
                 </Group>
-                <Progress value={skill.value} size="sm" radius="xl" />
+                <Progress value={skill.value} size="sm" radius="xl" color="var(--mantine-primary-color-filled)" />
               </Stack>
             ))}
           </Stack>
@@ -125,7 +125,7 @@ export const MeetOurTeam4 = () => {
   return (
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light">Team</Badge>
+        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Team</Badge>
         <Title order={1} ta="center" className={classes.title}>
           Meet Our Visionaries
         </Title>

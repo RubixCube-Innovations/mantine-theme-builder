@@ -43,7 +43,7 @@ export const Hero5 = () => {
           {/* Hero Section */}
           <Stack gap="xl" align="center" w="100%">
             <Group gap="xs" className={classes.badge}>
-              <ThemeIcon size="sm" radius="xl" variant="light">
+              <ThemeIcon size="sm" radius="xl" variant="light" color="var(--mantine-primary-color-filled)">
                 <RocketIcon style={{ width: rem(12), height: rem(12) }} />
               </ThemeIcon>
               <Text size="sm" fw={600} tt="uppercase" className={classes.badgeText}>

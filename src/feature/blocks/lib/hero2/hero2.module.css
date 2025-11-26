@@ -55,6 +55,7 @@
       var(--mantine-primary-color-1),
       var(--mantine-primary-color-2));
   border: 1px solid var(--mantine-primary-color-3);
+  color: var(--mantine-primary-color-filled-hover);
 }
 
 .statValue {

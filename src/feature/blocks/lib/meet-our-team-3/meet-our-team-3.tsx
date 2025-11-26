@@ -74,15 +74,15 @@ const TeamMemberCard = ({ member }: { member: IMember }) => {
           </Group>
 
           <Group gap="md" mt="sm">
-            <Button variant="filled" size="sm">Connect</Button>
+            <Button variant="filled" size="sm" color="var(--mantine-primary-color-filled)">Connect</Button>
             <Group gap="xs">
-              <ActionIcon variant="subtle" component="a" href={member.socials.linkedin} target="_blank" aria-label="LinkedIn">
+              <ActionIcon variant="subtle" color="var(--mantine-primary-color-filled)" component="a" href={member.socials.linkedin} target="_blank" aria-label="LinkedIn">
                 <IconBrandLinkedin size={18} />
               </ActionIcon>
-              <ActionIcon variant="subtle" component="a" href={member.socials.twitter} target="_blank" aria-label="Twitter">
+              <ActionIcon variant="subtle" color="var(--mantine-primary-color-filled)" component="a" href={member.socials.twitter} target="_blank" aria-label="Twitter">
                 <IconBrandTwitter size={18} />
               </ActionIcon>
-              <ActionIcon variant="subtle" component="a" href={member.socials.github} target="_blank" aria-label="GitHub">
+              <ActionIcon variant="subtle" color="var(--mantine-primary-color-filled)" component="a" href={member.socials.github} target="_blank" aria-label="GitHub">
                 <IconBrandGithub size={18} />
               </ActionIcon>
             </Group>
@@ -97,7 +97,7 @@ export const MeetOurTeam3 = () => {
   return (
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light">Leadership</Badge>
+        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Leadership</Badge>
         <Title order={1} ta="center" className={classes.title}>
           Leadership Team
         </Title>
