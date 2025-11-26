@@ -45,7 +45,7 @@ export const Feature2 = () => {
   return (
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light">Services</Badge>
+        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Services</Badge>
         <Title order={1} ta="center" className={classes.title}>
           Our Services
         </Title>
@@ -58,7 +58,7 @@ export const Feature2 = () => {
         {services.map((service, index) => (
           <Card key={index} className={classes.card} padding="lg" radius="md" withBorder>
             <Stack gap="md">
-              <ThemeIcon size={50} radius="md" variant="light">
+              <ThemeIcon size={50} radius="md" variant="light" color="var(--mantine-primary-color-filled)">
                 <service.icon size={24} />
               </ThemeIcon>
 
@@ -76,7 +76,7 @@ export const Feature2 = () => {
                 ))}
               </Stack>
 
-              <Button variant="light" size="sm" mt="auto">
+              <Button variant="light" size="sm" mt="auto" color="var(--mantine-primary-color-filled)">
                 Learn More
               </Button>
             </Stack>

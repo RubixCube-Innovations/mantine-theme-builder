@@ -63,7 +63,7 @@ export const Feature4 = () => {
   return (
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light">Technology</Badge>
+        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Technology</Badge>
         <Title order={1} ta="center" className={classes.title}>
           Our Tech Stack
         </Title>
@@ -77,10 +77,10 @@ export const Feature4 = () => {
           <Card key={index} className={classes.card} padding="lg" radius="md" withBorder>
             <Stack gap="md">
               <Group justify="space-between">
-                <ThemeIcon size={40} radius="md" variant="light">
+                <ThemeIcon size={40} radius="md" variant="light" color="var(--mantine-primary-color-filled)">
                   <category.icon size={20} />
                 </ThemeIcon>
-                <Badge size="sm" variant="light">
+                <Badge size="sm" variant="light" color="var(--mantine-primary-color-filled)">
                   {category.technologies.length} tools
                 </Badge>
               </Group>
@@ -94,7 +94,7 @@ export const Feature4 = () => {
                       <Text size="sm">{tech.name}</Text>
                       <Text size="xs" c="dimmed">{tech.proficiency}%</Text>
                     </Group>
-                    <Progress value={tech.proficiency} size="sm" radius="xl" />
+                    <Progress value={tech.proficiency} size="sm" radius="xl" color="var(--mantine-primary-color-filled)" />
                   </Stack>
                 ))}
               </Stack>

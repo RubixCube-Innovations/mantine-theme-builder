@@ -22,7 +22,7 @@ export const Feature5 = () => {
   return (
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light">Why Us</Badge>
+        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Why Us</Badge>
         <Title order={1} ta="center" className={classes.title}>
           Why Choose Us
         </Title>
@@ -35,7 +35,7 @@ export const Feature5 = () => {
         {metrics.map((metric, index) => (
           <Card key={index} className={classes.card} padding="lg" radius="md" withBorder>
             <Stack align="center" gap="sm" ta="center">
-              <ThemeIcon size={40} radius="xl" variant="light">
+              <ThemeIcon size={40} radius="xl" variant="light" color="var(--mantine-primary-color-filled)">
                 <metric.icon size={20} />
               </ThemeIcon>
               <Text fw={700} size="xl">{metric.value}</Text>
@@ -60,7 +60,7 @@ export const Feature5 = () => {
                 sections={[{ value: benefit.percentage, color: "var(--mantine-primary-color-filled)" }]}
                 label={
                   <Center>
-                    <ThemeIcon size={32} radius="xl" variant="light">
+                    <ThemeIcon size={32} radius="xl" variant="light" color="var(--mantine-primary-color-filled)">
                       <benefit.icon size={16} />
                     </ThemeIcon>
                   </Center>
@@ -69,7 +69,7 @@ export const Feature5 = () => {
               <Stack gap="xs" style={{ flex: 1 }}>
                 <Group justify="space-between">
                   <Title order={4}>{benefit.title}</Title>
-                  <Badge size="sm" variant="light">{benefit.percentage}%</Badge>
+                  <Badge size="sm" variant="light" color="var(--mantine-primary-color-filled)">{benefit.percentage}%</Badge>
                 </Group>
                 <Text size="sm" c="dimmed" lh={1.6}>
                   {benefit.description}

@@ -44,7 +44,7 @@ export const Feature3 = () => {
   return (
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light">Process</Badge>
+        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Process</Badge>
         <Title order={1} ta="center" className={classes.title}>
           Our Process
         </Title>
@@ -53,19 +53,19 @@ export const Feature3 = () => {
         </Text>
       </Stack>
 
-      <Timeline bulletSize={40} lineWidth={2}>
+      <Timeline bulletSize={40} lineWidth={2} color="var(--mantine-primary-color-filled)">
         {processSteps.map((step, index) => (
           <Timeline.Item
             key={index}
             bullet={
-              <ThemeIcon size={40} radius="xl" variant="light">
+              <ThemeIcon size={40} radius="xl" variant="light" color="var(--mantine-primary-color-filled)">
                 <step.icon size={20} />
               </ThemeIcon>
             }
             title={
               <Group justify="space-between" wrap="nowrap" mb="xs">
                 <Title order={4}>{step.title}</Title>
-                <Badge size="sm" variant="light">{step.duration}</Badge>
+                <Badge size="sm" variant="light" color="var(--mantine-primary-color-filled)">{step.duration}</Badge>
               </Group>
             }
           >
@@ -81,7 +81,7 @@ export const Feature3 = () => {
                   </Text>
                   <Group gap="xs">
                     {step.deliverables.map((deliverable, i) => (
-                      <Badge key={i} size="sm" variant="outline">
+                      <Badge key={i} size="sm" variant="outline" color="var(--mantine-primary-color-filled)">
                         {deliverable}
                       </Badge>
                     ))}
