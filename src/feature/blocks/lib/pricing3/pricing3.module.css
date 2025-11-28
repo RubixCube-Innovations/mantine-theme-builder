@@ -1,0 +1,119 @@
+.wrapper {
+  padding: 4rem 0;
+  background-color: var(--mantine-color-body);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tableWrapper {
+  overflow: hidden;
+  border: 1px solid var(--mantine-color-default-border);
+  background-color: var(--mantine-color-body);
+}
+
+.headerRow {
+  display: grid;
+  grid-template-columns: 200px repeat(4, 1fr);
+  border-bottom: 2px solid var(--mantine-color-default-border);
+}
+
+.featureColumn {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.planColumn {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+}
+
+.recommendedColumn {
+  background-color: var(--mantine-primary-color-light);
+}
+
+.recommendedLabel {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--mantine-primary-color-filled);
+  color: var(--mantine-primary-color-contrast);
+  padding: 0.05rem 0.75rem;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.price {
+  background: linear-gradient(135deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.featureRow {
+  display: grid;
+  grid-template-columns: 200px repeat(4, 1fr);
+  border-bottom: 1px solid var(--mantine-color-default-border);
+}
+
+.evenRow {
+  background-color: var(--mantine-color-gray-0);
+}
+
+[data-mantine-color-scheme="dark"] .evenRow {
+  background-color: var(--mantine-color-dark-6);
+}
+
+.valueColumn {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recommendedValueColumn {
+  background-color: var(--mantine-primary-color-light);
+}
+
+.ctaRow {
+  display: grid;
+  grid-template-columns: 200px repeat(4, 1fr);
+  padding: 1rem 0;
+}
+
+.ctaColumn {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .headerRow,
+  .featureRow,
+  .ctaRow {
+    grid-template-columns: 120px repeat(4, 1fr);
+  }
+
+  .featureColumn {
+    padding: 0.75rem;
+  }
+
+  .planColumn {
+    padding: 1rem 0.5rem;
+  }
+}

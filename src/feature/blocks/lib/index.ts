@@ -15,6 +15,10 @@ export { Feature3 } from "./feature3/feature3";
 export { Feature4 } from "./feature4/feature4";
 export { Feature5 } from "./feature5/feature5";
 export { Pricing1 } from "./pricing1/pricing1";
+export { Pricing2 } from "./pricing2/pricing2";
+export { Pricing3 } from "./pricing3/pricing3";
+export { Pricing4 } from "./pricing4/pricing4";
+export { Pricing5 } from "./pricing5/pricing5";
 
 export { ComingSoon } from "./coming-soon/coming-soon";
 

@@ -1,0 +1,52 @@
+.wrapper {
+  padding: 4rem 0;
+  background-color: var(--mantine-color-body);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.planCard {
+  background-color: var(--mantine-color-body);
+  transition: all 0.3s ease;
+}
+
+.planCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.highlightedCard {
+  border-color: var(--mantine-primary-color-filled);
+  border-width: 2px;
+  background: linear-gradient(
+    135deg,
+    var(--mantine-primary-color-0) 0%,
+    var(--mantine-color-body) 100%
+  );
+}
+
+[data-mantine-color-scheme="dark"] .highlightedCard {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--mantine-primary-color-filled-rgb), 0.1) 0%,
+    var(--mantine-color-body) 100%
+  );
+}
+
+.price {
+  background: linear-gradient(135deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .planCard {
+    padding: 1.5rem;
+  }
+}

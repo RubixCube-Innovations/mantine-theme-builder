@@ -1,9 +1,9 @@
 {
-  "title": "pricing1",
+  "title": "pricing3",
   "category": "pricing",
   "canvas": {
     "center": true,
     "maxWidth": 1200
   },
-  "order": 1
+  "order": 3
 }

@@ -1,0 +1,58 @@
+.wrapper {
+  padding: 4rem 0;
+  background-color: var(--mantine-color-body);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card {
+  background-color: var(--mantine-color-body);
+  transition: all 0.3s ease;
+  position: relative;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.popularCard {
+  border-color: var(--mantine-primary-color-filled);
+  border-width: 2px;
+}
+
+.popularBadge {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--mantine-primary-color-filled);
+  color: var(--mantine-primary-color-contrast);
+  padding: 0.25rem 1rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.planName {
+  color: var(--mantine-color-text);
+  font-weight: 700;
+}
+
+.price {
+  color: var(--mantine-color-text);
+}
+
+.popularPrice {
+  background: linear-gradient(135deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-5));
+}
