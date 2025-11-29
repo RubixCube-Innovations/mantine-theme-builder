@@ -1,0 +1,42 @@
+.wrapper {
+  padding: 4rem 0;
+  background-color: var(--mantine-color-body);
+}
+
+.card {
+  background: var(--mantine-primary-color-light);
+  border: 1px solid var(--mantine-color-default-border);
+  padding: 3rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.inputGroup {
+  width: 100%;
+  max-width: 500px;
+}
+
+.input {
+  flex: 1;
+}
+
+.input input {
+  background-color: var(--mantine-color-body);
+}
+
+@media (max-width: 540px) {
+  .inputGroup {
+    flex-direction: column;
+  }
+
+  .input {
+    width: 100%;
+  }
+}

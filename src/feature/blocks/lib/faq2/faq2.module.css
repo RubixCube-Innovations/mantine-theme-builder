@@ -1,0 +1,44 @@
+.wrapper {
+  padding: 4rem 0;
+  background-color: var(--mantine-color-body);
+}
+
+.sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contactLink {
+  cursor: pointer;
+}
+
+.contactLink:hover {
+  text-decoration: underline;
+}
+
+.faqItem {
+  padding: 1.25rem;
+  border-radius: var(--mantine-radius-lg);
+  border: 1px solid var(--mantine-color-default-border);
+  background-color: var(--mantine-color-body);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: var(--mantine-primary-color-3);
+}
+
+.faqItem.active {
+  border-color: var(--mantine-primary-color-filled);
+  background-color: var(--mantine-primary-color-light);
+}

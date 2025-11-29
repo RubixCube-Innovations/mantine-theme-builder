@@ -1,0 +1,51 @@
+.wrapper {
+  padding: 4rem 0;
+  background-color: var(--mantine-color-body);
+}
+
+.card {
+  background-color: var(--mantine-color-body);
+  overflow: hidden;
+}
+
+.inner {
+  min-height: 400px;
+}
+
+.title {
+  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content {
+  flex: 1;
+}
+
+.quote {
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.statsSection {
+  min-width: 200px;
+  background: var(--mantine-primary-color-light);
+  border-left: 1px solid var(--mantine-color-default-border);
+}
+
+.statValue {
+  color: var(--mantine-primary-color-filled);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+  }
+
+  .statsSection {
+    flex-direction: row;
+    border-left: none;
+    border-top: 1px solid var(--mantine-color-default-border);
+  }
+}

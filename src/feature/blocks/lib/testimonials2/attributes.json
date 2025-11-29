@@ -1,0 +1,9 @@
+{
+  "title": "testimonials2",
+  "category": "testimonials",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  },
+  "order": 2
+}

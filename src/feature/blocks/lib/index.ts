@@ -26,3 +26,14 @@ export { MeetOurTeam1 } from "./meet-our-team-1/meet-our-team-1";
 export { MeetOurTeam2 } from "./meet-our-team-2/meet-our-team-2";
 export { MeetOurTeam3 } from "./meet-our-team-3/meet-our-team-3";
 export { MeetOurTeam4 } from "./meet-our-team-4/meet-our-team-4";
+
+export { Testimonials1 } from "./testimonials1/testimonials1";
+export { Testimonials2 } from "./testimonials2/testimonials2";
+export { Testimonials3 } from "./testimonials3/testimonials3";
+
+export { Faq1 } from "./faq1/faq1";
+export { Faq2 } from "./faq2/faq2";
+export { Faq3 } from "./faq3/faq3";
+
+export { Newsletter1 } from "./newsletter1/newsletter1";
+export { Newsletter2 } from "./newsletter2/newsletter2";

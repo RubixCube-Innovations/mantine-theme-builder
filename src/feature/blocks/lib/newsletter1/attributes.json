@@ -1,0 +1,9 @@
+{
+  "title": "newsletter1",
+  "category": "newsletter",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  },
+  "order": 1
+}

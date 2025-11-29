@@ -1,0 +1,66 @@
+.wrapper {
+  padding: 4rem 0;
+  background-color: var(--mantine-color-body);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.testimonialCard {
+  background: var(--mantine-primary-color-light);
+  border: 1px solid var(--mantine-color-default-border);
+  max-width: 600px;
+  width: 100%;
+}
+
+.avatar {
+  border: 3px solid var(--mantine-primary-color-filled);
+}
+
+.quote {
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.navButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--mantine-color-default-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--mantine-color-body);
+}
+
+.navButton:hover {
+  border-color: var(--mantine-primary-color-filled);
+  color: var(--mantine-primary-color-filled);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--mantine-color-default-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dot:hover {
+  background-color: var(--mantine-primary-color-3);
+}
+
+.activeDot {
+  background-color: var(--mantine-primary-color-filled);
+  width: 24px;
+  border-radius: 10px;
+}

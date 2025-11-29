@@ -1,5 +1,30 @@
 export const components = [
   {
+    "component": "Faq1",
+    "slug": "faq1",
+    "code": [
+      {
+        "fileName": "faq1.tsx",
+        "language": "tsx",
+        "code": "import { Box, Container, Title, Text, Accordion, Stack } from \"@mantine/core\";\nimport classes from \"./faq1.module.css\";\n\nexport const Faq1 = () => {\n  const faqs = [\n    {\n      question: \"How do I get started?\",\n      answer: \"Getting started is easy! Simply sign up for an account, complete the onboarding process, and you'll be ready to go in minutes. Our intuitive interface guides you through each step.\",\n    },\n    {\n      question: \"What payment methods do you accept?\",\n      answer: \"We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for annual plans. All payments are processed securely through our payment partners.\",\n    },\n    {\n      question: \"Can I cancel my subscription anytime?\",\n      answer: \"Yes, you can cancel your subscription at any time. If you cancel, you'll continue to have access until the end of your billing period. We don't offer refunds for partial months.\",\n    },\n    {\n      question: \"Is there a free trial available?\",\n      answer: \"Absolutely! We offer a 14-day free trial with full access to all features. No credit card required to start. You can upgrade to a paid plan anytime during or after your trial.\",\n    },\n    {\n      question: \"How secure is my data?\",\n      answer: \"Security is our top priority. We use industry-standard encryption (AES-256) for data at rest and TLS 1.3 for data in transit. Our infrastructure is hosted on AWS with SOC 2 Type II compliance.\",\n    },\n    {\n      question: \"Do you offer customer support?\",\n      answer: \"Yes! We offer email support for all plans, with priority support and live chat available on Pro plans and above. Enterprise customers get a dedicated account manager.\",\n    },\n  ];\n\n  return (\n    <Box className={classes.wrapper}>\n      <Container size=\"lg\">\n        <Stack gap=\"xl\">\n          <Stack align=\"center\" gap=\"xs\">\n            <Title order={1} className={classes.title}>\n              Frequently Asked Questions\n            </Title>\n            <Text c=\"dimmed\" size=\"lg\" ta=\"center\" maw={500}>\n              Everything you need to know about our product\n            </Text>\n          </Stack>\n\n          <Accordion variant=\"separated\" radius=\"lg\" className={classes.accordion}>\n            {faqs.map((faq, index) => (\n              <Accordion.Item key={index} value={`item-${index}`} className={classes.item}>\n                <Accordion.Control className={classes.control}>\n                  <Text fw={600}>{faq.question}</Text>\n                </Accordion.Control>\n                <Accordion.Panel>\n                  <Text c=\"dimmed\" size=\"sm\" lh={1.7}>\n                    {faq.answer}\n                  </Text>\n                </Accordion.Panel>\n              </Accordion.Item>\n            ))}\n          </Accordion>\n        </Stack>\n      </Container>\n    </Box>\n  );\n};\n"
+      },
+      {
+        "fileName": "faq1.module.css",
+        "language": "scss",
+        "code": ".wrapper {\n  padding: 4rem 0;\n  background-color: var(--mantine-color-body);\n}\n\n.title {\n  font-size: 2.5rem;\n  font-weight: 900;\n  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.accordion {\n  width: 100%;\n}\n\n.item {\n  background-color: var(--mantine-color-body);\n  border: 1px solid var(--mantine-color-default-border);\n  transition: all 0.2s ease;\n}\n\n.item:hover {\n  border-color: var(--mantine-primary-color-3);\n}\n\n.item[data-active] {\n  border-color: var(--mantine-primary-color-filled);\n}\n\n.control {\n  padding: 1rem 1.25rem;\n}\n\n.control:hover {\n  background-color: transparent;\n}\n"
+      }
+    ],
+    "attributes": {
+      "title": "faq1",
+      "category": "faq",
+      "canvas": {
+        "center": true,
+        "maxWidth": 1200
+      },
+      "order": 1
+    }
+  },
+  {
     "component": "Hero1",
     "slug": "hero1",
     "code": [
@@ -50,6 +75,31 @@ export const components = [
     }
   },
   {
+    "component": "Newsletter1",
+    "slug": "newsletter1",
+    "code": [
+      {
+        "fileName": "newsletter1.tsx",
+        "language": "tsx",
+        "code": "import { Box, Container, Title, Text, TextInput, Button, Stack, Group, Paper } from \"@mantine/core\";\nimport { PaperPlaneIcon, CheckCircledIcon } from \"@radix-ui/react-icons\";\nimport classes from \"./newsletter1.module.css\";\n\nexport const Newsletter1 = () => {\n  const benefits = [\n    \"Weekly tips and insights\",\n    \"Exclusive content and offers\",\n    \"Early access to new features\",\n  ];\n\n  return (\n    <Box className={classes.wrapper}>\n      <Container size=\"lg\">\n        <Paper radius=\"xl\" p=\"xl\" className={classes.card}>\n          <Stack gap=\"xl\" align=\"center\">\n            <Stack align=\"center\" gap=\"xs\">\n              <Title order={2} className={classes.title}>\n                Stay in the Loop\n              </Title>\n              <Text c=\"dimmed\" ta=\"center\" maw={400}>\n                Subscribe to our newsletter and never miss an update\n              </Text>\n            </Stack>\n\n            <Group gap=\"xs\" wrap=\"wrap\" justify=\"center\">\n              {benefits.map((benefit) => (\n                <Group key={benefit} gap=\"xs\" wrap=\"nowrap\">\n                  <CheckCircledIcon\n                    width={16}\n                    height={16}\n                    color=\"var(--mantine-primary-color-filled)\"\n                  />\n                  <Text size=\"sm\" c=\"dimmed\">{benefit}</Text>\n                </Group>\n              ))}\n            </Group>\n\n            <Group className={classes.inputGroup} gap=\"sm\">\n              <TextInput\n                placeholder=\"Enter your email\"\n                size=\"lg\"\n                radius=\"xl\"\n                className={classes.input}\n              />\n              <Button\n                size=\"lg\"\n                radius=\"xl\"\n                color=\"var(--mantine-primary-color-filled)\"\n                rightSection={<PaperPlaneIcon />}\n                c=\"var(--mantine-primary-color-contrast)\"\n              >\n                Subscribe\n              </Button>\n            </Group>\n\n            <Text size=\"xs\" c=\"dimmed\">\n              No spam, unsubscribe at any time.\n            </Text>\n          </Stack>\n        </Paper>\n      </Container>\n    </Box>\n  );\n};\n"
+      },
+      {
+        "fileName": "newsletter1.module.css",
+        "language": "scss",
+        "code": ".wrapper {\n  padding: 4rem 0;\n  background-color: var(--mantine-color-body);\n}\n\n.card {\n  background: var(--mantine-primary-color-light);\n  border: 1px solid var(--mantine-color-default-border);\n  padding: 3rem;\n}\n\n.title {\n  font-size: 2rem;\n  font-weight: 800;\n  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.inputGroup {\n  width: 100%;\n  max-width: 500px;\n}\n\n.input {\n  flex: 1;\n}\n\n.input input {\n  background-color: var(--mantine-color-body);\n}\n\n@media (max-width: 540px) {\n  .inputGroup {\n    flex-direction: column;\n  }\n\n  .input {\n    width: 100%;\n  }\n}\n"
+      }
+    ],
+    "attributes": {
+      "title": "newsletter1",
+      "category": "newsletter",
+      "canvas": {
+        "center": true,
+        "maxWidth": 1200
+      },
+      "order": 1
+    }
+  },
+  {
     "component": "Pricing1",
     "slug": "pricing1",
     "code": [
@@ -72,6 +122,56 @@ export const components = [
         "maxWidth": 1200
       },
       "order": 1
+    }
+  },
+  {
+    "component": "Testimonials1",
+    "slug": "testimonials1",
+    "code": [
+      {
+        "fileName": "testimonials1.tsx",
+        "language": "tsx",
+        "code": "import { Box, Container, Title, Text, Card, Avatar, Stack, Group, SimpleGrid } from \"@mantine/core\";\nimport { StarFilledIcon, QuoteIcon } from \"@radix-ui/react-icons\";\nimport classes from \"./testimonials1.module.css\";\n\nexport const Testimonials1 = () => {\n  const testimonials = [\n    {\n      name: \"Sarah Johnson\",\n      role: \"CEO at TechStart\",\n      avatar: \"https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_22.png\",\n      content: \"This platform has completely transformed how we manage our projects. The intuitive interface and powerful features have boosted our team's productivity by 40%.\",\n      rating: 5,\n    },\n    {\n      name: \"Michael Chen\",\n      role: \"Product Manager at InnovateCo\",\n      avatar: \"https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_17.png\",\n      content: \"I've tried dozens of similar tools, but nothing comes close. The customer support is exceptional and the regular updates show they truly care about their users.\",\n      rating: 5,\n    },\n    {\n      name: \"Emily Rodriguez\",\n      role: \"Founder at DesignLab\",\n      avatar: \"https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_14.png\",\n      content: \"Switching to this platform was the best decision we made this year. It's saved us countless hours and helped us deliver projects faster than ever.\",\n      rating: 5,\n    },\n  ];\n\n  return (\n    <Box className={classes.wrapper}>\n      <Container size=\"xl\">\n        <Stack gap=\"xl\">\n          <Stack align=\"center\" gap=\"xs\">\n            <Title order={1} className={classes.title}>\n              What Our Customers Say\n            </Title>\n            <Text c=\"dimmed\" size=\"lg\" ta=\"center\" maw={500}>\n              Join thousands of satisfied customers who trust us\n            </Text>\n          </Stack>\n\n          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing=\"xl\">\n            {testimonials.map((testimonial) => (\n              <Card key={testimonial.name} withBorder radius=\"lg\" padding=\"xl\" className={classes.card}>\n                <Stack gap=\"md\">\n                  <QuoteIcon\n                    width={32}\n                    height={32}\n                    color=\"var(--mantine-primary-color-filled)\"\n                    className={classes.quoteIcon}\n                  />\n\n                  <Group gap={4}>\n                    {Array.from({ length: testimonial.rating }).map((_, i) => (\n                      <StarFilledIcon\n                        key={i}\n                        width={16}\n                        height={16}\n                        color=\"var(--mantine-primary-color-filled)\"\n                      />\n                    ))}\n                  </Group>\n\n                  <Text className={classes.content}>{testimonial.content}</Text>\n\n                  <Group gap=\"md\" mt=\"auto\">\n                    <Avatar src={testimonial.avatar} size={48} radius=\"xl\" />\n                    <Stack gap={2}>\n                      <Text fw={600} size=\"sm\">{testimonial.name}</Text>\n                      <Text c=\"dimmed\" size=\"xs\">{testimonial.role}</Text>\n                    </Stack>\n                  </Group>\n                </Stack>\n              </Card>\n            ))}\n          </SimpleGrid>\n        </Stack>\n      </Container>\n    </Box>\n  );\n};\n"
+      },
+      {
+        "fileName": "testimonials1.module.css",
+        "language": "scss",
+        "code": ".wrapper {\n  padding: 4rem 0;\n  background-color: var(--mantine-color-body);\n}\n\n.title {\n  font-size: 2.5rem;\n  font-weight: 900;\n  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.card {\n  background-color: var(--mantine-color-body);\n  transition: all 0.3s ease;\n  height: 100%;\n}\n\n.card:hover {\n  transform: translateY(-5px);\n  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);\n}\n\n.quoteIcon {\n  opacity: 0.3;\n}\n\n.content {\n  font-style: italic;\n  line-height: 1.7;\n}\n"
+      }
+    ],
+    "attributes": {
+      "title": "testimonials1",
+      "category": "testimonials",
+      "canvas": {
+        "center": true,
+        "maxWidth": 1200
+      },
+      "order": 1
+    }
+  },
+  {
+    "component": "Faq2",
+    "slug": "faq2",
+    "code": [
+      {
+        "fileName": "faq2.tsx",
+        "language": "tsx",
+        "code": "import { Box, Container, Title, Text, Stack, Group, Grid, ThemeIcon } from \"@mantine/core\";\nimport { QuestionMarkCircledIcon, PlusCircledIcon, MinusCircledIcon } from \"@radix-ui/react-icons\";\nimport { useState } from \"react\";\nimport classes from \"./faq2.module.css\";\n\nexport const Faq2 = () => {\n  const [openIndex, setOpenIndex] = useState<number | null>(0);\n\n  const faqs = [\n    {\n      question: \"What makes your platform different?\",\n      answer: \"Our platform combines powerful features with an intuitive interface, backed by industry-leading support. We focus on delivering real value through continuous innovation and listening to customer feedback.\",\n    },\n    {\n      question: \"How long does implementation take?\",\n      answer: \"Most teams are up and running within a day. Our streamlined onboarding process and comprehensive documentation make implementation quick and painless. Enterprise setups may take 1-2 weeks depending on complexity.\",\n    },\n    {\n      question: \"Can I integrate with existing tools?\",\n      answer: \"Yes! We offer native integrations with 100+ popular tools including Slack, Jira, GitHub, and Salesforce. Our robust API also allows you to build custom integrations for any workflow.\",\n    },\n    {\n      question: \"What happens to my data if I cancel?\",\n      answer: \"Your data remains accessible for 30 days after cancellation. You can export all your data at any time. After the grace period, data is securely deleted from our servers in accordance with our privacy policy.\",\n    },\n    {\n      question: \"Do you offer training and onboarding?\",\n      answer: \"All plans include access to our knowledge base and video tutorials. Pro plans get live webinar training, and Enterprise customers receive personalized onboarding sessions with our customer success team.\",\n    },\n    {\n      question: \"What's your uptime guarantee?\",\n      answer: \"We maintain a 99.9% uptime SLA for all paid plans. Our status page provides real-time updates on system health. Enterprise plans include custom SLAs with financial guarantees.\",\n    },\n  ];\n\n  const toggleFaq = (index: number) => {\n    setOpenIndex(openIndex === index ? null : index);\n  };\n\n  return (\n    <Box className={classes.wrapper}>\n      <Container size=\"xl\">\n        <Grid gutter=\"xl\">\n          <Grid.Col span={{ base: 12, md: 4 }}>\n            <Stack gap=\"md\" className={classes.sidebar}>\n              <ThemeIcon size={48} radius=\"md\" variant=\"light\" color=\"var(--mantine-primary-color-filled)\">\n                <QuestionMarkCircledIcon width={24} height={24} />\n              </ThemeIcon>\n              <Title order={1} className={classes.title}>\n                Got Questions?\n              </Title>\n              <Text c=\"dimmed\" size=\"lg\">\n                Find answers to commonly asked questions about our platform and services.\n              </Text>\n              <Text size=\"sm\" c=\"dimmed\">\n                Can't find what you're looking for?{\" \"}\n                <Text span c=\"var(--mantine-primary-color-filled)\" fw={600} className={classes.contactLink}>\n                  Contact our support team\n                </Text>\n              </Text>\n            </Stack>\n          </Grid.Col>\n\n          <Grid.Col span={{ base: 12, md: 8 }}>\n            <Stack gap=\"md\">\n              {faqs.map((faq, index) => (\n                <Box\n                  key={index}\n                  className={`${classes.faqItem} ${openIndex === index ? classes.active : \"\"}`}\n                  onClick={() => toggleFaq(index)}\n                >\n                  <Group justify=\"space-between\" wrap=\"nowrap\">\n                    <Text fw={600}>{faq.question}</Text>\n                    {openIndex === index ? (\n                      <MinusCircledIcon width={20} height={20} color=\"var(--mantine-primary-color-filled)\" />\n                    ) : (\n                      <PlusCircledIcon width={20} height={20} />\n                    )}\n                  </Group>\n                  {openIndex === index && (\n                    <Text c=\"dimmed\" size=\"sm\" mt=\"md\" lh={1.7}>\n                      {faq.answer}\n                    </Text>\n                  )}\n                </Box>\n              ))}\n            </Stack>\n          </Grid.Col>\n        </Grid>\n      </Container>\n    </Box>\n  );\n};\n"
+      },
+      {
+        "fileName": "faq2.module.css",
+        "language": "scss",
+        "code": ".wrapper {\n  padding: 4rem 0;\n  background-color: var(--mantine-color-body);\n}\n\n.sidebar {\n  position: sticky;\n  top: 2rem;\n}\n\n.title {\n  font-size: 2rem;\n  font-weight: 900;\n  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.contactLink {\n  cursor: pointer;\n}\n\n.contactLink:hover {\n  text-decoration: underline;\n}\n\n.faqItem {\n  padding: 1.25rem;\n  border-radius: var(--mantine-radius-lg);\n  border: 1px solid var(--mantine-color-default-border);\n  background-color: var(--mantine-color-body);\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n\n.faqItem:hover {\n  border-color: var(--mantine-primary-color-3);\n}\n\n.faqItem.active {\n  border-color: var(--mantine-primary-color-filled);\n  background-color: var(--mantine-primary-color-light);\n}\n"
+      }
+    ],
+    "attributes": {
+      "title": "faq2",
+      "category": "faq",
+      "canvas": {
+        "center": true,
+        "maxWidth": 1200
+      },
+      "order": 2
     }
   },
   {
@@ -151,6 +251,31 @@ export const components = [
     }
   },
   {
+    "component": "Newsletter2",
+    "slug": "newsletter2",
+    "code": [
+      {
+        "fileName": "newsletter2.tsx",
+        "language": "tsx",
+        "code": "import { Box, Container, Title, Text, TextInput, Button, Stack, Group, Grid, ThemeIcon } from \"@mantine/core\";\nimport { EnvelopeClosedIcon, BellIcon, LightningBoltIcon, StarIcon } from \"@radix-ui/react-icons\";\nimport classes from \"./newsletter2.module.css\";\n\nexport const Newsletter2 = () => {\n  const features = [\n    {\n      icon: <BellIcon width={18} height={18} />,\n      title: \"Weekly Updates\",\n      description: \"Get the latest news and product updates\",\n    },\n    {\n      icon: <LightningBoltIcon width={18} height={18} />,\n      title: \"Pro Tips\",\n      description: \"Expert insights to boost your productivity\",\n    },\n    {\n      icon: <StarIcon width={18} height={18} />,\n      title: \"Exclusive Content\",\n      description: \"Access content available only to subscribers\",\n    },\n  ];\n\n  return (\n    <Box className={classes.wrapper}>\n      <Container size=\"xl\">\n        <Grid gutter=\"xl\" align=\"center\">\n          <Grid.Col span={{ base: 12, md: 6 }}>\n            <Stack gap=\"lg\">\n              <Group gap=\"sm\">\n                <ThemeIcon size=\"lg\" radius=\"md\" variant=\"light\" color=\"var(--mantine-primary-color-filled)\">\n                  <EnvelopeClosedIcon width={20} height={20} />\n                </ThemeIcon>\n                <Text size=\"sm\" fw={600} tt=\"uppercase\" style={{ letterSpacing: 1 }}>\n                  Newsletter\n                </Text>\n              </Group>\n\n              <Title order={1} className={classes.title}>\n                Get the Latest Updates Delivered to Your Inbox\n              </Title>\n\n              <Text c=\"dimmed\" size=\"lg\">\n                Join over 10,000 subscribers who receive our weekly newsletter packed with valuable insights and updates.\n              </Text>\n\n              <Stack gap=\"md\" mt=\"md\">\n                {features.map((feature) => (\n                  <Group key={feature.title} gap=\"md\" wrap=\"nowrap\">\n                    <ThemeIcon size=\"md\" radius=\"md\" variant=\"light\" color=\"var(--mantine-primary-color-filled)\">\n                      {feature.icon}\n                    </ThemeIcon>\n                    <Stack gap={2}>\n                      <Text fw={600} size=\"sm\">{feature.title}</Text>\n                      <Text c=\"dimmed\" size=\"xs\">{feature.description}</Text>\n                    </Stack>\n                  </Group>\n                ))}\n              </Stack>\n            </Stack>\n          </Grid.Col>\n\n          <Grid.Col span={{ base: 12, md: 6 }}>\n            <Box className={classes.formCard}>\n              <Stack gap=\"lg\">\n                <Stack gap=\"xs\">\n                  <Title order={3}>Subscribe Now</Title>\n                  <Text c=\"dimmed\" size=\"sm\">\n                    Enter your email to start receiving updates\n                  </Text>\n                </Stack>\n\n                <Stack gap=\"md\">\n                  <TextInput\n                    label=\"Email address\"\n                    placeholder=\"you@example.com\"\n                    size=\"md\"\n                    radius=\"md\"\n                  />\n                  <Button\n                    size=\"md\"\n                    radius=\"md\"\n                    color=\"var(--mantine-primary-color-filled)\"\n                    fullWidth\n                    c=\"var(--mantine-primary-color-contrast)\"\n                  >\n                    Subscribe to Newsletter\n                  </Button>\n                </Stack>\n\n                <Text size=\"xs\" c=\"dimmed\" ta=\"center\">\n                  By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.\n                </Text>\n              </Stack>\n            </Box>\n          </Grid.Col>\n        </Grid>\n      </Container>\n    </Box>\n  );\n};\n"
+      },
+      {
+        "fileName": "newsletter2.module.css",
+        "language": "scss",
+        "code": ".wrapper {\n  padding: 4rem 0;\n  background-color: var(--mantine-color-body);\n}\n\n.title {\n  font-size: 2.25rem;\n  font-weight: 800;\n  line-height: 1.2;\n  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.formCard {\n  background: var(--mantine-primary-color-light);\n  border: 1px solid var(--mantine-color-default-border);\n  border-radius: var(--mantine-radius-xl);\n  padding: 2rem;\n}\n\n.formCard input {\n  background-color: var(--mantine-color-body);\n}\n"
+      }
+    ],
+    "attributes": {
+      "title": "newsletter2",
+      "category": "newsletter",
+      "canvas": {
+        "center": true,
+        "maxWidth": 1200
+      },
+      "order": 2
+    }
+  },
+  {
     "component": "Pricing2",
     "slug": "pricing2",
     "code": [
@@ -173,6 +298,56 @@ export const components = [
         "maxWidth": 1200
       },
       "order": 2
+    }
+  },
+  {
+    "component": "Testimonials2",
+    "slug": "testimonials2",
+    "code": [
+      {
+        "fileName": "testimonials2.tsx",
+        "language": "tsx",
+        "code": "import { Box, Container, Title, Text, Card, Avatar, Stack, Group } from \"@mantine/core\";\nimport { StarFilledIcon } from \"@radix-ui/react-icons\";\nimport classes from \"./testimonials2.module.css\";\n\nexport const Testimonials2 = () => {\n  const testimonial = {\n    name: \"David Park\",\n    role: \"CTO at ScaleUp\",\n    company: \"ScaleUp Technologies\",\n    avatar: \"https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_16.png\",\n    content: \"We evaluated over 20 different solutions before choosing this platform. The combination of powerful features, excellent performance, and outstanding support made it an easy choice. Our development velocity has increased by 60% since we started using it.\",\n    rating: 5,\n  };\n\n  const stats = [\n    { value: \"60%\", label: \"Faster Development\" },\n    { value: \"10K+\", label: \"Happy Users\" },\n    { value: \"99.9%\", label: \"Uptime\" },\n  ];\n\n  return (\n    <Box className={classes.wrapper}>\n      <Container size=\"xl\">\n        <Card withBorder radius=\"xl\" padding={0} className={classes.card}>\n          <Group wrap=\"nowrap\" align=\"stretch\" className={classes.inner}>\n            <Stack className={classes.content} gap=\"xl\" p=\"xl\">\n              <Stack gap=\"xs\">\n                <Title order={2} className={classes.title}>\n                  Trusted by Industry Leaders\n                </Title>\n                <Group gap={4}>\n                  {Array.from({ length: testimonial.rating }).map((_, i) => (\n                    <StarFilledIcon\n                      key={i}\n                      width={20}\n                      height={20}\n                      color=\"var(--mantine-primary-color-filled)\"\n                    />\n                  ))}\n                </Group>\n              </Stack>\n\n              <Text size=\"xl\" className={classes.quote}>\n                \"{testimonial.content}\"\n              </Text>\n\n              <Group gap=\"md\">\n                <Avatar src={testimonial.avatar} size={56} radius=\"xl\" />\n                <Stack gap={2}>\n                  <Text fw={700}>{testimonial.name}</Text>\n                  <Text c=\"dimmed\" size=\"sm\">{testimonial.role}</Text>\n                </Stack>\n              </Group>\n            </Stack>\n\n            <Stack className={classes.statsSection} gap=\"xl\" justify=\"center\" p=\"xl\">\n              {stats.map((stat) => (\n                <Stack key={stat.label} gap={4} align=\"center\">\n                  <Text className={classes.statValue} fz={36} fw={800}>\n                    {stat.value}\n                  </Text>\n                  <Text c=\"dimmed\" size=\"sm\">{stat.label}</Text>\n                </Stack>\n              ))}\n            </Stack>\n          </Group>\n        </Card>\n      </Container>\n    </Box>\n  );\n};\n"
+      },
+      {
+        "fileName": "testimonials2.module.css",
+        "language": "scss",
+        "code": ".wrapper {\n  padding: 4rem 0;\n  background-color: var(--mantine-color-body);\n}\n\n.card {\n  background-color: var(--mantine-color-body);\n  overflow: hidden;\n}\n\n.inner {\n  min-height: 400px;\n}\n\n.title {\n  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.content {\n  flex: 1;\n}\n\n.quote {\n  font-style: italic;\n  line-height: 1.8;\n}\n\n.statsSection {\n  min-width: 200px;\n  background: var(--mantine-primary-color-light);\n  border-left: 1px solid var(--mantine-color-default-border);\n}\n\n.statValue {\n  color: var(--mantine-primary-color-filled);\n}\n\n@media (max-width: 768px) {\n  .inner {\n    flex-direction: column;\n  }\n\n  .statsSection {\n    flex-direction: row;\n    border-left: none;\n    border-top: 1px solid var(--mantine-color-default-border);\n  }\n}\n"
+      }
+    ],
+    "attributes": {
+      "title": "testimonials2",
+      "category": "testimonials",
+      "canvas": {
+        "center": true,
+        "maxWidth": 1200
+      },
+      "order": 2
+    }
+  },
+  {
+    "component": "Faq3",
+    "slug": "faq3",
+    "code": [
+      {
+        "fileName": "faq3.tsx",
+        "language": "tsx",
+        "code": "import { Box, Container, Title, Text, Stack, SimpleGrid, Card, Badge } from \"@mantine/core\";\nimport { RocketIcon, LockClosedIcon, MixerHorizontalIcon, ChatBubbleIcon, BarChartIcon, GlobeIcon } from \"@radix-ui/react-icons\";\nimport classes from \"./faq3.module.css\";\n\nexport const Faq3 = () => {\n  const categories = [\n    {\n      icon: <RocketIcon width={20} height={20} />,\n      title: \"Getting Started\",\n      questions: [\n        { q: \"How do I create an account?\", a: \"Click 'Sign Up' and follow the simple registration process.\" },\n        { q: \"Is there a setup fee?\", a: \"No, there are no setup fees for any of our plans.\" },\n        { q: \"How long is the free trial?\", a: \"Our free trial lasts 14 days with full feature access.\" },\n      ],\n    },\n    {\n      icon: <LockClosedIcon width={20} height={20} />,\n      title: \"Security\",\n      questions: [\n        { q: \"Is my data encrypted?\", a: \"Yes, we use AES-256 encryption for all data at rest.\" },\n        { q: \"Do you support 2FA?\", a: \"Yes, two-factor authentication is available on all plans.\" },\n        { q: \"Where is data stored?\", a: \"Data is stored in SOC 2 compliant AWS data centers.\" },\n      ],\n    },\n    {\n      icon: <MixerHorizontalIcon width={20} height={20} />,\n      title: \"Features\",\n      questions: [\n        { q: \"Can I customize the dashboard?\", a: \"Yes, dashboards are fully customizable to your needs.\" },\n        { q: \"Do you have an API?\", a: \"Yes, we offer a comprehensive REST API with full documentation.\" },\n        { q: \"Are there usage limits?\", a: \"Limits vary by plan. Check our pricing page for details.\" },\n      ],\n    },\n    {\n      icon: <ChatBubbleIcon width={20} height={20} />,\n      title: \"Support\",\n      questions: [\n        { q: \"How can I contact support?\", a: \"Via email, chat, or phone depending on your plan.\" },\n        { q: \"What are support hours?\", a: \"Email: 24/7. Chat: Business hours. Phone: Enterprise only.\" },\n        { q: \"Is there a knowledge base?\", a: \"Yes, with 500+ articles and video tutorials.\" },\n      ],\n    },\n    {\n      icon: <BarChartIcon width={20} height={20} />,\n      title: \"Billing\",\n      questions: [\n        { q: \"What payment methods accepted?\", a: \"Credit cards, PayPal, and bank transfers for annual plans.\" },\n        { q: \"Can I change plans anytime?\", a: \"Yes, upgrade or downgrade at any time.\" },\n        { q: \"Do you offer refunds?\", a: \"30-day money-back guarantee on annual plans.\" },\n      ],\n    },\n    {\n      icon: <GlobeIcon width={20} height={20} />,\n      title: \"Integrations\",\n      questions: [\n        { q: \"Which tools do you integrate with?\", a: \"100+ integrations including Slack, Jira, and Salesforce.\" },\n        { q: \"Can I build custom integrations?\", a: \"Yes, via our API or Zapier for no-code options.\" },\n        { q: \"Is there a marketplace?\", a: \"Yes, with community-built apps and extensions.\" },\n      ],\n    },\n  ];\n\n  return (\n    <Box className={classes.wrapper}>\n      <Container size=\"xl\">\n        <Stack gap=\"xl\">\n          <Stack align=\"center\" gap=\"xs\">\n            <Badge size=\"lg\" variant=\"light\" color=\"var(--mantine-primary-color-filled)\">\n              FAQ\n            </Badge>\n            <Title order={1} className={classes.title}>\n              Questions & Answers\n            </Title>\n            <Text c=\"dimmed\" size=\"lg\" ta=\"center\" maw={500}>\n              Browse by category to find what you need\n            </Text>\n          </Stack>\n\n          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing=\"xl\">\n            {categories.map((category) => (\n              <Card key={category.title} withBorder radius=\"lg\" padding=\"xl\" className={classes.card}>\n                <Stack gap=\"lg\">\n                  <Box className={classes.iconWrapper}>\n                    {category.icon}\n                  </Box>\n                  <Title order={4}>{category.title}</Title>\n                  <Stack gap=\"md\">\n                    {category.questions.map((item, index) => (\n                      <Box key={index}>\n                        <Text fw={600} size=\"sm\">{item.q}</Text>\n                        <Text c=\"dimmed\" size=\"sm\" mt={4}>{item.a}</Text>\n                      </Box>\n                    ))}\n                  </Stack>\n                </Stack>\n              </Card>\n            ))}\n          </SimpleGrid>\n        </Stack>\n      </Container>\n    </Box>\n  );\n};\n"
+      },
+      {
+        "fileName": "faq3.module.css",
+        "language": "scss",
+        "code": ".wrapper {\n  padding: 4rem 0;\n  background-color: var(--mantine-color-body);\n}\n\n.title {\n  font-size: 2.5rem;\n  font-weight: 900;\n  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.card {\n  background-color: var(--mantine-color-body);\n  transition: all 0.3s ease;\n  height: 100%;\n}\n\n.card:hover {\n  transform: translateY(-5px);\n  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);\n  border-color: var(--mantine-primary-color-3);\n}\n\n.iconWrapper {\n  width: 44px;\n  height: 44px;\n  border-radius: var(--mantine-radius-md);\n  background: var(--mantine-primary-color-light);\n  color: var(--mantine-primary-color-filled);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n"
+      }
+    ],
+    "attributes": {
+      "title": "faq3",
+      "category": "faq",
+      "canvas": {
+        "center": true,
+        "maxWidth": 1200
+      },
+      "order": 3
     }
   },
   {
@@ -269,6 +444,31 @@ export const components = [
     "attributes": {
       "title": "pricing3",
       "category": "pricing",
+      "canvas": {
+        "center": true,
+        "maxWidth": 1200
+      },
+      "order": 3
+    }
+  },
+  {
+    "component": "Testimonials3",
+    "slug": "testimonials3",
+    "code": [
+      {
+        "fileName": "testimonials3.tsx",
+        "language": "tsx",
+        "code": "import { Box, Container, Title, Text, Avatar, Stack, Group, Paper } from \"@mantine/core\";\nimport { StarFilledIcon, ChevronLeftIcon, ChevronRightIcon } from \"@radix-ui/react-icons\";\nimport { useState } from \"react\";\nimport classes from \"./testimonials3.module.css\";\n\nexport const Testimonials3 = () => {\n  const [activeIndex, setActiveIndex] = useState(0);\n\n  const testimonials = [\n    {\n      name: \"Alexandra Wright\",\n      role: \"Marketing Director\",\n      company: \"GrowthLabs\",\n      avatar: \"https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_22.png\",\n      content: \"The analytics dashboard alone has saved us hours every week. We can now make data-driven decisions in minutes instead of days. Absolutely game-changing for our marketing team.\",\n      rating: 5,\n    },\n    {\n      name: \"James Mitchell\",\n      role: \"Engineering Lead\",\n      company: \"DevStack\",\n      avatar: \"https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_17.png\",\n      content: \"Integration was seamless. Within a day, our entire team was up and running. The API documentation is excellent and the developer experience is top-notch.\",\n      rating: 5,\n    },\n    {\n      name: \"Maria Santos\",\n      role: \"Operations Manager\",\n      company: \"FlowOps\",\n      avatar: \"https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_14.png\",\n      content: \"We've reduced our operational costs by 35% since implementing this solution. The automation features are incredibly powerful yet easy to set up.\",\n      rating: 5,\n    },\n    {\n      name: \"Robert Kim\",\n      role: \"Startup Founder\",\n      company: \"NexGen\",\n      avatar: \"https://cdn.jsdelivr.net/gh/alohe/avatars/png/upstream_16.png\",\n      content: \"As a startup, we needed something that could scale with us. This platform has grown with our business perfectly. Couldn't recommend it more highly.\",\n      rating: 5,\n    },\n  ];\n\n  const nextTestimonial = () => {\n    setActiveIndex((prev) => (prev + 1) % testimonials.length);\n  };\n\n  const prevTestimonial = () => {\n    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);\n  };\n\n  const active = testimonials[activeIndex];\n\n  return (\n    <Box className={classes.wrapper}>\n      <Container size=\"lg\">\n        <Stack gap=\"xl\" align=\"center\">\n          <Stack align=\"center\" gap=\"xs\">\n            <Title order={1} className={classes.title}>\n              Loved by Teams Worldwide\n            </Title>\n            <Text c=\"dimmed\" size=\"lg\" ta=\"center\" maw={500}>\n              See what our customers have to say\n            </Text>\n          </Stack>\n\n          <Paper radius=\"xl\" p=\"xl\" className={classes.testimonialCard}>\n            <Stack align=\"center\" gap=\"lg\">\n              <Avatar src={active.avatar} size={80} radius=\"xl\" className={classes.avatar} />\n\n              <Group gap={4}>\n                {Array.from({ length: active.rating }).map((_, i) => (\n                  <StarFilledIcon\n                    key={i}\n                    width={20}\n                    height={20}\n                    color=\"var(--mantine-primary-color-filled)\"\n                  />\n                ))}\n              </Group>\n\n              <Text ta=\"center\" size=\"xl\" className={classes.quote}>\n                \"{active.content}\"\n              </Text>\n\n              <Stack gap={2} align=\"center\">\n                <Text fw={700}>{active.name}</Text>\n                <Text c=\"dimmed\" size=\"sm\">\n                  {active.role} at {active.company}\n                </Text>\n              </Stack>\n            </Stack>\n          </Paper>\n\n          <Group gap=\"md\">\n            <Box className={classes.navButton} onClick={prevTestimonial}>\n              <ChevronLeftIcon width={24} height={24} />\n            </Box>\n\n            <Group gap=\"xs\">\n              {testimonials.map((_, index) => (\n                <Box\n                  key={index}\n                  className={`${classes.dot} ${index === activeIndex ? classes.activeDot : \"\"}`}\n                  onClick={() => setActiveIndex(index)}\n                />\n              ))}\n            </Group>\n\n            <Box className={classes.navButton} onClick={nextTestimonial}>\n              <ChevronRightIcon width={24} height={24} />\n            </Box>\n          </Group>\n        </Stack>\n      </Container>\n    </Box>\n  );\n};\n"
+      },
+      {
+        "fileName": "testimonials3.module.css",
+        "language": "scss",
+        "code": ".wrapper {\n  padding: 4rem 0;\n  background-color: var(--mantine-color-body);\n}\n\n.title {\n  font-size: 2.5rem;\n  font-weight: 900;\n  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.testimonialCard {\n  background: var(--mantine-primary-color-light);\n  border: 1px solid var(--mantine-color-default-border);\n  max-width: 600px;\n  width: 100%;\n}\n\n.avatar {\n  border: 3px solid var(--mantine-primary-color-filled);\n}\n\n.quote {\n  font-style: italic;\n  line-height: 1.8;\n}\n\n.navButton {\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  border: 1px solid var(--mantine-color-default-border);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  background-color: var(--mantine-color-body);\n}\n\n.navButton:hover {\n  border-color: var(--mantine-primary-color-filled);\n  color: var(--mantine-primary-color-filled);\n}\n\n.dot {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background-color: var(--mantine-color-default-border);\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n\n.dot:hover {\n  background-color: var(--mantine-primary-color-3);\n}\n\n.activeDot {\n  background-color: var(--mantine-primary-color-filled);\n  width: 24px;\n  border-radius: 10px;\n}\n"
+      }
+    ],
+    "attributes": {
+      "title": "testimonials3",
+      "category": "testimonials",
       "canvas": {
         "center": true,
         "maxWidth": 1200

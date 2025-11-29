@@ -1,0 +1,9 @@
+{
+  "title": "faq1",
+  "category": "faq",
+  "canvas": {
+    "center": true,
+    "maxWidth": 1200
+  },
+  "order": 1
+}
