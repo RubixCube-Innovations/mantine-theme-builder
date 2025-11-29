@@ -1,7 +1,8 @@
 export interface Category {
   slug: string;
   name: string;
-  images: { dark: string; light: string };
+  images?: { dark: string; light: string };
+  comingSoon?: boolean;
 }
 
 export interface CategoriesGroup {

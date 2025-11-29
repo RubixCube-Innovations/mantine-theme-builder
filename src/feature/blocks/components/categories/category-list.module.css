@@ -41,3 +41,15 @@
     margin-top: calc(var(--mantine-spacing-xl) * 4);
   }
 }
+
+.comingSoon {
+  opacity: 0.55;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.lockIcon {
+  opacity: 0.6;
+}
