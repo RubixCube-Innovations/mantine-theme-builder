@@ -1,162 +1,16 @@
 .wrapper {
-  background: radial-gradient(circle at 50% 20%,
-      rgba(var(--mantine-primary-color-0-rgb), 0.4) 0%,
-      rgba(var(--mantine-primary-color-1-rgb), 0.2) 40%,
-      transparent 70%);
-  position: relative;
-  overflow: hidden;
-}
-
-.wrapper::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg,
-      transparent 30%,
-      rgba(var(--mantine-primary-color-2-rgb), 0.1) 50%,
-      transparent 70%);
-  animation: rotate 20s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  padding: 2rem 0;
 }
 
 .badge {
-  background: rgba(var(--mantine-primary-color-0-rgb), 0.8);
+  background: var(--mantine-color-body);
+  border: 1px solid var(--mantine-color-default-border);
   padding: 0.5rem 1rem;
   border-radius: var(--mantine-radius-xl);
-  border: 1px solid rgba(var(--mantine-primary-color-3-rgb), 0.4);
-  backdrop-filter: blur(10px);
-}
-
-[data-mantine-color-scheme="dark"] .badge {
-  background: rgba(var(--mantine-primary-color-9-rgb), 0.3);
-  border: 1px solid rgba(var(--mantine-primary-color-6-rgb), 0.3);
-}
-
-.badgeText {
-  color: var(--mantine-primary-color-7);
-  letter-spacing: 1px;
-}
-
-[data-mantine-color-scheme="dark"] .badgeText {
-  color: var(--mantine-primary-color-3);
-  font-weight: 600;
 }
 
 .title {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
   font-weight: 900;
-  background: linear-gradient(135deg,
-      var(--mantine-color-text),
-      var(--mantine-primary-color-8));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-[data-mantine-color-scheme="dark"] .title {
-  background: linear-gradient(135deg,
-      #FFFFFF,
-      var(--mantine-primary-color-4));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.subtitle {
-  color: rgba(var(--mantine-color-text-rgb), 0.8);
-  font-weight: 500;
-}
-
-[data-mantine-color-scheme="dark"] .subtitle {
-  color: #B3B3B3;
-  font-weight: 500;
-}
-
-/* Modern Clean Style for Hero 3 */
-.highlight {
-  font-weight: 700;
-  font-size: 1.05em;
-  position: relative;
-  display: inline-block;
-  color: var(--mantine-primary-color-7);
-  letter-spacing: -0.5px;
-  border-bottom: 3px solid var(--mantine-primary-color-6);
-  padding-bottom: 2px;
-}
-
-[data-mantine-color-scheme="dark"] .highlight {
-  color: var(--mantine-primary-color-4);
-  border-bottom-color: var(--mantine-primary-color-4);
-}
-
-.primaryButton {
-  background: var(--mantine-primary-color-filled);
-  border: none;
-  box-shadow: 0 8px 32px rgba(var(--mantine-primary-color-6-rgb), 0.3);
-  transition: all 0.3s ease;
-  color: var(--mantine-primary-color-contrast);
-  position: relative;
-  overflow: hidden;
-}
-
-.primaryButton::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.1) 50%,
-      transparent 100%);
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.primaryButton:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(var(--mantine-primary-color-6-rgb), 0.4);
-  background: var(--mantine-primary-color-filled-hover);
-  color: var(--mantine-primary-color-contrast);
-}
-
-.secondaryButton {
-  border: 2px solid var(--mantine-primary-color-4);
-  background: rgba(var(--mantine-primary-color-0-rgb), 0.7);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  color: var(--mantine-primary-color-7);
-  font-weight: 600;
-}
-
-[data-mantine-color-scheme="dark"] .secondaryButton {
-  background: rgba(var(--mantine-primary-color-9-rgb), 0.2);
-  border: 2px solid var(--mantine-primary-color-6);
-  color: var(--mantine-primary-color-3);
-}
-
-.secondaryButton:hover {
-  background: var(--mantine-primary-color-1);
-  color: var(--mantine-primary-color-7);
-  transform: translateY(-2px);
-}
-
-[data-mantine-color-scheme="dark"] .secondaryButton:hover {
-  background: rgba(var(--mantine-primary-color-8-rgb), 0.3);
-  color: var(--mantine-primary-color-5);
 }

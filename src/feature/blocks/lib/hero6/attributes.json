@@ -1,9 +1,9 @@
 {
-  "title": "hero4",
+  "title": "hero6",
   "category": "hero",
   "canvas": {
     "center": true,
     "maxWidth": 1200
   },
-  "order": 4
+  "order": 6
 }
