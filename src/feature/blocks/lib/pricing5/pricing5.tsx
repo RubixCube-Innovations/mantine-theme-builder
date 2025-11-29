@@ -39,7 +39,7 @@ export const Pricing5 = () => {
       <Container size="xl">
         <Stack gap="xl">
           <Stack align="center" gap="xs">
-            <Title order={1} className={classes.title}>
+            <Title order={1} ta="center" className={classes.title}>
               Choose Your Plan
             </Title>
             <Text c="dimmed" size="lg" ta="center" maw={500}>

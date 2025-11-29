@@ -23,7 +23,7 @@ export const Feature5 = () => {
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
         <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Why Us</Badge>
-        <Title order={1} ta="center" className={classes.title}>
+        <Title order={1} ta="center" className={classes.title} mb="xs">
           Why Choose Us
         </Title>
         <Text size="lg" c="dimmed" ta="center" maw={600}>
@@ -46,7 +46,7 @@ export const Feature5 = () => {
         ))}
       </SimpleGrid>
 
-      <Title order={2} ta="center" mb="lg" className={classes.subtitle}>
+      <Title order={2} ta="center" mb="lg" fw={700}>
         Our Competitive Advantages
       </Title>
 

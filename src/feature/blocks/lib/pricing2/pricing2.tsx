@@ -52,7 +52,7 @@ export const Pricing2 = () => {
       <Container size="xl">
         <Stack align="center" gap="xl">
           <Stack align="center" gap="xs">
-            <Title order={1} className={classes.title}>
+            <Title order={1} fw={800}>
               Simple, Transparent Pricing
             </Title>
             <Text c="dimmed" size="lg" ta="center" maw={500}>

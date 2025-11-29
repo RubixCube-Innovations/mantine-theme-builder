@@ -59,8 +59,8 @@ export const Pricing4 = () => {
       <Container size="xl">
         <Stack gap="xl">
           <Stack align="center" gap="xs">
-            <Title order={1} className={classes.title}>
-              One Plan, Full Power
+            <Title order={1} ta="center" fw={800}>
+              <Text span c="var(--mantine-primary-color-filled)" inherit>One</Text> Plan, Full Power
             </Title>
             <Text c="dimmed" size="lg" ta="center" maw={500}>
               Get everything you need with optional add-ons

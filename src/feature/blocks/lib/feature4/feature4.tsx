@@ -62,9 +62,11 @@ const techCategories = [
 export const Feature4 = () => {
   return (
     <Container size="xl" py="xl">
-      <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Technology</Badge>
-        <Title order={1} ta="center" className={classes.title}>
+      <Stack align="center" mb="xl" gap="xs">
+        <Text tt="uppercase" fw={700} size="sm" c="var(--mantine-primary-color-filled)" style={{ letterSpacing: '0.1em' }}>
+          Technology
+        </Text>
+        <Title order={2} ta="center" fw={700}>
           Our Tech Stack
         </Title>
         <Text size="lg" c="dimmed" ta="center" maw={600}>

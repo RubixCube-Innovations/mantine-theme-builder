@@ -44,8 +44,7 @@ export const Feature3 = () => {
   return (
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Process</Badge>
-        <Title order={1} ta="center" className={classes.title}>
+        <Title ta="center"  order={1} className={classes.title}>
           Our Process
         </Title>
         <Text size="lg" c="dimmed" ta="center" maw={600}>

@@ -25,7 +25,10 @@ export const Testimonials2 = () => {
           <Group wrap="nowrap" align="stretch" className={classes.inner}>
             <Stack className={classes.content} gap="xl" p="xl">
               <Stack gap="xs">
-                <Title order={2} className={classes.title}>
+                <Text tt="uppercase" fw={700} size="sm" c="var(--mantine-primary-color-filled)" style={{ letterSpacing: '0.1em' }}>
+                  Testimonial
+                </Text>
+                <Title order={2} fw={700}>
                   Trusted by Industry Leaders
                 </Title>
                 <Group gap={4}>

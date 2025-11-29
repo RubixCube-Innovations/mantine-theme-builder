@@ -125,7 +125,6 @@ export const MeetOurTeam4 = () => {
   return (
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
-        <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Team</Badge>
         <Title order={1} ta="center" className={classes.title}>
           Meet Our Visionaries
         </Title>

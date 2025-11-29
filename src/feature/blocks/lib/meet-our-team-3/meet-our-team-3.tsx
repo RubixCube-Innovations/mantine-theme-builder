@@ -98,7 +98,7 @@ export const MeetOurTeam3 = () => {
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
         <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Leadership</Badge>
-        <Title order={1} ta="center" className={classes.title}>
+        <Title order={1} ta="center" className={classes.title} mb="xs">
           Leadership Team
         </Title>
         <Text size="lg" c="dimmed" ta="center" maw={600}>

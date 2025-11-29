@@ -38,7 +38,7 @@ export const Pricing3 = () => {
       <Container size="xl">
         <Stack gap="xl">
           <Stack align="center" gap="xs">
-            <Title order={1} className={classes.title}>
+            <Title order={1} className={classes.title} mb="xs">
               Compare Plans
             </Title>
             <Text c="dimmed" size="lg" ta="center" maw={500}>

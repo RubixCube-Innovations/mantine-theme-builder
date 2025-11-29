@@ -2,6 +2,7 @@ import { Card, Text, Title, Container, Stack, SimpleGrid, ThemeIcon, Badge, Butt
 import { IconCode, IconDeviceMobile, IconDeviceDesktop, IconCloud, IconPalette, IconBolt } from "@tabler/icons-react";
 import classes from "./feature2.module.css";
 
+
 const services = [
   {
     title: "Web Development",
@@ -46,7 +47,7 @@ export const Feature2 = () => {
     <Container size="xl" py="xl">
       <Stack align="center" mb="xl">
         <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Services</Badge>
-        <Title order={1} ta="center" className={classes.title}>
+        <Title order={1} ta="center" fw={800}>
           Our Services
         </Title>
         <Text size="lg" c="dimmed" ta="center" maw={600}>

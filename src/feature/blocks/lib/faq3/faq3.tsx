@@ -65,10 +65,7 @@ export const Faq3 = () => {
       <Container size="xl">
         <Stack gap="xl">
           <Stack align="center" gap="xs">
-            <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">
-              FAQ
-            </Badge>
-            <Title order={1} className={classes.title}>
+            <Title order={1} ta="center" className={classes.title}>
               Questions & Answers
             </Title>
             <Text c="dimmed" size="lg" ta="center" maw={500}>

@@ -56,8 +56,8 @@ export const Testimonials3 = () => {
       <Container size="lg">
         <Stack gap="xl" align="center">
           <Stack align="center" gap="xs">
-            <Title order={1} className={classes.title}>
-              Loved by Teams Worldwide
+            <Title order={1} ta="center" fw={800}>
+              <Text span c="var(--mantine-primary-color-filled)" inherit>Loved</Text> by Teams Worldwide
             </Title>
             <Text c="dimmed" size="lg" ta="center" maw={500}>
               See what our customers have to say

@@ -12,12 +12,6 @@
   min-height: 400px;
 }
 
-.title {
-  background: linear-gradient(180deg, var(--mantine-primary-color-filled), var(--mantine-primary-color-8));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 .content {
   flex: 1;

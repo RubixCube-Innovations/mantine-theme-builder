@@ -93,12 +93,12 @@ const TeamMemberCard = ({ member }: { member: IMember }) => {
 export const MeetOurTeam2 = () => {
   return (
     <Container size="xl" py="xl">
-      <Stack align="center" mb="xl">
+      <Stack align="flex-start" mb="xl">
         <Badge size="lg" variant="light" color="var(--mantine-primary-color-filled)">Our Team</Badge>
-        <Title order={1} ta="center" className={classes.title}>
+        <Title order={1} className={classes.title}>
           The People Behind Our Success
         </Title>
-        <Text size="lg" c="dimmed" ta="center" maw={600}>
+        <Text size="lg" c="dimmed" maw={600}>
           Meet the talented individuals who are passionate about innovation and committed to delivering excellence.
         </Text>
       </Stack>
